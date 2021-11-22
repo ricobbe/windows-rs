@@ -3,28 +3,23 @@ mod class;
 mod com_interface;
 mod constant;
 mod delegate;
-mod r#enum;
 mod r#struct;
 mod winrt_interface;
+mod name;
+mod gen;
 
 use callback::*;
 use class::*;
 use com_interface::*;
 use constant::*;
 use delegate::*;
-use r#enum::*;
 use r#struct::*;
 use winrt_interface::*;
+use name::*;
+pub use gen::*;
 
 use quote::*;
 use reader::*;
-
-pub struct Gen<'a> {
-    pub inherit: bool,
-    pub sys: bool,
-    pub flatten: bool,
-    pub relative: &'a str,
-}
 
 pub fn generate_types(types: &[&str], gen: &Gen) -> String {
     let reader = TypeReader::get();
