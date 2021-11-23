@@ -164,13 +164,41 @@ impl Gen<'_> {
 }
 
 fn cfg(namespaces: &BTreeSet<&'static str>) -> TokenStream {
-    if !namespaces.is_empty() {}
-
-    quote! {}
+    if namespaces.is_empty() {
+        quote! {}
+    } else {
+        format!("#[cfg({})]", namespaces_to_features(namespaces)).into()
+    }   
 }
 
 fn cfg_not(namespaces: &BTreeSet<&'static str>) -> TokenStream {
-    if !namespaces.is_empty() {}
+    if namespaces.is_empty() {
+        quote! {}
+    } else {
+        format!("#[cfg(not({}))]", namespaces_to_features(namespaces)).into()
+    }    
+}
 
-    quote! {}
+fn namespaces_to_features(namespaces: &BTreeSet<&'static str>) -> String {
+    let mut features = String::new();
+
+    for namespace in namespaces {
+        features.push_str("feature = \"");
+
+        for namespace in namespace.split('.').next() {
+            features.push_str(namespace);
+            features.push_str("_");
+        }
+    
+        features.truncate(features.len() - 1);
+        features.push_str("\",")
+    }
+
+    features.truncate(features.len() - 1);
+
+    if namespaces.len() > 1 {
+        format!("all({})", features)
+    } else {
+        features
+    }
 }
