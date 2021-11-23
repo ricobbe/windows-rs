@@ -115,7 +115,12 @@ impl Gen<'_> {
 
         fn add_namespace(namespace: &'static str, namespaces: &mut BTreeSet<&'static str>, gen: &Gen) {
             if !namespace.is_empty() && namespace != gen.namespace {
-                namespaces.insert(namespace);
+                //namespaces.insert(namespace);
+
+                // TODO: use the above instead to iclude parent dependencies
+                if !gen.namespace.starts_with(format!("{}.", namespace).as_str()) {
+                    namespaces.insert(namespace);
+                }
             }
         }
 
