@@ -15,7 +15,7 @@ pub fn gen_ident(name: &str) -> TokenStream {
 
 pub fn gen_generic_ident(name: &str) -> TokenStream {
     let len = name.len();
-    let len = name.get(len - 2).map_or_else(||len, |c| if c == '`' { len - 2} else { len });
+    let len = name.as_bytes().get(len - 2).map_or_else(||len, |c| if *c == b'`' { len - 2} else { len });
     gen_ident(&name[..len])
 }
 
@@ -69,9 +69,17 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-    
+pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, gen_ident, false)
 }
+
+// pub fn gen_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+//     format_name(def, gen, to_abi_ident, false)
+// }
+
+// pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+//     format_name(def, gen, to_abi_ident, true)
+// }
 
 pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     gen_sig_with_const(sig, gen, sig.is_const)
@@ -92,7 +100,7 @@ fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream
         }
     }
 
-    tokens.combine(&gen_name(&sig.kind, gen));
+    tokens.combine(&gen_element_name(&sig.kind, gen));
     tokens
 }
 
@@ -102,4 +110,46 @@ fn gen_crate_name(gen: &Gen) -> TokenStream {
     } else {
         "windows".into()
     }
+}
+
+fn format_name<F>(def: &TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
+where
+    F: FnOnce(&str) -> TokenStream,
+{
+    let type_name = def.type_name();
+
+    if type_name.namespace.is_empty() {
+        format_name(&scoped_name(def))
+    } else {
+        let mut namespace = gen.namespace(type_name.namespace);
+        let name = format_name(type_name.name);
+
+        if def.generics.is_empty() {
+            namespace.combine(&name);
+            namespace
+        } else {
+            let colon_separated = if turbo || !namespace.as_str().is_empty() {
+                quote! { :: }
+            } else {
+                quote! {}
+            };
+
+            let generics = def.generics.iter().map(|g| gen_element_name(g, gen));
+            quote! { #namespace#name#colon_separated<#(#generics),*> }
+        }
+    }
+}
+
+fn scoped_name(def: &TypeDef) -> String {
+    if let Some(enclosing_type) = def.enclosing_type() {
+        if let Some(nested_types) = enclosing_type.nested_types() {
+            for (index, (nested_type, _)) in nested_types.iter().enumerate() {
+                if *nested_type == def.name() {
+                    return format!("{}_{}", &scoped_name(&enclosing_type), index);
+                }
+            }
+        }
+    }
+
+    def.name().to_string()
 }
