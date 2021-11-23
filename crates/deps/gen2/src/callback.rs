@@ -4,7 +4,7 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
     let signature = def.invoke_method().signature(&[]);
     let return_sig = gen_return_sig(&signature, gen);
-    let cfg = quote! {};// gen.gen_function_cfg(def.attributes(), &signature);
+    let cfg = quote! {}; // gen.gen_function_cfg(def.attributes(), &signature);
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);

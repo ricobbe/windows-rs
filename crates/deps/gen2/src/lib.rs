@@ -3,27 +3,27 @@ mod class;
 mod com_interface;
 mod constant;
 mod delegate;
+mod gen;
+mod name;
+mod sig;
 mod r#struct;
 mod winrt_interface;
-mod name;
-mod gen;
-mod sig;
 
 use callback::*;
 use class::*;
 use com_interface::*;
 use constant::*;
 use delegate::*;
-use r#struct::*;
-use winrt_interface::*;
-use name::*;
-use sig::*;
 pub use gen::*;
+use name::*;
+use r#struct::*;
+use sig::*;
+use winrt_interface::*;
 
 use quote::*;
 use reader::*;
 
-pub fn generate_types(types: &[&str], gen: &Gen) -> String {
+pub fn gen_types(types: &[&str], gen: &Gen) -> String {
     let reader = TypeReader::get();
     let mut tokens = String::new();
 
@@ -36,7 +36,7 @@ pub fn generate_types(types: &[&str], gen: &Gen) -> String {
     tokens
 }
 
-pub fn generate_namespace(namespace: &str, gen: &Gen) -> String {
+pub fn gen_namespace(_namespace: &str, _gen: &Gen) -> String {
     // TODO: code gen namespace mod assume multi-file layout
     "".to_string()
 }

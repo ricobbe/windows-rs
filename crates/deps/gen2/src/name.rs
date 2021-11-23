@@ -1,4 +1,3 @@
-
 use super::*;
 
 pub fn gen_ident(name: &str) -> TokenStream {
@@ -15,7 +14,7 @@ pub fn gen_ident(name: &str) -> TokenStream {
 
 pub fn gen_generic_ident(name: &str) -> TokenStream {
     let len = name.len();
-    let len = name.as_bytes().get(len - 2).map_or_else(||len, |c| if *c == b'`' { len - 2} else { len });
+    let len = name.as_bytes().get(len - 2).map_or_else(|| len, |c| if *c == b'`' { len - 2 } else { len });
     gen_ident(&name[..len])
 }
 

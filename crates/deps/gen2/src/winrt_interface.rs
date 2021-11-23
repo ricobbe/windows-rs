@@ -11,7 +11,7 @@ pub fn gen_winrt_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let name = def.name();
                 name[..name.len() - 2].into()
             };
-    
+
             quote! {
                 pub type #name = *mut ::core::ffi::c_void;
             }
