@@ -42,7 +42,8 @@ fn gen_function_decl(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let signature = def.signature(&[]);
     let return_type = gen_return_sig(&signature, gen);
-    let cfg = gen.method_cfg(def).0;
+    let arch_cfg = gen.arch_cfg(def.attributes());
+    let feature_cfg = gen.method_cfg(def).0;
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
@@ -51,7 +52,8 @@ fn gen_function_decl(def: &MethodDef, gen: &Gen) -> TokenStream {
     });
 
     quote! {
-        #cfg
+        #arch_cfg
+        #feature_cfg
         pub fn #name(#(#params),*) #return_type;
     }
 }
