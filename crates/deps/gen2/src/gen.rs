@@ -1,8 +1,9 @@
 use super::*;
 use std::collections::*;
 
+#[derive(Default)]
 pub struct Gen<'a> {
-    pub relative: &'a str,
+    pub namespace: &'a str,
     pub inherit: bool,
     pub sys: bool,
     pub flatten: bool,
@@ -11,10 +12,10 @@ pub struct Gen<'a> {
 
 impl Gen<'_> {
     pub(crate) fn namespace(&self, namespace: &str) -> TokenStream {
-        if self.flatten || namespace == self.relative {
+        if self.flatten || namespace == self.namespace {
             quote! {}
         } else {
-            let mut relative = self.relative.split('.').peekable();
+            let mut relative = self.namespace.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
             while relative.peek() == namespace.peek() {
@@ -113,7 +114,7 @@ impl Gen<'_> {
         }
 
         fn add_namespace(namespace: &'static str, namespaces: &mut BTreeSet<&'static str>, gen: &Gen) {
-            if !namespace.is_empty() && namespace != gen.relative {
+            if !namespace.is_empty() && namespace != gen.namespace {
                 namespaces.insert(namespace);
             }
         }

@@ -38,8 +38,8 @@ pub fn gen_types(types: &[&str], gen: &Gen) -> String {
     tokens
 }
 
-pub fn gen_namespace(namespace: &str, gen: &Gen) -> String {
-    let tree = TypeReader::get().get_namespace(namespace).expect("Namespace not found");
+pub fn gen_namespace(gen: &Gen) -> String {
+    let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
 
     let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
         let name = gen_ident(name);
