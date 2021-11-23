@@ -29,13 +29,13 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     let arch_cfg = if arch_cfg.is_empty() {
         gen.arch_cfg(def.attributes())
     } else {
-        arch_cfg
+        arch_cfg.clone()
     };
 
     let feature_cfg = if feature_cfg.is_empty() {
         gen.type_cfg(def)
     } else {
-        feature_cfg
+        feature_cfg.clone()
     };
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
