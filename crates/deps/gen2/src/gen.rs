@@ -185,7 +185,7 @@ fn namespaces_to_features(namespaces: &BTreeSet<&'static str>) -> String {
     for namespace in namespaces {
         features.push_str("feature = \"");
 
-        for namespace in namespace.split('.').next() {
+        for namespace in namespace.split('.').skip(1) {
             features.push_str(namespace);
             features.push_str("_");
         }
