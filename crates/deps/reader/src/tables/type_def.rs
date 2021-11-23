@@ -399,6 +399,7 @@ impl TypeDef {
         })
     }
 
+    // TODO: should return Option<&TypeDef>?
     pub fn is_convertible_to(&self) -> Option<&ElementType> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
