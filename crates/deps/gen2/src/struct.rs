@@ -5,10 +5,10 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
+    gen_struct_with_name(def, def.name(), gen, &quote!{}, &quote!{})
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     let name = gen_ident(struct_name);
 
     if def.is_handle() {
@@ -25,8 +25,18 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 
     let is_union = def.is_explicit();
-    let arch_cfg = gen.arch_cfg(def.attributes());
-    let feature_cfg = gen.type_cfg(def);
+
+    let arch_cfg = if arch_cfg.is_empty() {
+        gen.arch_cfg(def.attributes())
+    } else {
+        quote! {}
+    };
+
+    let feature_cfg = if feature_cfg.is_empty() {
+        gen.type_cfg(def)
+    } else {
+        quote! {}
+    };
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
         .fields()
@@ -77,8 +87,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         quote! { struct }
     };
 
-    let nested_structs = gen_nested_structs(struct_name, def, gen, &cfg);
-    let constants = gen_struct_constants(def, &name, &cfg);
+    let nested_structs = gen_nested_structs(struct_name, def, gen, &arch_cfg,&feature_cfg);
+    let constants = gen_struct_constants(def, &name, &arch_cfg,&feature_cfg);
 
     quote! {
         #repr
@@ -86,9 +96,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         #feature_cfg
         pub #struct_or_union #name {#(#fields),*}
         #constants
-        #cfg
+        #arch_cfg
+        #feature_cfg
         impl ::core::marker::Copy for #name {}
-        #cfg
+        #arch_cfg
+        #feature_cfg
         impl ::core::clone::Clone for #name {
             fn clone(&self) -> Self {
                 *self
@@ -98,7 +110,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 }
 
-fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &TokenStream) -> TokenStream {
+fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
             if let Some(constant) = f.constant() {
@@ -118,7 +130,8 @@ fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &TokenStr
 
     if !tokens.is_empty() {
         tokens = quote! {
-            #cfg
+            #arch_cfg
+            #feature_cfg
             impl #struct_name {
                 #tokens
             }
@@ -128,14 +141,14 @@ fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &TokenStr
     tokens
 }
 
-fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, cfg: &TokenStream) -> TokenStream {
+fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
         nested_types
             .iter()
             .enumerate()
             .map(|(index, (_, nested_type))| {
                 let nested_name = format!("{}_{}", enclosing_name, index);
-                gen_struct_with_name(nested_type, &nested_name, gen, cfg)
+                gen_struct_with_name(nested_type, &nested_name, gen, arch_cfg,feature_cfg)
             })
             .collect()
     } else {
