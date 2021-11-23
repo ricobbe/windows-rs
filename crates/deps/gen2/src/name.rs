@@ -19,6 +19,10 @@ pub fn gen_generic_ident(name: &str) -> TokenStream {
     gen_ident(&name[..len])
 }
 
+pub fn gen_param_name(param: &Param) -> TokenStream {
+    gen_ident(&param.name().to_lowercase())
+}
+
 pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Void => quote! { ::core::ffi::c_void },
@@ -71,37 +75,6 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
 
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, gen_ident, false)
-}
-
-// pub fn gen_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-//     format_name(def, gen, to_abi_ident, false)
-// }
-
-// pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-//     format_name(def, gen, to_abi_ident, true)
-// }
-
-pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    gen_sig_with_const(sig, gen, sig.is_const)
-}
-
-pub fn gen_param(param: &MethodParam, gen: &Gen) -> TokenStream {
-    gen_sig_with_const(&param.signature, gen, !param.param.flags().output())
-}
-
-fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
-
-    for _ in 0..sig.pointers {
-        if is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_element_name(&sig.kind, gen));
-    tokens
 }
 
 fn gen_crate_name(gen: &Gen) -> TokenStream {

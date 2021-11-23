@@ -7,6 +7,7 @@ mod r#struct;
 mod winrt_interface;
 mod name;
 mod gen;
+mod sig;
 
 use callback::*;
 use class::*;
@@ -16,6 +17,7 @@ use delegate::*;
 use r#struct::*;
 use winrt_interface::*;
 use name::*;
+use sig::*;
 pub use gen::*;
 
 use quote::*;
