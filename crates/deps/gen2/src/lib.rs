@@ -8,6 +8,7 @@ mod name;
 mod sig;
 mod r#struct;
 mod winrt_interface;
+mod function;
 
 use callback::*;
 use class::*;
@@ -19,6 +20,7 @@ use name::*;
 use r#struct::*;
 use sig::*;
 use winrt_interface::*;
+use function::*;
 
 use quote::*;
 use reader::*;
@@ -29,19 +31,52 @@ pub fn gen_types(types: &[&str], gen: &Gen) -> String {
 
     for name in types {
         for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.def.iter()) {
-            tokens.push_str(generate_type(def, gen).as_str());
+            tokens.push_str(gen_type(def, gen).as_str());
         }
     }
 
     tokens
 }
 
-pub fn gen_namespace(_namespace: &str, _gen: &Gen) -> String {
-    // TODO: code gen namespace mod assume multi-file layout
-    "".to_string()
+pub fn gen_namespace(namespace: &str, gen: &Gen) -> String {
+    let tree = TypeReader::get().get_namespace(namespace).expect("Namespace not found");
+
+    let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
+        let name = gen_ident(name);
+        let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
+        quote! {
+            #[cfg(feature = #namespace)] pub mod #name;
+        }
+    });
+
+    let functions = gen_functions(tree, gen);
+    let types = gen_non_function_types(tree, gen);
+
+    quote! {
+        #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+        #(#namespaces)*
+        #functions
+        #types
+    }.into_string()
 }
 
-fn generate_type(def: &ElementType, gen: &Gen) -> TokenStream {
+fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::new();
+
+    for entry in tree.types.values() {
+        for def in &entry.def {
+            match def {
+                ElementType::MethodDef(_) => {}
+                ElementType::Field(_) | ElementType::TypeDef(_) => tokens.combine(&gen_type(def, gen)),
+                _ => {}
+            }
+        }
+    }
+
+    tokens
+}
+
+fn gen_type(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Field(def) => gen_constant(def, gen),
         ElementType::TypeDef(def) => match def.kind() {
@@ -63,6 +98,7 @@ fn generate_type(def: &ElementType, gen: &Gen) -> TokenStream {
                 }
             }
         },
-        _ => quote! {},
+        ElementType::MethodDef(def) => gen_function(def, gen),
+        _ => quote!{},
     }
 }

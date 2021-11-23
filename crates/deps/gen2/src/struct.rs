@@ -25,8 +25,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 
     let is_union = def.is_explicit();
-    let arch_cfg = gen.gen_arch_cfg(def.attributes());
-    let feature_cfg = gen.type_feature_cfg(def);
+    let arch_cfg = gen.arch_cfg(def.attributes());
+    let feature_cfg = gen.type_cfg(def);
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
         .fields()
@@ -140,43 +140,5 @@ fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, 
             .collect()
     } else {
         TokenStream::new()
-    }
-}
-
-fn gen_sys_guid(guid: &GUID) -> TokenStream {
-    let a = Literal::u32_unsuffixed(guid.0);
-    let b = Literal::u16_unsuffixed(guid.1);
-    let c = Literal::u16_unsuffixed(guid.2);
-    let d = Literal::u8_unsuffixed(guid.3);
-    let e = Literal::u8_unsuffixed(guid.4);
-    let f = Literal::u8_unsuffixed(guid.5);
-    let g = Literal::u8_unsuffixed(guid.6);
-    let h = Literal::u8_unsuffixed(guid.7);
-    let i = Literal::u8_unsuffixed(guid.8);
-    let j = Literal::u8_unsuffixed(guid.9);
-    let k = Literal::u8_unsuffixed(guid.10);
-
-    // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
-
-    quote! {
-        ::windows_sys::core::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
-    }
-}
-
-fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
-    match value {
-        ConstantValue::Bool(value) => quote! { bool = #value },
-        ConstantValue::U8(value) => quote! { u8 = #value },
-        ConstantValue::I8(value) => quote! { i8 = #value },
-        ConstantValue::U16(value) => quote! { u16 = #value },
-        ConstantValue::I16(value) => quote! { i16 = #value },
-        ConstantValue::U32(value) => quote! { u32 = #value },
-        ConstantValue::I32(value) => quote! { i32 = #value },
-        ConstantValue::U64(value) => quote! { u64 = #value },
-        ConstantValue::I64(value) => quote! { i64 = #value },
-        ConstantValue::F32(value) => quote! { f32 = #value },
-        ConstantValue::F64(value) => quote! { f64 = #value },
-        ConstantValue::String(value) => quote! { &'static str = #value },
-        _ => unimplemented!(),
     }
 }

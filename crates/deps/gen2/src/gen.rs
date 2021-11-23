@@ -40,7 +40,7 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn gen_arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
+    pub(crate) fn arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
         if self.cfg {
             for attribute in attributes {
                 if attribute.name() == "SupportedArchitectureAttribute" {
@@ -65,7 +65,7 @@ impl Gen<'_> {
         quote! {}
     }
 
-    pub(crate) fn type_feature_cfg(&self, def: &TypeDef) -> TokenStream {
+    pub(crate) fn type_cfg(&self, def: &TypeDef) -> TokenStream {
         if !self.cfg {
             quote! {}
         } else {
@@ -76,7 +76,7 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn field_feature_cfg(&self, def: &Field) -> TokenStream {
+    pub(crate) fn field_cfg(&self, def: &Field) -> TokenStream {
         if !self.cfg {
             quote! {}
         } else {
@@ -87,7 +87,7 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn method_feature_cfg(&self, def: &MethodDef) -> (TokenStream, TokenStream) {
+    pub(crate) fn method_cfg(&self, def: &MethodDef) -> (TokenStream, TokenStream) {
         if !self.cfg {
             (quote! {}, quote! {})
         } else {
