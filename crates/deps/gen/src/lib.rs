@@ -33,7 +33,6 @@ mod vector2;
 mod vector3;
 mod vector4;
 mod win32;
-mod win32_error;
 mod winrt;
 
 // TODO: These public things are mostly/all used by the implement macro
@@ -77,4 +76,3 @@ use timespan::*;
 use vector2::*;
 use vector3::*;
 use vector4::*;
-use win32_error::*;

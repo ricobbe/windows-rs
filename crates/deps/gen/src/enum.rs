@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
+pub fn gen_enum(def: &TypeDef, gen: &Gen, _include: TypeInclude) -> TokenStream {
     gen2::gen_enum(def, &gen2::Gen {
         namespace: gen.relative,
         ..Default::default()
