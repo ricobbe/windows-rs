@@ -22,7 +22,9 @@ use name::*;
 use r#struct::*;
 use sig::*;
 use winrt_interface::*;
-use r#enum::*;
+
+// TODO: these should not be public:
+pub use r#enum::*;
 
 use quote::*;
 use reader::*;
