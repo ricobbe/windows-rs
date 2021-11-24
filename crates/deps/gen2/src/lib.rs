@@ -10,6 +10,18 @@ mod name;
 mod sig;
 mod r#struct;
 mod winrt_interface;
+mod bool32;
+mod bstr;
+mod handle;
+mod matrix3x2;
+mod matrix4x4;
+mod pstr;
+mod pwstr;
+mod timespan;
+mod vector2;
+mod vector3;
+mod vector4;
+mod ntstatus;
 
 use callback::*;
 use class::*;
@@ -21,6 +33,18 @@ use name::*;
 use r#struct::*;
 use sig::*;
 use winrt_interface::*;
+use bool32::*;
+use bstr::*;
+use handle::*;
+use matrix3x2::*;
+use matrix4x4::*;
+use pstr::*;
+use pwstr::*;
+use timespan::*;
+use vector2::*;
+use vector3::*;
+use vector4::*;
+use ntstatus::*;
 
 // TODO: these should not be public:
 pub use constant::*;

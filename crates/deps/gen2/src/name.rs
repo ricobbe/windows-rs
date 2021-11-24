@@ -72,6 +72,43 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
+pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
+    match def {
+        ElementType::String => {
+            quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+        }
+        ElementType::IUnknown | ElementType::IInspectable => {
+            quote! { ::windows::core::RawPtr }
+        }
+        ElementType::Array((kind, len)) => {
+            let name = gen_abi_sig(kind, gen);
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#name; #len] }
+        }
+        ElementType::GenericParam(generic) => {
+            let name = format_token!("{}", generic);
+            quote! { <#name as ::windows::core::Abi>::Abi }
+        }
+        ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
+        _ => gen_element_name(def, gen),
+    }
+}
+
+pub fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    match def.kind() {
+        TypeKind::Enum => gen_type_name(def, gen),
+        TypeKind::Struct => {
+            let tokens = gen_type_name(def, gen);
+            if def.is_blittable() {
+                tokens
+            } else {
+                quote! { ::core::mem::ManuallyDrop<#tokens> }
+            }
+        }
+        _ => quote! { ::windows::core::RawPtr },
+    }
+}
+
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, gen_ident, false)
 }

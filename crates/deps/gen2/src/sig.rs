@@ -17,6 +17,21 @@ pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
+pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::with_capacity();
+
+    for _ in 0..sig.pointers {
+        if sig.is_const {
+            tokens.combine(&quote! { *const });
+        } else {
+            tokens.combine(&quote! { *mut });
+        }
+    }
+
+    tokens.combine(&gen_abi_element_name(&sig.kind, gen));
+    tokens
+}
+
 fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 
