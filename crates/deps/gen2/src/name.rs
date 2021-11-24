@@ -73,24 +73,28 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
-    match def {
-        ElementType::String => {
-            quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+    if gen.sys {
+        gen_element_name(def, gen)
+    } else {
+        match def {
+            ElementType::String => {
+                quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+            }
+            ElementType::IUnknown | ElementType::IInspectable => {
+                quote! { ::windows::core::RawPtr }
+            }
+            ElementType::Array((kind, len)) => {
+                let name = gen_abi_sig(kind, gen);
+                let len = Literal::u32_unsuffixed(*len);
+                quote! { [#name; #len] }
+            }
+            ElementType::GenericParam(generic) => {
+                let name = format_token!("{}", generic);
+                quote! { <#name as ::windows::core::Abi>::Abi }
+            }
+            ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
+            _ => gen_element_name(def, gen),
         }
-        ElementType::IUnknown | ElementType::IInspectable => {
-            quote! { ::windows::core::RawPtr }
-        }
-        ElementType::Array((kind, len)) => {
-            let name = gen_abi_sig(kind, gen);
-            let len = Literal::u32_unsuffixed(*len);
-            quote! { [#name; #len] }
-        }
-        ElementType::GenericParam(generic) => {
-            let name = format_token!("{}", generic);
-            quote! { <#name as ::windows::core::Abi>::Abi }
-        }
-        ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
-        _ => gen_element_name(def, gen),
     }
 }
 

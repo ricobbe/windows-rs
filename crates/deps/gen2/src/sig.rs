@@ -8,6 +8,14 @@ pub fn gen_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
     gen_sig_with_const(&param.signature, gen, !param.param.flags().output())
 }
 
+pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+    gen_abi_sig_with_const(sig, gen, sig.is_const)
+}
+
+pub fn gen_abi_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
+    gen_abi_sig_with_const(&param.signature, gen, !param.param.flags().output())
+}
+
 pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     if let Some(return_sig) = &signature.return_sig {
         let tokens = gen_sig(return_sig, gen);
@@ -17,11 +25,20 @@ pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_abi_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
+    if let Some(return_sig) = &signature.return_sig {
+        let tokens = gen_abi_sig(return_sig, gen);
+        quote! { -> #tokens }
+    } else {
+        quote! {}
+    }
+}
+
+fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 
     for _ in 0..sig.pointers {
-        if sig.is_const {
+        if is_const {
             tokens.combine(&quote! { *const });
         } else {
             tokens.combine(&quote! { *mut });

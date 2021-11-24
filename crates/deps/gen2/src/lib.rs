@@ -23,7 +23,6 @@ mod vector3;
 mod vector4;
 mod ntstatus;
 
-use callback::*;
 use class::*;
 use com_interface::*;
 use delegate::*;
@@ -49,6 +48,7 @@ use ntstatus::*;
 pub use constant::*;
 pub use r#enum::*;
 pub use r#struct::*;
+pub use callback::*;
 
 use quote::*;
 use reader::*;
