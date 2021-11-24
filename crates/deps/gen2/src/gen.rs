@@ -42,23 +42,21 @@ impl Gen<'_> {
     }
 
     pub(crate) fn arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
-        if self.cfg {
-            for attribute in attributes {
-                if attribute.name() == "SupportedArchitectureAttribute" {
-                    if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
-                        let mut cfg = "#[cfg(any(".to_string();
-                        if value & 1 == 1 {
-                            cfg.push_str(r#"target_arch = "x86", "#);
-                        }
-                        if value & 2 == 2 {
-                            cfg.push_str(r#"target_arch = "x86_64", "#);
-                        }
-                        if value & 4 == 4 {
-                            cfg.push_str(r#"target_arch = "aarch64", "#);
-                        }
-                        cfg.push_str("))]");
-                        return cfg.into();
+        for attribute in attributes {
+            if attribute.name() == "SupportedArchitectureAttribute" {
+                if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
+                    let mut cfg = "#[cfg(any(".to_string();
+                    if value & 1 == 1 {
+                        cfg.push_str(r#"target_arch = "x86", "#);
                     }
+                    if value & 2 == 2 {
+                        cfg.push_str(r#"target_arch = "x86_64", "#);
+                    }
+                    if value & 4 == 4 {
+                        cfg.push_str(r#"target_arch = "aarch64", "#);
+                    }
+                    cfg.push_str("))]");
+                    return cfg.into();
                 }
             }
         }

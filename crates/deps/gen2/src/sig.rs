@@ -25,15 +25,6 @@ pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
-    if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_abi_sig(return_sig, gen);
-        quote! { -> #tokens }
-    } else {
-        quote! {}
-    }
-}
-
 fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 
