@@ -114,16 +114,28 @@ pub fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-    format_name(def, gen, gen_ident, false)
-}
-
 pub fn gen_crate_name(gen: &Gen) -> TokenStream {
     if gen.sys {
         "windows_sys".into()
     } else {
         "windows".into()
     }
+}
+
+pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, gen_ident, false)
+}
+
+pub fn gen_internal_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, to_internal_ident, false)
+}
+
+pub fn gen_internal_turbo_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, to_internal_ident, true)
+}
+
+fn to_internal_ident(name: &str) -> TokenStream {
+    format_token!("{}_abi", name)
 }
 
 fn format_name<F>(def: &TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream

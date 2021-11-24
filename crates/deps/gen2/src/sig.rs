@@ -82,6 +82,32 @@ pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStr
     }
 }
 
+pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    let params = sig.params.iter().map(|p| {
+        let name = gen_param_name(&p.param);
+        let tokens = gen_abi_param_sig(p, gen);
+        quote! { #name: #tokens }
+    });
+
+    let (udt_return_type, return_sig) = if let Some(t) = &sig.return_sig {
+        if t.is_udt() {
+            let mut t = t.clone();
+            t.pointers += 1;
+            let tokens = gen_abi_sig(&t, gen);
+            (quote! { , result__: #tokens }, quote! {})
+        } else {
+            let tokens = gen_abi_sig(t, gen);
+            (quote! {}, quote! { -> #tokens })
+        }
+    } else {
+        (TokenStream::new(), TokenStream::new())
+    };
+
+    quote! {
+        (this: ::windows::core::RawPtr #udt_return_type #(,#params)*) #return_sig
+    }
+}
+
 fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 

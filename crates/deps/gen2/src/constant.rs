@@ -98,6 +98,31 @@ pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
     }
 }
 
+pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.generics.is_empty() {
+        match GUID::from_attributes(def.attributes()) {
+            Some(guid) => {
+                let guid = gen_guid(&guid, gen);
+
+                quote! {
+                    ::windows::core::GUID::from_u128(#guid)
+                }
+            }
+            None => {
+                quote! {
+                    ::windows::core::GUID::zeroed()
+                }
+            }
+        }
+    } else {
+        let tokens = gen_type_name(def, gen);
+
+        quote! {
+            ::windows::core::GUID::from_signature(<#tokens as ::windows::core::RuntimeType>::SIGNATURE)
+        }
+    }
+}
+
 pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
     match value {
         ConstantValue::Bool(value) => quote! { #value },
