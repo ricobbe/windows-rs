@@ -99,7 +99,6 @@ impl Gen<'_> {
         }
     }
 
-        
     fn element_requirements(&self, def: &ElementType, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         match def {
             ElementType::TypeDef(def) => self.type_requirements(def, namespaces, keys),
@@ -165,7 +164,6 @@ impl Gen<'_> {
     fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         self.element_requirements(&def.signature(enclosing).kind, namespaces, keys);
     }
-
 }
 
 fn cfg(namespaces: &BTreeSet<&'static str>) -> TokenStream {
@@ -173,7 +171,7 @@ fn cfg(namespaces: &BTreeSet<&'static str>) -> TokenStream {
         quote! {}
     } else {
         format!("#[cfg({})]", namespaces_to_features(namespaces)).into()
-    }   
+    }
 }
 
 fn cfg_not(namespaces: &BTreeSet<&'static str>) -> TokenStream {
@@ -181,7 +179,7 @@ fn cfg_not(namespaces: &BTreeSet<&'static str>) -> TokenStream {
         quote! {}
     } else {
         format!("#[cfg(not({}))]", namespaces_to_features(namespaces)).into()
-    }    
+    }
 }
 
 fn namespaces_to_features(namespaces: &BTreeSet<&'static str>) -> String {
@@ -194,7 +192,7 @@ fn namespaces_to_features(namespaces: &BTreeSet<&'static str>) -> String {
             features.push_str(namespace);
             features.push_str("_");
         }
-    
+
         features.truncate(features.len() - 1);
         features.push_str("\",")
     }

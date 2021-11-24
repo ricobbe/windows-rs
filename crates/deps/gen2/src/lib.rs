@@ -3,36 +3,34 @@ mod class;
 mod com_interface;
 mod constant;
 mod delegate;
+mod function;
 mod gen;
 mod name;
 mod sig;
 mod r#struct;
 mod winrt_interface;
-mod function;
 
 use callback::*;
 use class::*;
 use com_interface::*;
 use constant::*;
 use delegate::*;
+use function::*;
 pub use gen::*;
 use name::*;
 use r#struct::*;
 use sig::*;
 use winrt_interface::*;
-use function::*;
 
 use quote::*;
 use reader::*;
 
-pub fn gen_types(types: &[&str], gen: &Gen) -> String {
+pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();
     let mut tokens = String::new();
 
-    for name in types {
-        for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.def.iter()) {
-            tokens.push_str(gen_type(def, gen).as_str());
-        }
+    for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.def.iter()) {
+        tokens.push_str(gen_type(def, gen).as_str());
     }
 
     tokens
@@ -57,7 +55,8 @@ pub fn gen_namespace(gen: &Gen) -> String {
         #(#namespaces)*
         #functions
         #types
-    }.into_string()
+    }
+    .into_string()
 }
 
 fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
@@ -67,7 +66,7 @@ fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
         for def in &entry.def {
             match def {
                 ElementType::MethodDef(_) => {}
-                ElementType::Field(_) | ElementType::TypeDef(_) => tokens.combine(&gen_type(def, gen)),
+                ElementType::Field(_) | ElementType::TypeDef(_) => tokens.combine(&gen_element_type(def, gen)),
                 _ => {}
             }
         }
@@ -76,7 +75,7 @@ fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_type(def: &ElementType, gen: &Gen) -> TokenStream {
+fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Field(def) => gen_constant(def, gen),
         ElementType::TypeDef(def) => match def.kind() {
@@ -99,6 +98,6 @@ fn gen_type(def: &ElementType, gen: &Gen) -> TokenStream {
             }
         },
         ElementType::MethodDef(def) => gen_function(def, gen),
-        _ => quote!{},
+        _ => quote! {},
     }
 }

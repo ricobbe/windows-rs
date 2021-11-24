@@ -119,12 +119,7 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
-    let gen = gen2::Gen {
-        namespace: tree.namespace,
-        sys: true,
-        cfg: true,
-        ..Default::default()
-    };
+    let gen = gen2::Gen { namespace: tree.namespace, sys: true, cfg: true, ..Default::default() };
 
     let tokens = gen2::gen_namespace(&gen);
 

@@ -5,9 +5,9 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         let name = def.name();
         let name = gen_ident(name);
         let signature = def.signature(None);
-    
+
         let cfg = gen.field_cfg(def);
-    
+
         if let Some(constant) = def.constant() {
             if signature.kind == constant.value_type() {
                 let value = gen_constant_type_value(&constant.value());
@@ -17,13 +17,13 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
             } else {
                 let kind = gen_sig(&signature, gen);
                 let value = gen_constant_value(&constant.value());
-    
+
                 let value = if signature.kind.underlying_type() == constant.value_type() {
                     value
                 } else {
                     quote! { #value as _ }
                 };
-    
+
                 if signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT {
                     quote! {
                         #cfg
