@@ -98,18 +98,9 @@ pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     match def.kind() {
-        TypeKind::Enum => gen_type_name(def, gen),
-        TypeKind::Struct => {
-            let tokens = gen_type_name(def, gen);
-            if def.is_blittable() {
-                tokens
-            } else {
-                // TODO: being applied too liberally - should only need it for non-pointer parameter types
-                quote! { ::core::mem::ManuallyDrop<#tokens> }
-            }
-        }
+        TypeKind::Enum | TypeKind::Struct => gen_type_name(def, gen),
         _ => quote! { ::windows::core::RawPtr },
     }
 }

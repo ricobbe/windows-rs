@@ -102,11 +102,7 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
             Some(guid) => {
-                let guid = gen_guid(&guid, gen);
-
-                quote! {
-                    ::windows::core::GUID::from_u128(#guid)
-                }
+                gen_guid(&guid, gen)
             }
             None => {
                 quote! {

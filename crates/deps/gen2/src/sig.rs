@@ -119,7 +119,14 @@ fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenSt
         }
     }
 
-    tokens.combine(&gen_abi_element_name(&sig.kind, gen));
+    let name = &gen_abi_element_name(&sig.kind, gen);
+
+    if sig.pointers == 0 && !sig.kind.is_blittable() {
+        tokens.combine(&name);
+    } else {
+        tokens.combine(&quote! { ::core::mem::ManuallyDrop<#tokens> });
+    }
+    
     tokens
 }
 
