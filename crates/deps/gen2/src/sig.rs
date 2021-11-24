@@ -43,6 +43,15 @@ fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream
         }
     }
 
-    tokens.combine(&gen_element_name(&sig.kind, gen));
+    let kind = gen_element_name(&sig.kind, gen);
+
+    if sig.kind.is_nullable() && !gen.sys {
+        tokens.combine(&quote! {
+            ::core::option::Option<#kind>
+        });
+    } else {
+        tokens.combine(&kind)
+    }
+
     tokens
 }

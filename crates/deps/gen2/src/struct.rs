@@ -220,7 +220,7 @@ fn gen_win_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
             let guid = gen_guid(&guid, gen);
 
             return quote! {
-                pub const #name: ::windows::core::GUID = ::windows::core::GUID::from_u128(#guid);
+                pub const #name: ::windows::core::GUID = #guid;
             };
         } else {
             return quote! {
