@@ -30,7 +30,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
     let mut tokens = String::new();
 
     for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.def.iter()) {
-        tokens.push_str(gen_type(def, gen).as_str());
+        tokens.push_str(gen_element_type(def, gen).as_str());
     }
 
     tokens
