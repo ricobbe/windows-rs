@@ -4,7 +4,7 @@ pub fn gen_ntstatus() -> TokenStream {
     quote! {
         #[repr(transparent)]
         #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
-        pub struct NTSTATUS(pub u32);
+        pub struct NTSTATUS(pub i32);
 
         impl NTSTATUS {
             #[inline]
