@@ -42,6 +42,10 @@ pub fn gen_namespace(gen: &Gen) -> String {
     let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
 
     let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
+        if tree.namespace == "Windows.Win32.Interop" {
+            return quote! {};
+        }
+
         let name = gen_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
         quote! {
