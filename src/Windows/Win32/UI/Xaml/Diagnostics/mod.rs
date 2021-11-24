@@ -95,7 +95,7 @@ impl ::core::cmp::Eq for CollectionElementValue {}
 unsafe impl ::windows::core::Abi for CollectionElementValue {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32 as _);
+pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

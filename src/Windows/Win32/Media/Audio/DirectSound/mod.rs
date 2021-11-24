@@ -1160,7 +1160,7 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
-pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32 as _);
+pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32);
 pub const DS_UNCERTIFIED: u32 = 1u32;
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {

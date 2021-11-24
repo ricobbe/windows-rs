@@ -11482,7 +11482,7 @@ impl ::core::cmp::Eq for OBJECTS_AND_SID {}
 unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
     type Abi = Self;
 }
-pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32 as _);
+pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

@@ -359,47 +359,47 @@ impl ::core::convert::From<i32> for DRT_EVENT_TYPE {
 unsafe impl ::windows::core::Abi for DRT_EVENT_TYPE {
     type Abi = Self;
 }
-pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052914i32 as _);
-pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052913i32 as _);
-pub const DRT_E_CAPABILITY_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052657i32 as _);
-pub const DRT_E_DUPLICATE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052919i32 as _);
-pub const DRT_E_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052662i32 as _);
-pub const DRT_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052660i32 as _);
-pub const DRT_E_INVALID_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052923i32 as _);
-pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052924i32 as _);
-pub const DRT_E_INVALID_CERT_CHAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057020i32 as _);
-pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052659i32 as _);
-pub const DRT_E_INVALID_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057015i32 as _);
-pub const DRT_E_INVALID_KEY_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057022i32 as _);
-pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057017i32 as _);
-pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057007i32 as _);
-pub const DRT_E_INVALID_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057019i32 as _);
-pub const DRT_E_INVALID_PORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052928i32 as _);
-pub const DRT_E_INVALID_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052922i32 as _);
-pub const DRT_E_INVALID_SEARCH_INFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052663i32 as _);
-pub const DRT_E_INVALID_SEARCH_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057006i32 as _);
-pub const DRT_E_INVALID_SECURITY_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052658i32 as _);
-pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052926i32 as _);
-pub const DRT_E_INVALID_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052664i32 as _);
-pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052927i32 as _);
-pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052920i32 as _);
-pub const DRT_E_NO_MORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057018i32 as _);
-pub const DRT_E_SEARCH_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057016i32 as _);
-pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052916i32 as _);
-pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052915i32 as _);
-pub const DRT_E_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052925i32 as _);
-pub const DRT_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057023i32 as _);
-pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052918i32 as _);
-pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052917i32 as _);
-pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052671i32 as _);
-pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052665i32 as _);
-pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052666i32 as _);
-pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052668i32 as _);
-pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052670i32 as _);
-pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052667i32 as _);
-pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052921i32 as _);
-pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052661i32 as _);
-pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32 as _);
+pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052914i32);
+pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052913i32);
+pub const DRT_E_CAPABILITY_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052657i32);
+pub const DRT_E_DUPLICATE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052919i32);
+pub const DRT_E_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052662i32);
+pub const DRT_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052660i32);
+pub const DRT_E_INVALID_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052923i32);
+pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052924i32);
+pub const DRT_E_INVALID_CERT_CHAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057020i32);
+pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052659i32);
+pub const DRT_E_INVALID_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057015i32);
+pub const DRT_E_INVALID_KEY_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057022i32);
+pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057017i32);
+pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057007i32);
+pub const DRT_E_INVALID_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057019i32);
+pub const DRT_E_INVALID_PORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052928i32);
+pub const DRT_E_INVALID_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052922i32);
+pub const DRT_E_INVALID_SEARCH_INFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052663i32);
+pub const DRT_E_INVALID_SEARCH_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057006i32);
+pub const DRT_E_INVALID_SECURITY_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052658i32);
+pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052926i32);
+pub const DRT_E_INVALID_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052664i32);
+pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052927i32);
+pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052920i32);
+pub const DRT_E_NO_MORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057018i32);
+pub const DRT_E_SEARCH_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057016i32);
+pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052916i32);
+pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052915i32);
+pub const DRT_E_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052925i32);
+pub const DRT_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057023i32);
+pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052918i32);
+pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052917i32);
+pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052671i32);
+pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052665i32);
+pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052666i32);
+pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052668i32);
+pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052670i32);
+pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052667i32);
+pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052921i32);
+pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052661i32);
+pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
@@ -706,7 +706,7 @@ impl ::core::convert::From<i32> for DRT_STATUS {
 unsafe impl ::windows::core::Abi for DRT_STATUS {
     type Abi = Self;
 }
-pub const DRT_S_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(6426640i32 as _);
+pub const DRT_S_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(6426640i32);
 #[inline]
 pub unsafe fn DrtClose(hdrt: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -2194,17 +2194,17 @@ impl ::core::cmp::Eq for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
 unsafe impl ::windows::core::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     type Abi = Self;
 }
-pub const PEER_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024713i32 as _);
-pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013390i32 as _);
-pub const PEER_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013394i32 as _);
-pub const PEER_E_CLOUD_IS_DEAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013387i32 as _);
-pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013391i32 as _);
-pub const PEER_E_CLOUD_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013395i32 as _);
-pub const PEER_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024784i32 as _);
-pub const PEER_E_DUPLICATE_PEER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013388i32 as _);
-pub const PEER_E_INVALID_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013393i32 as _);
-pub const PEER_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023728i32 as _);
-pub const PEER_E_TOO_MUCH_LOAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013392i32 as _);
+pub const PEER_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024713i32);
+pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013390i32);
+pub const PEER_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013394i32);
+pub const PEER_E_CLOUD_IS_DEAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013387i32);
+pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013391i32);
+pub const PEER_E_CLOUD_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013395i32);
+pub const PEER_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024784i32);
+pub const PEER_E_DUPLICATE_PEER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013388i32);
+pub const PEER_E_INVALID_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013393i32);
+pub const PEER_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023728i32);
+pub const PEER_E_TOO_MUCH_LOAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013392i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

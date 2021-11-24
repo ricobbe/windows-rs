@@ -45,7 +45,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
 
     if fields.is_empty() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let guid = gen_sys_guid(&guid);
+            let guid = gen_guid(&guid, gen);
 
             return quote! {
                 pub const #name: ::windows_sys::core::GUID = #guid;

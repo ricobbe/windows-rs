@@ -264,14 +264,14 @@ pub const CLSID_ConvertVBX: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const CLSID_PersistPropset: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb8f0821_0164_101b_84ed_08002b2ec713);
 pub const CLSID_StdFont: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be35203_8f91_11ce_9de3_00aa004bb851);
 pub const CLSID_StdPicture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be35204_8f91_11ce_9de3_00aa004bb851);
-pub const CONNECT_E_ADVISELIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
-pub const CONNECT_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32 as _);
+pub const CONNECT_E_ADVISELIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+pub const CONNECT_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
 pub const CONNECT_E_FIRST: i32 = -2147220992i32;
-pub const CONNECT_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
-pub const CONNECT_E_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
-pub const CONNECT_E_OVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32 as _);
-pub const CONNECT_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
-pub const CONNECT_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
+pub const CONNECT_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
+pub const CONNECT_E_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+pub const CONNECT_E_OVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
+pub const CONNECT_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
+pub const CONNECT_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9173,12 +9173,12 @@ pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2u32;
-pub const OLECMDERR_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221245i32 as _);
-pub const OLECMDERR_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221247i32 as _);
-pub const OLECMDERR_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32 as _);
-pub const OLECMDERR_E_NOHELP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221246i32 as _);
+pub const OLECMDERR_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221245i32);
+pub const OLECMDERR_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221247i32);
+pub const OLECMDERR_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32);
+pub const OLECMDERR_E_NOHELP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221246i32);
 pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
-pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221244i32 as _);
+pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221244i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDEXECOPT(pub i32);
@@ -12950,10 +12950,10 @@ pub const PARAMFLAG_FOUT: u32 = 2u32;
 pub const PARAMFLAG_FRETVAL: u32 = 8u32;
 pub const PARAMFLAG_NONE: u32 = 0u32;
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
-pub const PERPROP_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
-pub const PERPROP_E_NOPAGEAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
-pub const PERPROP_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
-pub const PERPROP_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
+pub const PERPROP_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
+pub const PERPROP_E_NOPAGEAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+pub const PERPROP_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
+pub const PERPROP_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13600,12 +13600,12 @@ pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SELFREG_E_CLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
+pub const SELFREG_E_CLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
-pub const SELFREG_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
-pub const SELFREG_E_TYPELIB: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
-pub const SELFREG_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
-pub const SELFREG_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
+pub const SELFREG_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
+pub const SELFREG_E_TYPELIB: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+pub const SELFREG_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
+pub const SELFREG_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_TYPE(pub i32);

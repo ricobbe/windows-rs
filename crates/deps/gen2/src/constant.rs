@@ -1,7 +1,6 @@
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
-    if gen.sys {
         let name = def.name();
         let name = gen_ident(name);
         let signature = def.signature(None);
@@ -24,24 +23,26 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                     quote! { #value as _ }
                 };
 
-                if signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT {
-                    quote! {
-                        #cfg
-                        pub const #name: #kind = #value;
+                if gen.sys  && (signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT) {
+                        quote! {
+                            #cfg
+                            pub const #name: #kind = #value;
+                        }
+                    } else {
+                        quote! {
+                            #cfg
+                            pub const #name: #kind = #kind(#value);
+                        }
                     }
-                } else {
-                    quote! {
-                        #cfg
-                        pub const #name: #kind = #kind(#value);
-                    }
-                }
+                
             }
         } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let guid = gen_sys_guid(&guid);
-            quote! { pub const #name: ::windows_sys::core::GUID = #guid; }
+            let value = gen_guid(&guid, gen);
+            let guid = gen_element_name(&ElementType::GUID, gen);
+            quote! { pub const #name: #guid = #value; }
         } else if let Some((guid, id)) = get_property_key(def.attributes()) {
             let kind = gen_sig(&signature, gen);
-            let guid = gen_sys_guid(&guid);
+            let guid = gen_guid(&guid, gen);
             quote! {
                 #cfg
                 pub const #name: #kind = #kind {
@@ -52,11 +53,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         } else {
             quote! {}
         }
-    } else {
-        quote! {}
-    }
 }
-
 
 pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
     match value {
@@ -76,23 +73,29 @@ pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
     }
 }
 
-pub fn gen_sys_guid(guid: &GUID) -> TokenStream {
-    let a = Literal::u32_unsuffixed(guid.0);
-    let b = Literal::u16_unsuffixed(guid.1);
-    let c = Literal::u16_unsuffixed(guid.2);
-    let d = Literal::u8_unsuffixed(guid.3);
-    let e = Literal::u8_unsuffixed(guid.4);
-    let f = Literal::u8_unsuffixed(guid.5);
-    let g = Literal::u8_unsuffixed(guid.6);
-    let h = Literal::u8_unsuffixed(guid.7);
-    let i = Literal::u8_unsuffixed(guid.8);
-    let j = Literal::u8_unsuffixed(guid.9);
-    let k = Literal::u8_unsuffixed(guid.10);
+pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
+    let guid = gen_element_name(&ElementType::GUID, gen);
 
-    // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
+    if gen.sys {
+        let a = Literal::u32_unsuffixed(value.0);
+        let b = Literal::u16_unsuffixed(value.1);
+        let c = Literal::u16_unsuffixed(value.2);
+        let d = Literal::u8_unsuffixed(value.3);
+        let e = Literal::u8_unsuffixed(value.4);
+        let f = Literal::u8_unsuffixed(value.5);
+        let g = Literal::u8_unsuffixed(value.6);
+        let h = Literal::u8_unsuffixed(value.7);
+        let i = Literal::u8_unsuffixed(value.8);
+        let j = Literal::u8_unsuffixed(value.9);
+        let k = Literal::u8_unsuffixed(value.10);
 
-    quote! {
-        ::windows_sys::core::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+        // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
+
+        quote! {
+            #guid { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+        }
+    } else {
+        format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
     }
 }
 

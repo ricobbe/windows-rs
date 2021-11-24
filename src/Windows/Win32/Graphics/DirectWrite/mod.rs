@@ -251,10 +251,10 @@ unsafe impl ::windows::core::Abi for DWRITE_CONTAINER_TYPE {
     type Abi = Self;
 }
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
-pub const DWRITE_E_DOWNLOADCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283954i32 as _);
-pub const DWRITE_E_DOWNLOADFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283953i32 as _);
-pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283955i32 as _);
-pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32 as _);
+pub const DWRITE_E_DOWNLOADCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283954i32);
+pub const DWRITE_E_DOWNLOADFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283953i32);
+pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283955i32);
+pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DWRITE_FACTORY_TYPE(pub i32);

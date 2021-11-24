@@ -1,9 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_WebApp")]
 pub mod WebApp;
-pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
-pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
-pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32 as _);
+pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
@@ -6404,12 +6404,12 @@ impl ::core::convert::From<i32> for EX_PROP_INFO_FLAGS {
 unsafe impl ::windows::core::Abi for EX_PROP_INFO_FLAGS {
     type Abi = Self;
 }
-pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338171i32 as _);
-pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338175i32 as _);
-pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338172i32 as _);
-pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338169i32 as _);
-pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338170i32 as _);
-pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338174i32 as _);
+pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338171i32);
+pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338175i32);
+pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338172i32);
+pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338169i32);
+pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338170i32);
+pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338174i32);
 #[inline]
 pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]

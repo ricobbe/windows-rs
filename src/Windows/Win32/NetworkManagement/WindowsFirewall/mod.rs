@@ -5653,7 +5653,7 @@ impl ::core::convert::From<i32> for SHARINGCONNECTION_ENUM_FLAGS {
 unsafe impl ::windows::core::Abi for SHARINGCONNECTION_ENUM_FLAGS {
     type Abi = Self;
 }
-pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32 as _);
+pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
 pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

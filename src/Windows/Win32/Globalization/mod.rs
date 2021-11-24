@@ -11197,7 +11197,7 @@ pub const USET_IGNORE_SPACE: i32 = 1i32;
 pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
 pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const USPREP_DEFAULT: u32 = 0u32;
-pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
+pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UScriptCode(pub i32);

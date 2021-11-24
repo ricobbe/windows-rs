@@ -14,7 +14,6 @@ mod r#enum;
 use callback::*;
 use class::*;
 use com_interface::*;
-use constant::*;
 use delegate::*;
 use function::*;
 pub use gen::*;
@@ -25,6 +24,7 @@ use winrt_interface::*;
 
 // TODO: these should not be public:
 pub use r#enum::*;
+pub use constant::*;
 
 use quote::*;
 use reader::*;

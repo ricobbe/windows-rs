@@ -1498,7 +1498,7 @@ impl ::core::convert::From<i32> for XAPO_BUFFER_FLAGS {
 unsafe impl ::windows::core::Abi for XAPO_BUFFER_FLAGS {
     type Abi = Self;
 }
-pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003369983i32 as _);
+pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003369983i32);
 pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
 pub const XAPO_FLAG_BUFFERCOUNT_MUST_MATCH: u32 = 8u32;
 pub const XAPO_FLAG_CHANNELS_MUST_MATCH: u32 = 1u32;
@@ -1901,10 +1901,10 @@ unsafe impl ::windows::core::Abi for XAUDIO2_EFFECT_DESCRIPTOR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
-pub const XAUDIO2_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435516i32 as _);
-pub const XAUDIO2_E_INVALID_CALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435519i32 as _);
-pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435517i32 as _);
-pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435518i32 as _);
+pub const XAUDIO2_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435516i32);
+pub const XAUDIO2_E_INVALID_CALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435519i32);
+pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435517i32);
+pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435518i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct XAUDIO2_FILTER_PARAMETERS {

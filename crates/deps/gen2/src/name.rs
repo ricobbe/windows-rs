@@ -76,7 +76,7 @@ pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, gen_ident, false)
 }
 
-fn gen_crate_name(gen: &Gen) -> TokenStream {
+pub fn gen_crate_name(gen: &Gen) -> TokenStream {
     if gen.sys {
         "windows_sys".into()
     } else {
