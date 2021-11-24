@@ -297,7 +297,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         if let Some(base) = &self.base {
                             ::windows::core::Interface::query(base, iid, interface)
                         } else {
-                            ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
+                            ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
                         }
                     } else {
                         ::windows::core::HRESULT(0)

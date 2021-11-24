@@ -2778,11 +2778,11 @@ pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESUL
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32);
 #[repr(transparent)]
 #[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
-pub struct NTSTATUS(pub u32);
+pub struct NTSTATUS(pub i32);
 impl NTSTATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
-        self.0 & 0x8000_0000 == 0
+        self.0 >= 0
     }
     #[inline]
     pub const fn is_err(self) -> bool {
@@ -10900,7 +10900,7 @@ impl ::core::ops::Not for WIN32_ERROR {
 }
 impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
-        Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
+        Self(if value.0 as i32 <= 0 { value.0 as _ } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
     }
 }
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292403i32);

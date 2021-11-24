@@ -9,7 +9,7 @@ pub fn gen_ntstatus() -> TokenStream {
         impl NTSTATUS {
             #[inline]
             pub const fn is_ok(self) -> bool {
-                self.0 & 0x8000_0000 == 0
+                self.0 >= 0
             }
 
             #[inline]
