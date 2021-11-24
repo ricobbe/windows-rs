@@ -18,18 +18,9 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
         unsafe extern "system" fn(#(#params),*) #return_sig
     };
 
-    // TODO: resolve difference
-    let callback = if gen.sys {
-        quote! { 
-            ::core::option::Option<#callback>
-        }
-    } else {
-        callback
-    };
-
     quote! {
         #arch_cfg
         #feature_cfg
-        pub type #name = #callback;
+        pub type #name = ::core::option::Option<#callback>;
     }
 }

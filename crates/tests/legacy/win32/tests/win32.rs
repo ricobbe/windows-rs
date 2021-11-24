@@ -210,11 +210,11 @@ fn interface() -> windows::core::Result<()> {
 #[test]
 fn callback() {
     unsafe {
-        let a: PROPENUMPROCA = callback_a;
-        assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
+        let a: PROPENUMPROCA = Some(callback_a);
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
-        let a: PROPENUMPROCW = callback_w;
-        assert!(BOOL(789) == a(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
+        let a: PROPENUMPROCW = Some(callback_w);
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
     }
 }
 

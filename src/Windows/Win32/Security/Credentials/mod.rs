@@ -1839,12 +1839,12 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize;
+pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize;
-pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
+pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize>;
+pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[derive(:: core :: clone :: Clone)]
@@ -1870,9 +1870,9 @@ pub struct OPENCARDNAMEA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1967,9 +1967,9 @@ pub struct OPENCARDNAMEW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2053,7 +2053,7 @@ pub struct OPENCARDNAME_EXA {
     pub lpstrSearchDesc: super::super::Foundation::PSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAA,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnConnect: LPOCNCONNPROCA,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2137,7 +2137,7 @@ pub struct OPENCARDNAME_EXW {
     pub lpstrSearchDesc: super::super::Foundation::PWSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAW,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnConnect: LPOCNCONNPROCW,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2220,9 +2220,9 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2287,9 +2287,9 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,

@@ -101,16 +101,16 @@ pub struct ISceSvcAttachmentPersistInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lptemplatename: *mut i8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32;
-pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
+pub type PFSCE_FREE_INFO = ::core::option::Option<unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32>;
+pub type PFSCE_LOG_INFO = ::core::option::Option<unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFSCE_QUERY_INFO = unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> u32;
+pub type PFSCE_QUERY_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFSCE_SET_INFO = unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::core::ffi::c_void) -> u32;
+pub type PFSCE_SET_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(pscecbinfo: *mut ::core::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32;
+pub type PF_ConfigAnalyzeService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut ::core::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_UpdateService = unsafe extern "system" fn(pscecbinfo: *mut ::core::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32;
+pub type PF_UpdateService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut ::core::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
 pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
 pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
@@ -189,10 +189,10 @@ unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::core::ffi::c_void,
-    pub pfQueryInfo: ::core::option::Option<PFSCE_QUERY_INFO>,
-    pub pfSetInfo: ::core::option::Option<PFSCE_SET_INFO>,
-    pub pfFreeInfo: ::core::option::Option<PFSCE_FREE_INFO>,
-    pub pfLogInfo: ::core::option::Option<PFSCE_LOG_INFO>,
+    pub pfQueryInfo: PFSCE_QUERY_INFO,
+    pub pfSetInfo: PFSCE_SET_INFO,
+    pub pfFreeInfo: PFSCE_FREE_INFO,
+    pub pfLogInfo: PFSCE_LOG_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SCESVC_CALLBACK_INFO {}
