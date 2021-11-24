@@ -11585,7 +11585,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
                 templatesize: u32,
                 templatedescription: *const ::core::ffi::c_void,
                 templatedescriptionsize: u32,
-                serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT,
+                serviceendpoint: *mut *mut ::core::mem::ManuallyDrop<WS_SERVICE_ENDPOINT>,
                 error: *const WS_ERROR,
             ) -> ::windows::core::HRESULT;
         }
@@ -11617,7 +11617,7 @@ pub unsafe fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsCreateServiceHost(endpoints: *const *const ::core::mem::ManuallyDrop<WS_SERVICE_ENDPOINT>, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsCreateServiceHost(::core::mem::transmute(endpoints), ::core::mem::transmute(endpointcount), ::core::mem::transmute(serviceproperties), ::core::mem::transmute(servicepropertycount), ::core::mem::transmute(servicehost), ::core::mem::transmute(error)).ok()
     }

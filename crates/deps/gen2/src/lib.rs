@@ -26,7 +26,6 @@ mod ntstatus;
 use class::*;
 use com_interface::*;
 use delegate::*;
-use function::*;
 pub use gen::*;
 use name::*;
 use sig::*;
@@ -49,6 +48,7 @@ pub use constant::*;
 pub use r#enum::*;
 pub use r#struct::*;
 pub use callback::*;
+pub use function::*;
 
 use quote::*;
 use reader::*;

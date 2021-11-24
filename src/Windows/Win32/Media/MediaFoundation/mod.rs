@@ -42036,7 +42036,7 @@ pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::In
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
+            fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut ::core::mem::ManuallyDrop<super::DirectShow::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT;
         }
         MFCreateAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(ppamtype)).ok()
     }

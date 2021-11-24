@@ -106,6 +106,7 @@ pub fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.is_blittable() {
                 tokens
             } else {
+                // TODO: being applied too liberally - should only need it for non-pointer parameter types
                 quote! { ::core::mem::ManuallyDrop<#tokens> }
             }
         }
