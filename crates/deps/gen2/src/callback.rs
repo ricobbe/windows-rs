@@ -14,13 +14,9 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let callback = quote! { 
-        unsafe extern "system" fn(#(#params),*) #return_sig
-    };
-
     quote! {
         #arch_cfg
         #feature_cfg
-        pub type #name = ::core::option::Option<#callback>;
+        pub type #name = ::core::option::Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
     }
 }
