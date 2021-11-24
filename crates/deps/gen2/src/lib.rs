@@ -9,6 +9,7 @@ mod name;
 mod sig;
 mod r#struct;
 mod winrt_interface;
+mod r#enum;
 
 use callback::*;
 use class::*;
@@ -21,6 +22,7 @@ use name::*;
 use r#struct::*;
 use sig::*;
 use winrt_interface::*;
+use r#enum::*;
 
 use quote::*;
 use reader::*;
