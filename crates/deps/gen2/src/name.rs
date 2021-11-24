@@ -96,7 +96,7 @@ where
         let mut namespace = gen.namespace(type_name.namespace);
         let name = format_name(type_name.name);
 
-        if def.generics.is_empty() {
+        if def.generics.is_empty() || gen.sys {
             namespace.combine(&name);
             namespace
         } else {
