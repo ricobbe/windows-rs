@@ -30,7 +30,6 @@ use delegate::*;
 use function::*;
 pub use gen::*;
 use name::*;
-use r#struct::*;
 use sig::*;
 use winrt_interface::*;
 use bool32::*;
@@ -46,9 +45,10 @@ use vector3::*;
 use vector4::*;
 use ntstatus::*;
 
-// TODO: these should not be public:
+// TODO: these should not be public (just public for porting the gen crate)
 pub use constant::*;
 pub use r#enum::*;
+pub use r#struct::*;
 
 use quote::*;
 use reader::*;
