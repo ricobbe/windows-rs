@@ -1,58 +1,57 @@
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
-        let name = def.name();
-        let name = gen_ident(name);
-        let signature = def.signature(None);
+    let name = def.name();
+    let name = gen_ident(name);
+    let signature = def.signature(None);
 
-        let cfg = gen.field_cfg(def);
+    let cfg = gen.field_cfg(def);
 
-        if let Some(constant) = def.constant() {
-            if signature.kind == constant.value_type() {
-                let value = gen_constant_type_value(&constant.value());
-                quote! {
-                    pub const #name: #value;
-                }
-            } else {
-                let kind = gen_sig(&signature, gen);
-                let value = gen_constant_value(&constant.value());
-
-                let value = if signature.kind.underlying_type() == constant.value_type() {
-                    value
-                } else {
-                    quote! { #value as _ }
-                };
-
-                if gen.sys  && (signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT) {
-                        quote! {
-                            #cfg
-                            pub const #name: #kind = #value;
-                        }
-                    } else {
-                        quote! {
-                            #cfg
-                            pub const #name: #kind = #kind(#value);
-                        }
-                    }
-                
-            }
-        } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let value = gen_guid(&guid, gen);
-            let guid = gen_element_name(&ElementType::GUID, gen);
-            quote! { pub const #name: #guid = #value; }
-        } else if let Some((guid, id)) = get_property_key(def.attributes()) {
-            let kind = gen_sig(&signature, gen);
-            let guid = gen_guid(&guid, gen);
+    if let Some(constant) = def.constant() {
+        if signature.kind == constant.value_type() {
+            let value = gen_constant_type_value(&constant.value());
             quote! {
-                #cfg
-                pub const #name: #kind = #kind {
-                    fmtid: #guid,
-                    pid: #id,
-                };
+                pub const #name: #value;
             }
         } else {
-            quote! {}
+            let kind = gen_sig(&signature, gen);
+            let value = gen_constant_value(&constant.value());
+
+            let value = if signature.kind.underlying_type() == constant.value_type() {
+                value
+            } else {
+                quote! { #value as _ }
+            };
+
+            if gen.sys && (signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT) {
+                quote! {
+                    #cfg
+                    pub const #name: #kind = #value;
+                }
+            } else {
+                quote! {
+                    #cfg
+                    pub const #name: #kind = #kind(#value);
+                }
+            }
         }
+    } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
+        let value = gen_guid(&guid, gen);
+        let guid = gen_element_name(&ElementType::GUID, gen);
+        quote! { pub const #name: #guid = #value; }
+    } else if let Some((guid, id)) = get_property_key(def.attributes()) {
+        let kind = gen_sig(&signature, gen);
+        let guid = gen_guid(&guid, gen);
+        quote! {
+            #cfg
+            pub const #name: #kind = #kind {
+                fmtid: #guid,
+                pid: #id,
+            };
+        }
+    } else {
+        quote! {}
+    }
 }
 
 pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
@@ -98,7 +97,6 @@ pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
         format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
     }
 }
-
 
 pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
     match value {

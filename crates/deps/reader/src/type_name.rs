@@ -90,7 +90,7 @@ impl TypeName {
     pub fn parse(full_name: &str) -> (&str, &str) {
         let index = full_name.rfind('.').expect("Expected full name separated with `.`");
         (&full_name[0..index], &full_name[index + 1..])
-    }    
+    }
 }
 
 fn trim_tick(name: &'static str) -> &'static str {

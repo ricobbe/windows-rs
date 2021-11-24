@@ -3,13 +3,13 @@ mod class;
 mod com_interface;
 mod constant;
 mod delegate;
+mod r#enum;
 mod function;
 mod gen;
 mod name;
 mod sig;
 mod r#struct;
 mod winrt_interface;
-mod r#enum;
 
 use callback::*;
 use class::*;
@@ -23,8 +23,8 @@ use sig::*;
 use winrt_interface::*;
 
 // TODO: these should not be public:
-pub use r#enum::*;
 pub use constant::*;
+pub use r#enum::*;
 
 use quote::*;
 use reader::*;

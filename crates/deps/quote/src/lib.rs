@@ -56,7 +56,7 @@ macro_rules! quote {
 ///
 /// Syntax is copied from the [`format!`] macro, supporting both positional and
 /// named arguments.
-// TODO: get rid of this 
+// TODO: get rid of this
 #[macro_export]
 macro_rules!  format_token {
     ($($fmt:tt)*) => {

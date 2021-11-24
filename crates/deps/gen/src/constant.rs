@@ -1,11 +1,7 @@
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
-    gen2::gen_constant(def, &gen2::Gen {
-        namespace: gen.relative,
-        cfg: !gen.root.is_empty(),
-        ..Default::default()
-    })
+    gen2::gen_constant(def, &gen2::Gen { namespace: gen.relative, cfg: !gen.root.is_empty(), ..Default::default() })
 }
 
 pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {

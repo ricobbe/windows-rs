@@ -1,6 +1,7 @@
 use super::*;
 
 pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
+    // TODO: use same representation for unscoped enums
     if gen.sys {
         gen_sys_enum(def, gen)
     } else {
@@ -181,7 +182,7 @@ pub fn gen_win_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        quote!{}
+        quote! {}
     };
 
     quote! {
