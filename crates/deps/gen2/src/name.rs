@@ -72,7 +72,7 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_abi_element_name(def: &ElementType, gen: &Gen, pointers: usize) -> TokenStream {
     if gen.sys {
         gen_element_name(def, gen)
     } else {

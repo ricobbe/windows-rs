@@ -3088,16 +3088,16 @@ unsafe impl ::windows::core::Abi for WSMAN_OPTION_SETEX {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
-pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = ::core::option::Option<unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_USER = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_USER = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_COMMAND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
+pub type WSMAN_PLUGIN_COMMAND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_CONNECT = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_CONNECT = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA);
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
 pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_DATA_LOCALE: u32 = 6u32;
 pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_LOCALE: u32 = 5u32;
@@ -3110,9 +3110,9 @@ pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
 pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_RECEIVE = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
-pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void)>;
-pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
+pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void);
+pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3160,18 +3160,18 @@ unsafe impl ::windows::core::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SEND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SHELL = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
-pub type WSMAN_PLUGIN_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32>;
+pub type WSMAN_PLUGIN_SHELL = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_SHUTDOWN = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SIGNAL = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: super::super::Foundation::PWSTR)>;
+pub type WSMAN_PLUGIN_SIGNAL = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: super::super::Foundation::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_STARTUP = ::core::option::Option<unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32>;
+pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
 pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
@@ -3339,7 +3339,7 @@ pub struct WSMAN_SHELL(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut ::core::ffi::c_void,
-    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
+    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SHELL_ASYNC {}
@@ -3368,7 +3368,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SHELL_ASYNC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = ::core::option::Option<unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA)>;
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {

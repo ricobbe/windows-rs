@@ -2130,7 +2130,7 @@ pub struct IEnumRegisterWordW_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulcount: u32) -> ::windows::core::HRESULT,
 );
-pub const IFEC_S_ALREADY_DEFAULT: ::windows::core::HRESULT = ::windows::core::HRESULT(291840i32);
+pub const IFEC_S_ALREADY_DEFAULT: ::windows::core::HRESULT = ::windows::core::HRESULT(291840i32 as _);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFEClassFactory(pub ::windows::core::IUnknown);
@@ -2260,18 +2260,18 @@ pub struct IFECommon_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const IFED_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192063i32);
-pub const IFED_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192064i32);
-pub const IFED_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192057i32);
-pub const IFED_E_NOT_USER_DIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192058i32);
-pub const IFED_E_NO_ENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192060i32);
-pub const IFED_E_OPEN_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192062i32);
-pub const IFED_E_REGISTER_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192053i32);
-pub const IFED_E_REGISTER_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192059i32);
-pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192055i32);
-pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192054i32);
-pub const IFED_E_USER_COMMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192056i32);
-pub const IFED_E_WRITE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192061i32);
+pub const IFED_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192063i32 as _);
+pub const IFED_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192064i32 as _);
+pub const IFED_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192057i32 as _);
+pub const IFED_E_NOT_USER_DIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192058i32 as _);
+pub const IFED_E_NO_ENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192060i32 as _);
+pub const IFED_E_OPEN_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192062i32 as _);
+pub const IFED_E_REGISTER_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192053i32 as _);
+pub const IFED_E_REGISTER_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192059i32 as _);
+pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192055i32 as _);
+pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192054i32 as _);
+pub const IFED_E_USER_COMMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192056i32 as _);
+pub const IFED_E_WRITE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192061i32 as _);
 pub const IFED_POS_ADJECTIVE: u32 = 4u32;
 pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
 pub const IFED_POS_ADNOUN: u32 = 32u32;
@@ -2305,10 +2305,10 @@ pub const IFED_SELECT_DISPLAY: u32 = 2u32;
 pub const IFED_SELECT_NONE: u32 = 0u32;
 pub const IFED_SELECT_POS: u32 = 4u32;
 pub const IFED_SELECT_READING: u32 = 1u32;
-pub const IFED_S_COMMENT_CHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(291331i32);
-pub const IFED_S_EMPTY_DICTIONARY: ::windows::core::HRESULT = ::windows::core::HRESULT(291329i32);
-pub const IFED_S_MORE_ENTRIES: ::windows::core::HRESULT = ::windows::core::HRESULT(291328i32);
-pub const IFED_S_WORD_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(291330i32);
+pub const IFED_S_COMMENT_CHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(291331i32 as _);
+pub const IFED_S_EMPTY_DICTIONARY: ::windows::core::HRESULT = ::windows::core::HRESULT(291329i32 as _);
+pub const IFED_S_MORE_ENTRIES: ::windows::core::HRESULT = ::windows::core::HRESULT(291328i32 as _);
+pub const IFED_S_WORD_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(291330i32 as _);
 pub const IFED_TYPE_ALL: u32 = 31u32;
 pub const IFED_TYPE_ENGLISH: u32 = 16u32;
 pub const IFED_TYPE_GENERAL: u32 = 1u32;
@@ -2416,7 +2416,7 @@ impl IFEDictionary {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConvertFromOldMSIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdic: Param0, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertFromOldMSIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdic: Param0, pfnlog: ::core::option::Option<PFNLOG>, reg: IMEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), pchdic.into_param().abi(), ::core::mem::transmute(pfnlog), ::core::mem::transmute(reg)).ok()
     }
     pub unsafe fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()> {
@@ -2750,7 +2750,7 @@ pub struct IImeSpecifyApplets_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-pub type IMCENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
+pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
 pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
@@ -4273,7 +4273,7 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: IMCENUMPROC, lparam: Param2) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: ::core::option::Option<IMCENUMPROC>, lparam: Param2) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4287,7 +4287,7 @@ pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCA, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: ::core::option::Option<REGISTERWORDENUMPROCA>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4301,7 +4301,7 @@ pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCW, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: ::core::option::Option<REGISTERWORDENUMPROCW>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5622,7 +5622,7 @@ impl ::core::ops::Not for NOTIFY_IME_INDEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNLOG = ::core::option::Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL>;
+pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct POSTBL {
@@ -5722,9 +5722,9 @@ unsafe impl ::windows::core::Abi for REGISTERWORDA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCA = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32>;
+pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCW = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32>;
+pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -6047,9 +6047,9 @@ impl ::core::cmp::Eq for WDD_1 {}
 unsafe impl ::windows::core::Abi for WDD_1 {
     type Abi = Self;
 }
-pub type fpCreateIFECommonInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct tabIMEFAREASTINFO {

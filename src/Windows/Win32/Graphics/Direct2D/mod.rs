@@ -6311,8 +6311,8 @@ impl ::core::ops::Not for D2D1_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D2D1_PROPERTY_BINDING {
     pub propertyName: super::super::Foundation::PWSTR,
-    pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,
-    pub getFunction: PD2D1_PROPERTY_GET_FUNCTION,
+    pub setFunction: ::core::option::Option<PD2D1_PROPERTY_SET_FUNCTION>,
+    pub getFunction: ::core::option::Option<PD2D1_PROPERTY_GET_FUNCTION>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl D2D1_PROPERTY_BINDING {}
@@ -21235,11 +21235,11 @@ impl ID2D1Factory1 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -21435,11 +21435,11 @@ impl ID2D1Factory2 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -21662,11 +21662,11 @@ impl ID2D1Factory3 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -21916,11 +21916,11 @@ impl ID2D1Factory4 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -22197,11 +22197,11 @@ impl ID2D1Factory5 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -22505,11 +22505,11 @@ impl ID2D1Factory6 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -22840,11 +22840,11 @@ impl ID2D1Factory7 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), metafilestream.into_param().abi(), &mut result__).from_abi::<ID2D1GdiMetafile>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::core::option::Option<PD2D1_EFFECT_FACTORY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(classid), propertyxml.into_param().abi(), ::core::mem::transmute(bindings), ::core::mem::transmute(bindingscount), ::core::mem::transmute(effectfactory)).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -29336,6 +29336,6 @@ impl ::core::cmp::Eq for Matrix5x4F {}
 unsafe impl ::windows::core::Abi for Matrix5x4F {
     type Abi = Self;
 }
-pub type PD2D1_EFFECT_FACTORY = ::core::option::Option<unsafe extern "system" fn(effectimpl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
-pub type PD2D1_PROPERTY_GET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::core::HRESULT>;
-pub type PD2D1_PROPERTY_SET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *const u8, datasize: u32) -> ::windows::core::HRESULT>;
+pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::core::HRESULT;
+pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *const u8, datasize: u32) -> ::windows::core::HRESULT;

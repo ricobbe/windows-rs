@@ -834,7 +834,7 @@ impl ::core::cmp::Eq for DATAINFO {}
 unsafe impl ::windows::core::Abi for DATAINFO {
     type Abi = Self;
 }
-pub const E_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147483638i32);
+pub const E_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147483638i32 as _);
 pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
 pub const FIEF_FLAG_PEEK: u32 = 2u32;
 pub const FIEF_FLAG_RESERVED_0: u32 = 8u32;
@@ -3483,56 +3483,56 @@ pub struct IMonikerProp_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697207i32);
-pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695930i32);
-pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695931i32);
-pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697189i32);
-pub const INET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697212i32);
-pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697200i32);
-pub const INET_E_CANNOT_LOAD_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697201i32);
-pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697194i32);
-pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696448i32);
-pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696960i32);
-pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695932i32);
-pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695929i32);
-pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695936i32);
-pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695934i32);
-pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696192i32);
-pub const INET_E_CONNECTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697205i32);
-pub const INET_E_DATA_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697209i32);
+pub const INET_E_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697207i32 as _);
+pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695930i32 as _);
+pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695931i32 as _);
+pub const INET_E_BLOCKED_REDIRECT_XSECURITYID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697189i32 as _);
+pub const INET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697212i32 as _);
+pub const INET_E_CANNOT_INSTANTIATE_OBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697200i32 as _);
+pub const INET_E_CANNOT_LOAD_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697201i32 as _);
+pub const INET_E_CANNOT_LOCK_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697194i32 as _);
+pub const INET_E_CANNOT_REPLACE_SFP_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696448i32 as _);
+pub const INET_E_CODE_DOWNLOAD_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696960i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_ARM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695932i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_BITNESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695929i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_BY_HASH_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695936i32 as _);
+pub const INET_E_CODE_INSTALL_BLOCKED_IMMERSIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695934i32 as _);
+pub const INET_E_CODE_INSTALL_SUPPRESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696192i32 as _);
+pub const INET_E_CONNECTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697205i32 as _);
+pub const INET_E_DATA_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697209i32 as _);
 pub const INET_E_DEFAULT_ACTION: i32 = -2146697199i32;
-pub const INET_E_DOMINJECTIONVALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697188i32);
-pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695928i32);
-pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695935i32);
-pub const INET_E_DOWNLOAD_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697208i32);
-pub const INET_E_ERROR_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
+pub const INET_E_DOMINJECTIONVALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697188i32 as _);
+pub const INET_E_DOWNLOAD_BLOCKED_BY_CSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695928i32 as _);
+pub const INET_E_DOWNLOAD_BLOCKED_BY_INPRIVATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695935i32 as _);
+pub const INET_E_DOWNLOAD_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697208i32 as _);
+pub const INET_E_ERROR_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32 as _);
 pub const INET_E_ERROR_LAST: i32 = -2146695928i32;
-pub const INET_E_FORBIDFRAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695933i32);
-pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697186i32);
-pub const INET_E_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697191i32);
-pub const INET_E_INVALID_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697204i32);
-pub const INET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32);
-pub const INET_E_NO_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697213i32);
-pub const INET_E_NO_VALID_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697206i32);
-pub const INET_E_OBJECT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697210i32);
-pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697197i32);
-pub const INET_E_REDIRECTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
-pub const INET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32);
-pub const INET_E_REDIRECT_TO_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697195i32);
-pub const INET_E_RESERVED_1: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697190i32);
-pub const INET_E_RESERVED_2: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697185i32);
-pub const INET_E_RESERVED_3: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697184i32);
-pub const INET_E_RESERVED_4: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697183i32);
-pub const INET_E_RESERVED_5: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697182i32);
-pub const INET_E_RESOURCE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697211i32);
-pub const INET_E_RESULT_DISPATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696704i32);
-pub const INET_E_SECURITY_PROBLEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697202i32);
-pub const INET_E_TERMINATED_BIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697192i32);
-pub const INET_E_UNKNOWN_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697203i32);
-pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697199i32);
-pub const INET_E_USE_DEFAULT_SETTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697198i32);
-pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697193i32);
-pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32);
+pub const INET_E_FORBIDFRAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146695933i32 as _);
+pub const INET_E_HSTS_CERTIFICATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697186i32 as _);
+pub const INET_E_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697191i32 as _);
+pub const INET_E_INVALID_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697204i32 as _);
+pub const INET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697214i32 as _);
+pub const INET_E_NO_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697213i32 as _);
+pub const INET_E_NO_VALID_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697206i32 as _);
+pub const INET_E_OBJECT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697210i32 as _);
+pub const INET_E_QUERYOPTION_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697197i32 as _);
+pub const INET_E_REDIRECTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32 as _);
+pub const INET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697196i32 as _);
+pub const INET_E_REDIRECT_TO_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697195i32 as _);
+pub const INET_E_RESERVED_1: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697190i32 as _);
+pub const INET_E_RESERVED_2: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697185i32 as _);
+pub const INET_E_RESERVED_3: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697184i32 as _);
+pub const INET_E_RESERVED_4: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697183i32 as _);
+pub const INET_E_RESERVED_5: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697182i32 as _);
+pub const INET_E_RESOURCE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697211i32 as _);
+pub const INET_E_RESULT_DISPATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146696704i32 as _);
+pub const INET_E_SECURITY_PROBLEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697202i32 as _);
+pub const INET_E_TERMINATED_BIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697192i32 as _);
+pub const INET_E_UNKNOWN_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697203i32 as _);
+pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697199i32 as _);
+pub const INET_E_USE_DEFAULT_SETTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697198i32 as _);
+pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697193i32 as _);
+pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
@@ -4385,7 +4385,7 @@ pub unsafe fn IsValidURL<'a, Param0: ::windows::core::IntoParam<'a, super::IBind
 }
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 pub const MKSYS_URLMONIKER: u32 = 6u32;
-pub const MK_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(262632i32);
+pub const MK_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(262632i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MONIKERPROPERTY(pub i32);

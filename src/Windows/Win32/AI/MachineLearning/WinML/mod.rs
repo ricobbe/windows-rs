@@ -845,7 +845,7 @@ pub struct IWinMLEvaluationContext_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdescriptor: *const ::core::mem::ManuallyDrop<WINML_BINDING_DESC>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, pdescriptor: *mut *mut ::core::mem::ManuallyDrop<WINML_BINDING_DESC>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: super::super::super::Foundation::PWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

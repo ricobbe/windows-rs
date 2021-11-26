@@ -101,9 +101,7 @@ pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
 pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
-            Some(guid) => {
-                gen_guid(&guid, gen)
-            }
+            Some(guid) => gen_guid(&guid, gen),
             None => {
                 quote! {
                     ::windows::core::GUID::zeroed()

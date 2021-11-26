@@ -1839,12 +1839,12 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize>;
+pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize>;
-pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;
+pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize;
+pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[derive(:: core :: clone :: Clone)]
@@ -1870,9 +1870,9 @@ pub struct OPENCARDNAMEA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: LPOCNCONNPROCA,
-    pub lpfnCheck: LPOCNCHKPROC,
-    pub lpfnDisconnect: LPOCNDSCPROC,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1967,9 +1967,9 @@ pub struct OPENCARDNAMEW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: LPOCNCONNPROCW,
-    pub lpfnCheck: LPOCNCHKPROC,
-    pub lpfnDisconnect: LPOCNDSCPROC,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2053,7 +2053,7 @@ pub struct OPENCARDNAME_EXA {
     pub lpstrSearchDesc: super::super::Foundation::PSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAA,
-    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2137,7 +2137,7 @@ pub struct OPENCARDNAME_EXW {
     pub lpstrSearchDesc: super::super::Foundation::PWSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAW,
-    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2220,9 +2220,9 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: LPOCNCHKPROC,
-    pub lpfnConnect: LPOCNCONNPROCA,
-    pub lpfnDisconnect: LPOCNDSCPROC,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2287,9 +2287,9 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: LPOCNCHKPROC,
-    pub lpfnConnect: LPOCNCONNPROCW,
-    pub lpfnDisconnect: LPOCNDSCPROC,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -3904,33 +3904,33 @@ pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCESS_DENIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741790i32);
+pub const STATUS_ACCESS_DENIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741790i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741710i32);
+pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741710i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741421i32);
+pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741421i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741260i32);
+pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741260i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741714i32);
+pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741714i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740781i32);
+pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740781i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740920i32);
+pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740920i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741715i32);
+pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741715i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741477i32);
+pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741477i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741729i32);
+pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741729i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741724i32);
+pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741724i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741711i32);
+pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741711i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741276i32);
+pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741276i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32);
+pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SecHandle {

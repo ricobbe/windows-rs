@@ -265,21 +265,21 @@ impl ::core::convert::From<i32> for CHANNEL_AGENT_FLAGS {
 unsafe impl ::windows::core::Abi for CHANNEL_AGENT_FLAGS {
     type Abi = Self;
 }
-pub const CI_E_CORRUPT_FWIDX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473491i32);
-pub const CI_E_DIACRITIC_SETTINGS_DIFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473490i32);
-pub const CI_E_INCONSISTENT_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473486i32);
-pub const CI_E_INVALID_CATALOG_LIST_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215313i32);
-pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473483i32);
-pub const CI_E_NO_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215318i32);
-pub const CI_E_NO_CATALOG_MANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473487i32);
-pub const CI_E_NO_PROTECTED_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473484i32);
-pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473481i32);
-pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473485i32);
-pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473482i32);
-pub const CI_S_CATALOG_RESET: ::windows::core::HRESULT = ::windows::core::HRESULT(268336i32);
-pub const CI_S_CLIENT_REQUESTED_ABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(268331i32);
-pub const CI_S_NEW_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(268329i32);
-pub const CI_S_RETRY_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(268332i32);
+pub const CI_E_CORRUPT_FWIDX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473491i32 as _);
+pub const CI_E_DIACRITIC_SETTINGS_DIFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473490i32 as _);
+pub const CI_E_INCONSISTENT_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473486i32 as _);
+pub const CI_E_INVALID_CATALOG_LIST_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215313i32 as _);
+pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473483i32 as _);
+pub const CI_E_NO_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215318i32 as _);
+pub const CI_E_NO_CATALOG_MANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473487i32 as _);
+pub const CI_E_NO_PROTECTED_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473484i32 as _);
+pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473481i32 as _);
+pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473485i32 as _);
+pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473482i32 as _);
+pub const CI_S_CATALOG_RESET: ::windows::core::HRESULT = ::windows::core::HRESULT(268336i32 as _);
+pub const CI_S_CLIENT_REQUESTED_ABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(268331i32 as _);
+pub const CI_S_NEW_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(268329i32 as _);
+pub const CI_S_RETRY_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(268332i32 as _);
 pub const CLSID_DataShapeProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
 pub const CLSID_MSDASQL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
 pub const CLSID_MSDASQL_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b522cd_5cf3_11ce_ade5_00aa0044773d);
@@ -4230,137 +4230,137 @@ pub const DB_BINDFLAGS_RECURSIVE: i32 = 4i32;
 pub const DB_COLLATION_ASC: u32 = 1u32;
 pub const DB_COLLATION_DESC: u32 = 2u32;
 pub const DB_COUNTUNAVAILABLE: i32 = -1i32;
-pub const DB_E_ABORTLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217871i32);
-pub const DB_E_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217838i32);
-pub const DB_E_ALTERRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217763i32);
-pub const DB_E_ASYNCNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217771i32);
-pub const DB_E_BADACCESSORFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217850i32);
-pub const DB_E_BADACCESSORHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217920i32);
-pub const DB_E_BADACCESSORTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217845i32);
-pub const DB_E_BADBINDINFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217912i32);
-pub const DB_E_BADBOOKMARK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217906i32);
-pub const DB_E_BADCHAPTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217914i32);
-pub const DB_E_BADCOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217903i32);
-pub const DB_E_BADCOMMANDFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217780i32);
-pub const DB_E_BADCOMMANDID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217802i32);
-pub const DB_E_BADCOMPAREOP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217881i32);
-pub const DB_E_BADCONSTRAINTFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217800i32);
-pub const DB_E_BADCONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217781i32);
-pub const DB_E_BADCONSTRAINTTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217801i32);
-pub const DB_E_BADCONVERTFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217828i32);
-pub const DB_E_BADCOPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217863i32);
-pub const DB_E_BADDEFERRABILITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217799i32);
-pub const DB_E_BADDYNAMICERRORID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217830i32);
-pub const DB_E_BADHRESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217832i32);
+pub const DB_E_ABORTLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217871i32 as _);
+pub const DB_E_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217838i32 as _);
+pub const DB_E_ALTERRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217763i32 as _);
+pub const DB_E_ASYNCNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217771i32 as _);
+pub const DB_E_BADACCESSORFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217850i32 as _);
+pub const DB_E_BADACCESSORHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217920i32 as _);
+pub const DB_E_BADACCESSORTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217845i32 as _);
+pub const DB_E_BADBINDINFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217912i32 as _);
+pub const DB_E_BADBOOKMARK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217906i32 as _);
+pub const DB_E_BADCHAPTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217914i32 as _);
+pub const DB_E_BADCOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217903i32 as _);
+pub const DB_E_BADCOMMANDFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217780i32 as _);
+pub const DB_E_BADCOMMANDID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217802i32 as _);
+pub const DB_E_BADCOMPAREOP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217881i32 as _);
+pub const DB_E_BADCONSTRAINTFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217800i32 as _);
+pub const DB_E_BADCONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217781i32 as _);
+pub const DB_E_BADCONSTRAINTTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217801i32 as _);
+pub const DB_E_BADCONVERTFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217828i32 as _);
+pub const DB_E_BADCOPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217863i32 as _);
+pub const DB_E_BADDEFERRABILITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217799i32 as _);
+pub const DB_E_BADDYNAMICERRORID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217830i32 as _);
+pub const DB_E_BADHRESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217832i32 as _);
 pub const DB_E_BADID: i32 = -2147217860i32;
-pub const DB_E_BADINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217806i32);
-pub const DB_E_BADINITSTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217805i32);
-pub const DB_E_BADLOCKMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217905i32);
-pub const DB_E_BADLOOKUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217831i32);
-pub const DB_E_BADMATCHTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217792i32);
-pub const DB_E_BADORDINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217835i32);
-pub const DB_E_BADPARAMETERNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217827i32);
-pub const DB_E_BADPRECISION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217862i32);
-pub const DB_E_BADPROPERTYVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217852i32);
-pub const DB_E_BADRATIO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217902i32);
-pub const DB_E_BADRECORDNUM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217854i32);
-pub const DB_E_BADREGIONHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217878i32);
-pub const DB_E_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217916i32);
-pub const DB_E_BADSCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217861i32);
-pub const DB_E_BADSOURCEHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217840i32);
-pub const DB_E_BADSTARTPOSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217890i32);
-pub const DB_E_BADSTATUSVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217880i32);
-pub const DB_E_BADSTORAGEFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217882i32);
-pub const DB_E_BADSTORAGEFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217849i32);
-pub const DB_E_BADTABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217860i32);
-pub const DB_E_BADTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217859i32);
-pub const DB_E_BADTYPENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217872i32);
-pub const DB_E_BADUPDATEDELETERULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217782i32);
-pub const DB_E_BADVALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217901i32);
-pub const DB_E_BOGUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217665i32);
-pub const DB_E_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217853i32);
-pub const DB_E_BYREFACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217848i32);
-pub const DB_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217842i32);
-pub const DB_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217770i32);
-pub const DB_E_CANNOTFREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217894i32);
-pub const DB_E_CANNOTRESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217896i32);
-pub const DB_E_CANTCANCEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217899i32);
-pub const DB_E_CANTCONVERTVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217913i32);
-pub const DB_E_CANTFETCHBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217884i32);
-pub const DB_E_CANTFILTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217825i32);
-pub const DB_E_CANTORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217824i32);
-pub const DB_E_CANTSCROLLBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217879i32);
-pub const DB_E_CANTTRANSLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217869i32);
-pub const DB_E_CHAPTERNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217841i32);
-pub const DB_E_COLUMNUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217760i32);
-pub const DB_E_COMMANDNOTPERSISTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217817i32);
-pub const DB_E_CONCURRENCYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217864i32);
-pub const DB_E_COSTLIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217907i32);
-pub const DB_E_DATAOVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217833i32);
-pub const DB_E_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217885i32);
-pub const DB_E_DIALECTNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217898i32);
-pub const DB_E_DROPRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217776i32);
-pub const DB_E_DUPLICATECOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217858i32);
-pub const DB_E_DUPLICATECONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217767i32);
-pub const DB_E_DUPLICATEDATASOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217897i32);
-pub const DB_E_DUPLICATEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217816i32);
-pub const DB_E_DUPLICATEINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217868i32);
-pub const DB_E_DUPLICATETABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217857i32);
-pub const DB_E_ERRORSINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217900i32);
-pub const DB_E_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217887i32);
-pub const DB_E_GOALREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217892i32);
-pub const DB_E_INDEXINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217866i32);
-pub const DB_E_INTEGRITYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217873i32);
-pub const DB_E_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217851i32);
-pub const DB_E_INVALIDTRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217876i32);
-pub const DB_E_LIMITREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217909i32);
-pub const DB_E_MAXPENDCHANGESEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217836i32);
-pub const DB_E_MISMATCHEDPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217803i32);
-pub const DB_E_MULTIPLESTATEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217874i32);
-pub const DB_E_MULTIPLESTORAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217826i32);
-pub const DB_E_NEWLYINSERTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217893i32);
-pub const DB_E_NOAGGREGATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217886i32);
-pub const DB_E_NOCOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217819i32);
-pub const DB_E_NOCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217908i32);
-pub const DB_E_NOCONSTRAINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217761i32);
-pub const DB_E_NOINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217867i32);
-pub const DB_E_NOLOCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217855i32);
-pub const DB_E_NONCONTIGUOUSRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217877i32);
-pub const DB_E_NOPROVIDERSREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217804i32);
-pub const DB_E_NOQUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217889i32);
-pub const DB_E_NOSOURCEOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217775i32);
-pub const DB_E_NOSTATISTIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217764i32);
-pub const DB_E_NOTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217865i32);
-pub const DB_E_NOTAREFERENCECOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217910i32);
-pub const DB_E_NOTASUBREGION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217875i32);
-pub const DB_E_NOTCOLLECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217773i32);
-pub const DB_E_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217895i32);
-pub const DB_E_NOTPREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217846i32);
-pub const DB_E_NOTREENTRANT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217888i32);
-pub const DB_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217837i32);
-pub const DB_E_NULLACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217847i32);
-pub const DB_E_OBJECTCREATIONLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217815i32);
-pub const DB_E_OBJECTMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217779i32);
-pub const DB_E_OBJECTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217915i32);
-pub const DB_E_OUTOFSPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217766i32);
-pub const DB_E_PARAMNOTOPTIONAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217904i32);
-pub const DB_E_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217839i32);
-pub const DB_E_PENDINGCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217834i32);
-pub const DB_E_PENDINGINSERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217829i32);
-pub const DB_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217772i32);
-pub const DB_E_READONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217918i32);
-pub const DB_E_RESOURCEEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217768i32);
-pub const DB_E_RESOURCELOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217774i32);
-pub const DB_E_RESOURCENOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217762i32);
-pub const DB_E_RESOURCEOUTOFSCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217778i32);
-pub const DB_E_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217919i32);
-pub const DB_E_ROWSETINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217870i32);
-pub const DB_E_ROWSNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217883i32);
-pub const DB_E_SCHEMAVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217917i32);
-pub const DB_E_TABLEINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217856i32);
-pub const DB_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217769i32);
-pub const DB_E_UNSUPPORTEDCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217891i32);
-pub const DB_E_WRITEONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217844i32);
+pub const DB_E_BADINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217806i32 as _);
+pub const DB_E_BADINITSTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217805i32 as _);
+pub const DB_E_BADLOCKMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217905i32 as _);
+pub const DB_E_BADLOOKUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217831i32 as _);
+pub const DB_E_BADMATCHTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217792i32 as _);
+pub const DB_E_BADORDINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217835i32 as _);
+pub const DB_E_BADPARAMETERNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217827i32 as _);
+pub const DB_E_BADPRECISION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217862i32 as _);
+pub const DB_E_BADPROPERTYVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217852i32 as _);
+pub const DB_E_BADRATIO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217902i32 as _);
+pub const DB_E_BADRECORDNUM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217854i32 as _);
+pub const DB_E_BADREGIONHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217878i32 as _);
+pub const DB_E_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217916i32 as _);
+pub const DB_E_BADSCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217861i32 as _);
+pub const DB_E_BADSOURCEHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217840i32 as _);
+pub const DB_E_BADSTARTPOSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217890i32 as _);
+pub const DB_E_BADSTATUSVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217880i32 as _);
+pub const DB_E_BADSTORAGEFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217882i32 as _);
+pub const DB_E_BADSTORAGEFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217849i32 as _);
+pub const DB_E_BADTABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217860i32 as _);
+pub const DB_E_BADTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217859i32 as _);
+pub const DB_E_BADTYPENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217872i32 as _);
+pub const DB_E_BADUPDATEDELETERULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217782i32 as _);
+pub const DB_E_BADVALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217901i32 as _);
+pub const DB_E_BOGUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217665i32 as _);
+pub const DB_E_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217853i32 as _);
+pub const DB_E_BYREFACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217848i32 as _);
+pub const DB_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217842i32 as _);
+pub const DB_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217770i32 as _);
+pub const DB_E_CANNOTFREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217894i32 as _);
+pub const DB_E_CANNOTRESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217896i32 as _);
+pub const DB_E_CANTCANCEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217899i32 as _);
+pub const DB_E_CANTCONVERTVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217913i32 as _);
+pub const DB_E_CANTFETCHBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217884i32 as _);
+pub const DB_E_CANTFILTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217825i32 as _);
+pub const DB_E_CANTORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217824i32 as _);
+pub const DB_E_CANTSCROLLBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217879i32 as _);
+pub const DB_E_CANTTRANSLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217869i32 as _);
+pub const DB_E_CHAPTERNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217841i32 as _);
+pub const DB_E_COLUMNUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217760i32 as _);
+pub const DB_E_COMMANDNOTPERSISTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217817i32 as _);
+pub const DB_E_CONCURRENCYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217864i32 as _);
+pub const DB_E_COSTLIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217907i32 as _);
+pub const DB_E_DATAOVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217833i32 as _);
+pub const DB_E_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217885i32 as _);
+pub const DB_E_DIALECTNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217898i32 as _);
+pub const DB_E_DROPRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217776i32 as _);
+pub const DB_E_DUPLICATECOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217858i32 as _);
+pub const DB_E_DUPLICATECONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217767i32 as _);
+pub const DB_E_DUPLICATEDATASOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217897i32 as _);
+pub const DB_E_DUPLICATEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217816i32 as _);
+pub const DB_E_DUPLICATEINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217868i32 as _);
+pub const DB_E_DUPLICATETABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217857i32 as _);
+pub const DB_E_ERRORSINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217900i32 as _);
+pub const DB_E_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217887i32 as _);
+pub const DB_E_GOALREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217892i32 as _);
+pub const DB_E_INDEXINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217866i32 as _);
+pub const DB_E_INTEGRITYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217873i32 as _);
+pub const DB_E_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217851i32 as _);
+pub const DB_E_INVALIDTRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217876i32 as _);
+pub const DB_E_LIMITREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217909i32 as _);
+pub const DB_E_MAXPENDCHANGESEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217836i32 as _);
+pub const DB_E_MISMATCHEDPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217803i32 as _);
+pub const DB_E_MULTIPLESTATEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217874i32 as _);
+pub const DB_E_MULTIPLESTORAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217826i32 as _);
+pub const DB_E_NEWLYINSERTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217893i32 as _);
+pub const DB_E_NOAGGREGATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217886i32 as _);
+pub const DB_E_NOCOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217819i32 as _);
+pub const DB_E_NOCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217908i32 as _);
+pub const DB_E_NOCONSTRAINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217761i32 as _);
+pub const DB_E_NOINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217867i32 as _);
+pub const DB_E_NOLOCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217855i32 as _);
+pub const DB_E_NONCONTIGUOUSRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217877i32 as _);
+pub const DB_E_NOPROVIDERSREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217804i32 as _);
+pub const DB_E_NOQUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217889i32 as _);
+pub const DB_E_NOSOURCEOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217775i32 as _);
+pub const DB_E_NOSTATISTIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217764i32 as _);
+pub const DB_E_NOTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217865i32 as _);
+pub const DB_E_NOTAREFERENCECOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217910i32 as _);
+pub const DB_E_NOTASUBREGION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217875i32 as _);
+pub const DB_E_NOTCOLLECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217773i32 as _);
+pub const DB_E_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217895i32 as _);
+pub const DB_E_NOTPREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217846i32 as _);
+pub const DB_E_NOTREENTRANT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217888i32 as _);
+pub const DB_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217837i32 as _);
+pub const DB_E_NULLACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217847i32 as _);
+pub const DB_E_OBJECTCREATIONLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217815i32 as _);
+pub const DB_E_OBJECTMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217779i32 as _);
+pub const DB_E_OBJECTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217915i32 as _);
+pub const DB_E_OUTOFSPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217766i32 as _);
+pub const DB_E_PARAMNOTOPTIONAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217904i32 as _);
+pub const DB_E_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217839i32 as _);
+pub const DB_E_PENDINGCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217834i32 as _);
+pub const DB_E_PENDINGINSERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217829i32 as _);
+pub const DB_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217772i32 as _);
+pub const DB_E_READONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217918i32 as _);
+pub const DB_E_RESOURCEEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217768i32 as _);
+pub const DB_E_RESOURCELOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217774i32 as _);
+pub const DB_E_RESOURCENOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217762i32 as _);
+pub const DB_E_RESOURCEOUTOFSCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217778i32 as _);
+pub const DB_E_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217919i32 as _);
+pub const DB_E_ROWSETINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217870i32 as _);
+pub const DB_E_ROWSNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217883i32 as _);
+pub const DB_E_SCHEMAVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217917i32 as _);
+pub const DB_E_TABLEINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217856i32 as _);
+pub const DB_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217769i32 as _);
+pub const DB_E_UNSUPPORTEDCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217891i32 as _);
+pub const DB_E_WRITEONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217844i32 as _);
 pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0u32;
 pub const DB_IMP_LEVEL_DELEGATE: u32 = 3u32;
 pub const DB_IMP_LEVEL_IDENTIFY: u32 = 1u32;
@@ -4421,38 +4421,38 @@ pub const DB_PT_PROCEDURE: u32 = 2u32;
 pub const DB_PT_UNKNOWN: u32 = 1u32;
 pub const DB_REMOTE: u32 = 1u32;
 pub const DB_SEARCHABLE: u32 = 4u32;
-pub const DB_SEC_E_AUTH_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217843i32);
-pub const DB_SEC_E_PERMISSIONDENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217911i32);
-pub const DB_SEC_E_SAFEMODE_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217765i32);
-pub const DB_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(265936i32);
-pub const DB_S_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265939i32);
-pub const DB_S_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(265923i32);
-pub const DB_S_BUFFERFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(265928i32);
-pub const DB_S_CANTRELEASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265930i32);
-pub const DB_S_COLUMNSCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265937i32);
-pub const DB_S_COLUMNTYPEMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(265921i32);
-pub const DB_S_COMMANDREEXECUTED: ::windows::core::HRESULT = ::windows::core::HRESULT(265927i32);
-pub const DB_S_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(265940i32);
-pub const DB_S_DIALECTIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(265933i32);
-pub const DB_S_ENDOFROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265926i32);
-pub const DB_S_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(265946i32);
-pub const DB_S_ERRORSRETURNED: ::windows::core::HRESULT = ::windows::core::HRESULT(265938i32);
-pub const DB_S_GOALCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265931i32);
-pub const DB_S_LOCKUPGRADED: ::windows::core::HRESULT = ::windows::core::HRESULT(265944i32);
-pub const DB_S_MULTIPLECHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265948i32);
-pub const DB_S_NONEXTROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265925i32);
-pub const DB_S_NORESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(265929i32);
-pub const DB_S_NOROWSPECIFICCOLUMNS: ::windows::core::HRESULT = ::windows::core::HRESULT(265949i32);
-pub const DB_S_NOTSINGLETON: ::windows::core::HRESULT = ::windows::core::HRESULT(265943i32);
-pub const DB_S_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265947i32);
-pub const DB_S_PROPERTIESCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265945i32);
-pub const DB_S_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(265920i32);
-pub const DB_S_STOPLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(265942i32);
-pub const DB_S_TOOMANYCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265941i32);
-pub const DB_S_TYPEINFOOVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(265922i32);
-pub const DB_S_UNWANTEDOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(265932i32);
-pub const DB_S_UNWANTEDPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265934i32);
-pub const DB_S_UNWANTEDREASON: ::windows::core::HRESULT = ::windows::core::HRESULT(265935i32);
+pub const DB_SEC_E_AUTH_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217843i32 as _);
+pub const DB_SEC_E_PERMISSIONDENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217911i32 as _);
+pub const DB_SEC_E_SAFEMODE_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217765i32 as _);
+pub const DB_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(265936i32 as _);
+pub const DB_S_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265939i32 as _);
+pub const DB_S_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(265923i32 as _);
+pub const DB_S_BUFFERFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(265928i32 as _);
+pub const DB_S_CANTRELEASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265930i32 as _);
+pub const DB_S_COLUMNSCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265937i32 as _);
+pub const DB_S_COLUMNTYPEMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(265921i32 as _);
+pub const DB_S_COMMANDREEXECUTED: ::windows::core::HRESULT = ::windows::core::HRESULT(265927i32 as _);
+pub const DB_S_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(265940i32 as _);
+pub const DB_S_DIALECTIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(265933i32 as _);
+pub const DB_S_ENDOFROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265926i32 as _);
+pub const DB_S_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(265946i32 as _);
+pub const DB_S_ERRORSRETURNED: ::windows::core::HRESULT = ::windows::core::HRESULT(265938i32 as _);
+pub const DB_S_GOALCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265931i32 as _);
+pub const DB_S_LOCKUPGRADED: ::windows::core::HRESULT = ::windows::core::HRESULT(265944i32 as _);
+pub const DB_S_MULTIPLECHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265948i32 as _);
+pub const DB_S_NONEXTROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265925i32 as _);
+pub const DB_S_NORESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(265929i32 as _);
+pub const DB_S_NOROWSPECIFICCOLUMNS: ::windows::core::HRESULT = ::windows::core::HRESULT(265949i32 as _);
+pub const DB_S_NOTSINGLETON: ::windows::core::HRESULT = ::windows::core::HRESULT(265943i32 as _);
+pub const DB_S_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265947i32 as _);
+pub const DB_S_PROPERTIESCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265945i32 as _);
+pub const DB_S_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(265920i32 as _);
+pub const DB_S_STOPLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(265942i32 as _);
+pub const DB_S_TOOMANYCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265941i32 as _);
+pub const DB_S_TYPEINFOOVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(265922i32 as _);
+pub const DB_S_UNWANTEDOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(265932i32 as _);
+pub const DB_S_UNWANTEDPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265934i32 as _);
+pub const DB_S_UNWANTEDREASON: ::windows::core::HRESULT = ::windows::core::HRESULT(265935i32 as _);
 pub const DB_UNSEARCHABLE: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -5437,7 +5437,7 @@ pub struct IAccessor_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwaccessorflags: u32, cbindings: usize, rgbindings: *const ::core::mem::ManuallyDrop<DBBINDING>, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut ::core::mem::ManuallyDrop<DBBINDING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
 );
@@ -5787,7 +5787,7 @@ pub struct IColumnsInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolumns: *mut usize, prginfo: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNINFO>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
@@ -5859,11 +5859,11 @@ pub struct IColumnsInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolumns: *mut usize, prginfo: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNINFO>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNINFO>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -6403,7 +6403,7 @@ pub struct ICommandWithParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcparams: *mut usize, prgparaminfo: *mut *mut ::core::mem::ManuallyDrop<DBPARAMINFO>, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cparamnames: usize, rgparamnames: *const super::super::Foundation::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7963,39 +7963,39 @@ pub struct IDCInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut ::core::mem::ManuallyDrop<DCINFO>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cinfo: u32, rginfo: *const ::core::mem::ManuallyDrop<DCINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
-pub const IDS_MON_BUILTIN_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(264511i32);
-pub const IDS_MON_BUILTIN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264503i32);
-pub const IDS_MON_CANNOT_CAST: ::windows::core::HRESULT = ::windows::core::HRESULT(264518i32);
-pub const IDS_MON_CANNOT_CONVERT: ::windows::core::HRESULT = ::windows::core::HRESULT(264507i32);
-pub const IDS_MON_COLUMN_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264502i32);
-pub const IDS_MON_DATE_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264519i32);
-pub const IDS_MON_DEFAULT_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(264495i32);
-pub const IDS_MON_ILLEGAL_PASSTHROUGH: ::windows::core::HRESULT = ::windows::core::HRESULT(264496i32);
-pub const IDS_MON_INVALIDSELECT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(264517i32);
-pub const IDS_MON_INVALID_CATALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(264516i32);
-pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(264520i32);
-pub const IDS_MON_MATCH_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(264513i32);
-pub const IDS_MON_NOT_COLUMN_OF_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264510i32);
-pub const IDS_MON_ORDINAL_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264500i32);
-pub const IDS_MON_OR_NOT: ::windows::core::HRESULT = ::windows::core::HRESULT(264506i32);
-pub const IDS_MON_OUT_OF_MEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(264504i32);
-pub const IDS_MON_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264508i32);
-pub const IDS_MON_PARSE_ERR_1_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264497i32);
-pub const IDS_MON_PARSE_ERR_2_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264498i32);
-pub const IDS_MON_PROPERTY_NAME_IN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264514i32);
-pub const IDS_MON_RELATIVE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(264509i32);
-pub const IDS_MON_SELECT_STAR: ::windows::core::HRESULT = ::windows::core::HRESULT(264505i32);
-pub const IDS_MON_SEMI_COLON: ::windows::core::HRESULT = ::windows::core::HRESULT(264499i32);
-pub const IDS_MON_VIEW_ALREADY_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264515i32);
-pub const IDS_MON_VIEW_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264501i32);
-pub const IDS_MON_WEIGHT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264512i32);
+pub const IDS_MON_BUILTIN_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(264511i32 as _);
+pub const IDS_MON_BUILTIN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264503i32 as _);
+pub const IDS_MON_CANNOT_CAST: ::windows::core::HRESULT = ::windows::core::HRESULT(264518i32 as _);
+pub const IDS_MON_CANNOT_CONVERT: ::windows::core::HRESULT = ::windows::core::HRESULT(264507i32 as _);
+pub const IDS_MON_COLUMN_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264502i32 as _);
+pub const IDS_MON_DATE_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264519i32 as _);
+pub const IDS_MON_DEFAULT_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(264495i32 as _);
+pub const IDS_MON_ILLEGAL_PASSTHROUGH: ::windows::core::HRESULT = ::windows::core::HRESULT(264496i32 as _);
+pub const IDS_MON_INVALIDSELECT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(264517i32 as _);
+pub const IDS_MON_INVALID_CATALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(264516i32 as _);
+pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(264520i32 as _);
+pub const IDS_MON_MATCH_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(264513i32 as _);
+pub const IDS_MON_NOT_COLUMN_OF_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264510i32 as _);
+pub const IDS_MON_ORDINAL_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264500i32 as _);
+pub const IDS_MON_OR_NOT: ::windows::core::HRESULT = ::windows::core::HRESULT(264506i32 as _);
+pub const IDS_MON_OUT_OF_MEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(264504i32 as _);
+pub const IDS_MON_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264508i32 as _);
+pub const IDS_MON_PARSE_ERR_1_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264497i32 as _);
+pub const IDS_MON_PARSE_ERR_2_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264498i32 as _);
+pub const IDS_MON_PROPERTY_NAME_IN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264514i32 as _);
+pub const IDS_MON_RELATIVE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(264509i32 as _);
+pub const IDS_MON_SELECT_STAR: ::windows::core::HRESULT = ::windows::core::HRESULT(264505i32 as _);
+pub const IDS_MON_SEMI_COLON: ::windows::core::HRESULT = ::windows::core::HRESULT(264499i32 as _);
+pub const IDS_MON_VIEW_ALREADY_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264515i32 as _);
+pub const IDS_MON_VIEW_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264501i32 as _);
+pub const IDS_MON_WEIGHT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264512i32 as _);
 pub const IDX_E_BUILD_IN_PROGRESS: i32 = -2147217147i32;
 pub const IDX_E_CATALOG_DISMOUNTED: i32 = -2147217124i32;
 pub const IDX_E_CORRUPT_INDEX: i32 = -2147217136i32;
@@ -9486,16 +9486,16 @@ impl ::core::cmp::Eq for INCREMENTAL_ACCESS_INFO {}
 unsafe impl ::windows::core::Abi for INCREMENTAL_ACCESS_INFO {
     type Abi = Self;
 }
-pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693246i32);
-pub const INET_E_AGENT_CONNECTION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693245i32);
-pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693232i32);
-pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693248i32);
-pub const INET_E_SCHEDULED_EXCLUDE_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693241i32);
-pub const INET_E_SCHEDULED_UPDATES_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693244i32);
-pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693243i32);
-pub const INET_E_SCHEDULED_UPDATE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693242i32);
-pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(790416i32);
-pub const INET_S_AGENT_PART_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(790401i32);
+pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693246i32 as _);
+pub const INET_E_AGENT_CONNECTION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693245i32 as _);
+pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693232i32 as _);
+pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693248i32 as _);
+pub const INET_E_SCHEDULED_EXCLUDE_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693241i32 as _);
+pub const INET_E_SCHEDULED_UPDATES_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693244i32 as _);
+pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693243i32 as _);
+pub const INET_E_SCHEDULED_UPDATE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693242i32 as _);
+pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(790416i32 as _);
+pub const INET_S_AGENT_PART_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(790401i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERVAL_LIMIT_KIND(pub i32);
@@ -12329,7 +12329,7 @@ pub struct IRowsetWithParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcparams: *mut usize, prgparaminfo: *mut *mut ::core::mem::ManuallyDrop<DBPARAMINFO>, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pparams: *mut DBPARAMS, pulerrorparam: *mut u32, phreserved: *mut usize) -> ::windows::core::HRESULT,
 );
@@ -12937,7 +12937,7 @@ pub struct ISearchCatalogManager_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
@@ -13138,7 +13138,7 @@ pub struct ISearchCatalogManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
@@ -13673,7 +13673,7 @@ pub struct ISearchManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszversionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
@@ -13819,7 +13819,7 @@ pub struct ISearchManager2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszversionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszname: super::super::Foundation::PWSTR, pvalue: *const ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
@@ -15362,7 +15362,7 @@ pub struct ITableCreation_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNDESC>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -15607,7 +15607,7 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNDESC>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -16865,7 +16865,7 @@ pub struct IViewFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcbindings: *mut usize, prgbindings: *mut *mut ::core::mem::ManuallyDrop<DBBINDING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -17505,10 +17505,10 @@ pub const MD_DIMTYPE_MEASURE: u32 = 2u32;
 pub const MD_DIMTYPE_OTHER: u32 = 3u32;
 pub const MD_DIMTYPE_TIME: u32 = 1u32;
 pub const MD_DIMTYPE_UNKNOWN: u32 = 0u32;
-pub const MD_E_BADCOORDINATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217822i32);
-pub const MD_E_BADTUPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217823i32);
-pub const MD_E_INVALIDAXIS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217821i32);
-pub const MD_E_INVALIDCELLRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217820i32);
+pub const MD_E_BADCOORDINATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217822i32 as _);
+pub const MD_E_BADTUPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217823i32 as _);
+pub const MD_E_INVALIDAXIS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217821i32 as _);
+pub const MD_E_INVALIDCELLRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217820i32 as _);
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
 pub const MSDAINITIALIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2206cdb0_19c1_11d1_89e0_00c04fd7a829);
@@ -17540,19 +17540,19 @@ impl ::core::convert::From<i32> for MSDSSESSIONPROPENUM {
 unsafe impl ::windows::core::Abi for MSDSSESSIONPROPENUM {
     type Abi = Self;
 }
-pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745962i32);
-pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479480i32);
-pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745928i32);
-pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745987i32);
-pub const MSG_CI_MASTER_MERGE_CANT_RESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737718i32);
-pub const MSG_CI_MASTER_MERGE_CANT_START: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737719i32);
-pub const MSG_CI_MASTER_MERGE_COMPLETED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745927i32);
-pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745990i32);
-pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745988i32);
-pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745989i32);
-pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745991i32);
-pub const MSG_CI_MASTER_MERGE_RESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745945i32);
-pub const MSG_CI_MASTER_MERGE_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745926i32);
+pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745962i32 as _);
+pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479480i32 as _);
+pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745928i32 as _);
+pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745987i32 as _);
+pub const MSG_CI_MASTER_MERGE_CANT_RESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737718i32 as _);
+pub const MSG_CI_MASTER_MERGE_CANT_START: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737719i32 as _);
+pub const MSG_CI_MASTER_MERGE_COMPLETED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745927i32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745990i32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745988i32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745989i32 as _);
+pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745991i32 as _);
+pub const MSG_CI_MASTER_MERGE_RESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745945i32 as _);
+pub const MSG_CI_MASTER_MERGE_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745926i32 as _);
 pub const MSG_TEST_MESSAGE: i32 = 1074008064i32;
 pub const MSS_E_APPALREADYEXISTS: i32 = -2147213054i32;
 pub const MSS_E_APPNOTFOUND: i32 = -2147213055i32;
@@ -17688,7 +17688,7 @@ impl ::core::cmp::Eq for NOTRESTRICTION {}
 unsafe impl ::windows::core::Abi for NOTRESTRICTION {
     type Abi = Self;
 }
-pub const NOT_N_PARSE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(526638i32);
+pub const NOT_N_PARSE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(526638i32 as _);
 pub const NegationCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 pub const OCC_INVALID: u32 = 4294967295u32;
 #[inline]
@@ -18127,7 +18127,7 @@ pub const PEOPLE_IMPORT_E_USERNAME_NOTRESOLVED: i32 = -2147205109i32;
 pub const PEOPLE_IMPORT_NODSDEFINED: i32 = -2147205119i32;
 pub const PEOPLE_IMPORT_NOMAPPINGDEFINED: i32 = -2147205117i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNFILLTEXTBUFFER = ::core::option::Option<unsafe extern "system" fn(ptextsource: *mut ::core::mem::ManuallyDrop<TEXT_SOURCE>) -> ::windows::core::HRESULT>;
+pub type PFNFILLTEXTBUFFER = unsafe extern "system" fn(ptextsource: *mut ::core::mem::ManuallyDrop<TEXT_SOURCE>) -> ::windows::core::HRESULT;
 pub const PRAll: u32 = 256u32;
 pub const PRAllBits: u32 = 7u32;
 pub const PRAny: u32 = 512u32;
@@ -18310,21 +18310,21 @@ pub const QRY_E_WILDCARDPREFIXLENGTH: i32 = -2147219695i32;
 pub const QRY_S_INEXACTRESULTS: i32 = 263958i32;
 pub const QRY_S_NOROWSFOUND: i32 = 263940i32;
 pub const QRY_S_TERMIGNORED: i32 = 263954i32;
-pub const QUERY_E_AGGREGATE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215847i32);
-pub const QUERY_E_ALLNOISE_AND_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215859i32);
-pub const QUERY_E_ALLNOISE_AND_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215857i32);
-pub const QUERY_E_DUPLICATE_RANGE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215845i32);
-pub const QUERY_E_INCORRECT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215852i32);
-pub const QUERY_E_INVALIDCOALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215849i32);
-pub const QUERY_E_INVALIDSCOPE_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215851i32);
-pub const QUERY_E_INVALIDSORT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215850i32);
-pub const QUERY_E_INVALID_DOCUMENT_IDENTIFIER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215853i32);
-pub const QUERY_E_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215858i32);
-pub const QUERY_E_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215856i32);
-pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215854i32);
-pub const QUERY_E_REPEATED_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215855i32);
-pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215846i32);
-pub const QUERY_E_UPGRADEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215848i32);
+pub const QUERY_E_AGGREGATE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215847i32 as _);
+pub const QUERY_E_ALLNOISE_AND_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215859i32 as _);
+pub const QUERY_E_ALLNOISE_AND_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215857i32 as _);
+pub const QUERY_E_DUPLICATE_RANGE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215845i32 as _);
+pub const QUERY_E_INCORRECT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215852i32 as _);
+pub const QUERY_E_INVALIDCOALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215849i32 as _);
+pub const QUERY_E_INVALIDSCOPE_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215851i32 as _);
+pub const QUERY_E_INVALIDSORT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215850i32 as _);
+pub const QUERY_E_INVALID_DOCUMENT_IDENTIFIER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215853i32 as _);
+pub const QUERY_E_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215858i32 as _);
+pub const QUERY_E_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215856i32 as _);
+pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215854i32 as _);
+pub const QUERY_E_REPEATED_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215855i32 as _);
+pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215846i32 as _);
+pub const QUERY_E_UPGRADEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215848i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
@@ -18869,17 +18869,17 @@ unsafe impl ::windows::core::Abi for SEARCH_TERM_EXPANSION {
     type Abi = Self;
 }
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
-pub const SEC_E_BADTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217814i32);
+pub const SEC_E_BADTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217814i32 as _);
 pub const SEC_E_INITFAILED: i32 = -2147216383i32;
-pub const SEC_E_INVALIDACCESSENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217807i32);
-pub const SEC_E_INVALIDACCESSENTRYLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217809i32);
+pub const SEC_E_INVALIDACCESSENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217807i32 as _);
+pub const SEC_E_INVALIDACCESSENTRYLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217809i32 as _);
 pub const SEC_E_INVALIDCONTEXT: i32 = -2147216381i32;
-pub const SEC_E_INVALIDOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217811i32);
-pub const SEC_E_INVALIDOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217808i32);
-pub const SEC_E_NOMEMBERSHIPSUPPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217812i32);
-pub const SEC_E_NOOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217810i32);
+pub const SEC_E_INVALIDOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217811i32 as _);
+pub const SEC_E_INVALIDOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217808i32 as _);
+pub const SEC_E_NOMEMBERSHIPSUPPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217812i32 as _);
+pub const SEC_E_NOOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217810i32 as _);
 pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
-pub const SEC_E_NOTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217813i32);
+pub const SEC_E_NOTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217813i32 as _);
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -22371,7 +22371,7 @@ pub const SQL_ASYNC_ENABLE_ON: u32 = 1u32;
 pub const SQL_ASYNC_MODE: u32 = 10021u32;
 pub const SQL_ASYNC_NOTIFICATION: u32 = 10025u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type SQL_ASYNC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
+pub type SQL_ASYNC_NOTIFICATION_CALLBACK = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16;
 pub const SQL_ASYNC_NOTIFICATION_CAPABLE: i32 = 1i32;
 pub const SQL_ASYNC_NOTIFICATION_NOT_CAPABLE: i32 = 0i32;
 pub const SQL_ATTR_ACCESS_MODE: u32 = 101u32;
@@ -24509,7 +24509,7 @@ pub const SubscriptionMgr: ::windows::core::GUID = ::windows::core::GUID::from_u
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXT_SOURCE {
-    pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
+    pub pfnFillTextBuffer: ::core::option::Option<PFNFILLTEXTBUFFER>,
     pub awcBuffer: super::super::Foundation::PWSTR,
     pub iEnd: u32,
     pub iCur: u32,

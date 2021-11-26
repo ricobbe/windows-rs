@@ -6571,42 +6571,42 @@ impl ::core::convert::From<i32> for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
 unsafe impl ::windows::core::Abi for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
     type Abi = Self;
 }
-pub const IMAPI_E_ALREADYOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220958i32);
-pub const IMAPI_E_BADJOLIETNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220963i32);
-pub const IMAPI_E_BOOTIMAGE_AND_NONBLANK_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220946i32);
-pub const IMAPI_E_CANNOT_WRITE_TO_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220948i32);
-pub const IMAPI_E_COMPRESSEDSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220952i32);
-pub const IMAPI_E_DEVICE_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220972i32);
-pub const IMAPI_E_DEVICE_NOPROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220975i32);
-pub const IMAPI_E_DEVICE_NOTACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220974i32);
-pub const IMAPI_E_DEVICE_NOTPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220973i32);
-pub const IMAPI_E_DEVICE_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220954i32);
-pub const IMAPI_E_DISCFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220964i32);
-pub const IMAPI_E_DISCINFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220967i32);
-pub const IMAPI_E_ENCRYPTEDSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220951i32);
-pub const IMAPI_E_FILEACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220968i32);
-pub const IMAPI_E_FILEEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220956i32);
-pub const IMAPI_E_FILESYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220969i32);
-pub const IMAPI_E_GENERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220978i32);
-pub const IMAPI_E_INITIALIZE_ENDWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220970i32);
-pub const IMAPI_E_INITIALIZE_WRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220971i32);
-pub const IMAPI_E_INVALIDIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220962i32);
-pub const IMAPI_E_LOSS_OF_STREAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220953i32);
-pub const IMAPI_E_MEDIUM_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220976i32);
-pub const IMAPI_E_MEDIUM_NOTPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
-pub const IMAPI_E_NOACTIVEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220961i32);
-pub const IMAPI_E_NOACTIVERECORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220960i32);
-pub const IMAPI_E_NOTENOUGHDISKFORSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220950i32);
-pub const IMAPI_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220980i32);
-pub const IMAPI_E_NOTOPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220981i32);
-pub const IMAPI_E_REMOVABLESTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220949i32);
-pub const IMAPI_E_STASHINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220955i32);
-pub const IMAPI_E_TRACKNOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220966i32);
-pub const IMAPI_E_TRACKOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220965i32);
-pub const IMAPI_E_TRACK_NOT_BIG_ENOUGH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220947i32);
-pub const IMAPI_E_USERABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220979i32);
-pub const IMAPI_E_WRONGDISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220957i32);
-pub const IMAPI_E_WRONGFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220959i32);
+pub const IMAPI_E_ALREADYOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220958i32 as _);
+pub const IMAPI_E_BADJOLIETNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220963i32 as _);
+pub const IMAPI_E_BOOTIMAGE_AND_NONBLANK_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220946i32 as _);
+pub const IMAPI_E_CANNOT_WRITE_TO_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220948i32 as _);
+pub const IMAPI_E_COMPRESSEDSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220952i32 as _);
+pub const IMAPI_E_DEVICE_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220972i32 as _);
+pub const IMAPI_E_DEVICE_NOPROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220975i32 as _);
+pub const IMAPI_E_DEVICE_NOTACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220974i32 as _);
+pub const IMAPI_E_DEVICE_NOTPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220973i32 as _);
+pub const IMAPI_E_DEVICE_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220954i32 as _);
+pub const IMAPI_E_DISCFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220964i32 as _);
+pub const IMAPI_E_DISCINFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220967i32 as _);
+pub const IMAPI_E_ENCRYPTEDSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220951i32 as _);
+pub const IMAPI_E_FILEACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220968i32 as _);
+pub const IMAPI_E_FILEEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220956i32 as _);
+pub const IMAPI_E_FILESYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220969i32 as _);
+pub const IMAPI_E_GENERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220978i32 as _);
+pub const IMAPI_E_INITIALIZE_ENDWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220970i32 as _);
+pub const IMAPI_E_INITIALIZE_WRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220971i32 as _);
+pub const IMAPI_E_INVALIDIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220962i32 as _);
+pub const IMAPI_E_LOSS_OF_STREAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220953i32 as _);
+pub const IMAPI_E_MEDIUM_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220976i32 as _);
+pub const IMAPI_E_MEDIUM_NOTPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
+pub const IMAPI_E_NOACTIVEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220961i32 as _);
+pub const IMAPI_E_NOACTIVERECORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220960i32 as _);
+pub const IMAPI_E_NOTENOUGHDISKFORSTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220950i32 as _);
+pub const IMAPI_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220980i32 as _);
+pub const IMAPI_E_NOTOPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220981i32 as _);
+pub const IMAPI_E_REMOVABLESTASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220949i32 as _);
+pub const IMAPI_E_STASHINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220955i32 as _);
+pub const IMAPI_E_TRACKNOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220966i32 as _);
+pub const IMAPI_E_TRACKOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220965i32 as _);
+pub const IMAPI_E_TRACK_NOT_BIG_ENOUGH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220947i32 as _);
+pub const IMAPI_E_USERABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220979i32 as _);
+pub const IMAPI_E_WRONGDISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220957i32 as _);
+pub const IMAPI_E_WRONGFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220959i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAPI_FEATURE_PAGE_TYPE(pub i32);
@@ -6902,8 +6902,8 @@ pub const IMAPI_SECTORS_PER_SECOND_AT_1X_CD: u32 = 75u32;
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_DVD: u32 = 680u32;
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_HD_DVD: u32 = 4568u32;
 pub const IMAPI_SECTOR_SIZE: u32 = 2048u32;
-pub const IMAPI_S_BUFFER_TO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32);
-pub const IMAPI_S_PROPERTIESIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
+pub const IMAPI_S_BUFFER_TO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32 as _);
+pub const IMAPI_S_PROPERTIESIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMMPID_CPV_ENUM(pub i32);
@@ -9081,7 +9081,7 @@ pub const MSDiscMasterObj: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const MSDiscRecorderObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
 pub const MSEnumDiscRecordersObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
 #[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::core::RawPtr)>;
+pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::core::RawPtr);
 #[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(windows)]
@@ -9119,13 +9119,13 @@ pub const NMP_PROCESS_POST: u32 = 1u32;
 #[inline]
 pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::core::IntoParam<'a, super::super::System::Com::IMalloc>, Param6: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(
     lpmsgsess: *mut _MSGSESS,
-    lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
-    lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
-    lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
+    lpallocatebuffer: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEBUFFER>,
+    lpallocatemore: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEMORE>,
+    lpfreebuffer: ::core::option::Option<super::super::System::AddressBook::LPFREEBUFFER>,
     lpmalloc: Param4,
     lpmapisup: *mut ::core::ffi::c_void,
     lpstg: Param6,
-    lpfmsgcallrelease: *mut MSGCALLRELEASE,
+    lpfmsgcallrelease: *mut ::core::option::Option<MSGCALLRELEASE>,
     ulcallerdata: u32,
     ulflags: u32,
     lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>,

@@ -427,6 +427,7 @@ impl TypeDef {
                 }
             }
             TypeKind::Enum => true,
+            TypeKind::Delegate => !self.is_winrt(),
             _ => false,
         }
     }

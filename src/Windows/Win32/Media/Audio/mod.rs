@@ -125,7 +125,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMDRIVERENUMCB = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct ACMDRVFORMATSUGGEST {
@@ -272,7 +272,7 @@ pub struct ACMFILTERCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEA {}
@@ -295,9 +295,9 @@ unsafe impl ::windows::core::Abi for ACMFILTERCHOOSEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFILTERCHOOSEW {
     fn clone(&self) -> Self {
@@ -322,7 +322,7 @@ pub struct ACMFILTERCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEW {}
@@ -410,9 +410,9 @@ unsafe impl ::windows::core::Abi for ACMFILTERDETAILSW {
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -473,9 +473,9 @@ unsafe impl ::windows::core::Abi for ACMFILTERTAGDETAILSW {
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
@@ -500,7 +500,7 @@ pub struct ACMFORMATCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEA {}
@@ -523,9 +523,9 @@ unsafe impl ::windows::core::Abi for ACMFORMATCHOOSEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATCHOOSEW {
     fn clone(&self) -> Self {
@@ -550,7 +550,7 @@ pub struct ACMFORMATCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEW {}
@@ -612,9 +612,9 @@ unsafe impl ::windows::core::Abi for ACMFORMATDETAILSA {
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -675,9 +675,9 @@ unsafe impl ::windows::core::Abi for ACMFORMATTAGDETAILSW {
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -903,44 +903,44 @@ impl ::core::convert::From<i32> for AMBISONICS_TYPE {
 unsafe impl ::windows::core::Abi for AMBISONICS_TYPE {
     type Abi = Self;
 }
-pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287486i32);
-pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287469i32);
-pub const AUDCLNT_E_BUFFER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287464i32);
-pub const AUDCLNT_E_BUFFER_OPERATION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287477i32);
-pub const AUDCLNT_E_BUFFER_SIZE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287466i32);
-pub const AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287463i32);
-pub const AUDCLNT_E_BUFFER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287482i32);
-pub const AUDCLNT_E_CPUUSAGE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287465i32);
-pub const AUDCLNT_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287484i32);
-pub const AUDCLNT_E_DEVICE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287478i32);
-pub const AUDCLNT_E_EFFECT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287423i32);
-pub const AUDCLNT_E_EFFECT_STATE_READ_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287422i32);
-pub const AUDCLNT_E_ENDPOINT_CREATE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287473i32);
-pub const AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287454i32);
-pub const AUDCLNT_E_ENGINE_FORMAT_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287447i32);
-pub const AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287448i32);
-pub const AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287471i32);
-pub const AUDCLNT_E_EVENTHANDLE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287468i32);
-pub const AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287474i32);
-pub const AUDCLNT_E_EXCLUSIVE_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287470i32);
-pub const AUDCLNT_E_HEADTRACKING_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287440i32);
-pub const AUDCLNT_E_HEADTRACKING_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287424i32);
-pub const AUDCLNT_E_INCORRECT_BUFFER_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287467i32);
-pub const AUDCLNT_E_INVALID_DEVICE_PERIOD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287456i32);
-pub const AUDCLNT_E_INVALID_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287479i32);
-pub const AUDCLNT_E_INVALID_STREAM_FLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287455i32);
-pub const AUDCLNT_E_NONOFFLOAD_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287451i32);
-pub const AUDCLNT_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287487i32);
-pub const AUDCLNT_E_NOT_STOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287483i32);
-pub const AUDCLNT_E_OFFLOAD_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287452i32);
-pub const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287453i32);
-pub const AUDCLNT_E_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287481i32);
-pub const AUDCLNT_E_RAW_MODE_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287449i32);
-pub const AUDCLNT_E_RESOURCES_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287450i32);
-pub const AUDCLNT_E_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287472i32);
-pub const AUDCLNT_E_THREAD_NOT_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287476i32);
-pub const AUDCLNT_E_UNSUPPORTED_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287480i32);
-pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287485i32);
+pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287486i32 as _);
+pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287469i32 as _);
+pub const AUDCLNT_E_BUFFER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287464i32 as _);
+pub const AUDCLNT_E_BUFFER_OPERATION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287477i32 as _);
+pub const AUDCLNT_E_BUFFER_SIZE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287466i32 as _);
+pub const AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287463i32 as _);
+pub const AUDCLNT_E_BUFFER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287482i32 as _);
+pub const AUDCLNT_E_CPUUSAGE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287465i32 as _);
+pub const AUDCLNT_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287484i32 as _);
+pub const AUDCLNT_E_DEVICE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287478i32 as _);
+pub const AUDCLNT_E_EFFECT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287423i32 as _);
+pub const AUDCLNT_E_EFFECT_STATE_READ_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287422i32 as _);
+pub const AUDCLNT_E_ENDPOINT_CREATE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287473i32 as _);
+pub const AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287454i32 as _);
+pub const AUDCLNT_E_ENGINE_FORMAT_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287447i32 as _);
+pub const AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287448i32 as _);
+pub const AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287471i32 as _);
+pub const AUDCLNT_E_EVENTHANDLE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287468i32 as _);
+pub const AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287474i32 as _);
+pub const AUDCLNT_E_EXCLUSIVE_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287470i32 as _);
+pub const AUDCLNT_E_HEADTRACKING_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287440i32 as _);
+pub const AUDCLNT_E_HEADTRACKING_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287424i32 as _);
+pub const AUDCLNT_E_INCORRECT_BUFFER_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287467i32 as _);
+pub const AUDCLNT_E_INVALID_DEVICE_PERIOD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287456i32 as _);
+pub const AUDCLNT_E_INVALID_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287479i32 as _);
+pub const AUDCLNT_E_INVALID_STREAM_FLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287455i32 as _);
+pub const AUDCLNT_E_NONOFFLOAD_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287451i32 as _);
+pub const AUDCLNT_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287487i32 as _);
+pub const AUDCLNT_E_NOT_STOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287483i32 as _);
+pub const AUDCLNT_E_OFFLOAD_MODE_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287452i32 as _);
+pub const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287453i32 as _);
+pub const AUDCLNT_E_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287481i32 as _);
+pub const AUDCLNT_E_RAW_MODE_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287449i32 as _);
+pub const AUDCLNT_E_RESOURCES_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287450i32 as _);
+pub const AUDCLNT_E_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287472i32 as _);
+pub const AUDCLNT_E_THREAD_NOT_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287476i32 as _);
+pub const AUDCLNT_E_UNSUPPORTED_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287480i32 as _);
+pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287485i32 as _);
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912u32;
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
@@ -1007,9 +1007,9 @@ impl ::core::ops::Not for AUDCLNT_STREAMOPTIONS {
         Self(self.0.not())
     }
 }
-pub const AUDCLNT_S_BUFFER_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(143196161i32);
-pub const AUDCLNT_S_POSITION_STALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(143196163i32);
-pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(143196162i32);
+pub const AUDCLNT_S_BUFFER_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(143196161i32 as _);
+pub const AUDCLNT_S_POSITION_STALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(143196163i32 as _);
+pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(143196162i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
@@ -3954,7 +3954,7 @@ pub struct IAudioSessionNotification_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAudioStateMonitor(pub ::windows::core::IUnknown);
 impl IAudioStateMonitor {
-    pub unsafe fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
+    pub unsafe fn RegisterCallback(&self, callback: ::core::option::Option<PAudioStateMonitorCallback>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
         let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callback), ::core::mem::transmute(context), &mut result__).from_abi::<i64>(result__)
     }
@@ -6700,11 +6700,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISubu
 #[doc(hidden)]
 pub struct ISubunit_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-pub type LPACMDRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPMIDICALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
 pub const MEVT_F_LONG: i32 = -2147483648i32;
 pub const MEVT_F_SHORT: i32 = 0i32;
@@ -8096,7 +8096,7 @@ pub const MOD_SQSYNTH: u32 = 3u32;
 pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 pub const MOD_WAVETABLE: u32 = 6u32;
-pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: ::windows::core::RawPtr, context: *const ::core::ffi::c_void)>;
+pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct PCMWAVEFORMAT {
@@ -8264,45 +8264,45 @@ impl ::core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
         Self(self.0.not())
     }
 }
-pub const SPTLAUDCLNT_E_DESTROYED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287232i32);
-pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287227i32);
-pub const SPTLAUDCLNT_E_INTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287219i32);
-pub const SPTLAUDCLNT_E_INVALID_LICENSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287224i32);
-pub const SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287226i32);
-pub const SPTLAUDCLNT_E_NO_MORE_OBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287229i32);
-pub const SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287220i32);
-pub const SPTLAUDCLNT_E_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287231i32);
-pub const SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287228i32);
-pub const SPTLAUDCLNT_E_RESOURCES_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287230i32);
-pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287221i32);
-pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287225i32);
-pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287222i32);
-pub const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286956i32);
-pub const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286969i32);
-pub const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286968i32);
-pub const SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286940i32);
-pub const SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286942i32);
-pub const SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286976i32);
-pub const SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286955i32);
-pub const SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286941i32);
-pub const SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286967i32);
-pub const SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286952i32);
-pub const SPTLAUD_MD_CLNT_E_INVALID_ARGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286974i32);
-pub const SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286957i32);
-pub const SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286939i32);
-pub const SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286959i32);
-pub const SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286951i32);
-pub const SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286971i32);
-pub const SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286973i32);
-pub const SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286954i32);
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286944i32);
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286960i32);
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286958i32);
-pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286943i32);
-pub const SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286970i32);
-pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286953i32);
-pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286975i32);
-pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286972i32);
+pub const SPTLAUDCLNT_E_DESTROYED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287232i32 as _);
+pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287227i32 as _);
+pub const SPTLAUDCLNT_E_INTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287219i32 as _);
+pub const SPTLAUDCLNT_E_INVALID_LICENSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287224i32 as _);
+pub const SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287226i32 as _);
+pub const SPTLAUDCLNT_E_NO_MORE_OBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287229i32 as _);
+pub const SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287220i32 as _);
+pub const SPTLAUDCLNT_E_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287231i32 as _);
+pub const SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287228i32 as _);
+pub const SPTLAUDCLNT_E_RESOURCES_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287230i32 as _);
+pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287221i32 as _);
+pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287225i32 as _);
+pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287222i32 as _);
+pub const SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286956i32 as _);
+pub const SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286969i32 as _);
+pub const SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286968i32 as _);
+pub const SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286940i32 as _);
+pub const SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286942i32 as _);
+pub const SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286976i32 as _);
+pub const SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286955i32 as _);
+pub const SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286941i32 as _);
+pub const SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286967i32 as _);
+pub const SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286952i32 as _);
+pub const SPTLAUD_MD_CLNT_E_INVALID_ARGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286974i32 as _);
+pub const SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286957i32 as _);
+pub const SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286939i32 as _);
+pub const SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286959i32 as _);
+pub const SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286951i32 as _);
+pub const SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286971i32 as _);
+pub const SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286973i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286954i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286944i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286960i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286958i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286943i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286970i32 as _);
+pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286953i32 as _);
+pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286975i32 as _);
+pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286972i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SpatialAudioClientActivationParams {
@@ -9355,7 +9355,7 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmDriverEnum(fncallback: ::core::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9490,7 +9490,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::core::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9504,7 +9504,7 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::core::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9545,7 +9545,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9559,7 +9559,7 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9628,7 +9628,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::core::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9642,7 +9642,7 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::core::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9696,7 +9696,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9710,7 +9710,7 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -601,7 +601,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub fShowUnknown: super::super::Foundation::BOOL,
     pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
     pub fSkipServicesPage: super::super::Foundation::BOOL,
-    pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
+    pub pfnDeviceCallback: ::core::option::Option<PFN_DEVICE_CALLBACK>,
     pub pvParam: *mut ::core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
@@ -1491,7 +1491,7 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::core::option::Option<PFN_AUTHENTICATION_CALLBACK>, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1505,7 +1505,7 @@ pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::core::option::Option<PFN_AUTHENTICATION_CALLBACK_EX>, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1532,7 +1532,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::core::option::Option<PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK>, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1964,13 +1964,13 @@ pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICATION_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DEVICE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;
+pub type PFN_DEVICE_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
 pub const PF_BTH: u16 = 32u16;
 pub const PSM_3DSP: u32 = 33u32;
 pub const PSM_ATT: u32 = 31u32;

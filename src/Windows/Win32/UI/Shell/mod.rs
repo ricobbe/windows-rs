@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Abi for APPINFODATAFLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
+pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_MIN_WIDTH(pub i32);
@@ -1435,7 +1435,7 @@ unsafe impl ::windows::core::Abi for BASEBROWSERDATAXP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
+pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -1511,7 +1511,7 @@ pub struct BROWSEINFOA {
     pub pszDisplayName: super::super::Foundation::PSTR,
     pub lpszTitle: super::super::Foundation::PSTR,
     pub ulFlags: u32,
-    pub lpfn: BFFCALLBACK,
+    pub lpfn: ::core::option::Option<BFFCALLBACK>,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -1550,7 +1550,7 @@ pub struct BROWSEINFOW {
     pub pszDisplayName: super::super::Foundation::PWSTR,
     pub lpszTitle: super::super::Foundation::PWSTR,
     pub ulFlags: u32,
-    pub lpfn: BFFCALLBACK,
+    pub lpfn: ::core::option::Option<BFFCALLBACK>,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -1681,7 +1681,7 @@ unsafe impl ::windows::core::Abi for CABINETSTATE {
     type Abi = Self;
 }
 pub const CABINETSTATE_VERSION: u32 = 2u32;
-pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927456i32);
+pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927456i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CATEGORYINFO_FLAGS(pub i32);
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::core::Abi for CDCONTROLSTATEF {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 #[inline]
-pub unsafe fn CDefFolderMenu_Create2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IShellFolder>>(pidlfolder: *const Common::ITEMIDLIST, hwnd: Param1, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: Param4, pfn: LPFNDFMCALLBACK, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY) -> ::windows::core::Result<IContextMenu> {
+pub unsafe fn CDefFolderMenu_Create2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IShellFolder>>(pidlfolder: *const Common::ITEMIDLIST, hwnd: Param1, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: Param4, pfn: ::core::option::Option<LPFNDFMCALLBACK>, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY) -> ::windows::core::Result<IContextMenu> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2414,95 +2414,95 @@ impl ::core::cmp::Eq for CONFIRM_CONFLICT_RESULT_INFO {}
 unsafe impl ::windows::core::Abi for CONFIRM_CONFLICT_RESULT_INFO {
     type Abi = Self;
 }
-pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927681i32);
-pub const COPYENGINE_E_ACCESS_DENIED_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927710i32);
-pub const COPYENGINE_E_ACCESS_DENIED_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927711i32);
-pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927700i32);
-pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927703i32);
-pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927702i32);
-pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927701i32);
-pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927666i32);
-pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927670i32);
-pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927672i32);
-pub const COPYENGINE_E_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927743i32);
-pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927677i32);
-pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927676i32);
-pub const COPYENGINE_E_CANT_REACH_SOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927691i32);
-pub const COPYENGINE_E_DEST_IS_RO_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927729i32);
-pub const COPYENGINE_E_DEST_IS_RO_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927726i32);
-pub const COPYENGINE_E_DEST_IS_RW_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927728i32);
-pub const COPYENGINE_E_DEST_IS_RW_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927725i32);
-pub const COPYENGINE_E_DEST_IS_R_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927727i32);
-pub const COPYENGINE_E_DEST_IS_R_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927724i32);
-pub const COPYENGINE_E_DEST_SAME_TREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927734i32);
-pub const COPYENGINE_E_DEST_SUBTREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927735i32);
-pub const COPYENGINE_E_DIFF_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927740i32);
-pub const COPYENGINE_E_DIR_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927683i32);
-pub const COPYENGINE_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927694i32);
-pub const COPYENGINE_E_DISK_FULL_CLEAN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927693i32);
-pub const COPYENGINE_E_EA_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927698i32);
-pub const COPYENGINE_E_EA_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927692i32);
-pub const COPYENGINE_E_ENCRYPTION_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927695i32);
-pub const COPYENGINE_E_FAT_MAX_IN_ROOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927682i32);
-pub const COPYENGINE_E_FILE_IS_FLD_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927732i32);
-pub const COPYENGINE_E_FILE_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927731i32);
-pub const COPYENGINE_E_FLD_IS_FILE_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927733i32);
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927675i32);
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927674i32);
-pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927678i32);
-pub const COPYENGINE_E_INVALID_FILES_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927716i32);
-pub const COPYENGINE_E_INVALID_FILES_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927717i32);
-pub const COPYENGINE_E_MANY_SRC_1_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927739i32);
-pub const COPYENGINE_E_NET_DISCONNECT_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927706i32);
-pub const COPYENGINE_E_NET_DISCONNECT_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927707i32);
-pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927685i32);
-pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927684i32);
-pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927708i32);
-pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927709i32);
-pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927714i32);
-pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927715i32);
-pub const COPYENGINE_E_PROPERTIES_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927696i32);
-pub const COPYENGINE_E_PROPERTY_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927697i32);
-pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927686i32);
-pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927690i32);
-pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927688i32);
-pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927689i32);
-pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927691i32);
-pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927680i32);
-pub const COPYENGINE_E_REMOVABLE_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927730i32);
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927673i32);
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927671i32);
-pub const COPYENGINE_E_REQUIRES_ELEVATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927742i32);
-pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927668i32);
-pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927669i32);
-pub const COPYENGINE_E_ROOT_DIR_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927712i32);
-pub const COPYENGINE_E_ROOT_DIR_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927713i32);
-pub const COPYENGINE_E_SAME_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927741i32);
-pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927679i32);
-pub const COPYENGINE_E_SHARING_VIOLATION_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927704i32);
-pub const COPYENGINE_E_SHARING_VIOLATION_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927705i32);
-pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927665i32);
-pub const COPYENGINE_E_SRC_IS_RO_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927723i32);
-pub const COPYENGINE_E_SRC_IS_RO_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927720i32);
-pub const COPYENGINE_E_SRC_IS_RW_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927722i32);
-pub const COPYENGINE_E_SRC_IS_RW_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927719i32);
-pub const COPYENGINE_E_SRC_IS_R_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927721i32);
-pub const COPYENGINE_E_SRC_IS_R_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927718i32);
-pub const COPYENGINE_E_STREAM_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927699i32);
-pub const COPYENGINE_E_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927744i32);
-pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927667i32);
-pub const COPYENGINE_S_ALREADY_DONE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555914i32);
-pub const COPYENGINE_S_CLOSE_PROGRAM: ::windows::core::HRESULT = ::windows::core::HRESULT(2555917i32);
-pub const COPYENGINE_S_COLLISIONRESOLVED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555918i32);
-pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: ::windows::core::HRESULT = ::windows::core::HRESULT(2555912i32);
-pub const COPYENGINE_S_KEEP_BOTH: ::windows::core::HRESULT = ::windows::core::HRESULT(2555916i32);
-pub const COPYENGINE_S_MERGE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555910i32);
-pub const COPYENGINE_S_NOT_HANDLED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555907i32);
-pub const COPYENGINE_S_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(2555915i32);
-pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555919i32);
-pub const COPYENGINE_S_USER_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555909i32);
-pub const COPYENGINE_S_USER_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(2555908i32);
-pub const COPYENGINE_S_YES: ::windows::core::HRESULT = ::windows::core::HRESULT(2555905i32);
+pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927681i32 as _);
+pub const COPYENGINE_E_ACCESS_DENIED_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927710i32 as _);
+pub const COPYENGINE_E_ACCESS_DENIED_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927711i32 as _);
+pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927700i32 as _);
+pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927703i32 as _);
+pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927702i32 as _);
+pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927701i32 as _);
+pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927666i32 as _);
+pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927670i32 as _);
+pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927672i32 as _);
+pub const COPYENGINE_E_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927743i32 as _);
+pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927677i32 as _);
+pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927676i32 as _);
+pub const COPYENGINE_E_CANT_REACH_SOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927691i32 as _);
+pub const COPYENGINE_E_DEST_IS_RO_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927729i32 as _);
+pub const COPYENGINE_E_DEST_IS_RO_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927726i32 as _);
+pub const COPYENGINE_E_DEST_IS_RW_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927728i32 as _);
+pub const COPYENGINE_E_DEST_IS_RW_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927725i32 as _);
+pub const COPYENGINE_E_DEST_IS_R_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927727i32 as _);
+pub const COPYENGINE_E_DEST_IS_R_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927724i32 as _);
+pub const COPYENGINE_E_DEST_SAME_TREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927734i32 as _);
+pub const COPYENGINE_E_DEST_SUBTREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927735i32 as _);
+pub const COPYENGINE_E_DIFF_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927740i32 as _);
+pub const COPYENGINE_E_DIR_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927683i32 as _);
+pub const COPYENGINE_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927694i32 as _);
+pub const COPYENGINE_E_DISK_FULL_CLEAN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927693i32 as _);
+pub const COPYENGINE_E_EA_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927698i32 as _);
+pub const COPYENGINE_E_EA_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927692i32 as _);
+pub const COPYENGINE_E_ENCRYPTION_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927695i32 as _);
+pub const COPYENGINE_E_FAT_MAX_IN_ROOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927682i32 as _);
+pub const COPYENGINE_E_FILE_IS_FLD_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927732i32 as _);
+pub const COPYENGINE_E_FILE_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927731i32 as _);
+pub const COPYENGINE_E_FLD_IS_FILE_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927733i32 as _);
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927675i32 as _);
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927674i32 as _);
+pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927678i32 as _);
+pub const COPYENGINE_E_INVALID_FILES_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927716i32 as _);
+pub const COPYENGINE_E_INVALID_FILES_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927717i32 as _);
+pub const COPYENGINE_E_MANY_SRC_1_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927739i32 as _);
+pub const COPYENGINE_E_NET_DISCONNECT_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927706i32 as _);
+pub const COPYENGINE_E_NET_DISCONNECT_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927707i32 as _);
+pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927685i32 as _);
+pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927684i32 as _);
+pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927708i32 as _);
+pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927709i32 as _);
+pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927714i32 as _);
+pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927715i32 as _);
+pub const COPYENGINE_E_PROPERTIES_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927696i32 as _);
+pub const COPYENGINE_E_PROPERTY_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927697i32 as _);
+pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927686i32 as _);
+pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927690i32 as _);
+pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927688i32 as _);
+pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927689i32 as _);
+pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927691i32 as _);
+pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927680i32 as _);
+pub const COPYENGINE_E_REMOVABLE_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927730i32 as _);
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927673i32 as _);
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927671i32 as _);
+pub const COPYENGINE_E_REQUIRES_ELEVATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927742i32 as _);
+pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927668i32 as _);
+pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927669i32 as _);
+pub const COPYENGINE_E_ROOT_DIR_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927712i32 as _);
+pub const COPYENGINE_E_ROOT_DIR_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927713i32 as _);
+pub const COPYENGINE_E_SAME_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927741i32 as _);
+pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927679i32 as _);
+pub const COPYENGINE_E_SHARING_VIOLATION_DEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927704i32 as _);
+pub const COPYENGINE_E_SHARING_VIOLATION_SRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927705i32 as _);
+pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927665i32 as _);
+pub const COPYENGINE_E_SRC_IS_RO_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927723i32 as _);
+pub const COPYENGINE_E_SRC_IS_RO_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927720i32 as _);
+pub const COPYENGINE_E_SRC_IS_RW_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927722i32 as _);
+pub const COPYENGINE_E_SRC_IS_RW_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927719i32 as _);
+pub const COPYENGINE_E_SRC_IS_R_CD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927721i32 as _);
+pub const COPYENGINE_E_SRC_IS_R_DVD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927718i32 as _);
+pub const COPYENGINE_E_STREAM_LOSS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927699i32 as _);
+pub const COPYENGINE_E_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927744i32 as _);
+pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927667i32 as _);
+pub const COPYENGINE_S_ALREADY_DONE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555914i32 as _);
+pub const COPYENGINE_S_CLOSE_PROGRAM: ::windows::core::HRESULT = ::windows::core::HRESULT(2555917i32 as _);
+pub const COPYENGINE_S_COLLISIONRESOLVED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555918i32 as _);
+pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: ::windows::core::HRESULT = ::windows::core::HRESULT(2555912i32 as _);
+pub const COPYENGINE_S_KEEP_BOTH: ::windows::core::HRESULT = ::windows::core::HRESULT(2555916i32 as _);
+pub const COPYENGINE_S_MERGE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555910i32 as _);
+pub const COPYENGINE_S_NOT_HANDLED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555907i32 as _);
+pub const COPYENGINE_S_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(2555915i32 as _);
+pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(2555919i32 as _);
+pub const COPYENGINE_S_USER_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(2555909i32 as _);
+pub const COPYENGINE_S_USER_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(2555908i32 as _);
+pub const COPYENGINE_S_YES: ::windows::core::HRESULT = ::windows::core::HRESULT(2555905i32 as _);
 pub const CPFG_CREDENTIAL_PROVIDER_LABEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286bbff3_bad4_438f_b007_79b7267c3d48);
 pub const CPFG_CREDENTIAL_PROVIDER_LOGO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d837775_f6cd_464e_a745_482fd0b47493);
 pub const CPFG_LOGON_PASSWORD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60624cfa_a477_47b1_8a8e_3a4a19981827);
@@ -2769,7 +2769,7 @@ pub struct CSFV {
     pub psvOuter: ::core::option::Option<IShellView>,
     pub pidl: *mut Common::ITEMIDLIST,
     pub lEvents: i32,
-    pub pfnCallback: LPFNVIEWCALLBACK,
+    pub pfnCallback: ::core::option::Option<LPFNVIEWCALLBACK>,
     pub fvm: FOLDERVIEWMODE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::core::Abi for DISPLAY_DEVICE_TYPE {
     type Abi = Self;
 }
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
-pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT>;
+pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DLLVERSIONINFO {
@@ -4532,7 +4532,7 @@ pub const EP_PreviewPane: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const EP_QueryPane: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65bcde4f_4f07_4f27_83a7_1afca4df7ddd);
 pub const EP_Ribbon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd27524a8_c9f2_4834_a106_df8889fd4f37);
 pub const EP_StatusBar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65fe56ce_5cfe_4bc4_ad8a_7ae3fe7e8f7c);
-pub const EXECUTE_E_LAUNCH_APPLICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927487i32);
+pub const EXECUTE_E_LAUNCH_APPLICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927487i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPLORER_BROWSER_FILL_FLAGS(pub i32);
@@ -4701,29 +4701,29 @@ impl ::core::cmp::Eq for EXTRASEARCH {}
 unsafe impl ::windows::core::Abi for EXTRASEARCH {
     type Abi = Self;
 }
-pub const E_ACTIVATIONDENIED_SHELLERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927439i32);
-pub const E_ACTIVATIONDENIED_SHELLNOTREADY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927436i32);
-pub const E_ACTIVATIONDENIED_SHELLRESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927438i32);
-pub const E_ACTIVATIONDENIED_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927437i32);
-pub const E_ACTIVATIONDENIED_USERCLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927440i32);
-pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927472i32);
-pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927470i32);
-pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927469i32);
-pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927471i32);
-pub const E_FLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
-pub const E_IMAGEFEED_CHANGEDISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144926960i32);
-pub const E_NOTVALIDFORANIMATEDIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221503i32);
-pub const E_PREVIEWHANDLER_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494972i32);
-pub const E_PREVIEWHANDLER_DRM_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494975i32);
-pub const E_PREVIEWHANDLER_NOAUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494974i32);
-pub const E_PREVIEWHANDLER_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494973i32);
-pub const E_SHELL_EXTENSION_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144926975i32);
-pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927159i32);
-pub const E_USERTILE_CHANGEDISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927215i32);
-pub const E_USERTILE_FILESIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927212i32);
-pub const E_USERTILE_LARGEORDYNAMIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927214i32);
-pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927216i32);
-pub const E_USERTILE_VIDEOFRAMESIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927213i32);
+pub const E_ACTIVATIONDENIED_SHELLERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927439i32 as _);
+pub const E_ACTIVATIONDENIED_SHELLNOTREADY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927436i32 as _);
+pub const E_ACTIVATIONDENIED_SHELLRESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927438i32 as _);
+pub const E_ACTIVATIONDENIED_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927437i32 as _);
+pub const E_ACTIVATIONDENIED_USERCLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927440i32 as _);
+pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927472i32 as _);
+pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927470i32 as _);
+pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927469i32 as _);
+pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927471i32 as _);
+pub const E_FLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32 as _);
+pub const E_IMAGEFEED_CHANGEDISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144926960i32 as _);
+pub const E_NOTVALIDFORANIMATEDIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221503i32 as _);
+pub const E_PREVIEWHANDLER_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494972i32 as _);
+pub const E_PREVIEWHANDLER_DRM_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494975i32 as _);
+pub const E_PREVIEWHANDLER_NOAUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494974i32 as _);
+pub const E_PREVIEWHANDLER_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2042494973i32 as _);
+pub const E_SHELL_EXTENSION_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144926975i32 as _);
+pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927159i32 as _);
+pub const E_USERTILE_CHANGEDISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927215i32 as _);
+pub const E_USERTILE_FILESIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927212i32 as _);
+pub const E_USERTILE_LARGEORDYNAMIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927214i32 as _);
+pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927216i32 as _);
+pub const E_USERTILE_VIDEOFRAMESIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927213i32 as _);
 pub const EnumerableObjectCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3468c1_36a7_43b6_ac24_d3f02fd9607a);
 pub const ExecuteFolder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dbb47c_a525_400b_9e80_a54615a090c0);
 pub const ExecuteUnknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
@@ -7535,7 +7535,7 @@ pub unsafe fn GetWindowContextHelpId<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn GetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7887,9 +7887,9 @@ impl ::core::convert::From<i32> for HLINKWHICHMK {
 unsafe impl ::windows::core::Abi for HLINKWHICHMK {
     type Abi = Self;
 }
-pub const HLINK_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32);
+pub const HLINK_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32 as _);
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
-pub const HLINK_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262400i32);
+pub const HLINK_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262400i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11069,7 +11069,7 @@ pub struct IBrowserService2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phwndview: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut BASEBROWSERDATALH) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
@@ -11129,7 +11129,7 @@ pub struct IBrowserService2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fclose: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut ::core::mem::ManuallyDrop<TOOLBARITEM>, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itb: u32, busehmonitor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -11648,7 +11648,7 @@ pub struct IBrowserService3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phwndview: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut BASEBROWSERDATALH) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
@@ -11708,7 +11708,7 @@ pub struct IBrowserService3_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fclose: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut ::core::mem::ManuallyDrop<TOOLBARITEM>, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itb: u32, busehmonitor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12261,7 +12261,7 @@ pub struct IBrowserService4_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phwndview: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbbd: *mut *mut BASEBROWSERDATALH) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))] usize,
@@ -12321,7 +12321,7 @@ pub struct IBrowserService4_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fclose: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut ::core::mem::ManuallyDrop<TOOLBARITEM>, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itb: u32, busehmonitor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -23465,9 +23465,9 @@ pub struct ILaunchUIContextProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927183i32);
-pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927184i32);
-pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927181i32);
+pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927183i32 as _);
+pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927184i32 as _);
+pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927181i32 as _);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMenuBand(pub ::windows::core::IUnknown);
@@ -27826,7 +27826,7 @@ pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1i32;
 pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3i32;
 pub const ISIOI_ICONFILE: u32 = 1u32;
 pub const ISIOI_ICONINDEX: u32 = 2u32;
-pub const IS_E_EXEC_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147213310i32);
+pub const IS_E_EXEC_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147213310i32 as _);
 pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 pub const IS_SPLIT: u32 = 4u32;
@@ -34084,11 +34084,11 @@ pub struct IShellNameSpace_abi(
 pub struct IShellPropSheetExt(pub ::windows::core::IUnknown);
 impl IShellPropSheetExt {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnaddpage), lparam.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn ReplacePage<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, upageid: u32, pfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn ReplacePage<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, upageid: u32, pfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(upageid), ::core::mem::transmute(pfnreplacewith), lparam.into_param().abi()).ok()
     }
 }
@@ -39015,7 +39015,7 @@ impl IShellView {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -39145,7 +39145,7 @@ impl IShellView2 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -39317,7 +39317,7 @@ impl IShellView3 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -46558,13 +46558,13 @@ impl ::core::convert::From<i32> for LIBRARYSAVEFLAGS {
 unsafe impl ::windows::core::Abi for LIBRARYSAVEFLAGS {
     type Abi = Self;
 }
-pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927231i32);
-pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927232i32);
-pub const LINK_E_DELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927485i32);
+pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927231i32 as _);
+pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927232i32 as _);
+pub const LINK_E_DELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927485i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
+pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
+pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUserProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofileinfo: *mut PROFILEINFOA) -> super::super::Foundation::BOOL {
@@ -46864,7 +46864,7 @@ unsafe impl ::windows::core::Abi for NC_ADDRESS {
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct NC_ADDRESS_0(pub u8);
-pub const NETCACHE_E_NEGATIVE_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927488i32);
+pub const NETCACHE_E_NEGATIVE_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927488i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -48069,9 +48069,9 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
+pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -48250,9 +48250,9 @@ unsafe impl ::windows::core::Abi for PERSIST_FOLDER_TARGET_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
+pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
+pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -51186,7 +51186,7 @@ unsafe impl ::windows::core::Abi for RefreshConstants {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
+pub unsafe fn RegisterAppConstrainedChangeNotification(routine: ::core::option::Option<PAPPCONSTRAIN_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51200,7 +51200,7 @@ pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CH
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
+pub unsafe fn RegisterAppStateChangeNotification(routine: ::core::option::Option<PAPPSTATE_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51244,7 +51244,7 @@ pub unsafe fn RegisterScaleChangeNotifications<'a, Param1: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51573,7 +51573,7 @@ unsafe impl ::windows::core::Abi for SFVM_MESSAGE_ID {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
-    pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
+    pub pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -51827,7 +51827,7 @@ unsafe impl ::windows::core::Abi for SHARE_ROLE {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn SHAddFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, lpfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> u32 {
+pub unsafe fn SHAddFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, lpfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52445,7 +52445,7 @@ impl ::core::cmp::Eq for SHCREATEPROCESSINFOW {}
 unsafe impl ::windows::core::Abi for SHCREATEPROCESSINFOW {
     type Abi = Self;
 }
-pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927180i32);
+pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927180i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct SHChangeDWORDAsIDList {
@@ -53110,7 +53110,7 @@ pub unsafe fn SHCreateStreamOnFileW<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL {
+pub unsafe fn SHCreateThread(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -53137,7 +53137,7 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::core::option::Opt
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -53790,7 +53790,7 @@ impl ::core::cmp::Eq for SHELLSTATEW {}
 unsafe impl ::windows::core::Abi for SHELLSTATEW {
     type Abi = Self;
 }
-pub const SHELL_E_WRONG_BITDEPTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927486i32);
+pub const SHELL_E_WRONG_BITDEPTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927486i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SHELL_ITEM_RESOURCE {
@@ -56848,7 +56848,7 @@ pub unsafe fn SHRemoveLocalizedName<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn SHReplaceFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, upageid: u32, lpfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param3) -> u32 {
+pub unsafe fn SHReplaceFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, upageid: u32, lpfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -58116,7 +58116,7 @@ impl ::core::convert::From<i32> for STORAGE_PROVIDER_FILE_FLAGS {
 unsafe impl ::windows::core::Abi for STORAGE_PROVIDER_FILE_FLAGS {
     type Abi = Self;
 }
-pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927484i32);
+pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927484i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STPFLAG(pub i32);
@@ -58134,7 +58134,7 @@ unsafe impl ::windows::core::Abi for STPFLAG {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
+pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -58816,12 +58816,12 @@ impl ::core::convert::From<i32> for SYNCMGR_UPDATE_REASON {
 unsafe impl ::windows::core::Abi for SYNCMGR_UPDATE_REASON {
     type Abi = Self;
 }
-pub const S_SYNCMGR_CANCELALL: ::windows::core::HRESULT = ::windows::core::HRESULT(262660i32);
-pub const S_SYNCMGR_CANCELITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(262659i32);
-pub const S_SYNCMGR_ENUMITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(262673i32);
-pub const S_SYNCMGR_ITEMDELETED: ::windows::core::HRESULT = ::windows::core::HRESULT(262672i32);
-pub const S_SYNCMGR_MISSINGITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32);
-pub const S_SYNCMGR_RETRYSYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262658i32);
+pub const S_SYNCMGR_CANCELALL: ::windows::core::HRESULT = ::windows::core::HRESULT(262660i32 as _);
+pub const S_SYNCMGR_CANCELITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(262659i32 as _);
+pub const S_SYNCMGR_ENUMITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(262673i32 as _);
+pub const S_SYNCMGR_ITEMDELETED: ::windows::core::HRESULT = ::windows::core::HRESULT(262672i32 as _);
+pub const S_SYNCMGR_MISSINGITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32 as _);
+pub const S_SYNCMGR_RETRYSYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262658i32 as _);
 pub const ScheduledTasks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6277990_4c6a_11cf_8d87_00aa0060f5bf);
 pub const SearchFolderItemFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14010e02_bbbd_41f0_88e3_eda371216584);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
@@ -58887,7 +58887,7 @@ pub unsafe fn SetWindowContextHelpId<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -60621,8 +60621,8 @@ pub const URL_ESCAPE_PERCENT: u32 = 4096u32;
 pub const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192u32;
 pub const URL_ESCAPE_SPACES_ONLY: u32 = 67108864u32;
 pub const URL_ESCAPE_UNSAFE: u32 = 536870912u32;
-pub const URL_E_INVALID_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32);
-pub const URL_E_UNREGISTERED_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32);
+pub const URL_E_INVALID_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32 as _);
+pub const URL_E_UNREGISTERED_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32 as _);
 pub const URL_FILE_USE_PATHURL: u32 = 65536u32;
 pub const URL_INTERNAL_PATH: u32 = 8388608u32;
 pub const URL_NO_META: u32 = 134217728u32;
@@ -61310,14 +61310,14 @@ impl ::core::convert::From<i32> for WTS_CONTEXTFLAGS {
 unsafe impl ::windows::core::Abi for WTS_CONTEXTFLAGS {
     type Abi = Self;
 }
-pub const WTS_E_DATAFILEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175932i32);
-pub const WTS_E_EXTRACTIONBLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175930i32);
-pub const WTS_E_EXTRACTIONPENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175931i32);
-pub const WTS_E_EXTRACTIONTIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175935i32);
-pub const WTS_E_FAILEDEXTRACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175936i32);
-pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175933i32);
-pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175929i32);
-pub const WTS_E_SURROGATEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175934i32);
+pub const WTS_E_DATAFILEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175932i32 as _);
+pub const WTS_E_EXTRACTIONBLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175930i32 as _);
+pub const WTS_E_EXTRACTIONPENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175931i32 as _);
+pub const WTS_E_EXTRACTIONTIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175935i32 as _);
+pub const WTS_E_FAILEDEXTRACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175936i32 as _);
+pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175933i32 as _);
+pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175929i32 as _);
+pub const WTS_E_SURROGATEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147175934i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_FLAGS(pub i32);

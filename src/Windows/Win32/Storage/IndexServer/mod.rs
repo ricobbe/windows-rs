@@ -431,19 +431,19 @@ impl ::core::cmp::Eq for FILTERREGION {}
 unsafe impl ::windows::core::Abi for FILTERREGION {
     type Abi = Self;
 }
-pub const FILTER_E_ACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215613i32);
-pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215609i32);
-pub const FILTER_E_END_OF_CHUNKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215616i32);
-pub const FILTER_E_LINK_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215608i32);
-pub const FILTER_E_NO_MORE_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215615i32);
-pub const FILTER_E_NO_MORE_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215614i32);
-pub const FILTER_E_NO_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215611i32);
-pub const FILTER_E_NO_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215610i32);
-pub const FILTER_E_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215605i32);
-pub const FILTER_E_UNKNOWNFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215604i32);
-pub const FILTER_S_LAST_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(268041i32);
-pub const FILTER_S_LAST_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(268042i32);
-pub const FILTER_W_MONIKER_CLIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(268036i32);
+pub const FILTER_E_ACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215613i32 as _);
+pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215609i32 as _);
+pub const FILTER_E_END_OF_CHUNKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215616i32 as _);
+pub const FILTER_E_LINK_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215608i32 as _);
+pub const FILTER_E_NO_MORE_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215615i32 as _);
+pub const FILTER_E_NO_MORE_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215614i32 as _);
+pub const FILTER_E_NO_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215611i32 as _);
+pub const FILTER_E_NO_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215610i32 as _);
+pub const FILTER_E_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215605i32 as _);
+pub const FILTER_E_UNKNOWNFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215604i32 as _);
+pub const FILTER_S_LAST_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(268041i32 as _);
+pub const FILTER_S_LAST_VALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(268042i32 as _);
+pub const FILTER_W_MONIKER_CLIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(268036i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -570,7 +570,7 @@ pub struct IFilter_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropvalue: *mut *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> i32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
 );
@@ -666,7 +666,7 @@ pub const MSIDXSPROP_SERVER_VERSION: u32 = 9u32;
 pub const MSIDXSPROP_SERVER_WINVER_MAJOR: u32 = 10u32;
 pub const MSIDXSPROP_SERVER_WINVER_MINOR: u32 = 11u32;
 pub const MSIDXSPROP_WHEREID: u32 = 8u32;
-pub const NOT_AN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(524288i32);
+pub const NOT_AN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(524288i32 as _);
 pub const PID_FILENAME: u32 = 100u32;
 pub const PROPID_QUERY_ALL: u32 = 6u32;
 pub const PROPID_QUERY_HITCOUNT: u32 = 4u32;

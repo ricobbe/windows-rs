@@ -949,10 +949,10 @@ impl ::core::cmp::Eq for WEBAUTHN_X5C {}
 unsafe impl ::windows::core::Abi for WEBAUTHN_X5C {
     type Abi = Self;
 }
-pub type WS_ABANDON_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_ABORT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_ABORT_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ABANDON_MESSAGE_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_ABORT_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_ABORT_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_ACCEPT_CHANNEL_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_ADDRESSING_VERSION(pub i32);
@@ -1034,11 +1034,11 @@ impl ::core::cmp::Eq for WS_ANY_ATTRIBUTES {}
 unsafe impl ::windows::core::Abi for WS_ANY_ATTRIBUTES {
     type Abi = Self;
 }
-pub type WS_ASYNC_CALLBACK = ::core::option::Option<unsafe extern "system" fn(errorcode: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void)>;
+pub type WS_ASYNC_CALLBACK = unsafe extern "system" fn(errorcode: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct WS_ASYNC_CONTEXT {
-    pub callback: WS_ASYNC_CALLBACK,
+    pub callback: ::core::option::Option<WS_ASYNC_CALLBACK>,
     pub callbackState: *mut ::core::ffi::c_void,
 }
 impl WS_ASYNC_CONTEXT {}
@@ -1061,11 +1061,11 @@ impl ::core::cmp::Eq for WS_ASYNC_CONTEXT {}
 unsafe impl ::windows::core::Abi for WS_ASYNC_CONTEXT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub type WS_ASYNC_FUNCTION = ::core::option::Option<unsafe extern "system" fn(hr: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut ::core::mem::ManuallyDrop<WS_ASYNC_OPERATION>, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ASYNC_FUNCTION = unsafe extern "system" fn(hr: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut ::core::mem::ManuallyDrop<WS_ASYNC_OPERATION>, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct WS_ASYNC_OPERATION {
-    pub function: WS_ASYNC_FUNCTION,
+    pub function: ::core::option::Option<WS_ASYNC_FUNCTION>,
 }
 impl WS_ASYNC_OPERATION {}
 impl ::core::default::Default for WS_ASYNC_OPERATION {
@@ -1395,12 +1395,12 @@ unsafe impl ::windows::core::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERTIFICATE_VALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type WS_CERTIFICATE_VALIDATION_CALLBACK = unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
+    pub callback: ::core::option::Option<WS_CERTIFICATE_VALIDATION_CALLBACK>,
     pub state: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1500,7 +1500,7 @@ pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -1535,7 +1535,7 @@ pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub trustedIssuerCertCount: u32,
     pub decryptionCert: *mut super::super::Security::Cryptography::CERT_CONTEXT,
-    pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
+    pub samlValidator: ::core::option::Option<WS_VALIDATE_SAML_CALLBACK>,
     pub samlValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1594,12 +1594,12 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_BINDING {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_DECODER {
     pub createContext: *mut ::core::ffi::c_void,
-    pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
-    pub decoderGetContentTypeCallback: WS_DECODER_GET_CONTENT_TYPE_CALLBACK,
-    pub decoderStartCallback: WS_DECODER_START_CALLBACK,
-    pub decoderDecodeCallback: WS_DECODER_DECODE_CALLBACK,
-    pub decoderEndCallback: WS_DECODER_END_CALLBACK,
-    pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
+    pub createDecoderCallback: ::core::option::Option<WS_CREATE_DECODER_CALLBACK>,
+    pub decoderGetContentTypeCallback: ::core::option::Option<WS_DECODER_GET_CONTENT_TYPE_CALLBACK>,
+    pub decoderStartCallback: ::core::option::Option<WS_DECODER_START_CALLBACK>,
+    pub decoderDecodeCallback: ::core::option::Option<WS_DECODER_DECODE_CALLBACK>,
+    pub decoderEndCallback: ::core::option::Option<WS_DECODER_END_CALLBACK>,
+    pub freeDecoderCallback: ::core::option::Option<WS_FREE_DECODER_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_CHANNEL_DECODER {}
@@ -1638,12 +1638,12 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_DECODER {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_ENCODER {
     pub createContext: *mut ::core::ffi::c_void,
-    pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
-    pub encoderGetContentTypeCallback: WS_ENCODER_GET_CONTENT_TYPE_CALLBACK,
-    pub encoderStartCallback: WS_ENCODER_START_CALLBACK,
-    pub encoderEncodeCallback: WS_ENCODER_ENCODE_CALLBACK,
-    pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
-    pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
+    pub createEncoderCallback: ::core::option::Option<WS_CREATE_ENCODER_CALLBACK>,
+    pub encoderGetContentTypeCallback: ::core::option::Option<WS_ENCODER_GET_CONTENT_TYPE_CALLBACK>,
+    pub encoderStartCallback: ::core::option::Option<WS_ENCODER_START_CALLBACK>,
+    pub encoderEncodeCallback: ::core::option::Option<WS_ENCODER_ENCODE_CALLBACK>,
+    pub encoderEndCallback: ::core::option::Option<WS_ENCODER_END_CALLBACK>,
+    pub freeEncoderCallback: ::core::option::Option<WS_FREE_ENCODER_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_CHANNEL_ENCODER {}
@@ -1923,8 +1923,8 @@ impl ::core::cmp::Eq for WS_CHAR_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_CHAR_ARRAY_DESCRIPTION {
     type Abi = Self;
 }
-pub type WS_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_CLOSE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_CLOSE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1971,19 +1971,19 @@ impl ::core::convert::From<i32> for WS_COOKIE_MODE {
 unsafe impl ::windows::core::Abi for WS_COOKIE_MODE {
     type Abi = Self;
 }
-pub type WS_CREATE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_CREATE_DECODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, readcallback: ::windows::core::RawPtr, readcontext: *const ::core::ffi::c_void, decodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_CREATE_ENCODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, writecallback: ::windows::core::RawPtr, writecontext: *const ::core::ffi::c_void, encodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_CREATE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_CHANNEL_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_CREATE_DECODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, readcallback: ::windows::core::RawPtr, readcontext: *const ::core::ffi::c_void, decodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_CREATE_ENCODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, writecallback: ::windows::core::RawPtr, writecontext: *const ::core::ffi::c_void, encodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_CREATE_LISTENER_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
-    pub getCertCallback: WS_GET_CERT_CALLBACK,
+    pub getCertCallback: ::core::option::Option<WS_GET_CERT_CALLBACK>,
     pub getCertCallbackState: *mut ::core::ffi::c_void,
-    pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
+    pub certIssuerListNotificationCallback: ::core::option::Option<WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK>,
     pub certIssuerListNotificationCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -2016,20 +2016,20 @@ unsafe impl ::windows::core::Abi for WS_CUSTOM_CERT_CREDENTIAL {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
-    pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
-    pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
-    pub resetChannelCallback: WS_RESET_CHANNEL_CALLBACK,
-    pub openChannelCallback: WS_OPEN_CHANNEL_CALLBACK,
-    pub closeChannelCallback: WS_CLOSE_CHANNEL_CALLBACK,
-    pub abortChannelCallback: WS_ABORT_CHANNEL_CALLBACK,
-    pub getChannelPropertyCallback: WS_GET_CHANNEL_PROPERTY_CALLBACK,
-    pub setChannelPropertyCallback: WS_SET_CHANNEL_PROPERTY_CALLBACK,
-    pub writeMessageStartCallback: WS_WRITE_MESSAGE_START_CALLBACK,
-    pub writeMessageEndCallback: WS_WRITE_MESSAGE_END_CALLBACK,
-    pub readMessageStartCallback: WS_READ_MESSAGE_START_CALLBACK,
-    pub readMessageEndCallback: WS_READ_MESSAGE_END_CALLBACK,
-    pub abandonMessageCallback: WS_ABANDON_MESSAGE_CALLBACK,
-    pub shutdownSessionChannelCallback: WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK,
+    pub createChannelCallback: ::core::option::Option<WS_CREATE_CHANNEL_CALLBACK>,
+    pub freeChannelCallback: ::core::option::Option<WS_FREE_CHANNEL_CALLBACK>,
+    pub resetChannelCallback: ::core::option::Option<WS_RESET_CHANNEL_CALLBACK>,
+    pub openChannelCallback: ::core::option::Option<WS_OPEN_CHANNEL_CALLBACK>,
+    pub closeChannelCallback: ::core::option::Option<WS_CLOSE_CHANNEL_CALLBACK>,
+    pub abortChannelCallback: ::core::option::Option<WS_ABORT_CHANNEL_CALLBACK>,
+    pub getChannelPropertyCallback: ::core::option::Option<WS_GET_CHANNEL_PROPERTY_CALLBACK>,
+    pub setChannelPropertyCallback: ::core::option::Option<WS_SET_CHANNEL_PROPERTY_CALLBACK>,
+    pub writeMessageStartCallback: ::core::option::Option<WS_WRITE_MESSAGE_START_CALLBACK>,
+    pub writeMessageEndCallback: ::core::option::Option<WS_WRITE_MESSAGE_END_CALLBACK>,
+    pub readMessageStartCallback: ::core::option::Option<WS_READ_MESSAGE_START_CALLBACK>,
+    pub readMessageEndCallback: ::core::option::Option<WS_READ_MESSAGE_END_CALLBACK>,
+    pub abandonMessageCallback: ::core::option::Option<WS_ABANDON_MESSAGE_CALLBACK>,
+    pub shutdownSessionChannelCallback: ::core::option::Option<WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_CUSTOM_CHANNEL_CALLBACKS {}
@@ -2107,16 +2107,16 @@ unsafe impl ::windows::core::Abi for WS_CUSTOM_HTTP_PROXY {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_LISTENER_CALLBACKS {
-    pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
-    pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
-    pub resetListenerCallback: WS_RESET_LISTENER_CALLBACK,
-    pub openListenerCallback: WS_OPEN_LISTENER_CALLBACK,
-    pub closeListenerCallback: WS_CLOSE_LISTENER_CALLBACK,
-    pub abortListenerCallback: WS_ABORT_LISTENER_CALLBACK,
-    pub getListenerPropertyCallback: WS_GET_LISTENER_PROPERTY_CALLBACK,
-    pub setListenerPropertyCallback: WS_SET_LISTENER_PROPERTY_CALLBACK,
-    pub createChannelForListenerCallback: WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK,
-    pub acceptChannelCallback: WS_ACCEPT_CHANNEL_CALLBACK,
+    pub createListenerCallback: ::core::option::Option<WS_CREATE_LISTENER_CALLBACK>,
+    pub freeListenerCallback: ::core::option::Option<WS_FREE_LISTENER_CALLBACK>,
+    pub resetListenerCallback: ::core::option::Option<WS_RESET_LISTENER_CALLBACK>,
+    pub openListenerCallback: ::core::option::Option<WS_OPEN_LISTENER_CALLBACK>,
+    pub closeListenerCallback: ::core::option::Option<WS_CLOSE_LISTENER_CALLBACK>,
+    pub abortListenerCallback: ::core::option::Option<WS_ABORT_LISTENER_CALLBACK>,
+    pub getListenerPropertyCallback: ::core::option::Option<WS_GET_LISTENER_PROPERTY_CALLBACK>,
+    pub setListenerPropertyCallback: ::core::option::Option<WS_SET_LISTENER_PROPERTY_CALLBACK>,
+    pub createChannelForListenerCallback: ::core::option::Option<WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK>,
+    pub acceptChannelCallback: ::core::option::Option<WS_ACCEPT_CHANNEL_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_CUSTOM_LISTENER_CALLBACKS {}
@@ -2159,10 +2159,10 @@ unsafe impl ::windows::core::Abi for WS_CUSTOM_LISTENER_CALLBACKS {
 pub struct WS_CUSTOM_TYPE_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
-    pub readCallback: WS_READ_TYPE_CALLBACK,
-    pub writeCallback: WS_WRITE_TYPE_CALLBACK,
+    pub readCallback: ::core::option::Option<WS_READ_TYPE_CALLBACK>,
+    pub writeCallback: ::core::option::Option<WS_WRITE_TYPE_CALLBACK>,
     pub descriptionData: *mut ::core::ffi::c_void,
-    pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
+    pub isDefaultValueCallback: ::core::option::Option<WS_IS_DEFAULT_VALUE_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_CUSTOM_TYPE_DESCRIPTION {}
@@ -2283,11 +2283,11 @@ impl ::core::cmp::Eq for WS_DECIMAL_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
 }
-pub type WS_DECODER_DECODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_DECODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_DECODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_DECODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_DECODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_DECODER_START_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_DEFAULT_VALUE {
@@ -2482,14 +2482,14 @@ unsafe impl ::windows::core::Abi for WS_DURATION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_DURATION_COMPARISON_CALLBACK = ::core::option::Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DURATION_COMPARISON_CALLBACK = unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_DURATION_DESCRIPTION {
     pub minValue: WS_DURATION,
     pub maxValue: WS_DURATION,
-    pub comparer: WS_DURATION_COMPARISON_CALLBACK,
+    pub comparer: ::core::option::Option<WS_DURATION_COMPARISON_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WS_DURATION_DESCRIPTION {}
@@ -2518,7 +2518,7 @@ unsafe impl ::windows::core::Abi for WS_DURATION_DESCRIPTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_DYNAMIC_STRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DYNAMIC_STRING_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2554,11 +2554,11 @@ impl ::core::cmp::Eq for WS_ELEMENT_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_ELEMENT_DESCRIPTION {
     type Abi = Self;
 }
-pub type WS_ENCODER_ENCODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_ENCODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_ENCODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_ENCODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_ENCODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_ENCODER_START_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_ENCODING(pub i32);
@@ -3225,14 +3225,14 @@ impl ::core::cmp::Eq for WS_FLOAT_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_FLOAT_DESCRIPTION {
     type Abi = Self;
 }
-pub type WS_FREE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void)>;
-pub type WS_FREE_DECODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void)>;
-pub type WS_FREE_ENCODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void)>;
-pub type WS_FREE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void)>;
+pub type WS_FREE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void);
+pub type WS_FREE_DECODER_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void);
+pub type WS_FREE_ENCODER_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void);
+pub type WS_FREE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-pub type WS_GET_CERT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(getcertcallbackstate: *const ::core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_GET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_GET_CERT_CALLBACK = unsafe extern "system" fn(getcertcallbackstate: *const ::core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_GET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_GUID_DESCRIPTION {
@@ -3738,12 +3738,12 @@ unsafe impl ::windows::core::Abi for WS_HTTP_PROXY_SETTING_MODE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_HTTP_REDIRECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::core::HRESULT>;
+pub type WS_HTTP_REDIRECT_CALLBACK = unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    pub callback: WS_HTTP_REDIRECT_CALLBACK,
+    pub callback: ::core::option::Option<WS_HTTP_REDIRECT_CALLBACK>,
     pub state: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4424,7 +4424,7 @@ unsafe impl ::windows::core::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CO
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_IS_DEFAULT_VALUE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, defaultvalue: *const ::core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_IS_DEFAULT_VALUE_CALLBACK = unsafe extern "system" fn(descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, defaultvalue: *const ::core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_ITEM_RANGE {
@@ -4703,7 +4703,7 @@ impl ::core::cmp::Eq for WS_MESSAGE_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_MESSAGE_DESCRIPTION {
     type Abi = Self;
 }
-pub type WS_MESSAGE_DONE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(donecallbackstate: *const ::core::ffi::c_void)>;
+pub type WS_MESSAGE_DONE_CALLBACK = unsafe extern "system" fn(donecallbackstate: *const ::core::ffi::c_void);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_MESSAGE_INITIALIZATION(pub i32);
@@ -5172,10 +5172,10 @@ unsafe impl ::windows::core::Abi for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIA
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_OPEN_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_OPEN_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_OPEN_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_OPERATION_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::core::ffi::c_void)>;
+pub type WS_OPEN_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_OPERATION_CANCEL_CALLBACK = unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::core::ffi::c_void);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WS_OPERATION_CONTEXT(pub u8);
@@ -5210,7 +5210,7 @@ pub struct WS_OPERATION_DESCRIPTION {
     pub outputMessageOptions: u32,
     pub parameterCount: u16,
     pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
-    pub stubCallback: WS_SERVICE_STUB_CALLBACK,
+    pub stubCallback: ::core::option::Option<WS_SERVICE_STUB_CALLBACK>,
     pub style: WS_OPERATION_STYLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5256,7 +5256,7 @@ impl ::core::cmp::Eq for WS_OPERATION_DESCRIPTION {}
 unsafe impl ::windows::core::Abi for WS_OPERATION_DESCRIPTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub type WS_OPERATION_FREE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void)>;
+pub type WS_OPERATION_FREE_STATE_CALLBACK = unsafe extern "system" fn(state: *const ::core::ffi::c_void);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_OPERATION_STYLE(pub i32);
@@ -5484,11 +5484,11 @@ impl ::core::convert::From<i32> for WS_PROTECTION_LEVEL {
 unsafe impl ::windows::core::Abi for WS_PROTECTION_LEVEL {
     type Abi = Self;
 }
-pub type WS_PROXY_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_PROXY_MESSAGE_CALLBACK = unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    pub callback: WS_PROXY_MESSAGE_CALLBACK,
+    pub callback: ::core::option::Option<WS_PROXY_MESSAGE_CALLBACK>,
     pub state: *mut ::core::ffi::c_void,
 }
 impl WS_PROXY_MESSAGE_CALLBACK_CONTEXT {}
@@ -5556,8 +5556,8 @@ impl ::core::convert::From<i32> for WS_PROXY_PROPERTY_ID {
 unsafe impl ::windows::core::Abi for WS_PROXY_PROPERTY_ID {
     type Abi = Self;
 }
-pub type WS_PULL_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_PUSH_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_PULL_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_PUSH_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
@@ -5584,9 +5584,9 @@ impl ::core::cmp::Eq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::core::Abi for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
-pub type WS_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_READ_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_READ_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_READ_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_READ_MESSAGE_START_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_READ_OPTION(pub i32);
@@ -5603,7 +5603,7 @@ impl ::core::convert::From<i32> for WS_READ_OPTION {
 unsafe impl ::windows::core::Abi for WS_READ_OPTION {
     type Abi = Self;
 }
-pub type WS_READ_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_TYPE_CALLBACK = unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_RECEIVE_OPTION(pub i32);
@@ -5749,8 +5749,8 @@ impl ::core::convert::From<i32> for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
 unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
     type Abi = Self;
 }
-pub type WS_RESET_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_RESET_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_RESET_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_RESET_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_RSA_ENDPOINT_IDENTITY {
@@ -6813,7 +6813,7 @@ impl ::core::convert::From<i32> for WS_SECURITY_TOKEN_REFERENCE_MODE {
 unsafe impl ::windows::core::Abi for WS_SECURITY_TOKEN_REFERENCE_MODE {
     type Abi = Self;
 }
-pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_SERVICE_CANCEL_REASON(pub i32);
@@ -6827,13 +6827,13 @@ impl ::core::convert::From<i32> for WS_SERVICE_CANCEL_REASON {
 unsafe impl ::windows::core::Abi for WS_SERVICE_CANCEL_REASON {
     type Abi = Self;
 }
-pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_CONTRACT {
     pub contractDescription: *mut WS_CONTRACT_DESCRIPTION,
-    pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
+    pub defaultMessageHandlerCallback: ::core::option::Option<WS_SERVICE_MESSAGE_RECEIVE_CALLBACK>,
     pub methodTable: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6871,7 +6871,7 @@ pub struct WS_SERVICE_ENDPOINT {
     pub channelType: WS_CHANNEL_TYPE,
     pub securityDescription: *mut WS_SECURITY_DESCRIPTION,
     pub contract: *mut WS_SERVICE_CONTRACT,
-    pub authorizationCallback: WS_SERVICE_SECURITY_CALLBACK,
+    pub authorizationCallback: ::core::option::Option<WS_SERVICE_SECURITY_CALLBACK>,
     pub properties: *mut WS_SERVICE_ENDPOINT_PROPERTY,
     pub propertyCount: u32,
     pub channelProperties: WS_CHANNEL_PROPERTIES,
@@ -7018,7 +7018,7 @@ impl ::core::convert::From<i32> for WS_SERVICE_HOST_STATE {
 unsafe impl ::windows::core::Abi for WS_SERVICE_HOST_STATE {
     type Abi = Self;
 }
-pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -7118,7 +7118,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    pub callback: WS_SERVICE_ACCEPT_CHANNEL_CALLBACK,
+    pub callback: ::core::option::Option<WS_SERVICE_ACCEPT_CHANNEL_CALLBACK>,
 }
 impl WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {}
 impl ::core::default::Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
@@ -7143,7 +7143,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    pub callback: WS_SERVICE_CLOSE_CHANNEL_CALLBACK,
+    pub callback: ::core::option::Option<WS_SERVICE_CLOSE_CHANNEL_CALLBACK>,
 }
 impl WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
 impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
@@ -7203,7 +7203,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_PROXY_STATE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_SERVICE_SECURITY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_SECURITY_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -7237,10 +7237,10 @@ impl ::core::cmp::Eq for WS_SERVICE_SECURITY_IDENTITIES {}
 unsafe impl ::windows::core::Abi for WS_SERVICE_SECURITY_IDENTITIES {
     type Abi = Self;
 }
-pub type WS_SERVICE_STUB_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::core::ffi::c_void, callback: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_SET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_STUB_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::core::ffi::c_void, callback: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_SET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8935,7 +8935,7 @@ pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
+    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9022,7 +9022,7 @@ unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
+    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9078,8 +9078,8 @@ unsafe impl ::windows::core::Abi for WS_UTF8_ARRAY_DESCRIPTION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_VALIDATE_PASSWORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_VALIDATE_SAML_CALLBACK = ::core::option::Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_VALIDATE_PASSWORD_CALLBACK = unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_VALIDATE_SAML_CALLBACK = unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_VALUE_TYPE(pub i32);
@@ -9185,9 +9185,9 @@ impl ::core::convert::From<i32> for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
 unsafe impl ::windows::core::Abi for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
     type Abi = Self;
 }
-pub type WS_WRITE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_WRITE_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-pub type WS_WRITE_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_WRITE_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+pub type WS_WRITE_MESSAGE_START_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::core::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WS_WRITE_OPTION(pub i32);
@@ -9203,7 +9203,7 @@ impl ::core::convert::From<i32> for WS_WRITE_OPTION {
 unsafe impl ::windows::core::Abi for WS_WRITE_OPTION {
     type Abi = Self;
 }
-pub type WS_WRITE_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_TYPE_CALLBACK = unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_WSZ_DESCRIPTION {
@@ -10227,7 +10227,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_RAW_ENCODING {
 #[repr(C)]
 pub struct WS_XML_READER_STREAM_INPUT {
     pub input: WS_XML_READER_INPUT,
-    pub readCallback: WS_READ_CALLBACK,
+    pub readCallback: ::core::option::Option<WS_READ_CALLBACK>,
     pub readCallbackState: *mut ::core::ffi::c_void,
 }
 impl WS_XML_READER_STREAM_INPUT {}
@@ -10631,7 +10631,7 @@ pub struct WS_XML_WRITER(pub u8);
 pub struct WS_XML_WRITER_BINARY_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
-    pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
+    pub dynamicStringCallback: ::core::option::Option<WS_DYNAMIC_STRING_CALLBACK>,
     pub dynamicStringCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10921,7 +10921,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_RAW_ENCODING {
 #[repr(C)]
 pub struct WS_XML_WRITER_STREAM_OUTPUT {
     pub output: WS_XML_WRITER_OUTPUT,
-    pub writeCallback: WS_WRITE_CALLBACK,
+    pub writeCallback: ::core::option::Option<WS_WRITE_CALLBACK>,
     pub writeCallbackState: *mut ::core::ffi::c_void,
 }
 impl WS_XML_WRITER_STREAM_OUTPUT {}
@@ -11286,7 +11286,7 @@ pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut ::core::
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: ::core::option::Option<WS_ASYNC_FUNCTION>, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11558,7 +11558,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
     propertycount: u32,
     addressurl: *const WS_STRING,
     contract: *const WS_SERVICE_CONTRACT,
-    authorizationcallback: WS_SERVICE_SECURITY_CALLBACK,
+    authorizationcallback: ::core::option::Option<WS_SERVICE_SECURITY_CALLBACK>,
     heap: *const WS_HEAP,
     templatetype: WS_BINDING_TEMPLATE_TYPE,
     templatevalue: *const ::core::ffi::c_void,
@@ -11585,7 +11585,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
                 templatesize: u32,
                 templatedescription: *const ::core::ffi::c_void,
                 templatedescriptionsize: u32,
-                serviceendpoint: *mut *mut ::core::mem::ManuallyDrop<WS_SERVICE_ENDPOINT>,
+                serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT,
                 error: *const WS_ERROR,
             ) -> ::windows::core::HRESULT;
         }
@@ -11617,7 +11617,7 @@ pub unsafe fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsCreateServiceHost(endpoints: *const *const ::core::mem::ManuallyDrop<WS_SERVICE_ENDPOINT>, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsCreateServiceHost(::core::mem::transmute(endpoints), ::core::mem::transmute(endpointcount), ::core::mem::transmute(serviceproperties), ::core::mem::transmute(servicepropertycount), ::core::mem::transmute(servicehost), ::core::mem::transmute(error)).ok()
     }
@@ -12565,7 +12565,7 @@ pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: ::core::option::Option<WS_PULL_BYTES_CALLBACK>, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12578,7 +12578,7 @@ pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: ::core::option::Option<WS_PUSH_BYTES_CALLBACK>, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12752,7 +12752,7 @@ pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: *const WS_ERR
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: ::core::option::Option<WS_MESSAGE_DONE_CALLBACK>, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12974,7 +12974,7 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: ::core::option::Option<WS_OPERATION_CANCEL_CALLBACK>, freestatecallback: ::core::option::Option<WS_OPERATION_FREE_STATE_CALLBACK>, userstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13479,7 +13479,7 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: *const WS_ERROR) -
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: ::core::option::Option<WS_WRITE_CALLBACK>, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13492,7 +13492,7 @@ pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writec
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: ::core::option::Option<WS_WRITE_CALLBACK>, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13694,7 +13694,7 @@ pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: *const WS_ER
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: ::core::option::Option<WS_MESSAGE_DONE_CALLBACK>, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

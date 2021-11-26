@@ -251,10 +251,10 @@ unsafe impl ::windows::core::Abi for DWRITE_CONTAINER_TYPE {
     type Abi = Self;
 }
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
-pub const DWRITE_E_DOWNLOADCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283954i32);
-pub const DWRITE_E_DOWNLOADFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283953i32);
-pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283955i32);
-pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32);
+pub const DWRITE_E_DOWNLOADCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283954i32 as _);
+pub const DWRITE_E_DOWNLOADFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283953i32 as _);
+pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283955i32 as _);
+pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DWRITE_FACTORY_TYPE(pub i32);
@@ -3294,7 +3294,7 @@ pub struct IDWriteColorGlyphRunEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasrun: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut ::core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -3369,9 +3369,9 @@ pub struct IDWriteColorGlyphRunEnumerator1_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hasrun: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut ::core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut ::core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN1>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]

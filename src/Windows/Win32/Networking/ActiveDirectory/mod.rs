@@ -1933,11 +1933,11 @@ unsafe impl ::windows::core::Abi for CQFORM {
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub pPageProc: LPCQPAGEPROC,
+    pub pPageProc: ::core::option::Option<LPCQPAGEPROC>,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
-    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub pDlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2349,7 +2349,7 @@ pub struct DSBROWSEINFOA {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -2424,7 +2424,7 @@ pub struct DSBROWSEINFOW {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -18968,7 +18968,7 @@ impl IDsAdminNewObjExt {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), ::core::mem::transmute(pdispinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: ::core::option::Option<super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpfnaddpage), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SetObject<'a, Param0: ::windows::core::IntoParam<'a, IADs>>(&self, padsobj: Param0) -> ::windows::core::Result<()> {
@@ -19235,7 +19235,7 @@ impl IDsDisplaySpecifier {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(ppdscci)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: LPDSENUMATTRIBUTES, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: ::core::option::Option<LPDSENUMATTRIBUTES>, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(pcbenum), lparam.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -19654,11 +19654,11 @@ impl IQueryForm {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hkform.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: ::core::option::Option<LPCQADDFORMSPROC>, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddformsproc), lparam.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: ::core::option::Option<LPCQADDPAGESPROC>, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddpagesproc), lparam.into_param().abi()).ok()
     }
 }
@@ -19700,13 +19700,13 @@ pub struct IQueryForm_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT>;
+pub type LPCQADDFORMSPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>) -> ::windows::core::HRESULT>;
+pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>) -> ::windows::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
+pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT>;
+pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
 pub const LargeInteger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;

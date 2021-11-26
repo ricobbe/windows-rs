@@ -97,68 +97,68 @@ impl ::core::cmp::Eq for CProperty_0 {}
 unsafe impl ::windows::core::Abi for CProperty_0 {
     type Abi = Self;
 }
-pub const E_ALL_WILD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479467i32);
-pub const E_ALREADYINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479421i32);
-pub const E_ALREADYOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479533i32);
-pub const E_ASSERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479546i32);
-pub const E_BADBREAKER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479469i32);
-pub const E_BADFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479549i32);
-pub const E_BADFILTERSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479528i32);
-pub const E_BADFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479548i32);
-pub const E_BADINDEXFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479456i32);
-pub const E_BADPARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479535i32);
-pub const E_BADRANGEOP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479459i32);
-pub const E_BADVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479468i32);
-pub const E_BADVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479550i32);
-pub const E_CANTFINDDLL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479538i32);
-pub const E_DISKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479496i32);
-pub const E_DUPLICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479551i32);
-pub const E_EXPECTEDTERM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479465i32);
-pub const E_FILECLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479503i32);
-pub const E_FILECREATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479504i32);
-pub const E_FILEDELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479499i32);
-pub const E_FILEINVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479498i32);
-pub const E_FILENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479497i32);
-pub const E_FILEREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479502i32);
-pub const E_FILESEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479501i32);
-pub const E_FILEWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479500i32);
-pub const E_GETLASTERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479536i32);
-pub const E_GROUPIDTOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479542i32);
-pub const E_INTERRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479545i32);
-pub const E_INVALIDSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479534i32);
-pub const E_MISSINGPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479424i32);
-pub const E_MISSLPAREN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479464i32);
-pub const E_MISSQUOTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479462i32);
-pub const E_MISSRPAREN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479463i32);
-pub const E_NAMETOOLONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479520i32);
-pub const E_NOHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479537i32);
-pub const E_NOKEYPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479417i32);
-pub const E_NOMERGEDDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479540i32);
-pub const E_NOPERMISSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479547i32);
-pub const E_NOSTEMMER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479454i32);
-pub const E_NOTEXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479552i32);
-pub const E_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479539i32);
-pub const E_NOTINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479420i32);
-pub const E_NOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479533i32);
-pub const E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479544i32);
-pub const E_NULLQUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479461i32);
-pub const E_OUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479543i32);
-pub const E_PROPLISTEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479422i32);
-pub const E_PROPLISTNOTEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479423i32);
-pub const E_RESULTSETEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479419i32);
-pub const E_STOPWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479460i32);
-pub const E_TOODEEP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479466i32);
-pub const E_TOOMANYCOLUMNS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479418i32);
-pub const E_TOOMANYDUPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479471i32);
-pub const E_TOOMANYOBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479527i32);
-pub const E_TOOMANYTITLES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479541i32);
-pub const E_TOOMANYTOPICS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479472i32);
-pub const E_TREETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479470i32);
-pub const E_UNKNOWN_TRANSPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479530i32);
-pub const E_UNMATCHEDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479458i32);
-pub const E_UNSUPPORTED_TRANSPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479529i32);
-pub const E_WILD_IN_DTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479455i32);
-pub const E_WORDTOOLONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479457i32);
+pub const E_ALL_WILD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479467i32 as _);
+pub const E_ALREADYINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479421i32 as _);
+pub const E_ALREADYOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479533i32 as _);
+pub const E_ASSERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479546i32 as _);
+pub const E_BADBREAKER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479469i32 as _);
+pub const E_BADFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479549i32 as _);
+pub const E_BADFILTERSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479528i32 as _);
+pub const E_BADFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479548i32 as _);
+pub const E_BADINDEXFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479456i32 as _);
+pub const E_BADPARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479535i32 as _);
+pub const E_BADRANGEOP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479459i32 as _);
+pub const E_BADVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479468i32 as _);
+pub const E_BADVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479550i32 as _);
+pub const E_CANTFINDDLL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479538i32 as _);
+pub const E_DISKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479496i32 as _);
+pub const E_DUPLICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479551i32 as _);
+pub const E_EXPECTEDTERM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479465i32 as _);
+pub const E_FILECLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479503i32 as _);
+pub const E_FILECREATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479504i32 as _);
+pub const E_FILEDELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479499i32 as _);
+pub const E_FILEINVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479498i32 as _);
+pub const E_FILENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479497i32 as _);
+pub const E_FILEREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479502i32 as _);
+pub const E_FILESEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479501i32 as _);
+pub const E_FILEWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479500i32 as _);
+pub const E_GETLASTERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479536i32 as _);
+pub const E_GROUPIDTOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479542i32 as _);
+pub const E_INTERRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479545i32 as _);
+pub const E_INVALIDSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479534i32 as _);
+pub const E_MISSINGPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479424i32 as _);
+pub const E_MISSLPAREN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479464i32 as _);
+pub const E_MISSQUOTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479462i32 as _);
+pub const E_MISSRPAREN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479463i32 as _);
+pub const E_NAMETOOLONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479520i32 as _);
+pub const E_NOHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479537i32 as _);
+pub const E_NOKEYPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479417i32 as _);
+pub const E_NOMERGEDDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479540i32 as _);
+pub const E_NOPERMISSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479547i32 as _);
+pub const E_NOSTEMMER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479454i32 as _);
+pub const E_NOTEXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479552i32 as _);
+pub const E_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479539i32 as _);
+pub const E_NOTINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479420i32 as _);
+pub const E_NOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479533i32 as _);
+pub const E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479544i32 as _);
+pub const E_NULLQUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479461i32 as _);
+pub const E_OUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479543i32 as _);
+pub const E_PROPLISTEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479422i32 as _);
+pub const E_PROPLISTNOTEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479423i32 as _);
+pub const E_RESULTSETEMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479419i32 as _);
+pub const E_STOPWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479460i32 as _);
+pub const E_TOODEEP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479466i32 as _);
+pub const E_TOOMANYCOLUMNS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479418i32 as _);
+pub const E_TOOMANYDUPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479471i32 as _);
+pub const E_TOOMANYOBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479527i32 as _);
+pub const E_TOOMANYTITLES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479541i32 as _);
+pub const E_TOOMANYTOPICS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479472i32 as _);
+pub const E_TREETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479470i32 as _);
+pub const E_UNKNOWN_TRANSPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479530i32 as _);
+pub const E_UNMATCHEDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479458i32 as _);
+pub const E_UNSUPPORTED_TRANSPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479529i32 as _);
+pub const E_WILD_IN_DTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479455i32 as _);
+pub const E_WORDTOOLONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479457i32 as _);
 pub const HHACT_BACK: i32 = 7i32;
 pub const HHACT_CONTRACT: i32 = 6i32;
 pub const HHACT_CUSTOMIZE: i32 = 16i32;
@@ -1104,7 +1104,7 @@ impl IITResultSet {
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
     }
-    pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()> {
+    pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: ::core::option::Option<PFNCOLHEAPFREE>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvheap), ::core::mem::transmute(pfncolheapfree)).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()> {
@@ -1549,7 +1549,7 @@ pub struct IWordBreakerConfig_abi(
     #[cfg(not(feature = "Win32_System_Search"))] usize,
 );
 pub const MAX_COLUMNS: u32 = 256u32;
-pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
+pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);

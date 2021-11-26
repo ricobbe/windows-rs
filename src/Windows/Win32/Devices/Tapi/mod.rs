@@ -215,7 +215,7 @@ impl ::core::convert::From<i32> for AGENT_STATE {
 unsafe impl ::windows::core::Abi for AGENT_STATE {
     type Abi = Self;
 }
-pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
+pub type ASYNC_COMPLETION = unsafe extern "system" fn(dwrequestid: u32, lresult: i32);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CALLHUB_EVENT(pub i32);
@@ -2519,7 +2519,7 @@ pub struct ITAMMediaFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmt: *mut *mut ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
@@ -7315,7 +7315,7 @@ pub struct ITFileTrack_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmt: *mut *mut ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
@@ -12912,7 +12912,7 @@ pub const LINEBUSYMODE_STATION: u32 = 1u32;
 pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
 pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
 pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
-pub type LINECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type LINECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
 pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
 pub const LINECALLCOMPLMODE_CALLBACK: u32 = 2u32;
@@ -13704,7 +13704,7 @@ pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
 pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
-pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type LINEEVENT = unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct LINEEXTENSIONID {
@@ -15151,11 +15151,11 @@ pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 pub const LINE_REQUEST: i32 = 13i32;
 #[cfg(feature = "Win32_System_Com")]
-pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: ::windows::core::RawPtr, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT>;
+pub type LPGETTNEFSTREAMCODEPAGE = unsafe extern "system" fn(lpstream: ::windows::core::RawPtr, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type LPOPENTNEFSTREAM = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpadressbook: ::windows::core::RawPtr, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpadressbook: ::windows::core::RawPtr, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
@@ -15754,7 +15754,7 @@ pub const PHONEBUTTONSTATE_DOWN: u32 = 2u32;
 pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
-pub type PHONECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type PHONECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct PHONECAPS {
@@ -15902,7 +15902,7 @@ pub const PHONEERR_RESOURCEUNAVAIL: u32 = 2415919135u32;
 pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
-pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
+pub type PHONEEVENT = unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct PHONEEXTENSIONID {
@@ -16617,96 +16617,96 @@ impl ::core::convert::From<i32> for TAPI_EVENT {
 unsafe impl ::windows::core::Abi for TAPI_EVENT {
     type Abi = Self;
 }
-pub const TAPI_E_ADDRESSBLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221462i32);
-pub const TAPI_E_ALLOCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221498i32);
-pub const TAPI_E_BILLINGREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221461i32);
-pub const TAPI_E_CALLCENTER_GROUP_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221435i32);
-pub const TAPI_E_CALLCENTER_INVALAGENTACTIVITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221428i32);
-pub const TAPI_E_CALLCENTER_INVALAGENTGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221431i32);
-pub const TAPI_E_CALLCENTER_INVALAGENTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221432i32);
-pub const TAPI_E_CALLCENTER_INVALAGENTSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221429i32);
-pub const TAPI_E_CALLCENTER_INVALPASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221430i32);
-pub const TAPI_E_CALLCENTER_NO_AGENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221433i32);
-pub const TAPI_E_CALLCENTER_QUEUE_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221434i32);
-pub const TAPI_E_CALLNOTSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221420i32);
-pub const TAPI_E_CALLUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221497i32);
-pub const TAPI_E_COMPLETIONOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221496i32);
-pub const TAPI_E_CONFERENCEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221495i32);
-pub const TAPI_E_DESTBUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221452i32);
-pub const TAPI_E_DESTNOANSWER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221451i32);
-pub const TAPI_E_DESTUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221450i32);
-pub const TAPI_E_DIALMODIFIERNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221494i32);
-pub const TAPI_E_DROPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221455i32);
-pub const TAPI_E_INUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221493i32);
-pub const TAPI_E_INVALADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221492i32);
-pub const TAPI_E_INVALADDRESSSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221491i32);
-pub const TAPI_E_INVALADDRESSTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221423i32);
-pub const TAPI_E_INVALBUTTONLAMPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221459i32);
-pub const TAPI_E_INVALBUTTONSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221458i32);
-pub const TAPI_E_INVALCALLPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221490i32);
-pub const TAPI_E_INVALCALLPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221489i32);
-pub const TAPI_E_INVALCALLSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221488i32);
-pub const TAPI_E_INVALCARD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221487i32);
-pub const TAPI_E_INVALCOMPLETIONID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221486i32);
-pub const TAPI_E_INVALCOUNTRYCODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221485i32);
-pub const TAPI_E_INVALDATAID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221457i32);
-pub const TAPI_E_INVALDEVICECLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221484i32);
-pub const TAPI_E_INVALDIALPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221483i32);
-pub const TAPI_E_INVALDIGITS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221482i32);
-pub const TAPI_E_INVALFEATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221460i32);
-pub const TAPI_E_INVALGROUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221481i32);
-pub const TAPI_E_INVALHOOKSWITCHDEV: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221456i32);
-pub const TAPI_E_INVALIDDIRECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221446i32);
-pub const TAPI_E_INVALIDMEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221500i32);
-pub const TAPI_E_INVALIDSTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221437i32);
-pub const TAPI_E_INVALIDSTREAMSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221417i32);
-pub const TAPI_E_INVALIDTERMINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221445i32);
-pub const TAPI_E_INVALIDTERMINALCLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221444i32);
-pub const TAPI_E_INVALLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221474i32);
-pub const TAPI_E_INVALLOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221480i32);
-pub const TAPI_E_INVALMESSAGEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221479i32);
-pub const TAPI_E_INVALMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221473i32);
-pub const TAPI_E_INVALPARKID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221478i32);
-pub const TAPI_E_INVALPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221447i32);
-pub const TAPI_E_INVALRATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221477i32);
-pub const TAPI_E_INVALTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221476i32);
-pub const TAPI_E_INVALTONE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221475i32);
-pub const TAPI_E_MAXSTREAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221442i32);
-pub const TAPI_E_MAXTERMINALS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221438i32);
-pub const TAPI_E_NOCONFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221472i32);
-pub const TAPI_E_NODEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221471i32);
-pub const TAPI_E_NODRIVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221443i32);
-pub const TAPI_E_NOEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221424i32);
-pub const TAPI_E_NOFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221418i32);
-pub const TAPI_E_NOITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221502i32);
-pub const TAPI_E_NOREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221470i32);
-pub const TAPI_E_NOREQUESTRECIPIENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221454i32);
-pub const TAPI_E_NOTENOUGHMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221503i32);
-pub const TAPI_E_NOTERMINALSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221441i32);
-pub const TAPI_E_NOTOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221469i32);
-pub const TAPI_E_NOTREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221468i32);
-pub const TAPI_E_NOTSTOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221439i32);
-pub const TAPI_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221501i32);
-pub const TAPI_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221415i32);
-pub const TAPI_E_OPERATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221499i32);
-pub const TAPI_E_PEER_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221425i32);
-pub const TAPI_E_PHONENOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221421i32);
-pub const TAPI_E_REGISTRY_SETTING_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221427i32);
-pub const TAPI_E_REINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221463i32);
-pub const TAPI_E_REQUESTCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221448i32);
-pub const TAPI_E_REQUESTFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221449i32);
-pub const TAPI_E_REQUESTOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221467i32);
-pub const TAPI_E_REQUESTQUEUEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221453i32);
-pub const TAPI_E_RESOURCEUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221422i32);
-pub const TAPI_E_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221414i32);
-pub const TAPI_E_TARGETNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221466i32);
-pub const TAPI_E_TARGETSELF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221465i32);
-pub const TAPI_E_TERMINALINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221440i32);
-pub const TAPI_E_TERMINAL_PEER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221426i32);
-pub const TAPI_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221436i32);
-pub const TAPI_E_USERUSERINFOTOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221464i32);
-pub const TAPI_E_WRONGEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221419i32);
-pub const TAPI_E_WRONG_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221416i32);
+pub const TAPI_E_ADDRESSBLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221462i32 as _);
+pub const TAPI_E_ALLOCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221498i32 as _);
+pub const TAPI_E_BILLINGREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221461i32 as _);
+pub const TAPI_E_CALLCENTER_GROUP_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221435i32 as _);
+pub const TAPI_E_CALLCENTER_INVALAGENTACTIVITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221428i32 as _);
+pub const TAPI_E_CALLCENTER_INVALAGENTGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221431i32 as _);
+pub const TAPI_E_CALLCENTER_INVALAGENTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221432i32 as _);
+pub const TAPI_E_CALLCENTER_INVALAGENTSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221429i32 as _);
+pub const TAPI_E_CALLCENTER_INVALPASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221430i32 as _);
+pub const TAPI_E_CALLCENTER_NO_AGENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221433i32 as _);
+pub const TAPI_E_CALLCENTER_QUEUE_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221434i32 as _);
+pub const TAPI_E_CALLNOTSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221420i32 as _);
+pub const TAPI_E_CALLUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221497i32 as _);
+pub const TAPI_E_COMPLETIONOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221496i32 as _);
+pub const TAPI_E_CONFERENCEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221495i32 as _);
+pub const TAPI_E_DESTBUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221452i32 as _);
+pub const TAPI_E_DESTNOANSWER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221451i32 as _);
+pub const TAPI_E_DESTUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221450i32 as _);
+pub const TAPI_E_DIALMODIFIERNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221494i32 as _);
+pub const TAPI_E_DROPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221455i32 as _);
+pub const TAPI_E_INUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221493i32 as _);
+pub const TAPI_E_INVALADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221492i32 as _);
+pub const TAPI_E_INVALADDRESSSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221491i32 as _);
+pub const TAPI_E_INVALADDRESSTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221423i32 as _);
+pub const TAPI_E_INVALBUTTONLAMPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221459i32 as _);
+pub const TAPI_E_INVALBUTTONSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221458i32 as _);
+pub const TAPI_E_INVALCALLPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221490i32 as _);
+pub const TAPI_E_INVALCALLPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221489i32 as _);
+pub const TAPI_E_INVALCALLSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221488i32 as _);
+pub const TAPI_E_INVALCARD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221487i32 as _);
+pub const TAPI_E_INVALCOMPLETIONID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221486i32 as _);
+pub const TAPI_E_INVALCOUNTRYCODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221485i32 as _);
+pub const TAPI_E_INVALDATAID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221457i32 as _);
+pub const TAPI_E_INVALDEVICECLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221484i32 as _);
+pub const TAPI_E_INVALDIALPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221483i32 as _);
+pub const TAPI_E_INVALDIGITS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221482i32 as _);
+pub const TAPI_E_INVALFEATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221460i32 as _);
+pub const TAPI_E_INVALGROUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221481i32 as _);
+pub const TAPI_E_INVALHOOKSWITCHDEV: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221456i32 as _);
+pub const TAPI_E_INVALIDDIRECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221446i32 as _);
+pub const TAPI_E_INVALIDMEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221500i32 as _);
+pub const TAPI_E_INVALIDSTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221437i32 as _);
+pub const TAPI_E_INVALIDSTREAMSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221417i32 as _);
+pub const TAPI_E_INVALIDTERMINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221445i32 as _);
+pub const TAPI_E_INVALIDTERMINALCLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221444i32 as _);
+pub const TAPI_E_INVALLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221474i32 as _);
+pub const TAPI_E_INVALLOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221480i32 as _);
+pub const TAPI_E_INVALMESSAGEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221479i32 as _);
+pub const TAPI_E_INVALMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221473i32 as _);
+pub const TAPI_E_INVALPARKID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221478i32 as _);
+pub const TAPI_E_INVALPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221447i32 as _);
+pub const TAPI_E_INVALRATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221477i32 as _);
+pub const TAPI_E_INVALTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221476i32 as _);
+pub const TAPI_E_INVALTONE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221475i32 as _);
+pub const TAPI_E_MAXSTREAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221442i32 as _);
+pub const TAPI_E_MAXTERMINALS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221438i32 as _);
+pub const TAPI_E_NOCONFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221472i32 as _);
+pub const TAPI_E_NODEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221471i32 as _);
+pub const TAPI_E_NODRIVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221443i32 as _);
+pub const TAPI_E_NOEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221424i32 as _);
+pub const TAPI_E_NOFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221418i32 as _);
+pub const TAPI_E_NOITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221502i32 as _);
+pub const TAPI_E_NOREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221470i32 as _);
+pub const TAPI_E_NOREQUESTRECIPIENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221454i32 as _);
+pub const TAPI_E_NOTENOUGHMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221503i32 as _);
+pub const TAPI_E_NOTERMINALSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221441i32 as _);
+pub const TAPI_E_NOTOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221469i32 as _);
+pub const TAPI_E_NOTREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221468i32 as _);
+pub const TAPI_E_NOTSTOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221439i32 as _);
+pub const TAPI_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221501i32 as _);
+pub const TAPI_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221415i32 as _);
+pub const TAPI_E_OPERATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221499i32 as _);
+pub const TAPI_E_PEER_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221425i32 as _);
+pub const TAPI_E_PHONENOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221421i32 as _);
+pub const TAPI_E_REGISTRY_SETTING_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221427i32 as _);
+pub const TAPI_E_REINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221463i32 as _);
+pub const TAPI_E_REQUESTCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221448i32 as _);
+pub const TAPI_E_REQUESTFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221449i32 as _);
+pub const TAPI_E_REQUESTOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221467i32 as _);
+pub const TAPI_E_REQUESTQUEUEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221453i32 as _);
+pub const TAPI_E_RESOURCEUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221422i32 as _);
+pub const TAPI_E_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221414i32 as _);
+pub const TAPI_E_TARGETNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221466i32 as _);
+pub const TAPI_E_TARGETSELF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221465i32 as _);
+pub const TAPI_E_TERMINALINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221440i32 as _);
+pub const TAPI_E_TERMINAL_PEER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221426i32 as _);
+pub const TAPI_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221436i32 as _);
+pub const TAPI_E_USERUSERINFOTOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221464i32 as _);
+pub const TAPI_E_WRONGEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221419i32 as _);
+pub const TAPI_E_WRONG_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221416i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPI_GATHERTERM(pub i32);
@@ -16963,7 +16963,7 @@ impl ::core::cmp::Eq for TUISPICREATEDIALOGINSTANCEPARAMS {}
 unsafe impl ::windows::core::Abi for TUISPICREATEDIALOGINSTANCEPARAMS {
     type Abi = Self;
 }
-pub type TUISPIDLLCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32>;
+pub type TUISPIDLLCALLBACK = unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
@@ -18594,7 +18594,7 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
+pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<LINECALLBACK>, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18608,7 +18608,7 @@ pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<LINECALLBACK>, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18622,7 +18622,7 @@ pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<LINECALLBACK>, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -20183,7 +20183,7 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
+pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<PHONECALLBACK>, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -20197,7 +20197,7 @@ pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<PHONECALLBACK>, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -20211,7 +20211,7 @@ pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: ::core::option::Option<PHONECALLBACK>, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -212,7 +212,7 @@ pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
 pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
-pub type PQUERYHANDLER = ::core::option::Option<unsafe extern "system" fn(keycontext: *mut ::core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
+pub type PQUERYHANDLER = unsafe extern "system" fn(keycontext: *mut ::core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
 pub const REGDF_CONFLICTIO: u32 = 65536u32;
@@ -1926,10 +1926,10 @@ pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 pub struct provider_info {
-    pub pi_R0_1val: PQUERYHANDLER,
-    pub pi_R0_allvals: PQUERYHANDLER,
-    pub pi_R3_1val: PQUERYHANDLER,
-    pub pi_R3_allvals: PQUERYHANDLER,
+    pub pi_R0_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R0_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_allvals: ::core::option::Option<PQUERYHANDLER>,
     pub pi_flags: u32,
     pub pi_key_context: *mut ::core::ffi::c_void,
 }

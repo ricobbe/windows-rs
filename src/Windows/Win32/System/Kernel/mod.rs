@@ -79,7 +79,7 @@ unsafe impl ::windows::core::Abi for EXCEPTION_DISPOSITION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
-    pub Handler: EXCEPTION_ROUTINE,
+    pub Handler: ::core::option::Option<EXCEPTION_ROUTINE>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl EXCEPTION_REGISTRATION_RECORD {}
@@ -108,7 +108,7 @@ unsafe impl ::windows::core::Abi for EXCEPTION_REGISTRATION_RECORD {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-pub type EXCEPTION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
+pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

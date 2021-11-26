@@ -477,7 +477,7 @@ impl ::core::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
 unsafe impl ::windows::core::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
 }
-pub type DUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
+pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DUMP_DRIVER {
@@ -615,7 +615,7 @@ pub struct DUMP_POINTERS_EX {
     pub AdapterObject: *mut ::core::ffi::c_void,
     pub MappedRegisterBase: *mut ::core::ffi::c_void,
     pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
-    pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
+    pub DumpDevicePowerOn: ::core::option::Option<PDUMP_DEVICE_POWERON_ROUTINE>,
     pub DumpDevicePowerOnContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3131,7 +3131,7 @@ impl ::core::convert::From<i32> for NV_SEP_WRITE_CACHE_TYPE {
 unsafe impl ::windows::core::Abi for NV_SEP_WRITE_CACHE_TYPE {
     type Abi = Self;
 }
-pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

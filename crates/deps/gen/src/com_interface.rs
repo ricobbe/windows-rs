@@ -121,4 +121,3 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
         }
     }
 }
-

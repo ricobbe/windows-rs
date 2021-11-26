@@ -264,14 +264,14 @@ pub const CLSID_ConvertVBX: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const CLSID_PersistPropset: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb8f0821_0164_101b_84ed_08002b2ec713);
 pub const CLSID_StdFont: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be35203_8f91_11ce_9de3_00aa004bb851);
 pub const CLSID_StdPicture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be35204_8f91_11ce_9de3_00aa004bb851);
-pub const CONNECT_E_ADVISELIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-pub const CONNECT_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
+pub const CONNECT_E_ADVISELIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
+pub const CONNECT_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32 as _);
 pub const CONNECT_E_FIRST: i32 = -2147220992i32;
-pub const CONNECT_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
-pub const CONNECT_E_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-pub const CONNECT_E_OVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-pub const CONNECT_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
-pub const CONNECT_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
+pub const CONNECT_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
+pub const CONNECT_E_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
+pub const CONNECT_E_OVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32 as _);
+pub const CONNECT_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
+pub const CONNECT_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -605,7 +605,7 @@ pub unsafe fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
+            fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
         }
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -8782,7 +8782,7 @@ pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNOLEUIHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
+pub type LPFNOLEUIHOOK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32;
 pub const LP_COLOR: u32 = 4u32;
 pub const LP_DEFAULT: u32 = 0u32;
 pub const LP_MONOCHROME: u32 = 1u32;
@@ -9173,12 +9173,12 @@ pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1u32;
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2u32;
-pub const OLECMDERR_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221245i32);
-pub const OLECMDERR_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221247i32);
-pub const OLECMDERR_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32);
-pub const OLECMDERR_E_NOHELP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221246i32);
+pub const OLECMDERR_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221245i32 as _);
+pub const OLECMDERR_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221247i32 as _);
+pub const OLECMDERR_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32 as _);
+pub const OLECMDERR_E_NOHELP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221246i32 as _);
 pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
-pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221244i32);
+pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221244i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDEXECOPT(pub i32);
@@ -9611,7 +9611,7 @@ pub struct OLEUIBUSYA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9664,7 +9664,7 @@ pub struct OLEUIBUSYW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -9717,7 +9717,7 @@ pub struct OLEUICHANGEICONA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9786,7 +9786,7 @@ pub struct OLEUICHANGEICONW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -9855,7 +9855,7 @@ pub struct OLEUICHANGESOURCEA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9936,7 +9936,7 @@ pub struct OLEUICHANGESOURCEW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10017,7 +10017,7 @@ pub struct OLEUICONVERTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10113,7 +10113,7 @@ pub struct OLEUICONVERTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10209,7 +10209,7 @@ pub struct OLEUIEDITLINKSA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10260,7 +10260,7 @@ pub struct OLEUIEDITLINKSW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10310,7 +10310,7 @@ pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -10348,7 +10348,7 @@ pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -10387,7 +10387,7 @@ pub struct OLEUIINSERTOBJECTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10483,7 +10483,7 @@ pub struct OLEUIINSERTOBJECTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10578,7 +10578,7 @@ pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -10616,7 +10616,7 @@ pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -10854,7 +10854,7 @@ pub struct OLEUIPASTESPECIALA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10944,7 +10944,7 @@ pub struct OLEUIPASTESPECIALW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -11033,7 +11033,7 @@ pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -11082,7 +11082,7 @@ pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: LPFNOLEUIHOOK,
+    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -12950,10 +12950,10 @@ pub const PARAMFLAG_FOUT: u32 = 2u32;
 pub const PARAMFLAG_FRETVAL: u32 = 8u32;
 pub const PARAMFLAG_NONE: u32 = 0u32;
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
-pub const PERPROP_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
-pub const PERPROP_E_NOPAGEAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-pub const PERPROP_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
-pub const PERPROP_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
+pub const PERPROP_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
+pub const PERPROP_E_NOPAGEAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
+pub const PERPROP_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
+pub const PERPROP_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13600,12 +13600,12 @@ pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SELFREG_E_CLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+pub const SELFREG_E_CLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
-pub const SELFREG_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32);
-pub const SELFREG_E_TYPELIB: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-pub const SELFREG_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
-pub const SELFREG_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
+pub const SELFREG_E_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220977i32 as _);
+pub const SELFREG_E_TYPELIB: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
+pub const SELFREG_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32 as _);
+pub const SELFREG_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32 as _);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_TYPE(pub i32);

@@ -2574,7 +2574,7 @@ pub struct IBackgroundCopyJob1_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pdwprogress: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cfilecount: u32, ppfileset: *const *const ::core::mem::ManuallyDrop<FILESETINFO>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cfileindex: u32, pfileinfo: *mut ::core::mem::ManuallyDrop<FILESETINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,

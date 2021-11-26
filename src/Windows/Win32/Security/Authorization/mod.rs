@@ -1241,11 +1241,11 @@ impl ::core::ops::Not for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: super::super::Foundation::PWSTR,
-    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
-    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
-    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
-    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
-    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
+    pub pfnDynamicAccessCheck: ::core::option::Option<PFN_AUTHZ_DYNAMIC_ACCESS_CHECK>,
+    pub pfnComputeDynamicGroups: ::core::option::Option<PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS>,
+    pub pfnFreeDynamicGroups: ::core::option::Option<PFN_AUTHZ_FREE_DYNAMIC_GROUPS>,
+    pub pfnGetCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY>,
+    pub pfnFreeCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AUTHZ_INIT_INFO {}
@@ -2162,7 +2162,7 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RP
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeResourceManager<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: Param4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzInitializeResourceManager<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, pfndynamicaccesscheck: ::core::option::Option<PFN_AUTHZ_DYNAMIC_ACCESS_CHECK>, pfncomputedynamicgroups: ::core::option::Option<PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS>, pfnfreedynamicgroups: ::core::option::Option<PFN_AUTHZ_FREE_DYNAMIC_GROUPS>, szresourcemanagername: Param4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2278,7 +2278,7 @@ pub unsafe fn AuthzOpenObjectAudit<'a, Param1: ::windows::core::IntoParam<'a, AU
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2843,7 +2843,7 @@ unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FN_PROGRESS = ::core::option::Option<unsafe extern "system" fn(pobjectname: super::super::Foundation::PWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
+pub type FN_PROGRESS = unsafe extern "system" fn(pobjectname: super::super::Foundation::PWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS) -> u32 {
@@ -11482,16 +11482,16 @@ impl ::core::cmp::Eq for OBJECTS_AND_SID {}
 unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
     type Abi = Self;
 }
-pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32);
+pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const ::core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(pcentralaccesspolicy: *const ::core::ffi::c_void)>;
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const ::core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = unsafe extern "system" fn(pcentralaccesspolicy: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROG_INVOKE_SETTING(pub i32);
@@ -11843,7 +11843,7 @@ pub unsafe fn TreeResetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam
     pdacl: *const super::ACL,
     psacl: *const super::ACL,
     keepexplicit: Param7,
-    fnprogress: FN_PROGRESS,
+    fnprogress: ::core::option::Option<FN_PROGRESS>,
     progressinvokesetting: PROG_INVOKE_SETTING,
     args: *const ::core::ffi::c_void,
 ) -> u32 {
@@ -11881,7 +11881,7 @@ pub unsafe fn TreeResetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam
     pdacl: *const super::ACL,
     psacl: *const super::ACL,
     keepexplicit: Param7,
-    fnprogress: FN_PROGRESS,
+    fnprogress: ::core::option::Option<FN_PROGRESS>,
     progressinvokesetting: PROG_INVOKE_SETTING,
     args: *const ::core::ffi::c_void,
 ) -> u32 {
@@ -11919,7 +11919,7 @@ pub unsafe fn TreeSetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'
     pdacl: *const super::ACL,
     psacl: *const super::ACL,
     dwaction: TREE_SEC_INFO,
-    fnprogress: FN_PROGRESS,
+    fnprogress: ::core::option::Option<FN_PROGRESS>,
     progressinvokesetting: PROG_INVOKE_SETTING,
     args: *const ::core::ffi::c_void,
 ) -> u32 {
@@ -11957,7 +11957,7 @@ pub unsafe fn TreeSetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'
     pdacl: *const super::ACL,
     psacl: *const super::ACL,
     dwaction: TREE_SEC_INFO,
-    fnprogress: FN_PROGRESS,
+    fnprogress: ::core::option::Option<FN_PROGRESS>,
     progressinvokesetting: PROG_INVOKE_SETTING,
     args: *const ::core::ffi::c_void,
 ) -> u32 {

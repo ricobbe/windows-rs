@@ -4,11 +4,11 @@
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: super::super::Foundation::PWSTR,
-    pub pfnCmdHandler: PFN_HANDLE_CMD,
+    pub pfnCmdHandler: ::core::option::Option<PFN_HANDLE_CMD>,
     pub dwShortCmdHelpToken: u32,
     pub dwCmdHlpToken: u32,
     pub dwFlags: u32,
-    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CMD_ENTRY {}
@@ -45,7 +45,7 @@ pub struct CMD_GROUP_ENTRY {
     pub ulCmdGroupSize: u32,
     pub dwFlags: u32,
     pub pCmdGroup: *mut CMD_ENTRY,
-    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CMD_GROUP_ENTRY {}
@@ -165,11 +165,11 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pTopCmds: *mut CMD_ENTRY,
     pub ulNumGroups: u32,
     pub pCmdGroups: *mut CMD_GROUP_ENTRY,
-    pub pfnCommitFn: PNS_CONTEXT_COMMIT_FN,
-    pub pfnDumpFn: PNS_CONTEXT_DUMP_FN,
-    pub pfnConnectFn: PNS_CONTEXT_CONNECT_FN,
+    pub pfnCommitFn: ::core::option::Option<PNS_CONTEXT_COMMIT_FN>,
+    pub pfnDumpFn: ::core::option::Option<PNS_CONTEXT_DUMP_FN>,
+    pub pfnConnectFn: ::core::option::Option<PNS_CONTEXT_CONNECT_FN>,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
+    pub pfnOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl NS_CONTEXT_ATTRIBUTES {}
@@ -276,8 +276,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: ::windows::core::GUID,
-    pub pfnStart: PNS_HELPER_START_FN,
-    pub pfnStop: PNS_HELPER_STOP_FN,
+    pub pfnStart: ::core::option::Option<PNS_HELPER_START_FN>,
+    pub pfnStop: ::core::option::Option<PNS_HELPER_STOP_FN>,
 }
 impl NS_HELPER_ATTRIBUTES {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
@@ -373,20 +373,20 @@ unsafe impl ::windows::core::Abi for NS_REQS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32>;
-pub type PNS_CONTEXT_COMMIT_FN = ::core::option::Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
+pub type PGET_RESOURCE_STRING_FN = unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32;
+pub type PNS_CONTEXT_COMMIT_FN = unsafe extern "system" fn(dwaction: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_CONTEXT_CONNECT_FN = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32>;
+pub type PNS_CONTEXT_CONNECT_FN = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_CONTEXT_DUMP_FN = ::core::option::Option<unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
-pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::core::ffi::c_void) -> u32>;
-pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32>;
-pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
+pub type PNS_CONTEXT_DUMP_FN = unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32;
+pub type PNS_DLL_INIT_FN = unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::core::ffi::c_void) -> u32;
+pub type PNS_DLL_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
+pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32;
+pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
+pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {

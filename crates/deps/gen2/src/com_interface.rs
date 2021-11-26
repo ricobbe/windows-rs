@@ -18,140 +18,140 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
     let guid = gen_type_guid(def, gen);
 
-        let abi_name = gen_internal_name(def, gen);
+    let abi_name = gen_internal_name(def, gen);
 
-        let (bases, inspectable) = def.base_interfaces();
+    let (bases, inspectable) = def.base_interfaces();
 
-        let abi_signatures = bases.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().map(|method| {
-            let signature = method.signature(&[]);
-            let abi = gen_win32_abi(&signature, gen);
-                let (cfg, cfg_not) = gen.method_cfg(&method);
+    let abi_signatures = bases.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().map(|method| {
+        let signature = method.signature(&[]);
+        let abi = gen_win32_abi(&signature, gen);
+        let (cfg, cfg_not) = gen.method_cfg(&method);
 
-                if cfg.is_empty() {
-                    quote! {
-                        pub unsafe extern "system" fn #abi,
-                    }
-                } else {
-                    quote! {
-                        #cfg
-                        pub unsafe extern "system" fn #abi,
-                        #cfg_not
-                        usize,
-                    }
-                }
-        });
-
-        let mut method_names = BTreeMap::<String, u32>::new();
-
-        let (method_bases, dispatch) = if !bases.is_empty() && bases[0].type_name() == TypeName::IDispatch { (bases.iter().skip(1), true) } else { (bases.iter().skip(0), false) };
-
-        let base_offset = if inspectable {
-            3
-        } else if dispatch {
-            4
+        if cfg.is_empty() {
+            quote! {
+                pub unsafe extern "system" fn #abi,
+            }
         } else {
-            0
-        };
+            quote! {
+                #cfg
+                pub unsafe extern "system" fn #abi,
+                #cfg_not
+                usize,
+            }
+        }
+    });
 
-        let methods = method_bases.rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_win_method(base_offset + vtable_offset, &method, &mut method_names, gen));
+    let mut method_names = BTreeMap::<String, u32>::new();
 
-        let mut conversions = quote! {
-            impl ::core::convert::From<#name> for ::windows::core::IUnknown {
+    let (method_bases, dispatch) = if !bases.is_empty() && bases[0].type_name() == TypeName::IDispatch { (bases.iter().skip(1), true) } else { (bases.iter().skip(0), false) };
+
+    let base_offset = if inspectable {
+        3
+    } else if dispatch {
+        4
+    } else {
+        0
+    };
+
+    let methods = method_bases.rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_win_method(base_offset + vtable_offset, &method, &mut method_names, gen));
+
+    let mut conversions = quote! {
+        impl ::core::convert::From<#name> for ::windows::core::IUnknown {
+            fn from(value: #name) -> Self {
+                value.0
+            }
+        }
+        impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
+            fn from(value: &#name) -> Self {
+                value.0.clone()
+            }
+        }
+        impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for #name {
+            fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+                ::windows::core::Param::Owned(self.0)
+            }
+        }
+        impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
+            fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+                ::windows::core::Param::Borrowed(&self.0)
+            }
+        }
+    };
+
+    for base in &bases {
+        let into = gen_type_name(base, gen);
+        let cfg = gen.type_cfg(base);
+
+        conversions.combine(&quote! {
+            #cfg
+            impl ::core::convert::From<#name> for #into {
                 fn from(value: #name) -> Self {
-                    value.0
+                    unsafe { ::core::mem::transmute(value) }
                 }
             }
-            impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
+            #cfg
+            impl ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
-                    value.0.clone()
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
-            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    ::windows::core::Param::Owned(self.0)
+            #cfg
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                 }
             }
-            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    ::windows::core::Param::Borrowed(&self.0)
+            #cfg
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }
             }
-        };
+        });
+    }
 
-        for base in &bases {
-            let into = gen_type_name(base, gen);
-            let cfg = gen.type_cfg(base);
-
-            conversions.combine(&quote! {
-                #cfg
-                impl ::core::convert::From<#name> for #into {
-                    fn from(value: #name) -> Self {
-                        unsafe { ::core::mem::transmute(value) }
-                    }
-                }
-                #cfg
-                impl ::core::convert::From<&#name> for #into {
-                    fn from(value: &#name) -> Self {
-                        ::core::convert::From::from(::core::clone::Clone::clone(value))
-                    }
-                }
-                #cfg
-                impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                    }
-                }
-                #cfg
-                impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-                    }
-                }
-            });
-        }
-
-        let send_sync = if def.type_name() == TypeName::IRestrictedErrorInfo {
-            quote! {
-                unsafe impl ::core::marker::Send for #name {}
-                unsafe impl ::core::marker::Sync for #name {}
-            }
-        } else {
-            quote! {}
-        };
-
-        let inspectable_vfptrs = if inspectable {
-            quote! {
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-            }
-        } else {
-            quote! {}
-        };
-
+    let send_sync = if def.type_name() == TypeName::IRestrictedErrorInfo {
         quote! {
-            #[repr(transparent)]
-            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
-            pub struct #name(pub ::windows::core::IUnknown);
-            impl #name {
-                #(#methods)*
-            }
-            unsafe impl ::windows::core::Interface for #name {
-                type Vtable = #abi_name;
-                const IID: ::windows::core::GUID = #guid;
-            }
-            #conversions
-            #send_sync
-            #[repr(C)]
-            #[doc(hidden)]
-            pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                #inspectable_vfptrs
-                #(#abi_signatures)*
-            );
+            unsafe impl ::core::marker::Send for #name {}
+            unsafe impl ::core::marker::Sync for #name {}
         }
+    } else {
+        quote! {}
+    };
+
+    let inspectable_vfptrs = if inspectable {
+        quote! {
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+        }
+    } else {
+        quote! {}
+    };
+
+    quote! {
+        #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
+        pub struct #name(pub ::windows::core::IUnknown);
+        impl #name {
+            #(#methods)*
+        }
+        unsafe impl ::windows::core::Interface for #name {
+            type Vtable = #abi_name;
+            const IID: ::windows::core::GUID = #guid;
+        }
+        #conversions
+        #send_sync
+        #[repr(C)]
+        #[doc(hidden)]
+        pub struct #abi_name(
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+            pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
+            #inspectable_vfptrs
+            #(#abi_signatures)*
+        );
+    }
 }
 
 fn gen_win_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {

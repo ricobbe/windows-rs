@@ -1,18 +1,18 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-pub const APOERR_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073919i32);
-pub const APOERR_ALREADY_UNLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073914i32);
-pub const APOERR_APO_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073910i32);
-pub const APOERR_BUFFERS_OVERLAP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073915i32);
-pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073917i32);
-pub const APOERR_INVALID_APO_CLSID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073916i32);
-pub const APOERR_INVALID_COEFFCOUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073909i32);
-pub const APOERR_INVALID_COEFFICIENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073908i32);
-pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073911i32);
-pub const APOERR_INVALID_CURVE_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073907i32);
-pub const APOERR_INVALID_INPUTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073906i32);
-pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073912i32);
-pub const APOERR_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073918i32);
-pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073913i32);
+pub const APOERR_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073919i32 as _);
+pub const APOERR_ALREADY_UNLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073914i32 as _);
+pub const APOERR_APO_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073910i32 as _);
+pub const APOERR_BUFFERS_OVERLAP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073915i32 as _);
+pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073917i32 as _);
+pub const APOERR_INVALID_APO_CLSID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073916i32 as _);
+pub const APOERR_INVALID_COEFFCOUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073909i32 as _);
+pub const APOERR_INVALID_COEFFICIENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073908i32 as _);
+pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073911i32 as _);
+pub const APOERR_INVALID_CURVE_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073907i32 as _);
+pub const APOERR_INVALID_INPUTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073906i32 as _);
+pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073912i32 as _);
+pub const APOERR_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073918i32 as _);
+pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005073913i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct APOInitBaseStruct {
@@ -829,7 +829,7 @@ impl ::core::convert::From<i32> for EAudioConstriction {
 unsafe impl ::windows::core::Abi for EAudioConstriction {
     type Abi = Self;
 }
-pub type FNAPONOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IApoAcousticEchoCancellation(pub ::windows::core::IUnknown);
@@ -1157,7 +1157,7 @@ pub struct IAudioProcessingObjectConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, u32numinputconnections: u32, ppinputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>, u32numoutputconnections: u32, ppoutputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -1244,7 +1244,7 @@ pub struct IAudioProcessingObjectNotifications_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, aponotifications: *mut *mut ::core::mem::ManuallyDrop<APO_NOTIFICATION_DESCRIPTOR>, count: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, aponotification: *const ::core::mem::ManuallyDrop<APO_NOTIFICATION>),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );

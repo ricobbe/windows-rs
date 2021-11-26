@@ -71,8 +71,8 @@ pub struct CERT_SELECT_STRUCT_A {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: PFNCMHOOKPROC,
-    pub pfnFilter: PFNCMFILTERPROC,
+    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
+    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
     pub szHelpFileName: super::super::super::Foundation::PSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -196,8 +196,8 @@ pub struct CERT_SELECT_STRUCT_W {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: PFNCMHOOKPROC,
-    pub pfnFilter: PFNCMFILTERPROC,
+    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
+    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
     pub szHelpFileName: super::super::super::Foundation::PWSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -302,7 +302,7 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cTrustStores: u32,
     pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnTrustHelper: PFNTRUSTHELPER,
+    pub pfnTrustHelper: ::core::option::Option<PFNTRUSTHELPER>,
     pub pcChain: *mut u32,
     pub prgChain: *mut *mut *mut super::CERT_CONTEXT,
     pub prgdwErrors: *mut *mut u32,
@@ -1438,7 +1438,7 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut *mut ::core::ffi::c_void,
-    pub pFilterCallback: PFNCFILTERPROC,
+    pub pFilterCallback: ::core::option::Option<PFNCFILTERPROC>,
     pub pvCallbackData: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2077,13 +2077,13 @@ pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+pub type PFNCFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCMFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL>;
+pub type PFNCMFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCMHOOKPROC = ::core::option::Option<unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32>;
+pub type PFNCMHOOKPROC = unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNTRUSTHELPER = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows::core::HRESULT>;
+pub type PFNTRUSTHELPER = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows::core::HRESULT;
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
 pub const SELCERT_ALGORITHM: u32 = 105u32;
 pub const SELCERT_CERTLIST: u32 = 102u32;

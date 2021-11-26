@@ -2662,7 +2662,7 @@ pub struct IWSDiscoveryPublisherNotify_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
-pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
+pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -4375,7 +4375,7 @@ unsafe impl ::windows::core::Abi for WSD_EVENTING_FILTER_ACTION {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_HANDLER_CONTEXT {
-    pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
+    pub Handler: ::core::option::Option<PWSD_SOAP_MESSAGE_HANDLER>,
     pub PVoid: *mut ::core::ffi::c_void,
     pub Unknown: ::core::option::Option<::windows::core::IUnknown>,
 }
@@ -4683,7 +4683,7 @@ unsafe impl ::windows::core::Abi for WSD_NAME_LIST {
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
-    pub RequestStubFunction: WSD_STUB_FUNCTION,
+    pub RequestStubFunction: ::core::option::Option<WSD_STUB_FUNCTION>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSD_OPERATION {}
@@ -5547,7 +5547,7 @@ unsafe impl ::windows::core::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
+pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

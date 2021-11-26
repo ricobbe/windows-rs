@@ -276,11 +276,11 @@ impl ::core::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
 unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-pub const WCN_E_AUTHENTICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206142i32);
-pub const WCN_E_CONNECTION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206141i32);
-pub const WCN_E_PEER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206143i32);
-pub const WCN_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206139i32);
-pub const WCN_E_SESSION_TIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206140i32);
+pub const WCN_E_AUTHENTICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206142i32 as _);
+pub const WCN_E_CONNECTION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206141i32 as _);
+pub const WCN_E_PEER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206143i32 as _);
+pub const WCN_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206139i32 as _);
+pub const WCN_E_SESSION_TIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206140i32 as _);
 pub const WCN_FLAG_AUTHENTICATED_VE: u32 = 2u32;
 pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;

@@ -154,7 +154,7 @@ pub struct IWsbApplicationRestoreSupport_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbrollforwardsupported: *mut u8) -> ::windows::core::HRESULT,
 );
-pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(7995396i32);
+pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(7995396i32 as _);
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]

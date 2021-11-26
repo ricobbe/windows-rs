@@ -1160,7 +1160,7 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
-pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32);
+pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32 as _);
 pub const DS_UNCERTIFIED: u32 = 1u32;
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {
@@ -1190,7 +1190,7 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1204,7 +1204,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, p
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1244,7 +1244,7 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::wi
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1258,7 +1258,7 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2871,7 +2871,7 @@ pub struct IDirectSoundNotify_abi(
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 pub const _FACDS: u32 = 2168u32;

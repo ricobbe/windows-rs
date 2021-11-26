@@ -76,8 +76,8 @@ pub struct ADRPARM {
     pub lpReserved: *mut ::core::ffi::c_void,
     pub ulHelpContext: u32,
     pub lpszHelpFileName: *mut i8,
-    pub lpfnABSDI: LPFNABSDI,
-    pub lpfnDismiss: LPFNDISMISS,
+    pub lpfnABSDI: ::core::option::Option<LPFNABSDI>,
+    pub lpfnDismiss: ::core::option::Option<LPFNDISMISS>,
     pub lpvDismissContext: *mut ::core::ffi::c_void,
     pub lpszCaption: *mut i8,
     pub lpszNewEntryTitle: *mut i8,
@@ -151,7 +151,18 @@ unsafe impl ::windows::core::Abi for ADRPARM {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::core::IntoParam<'a, super::Com::IMalloc>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Param3, hinstance: Param4, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut ::core::option::Option<IMAPITable>, lpptbldata: *mut ::core::option::Option<ITableData>) -> ::windows::core::Result<()> {
+pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::core::IntoParam<'a, super::Com::IMalloc>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
+    lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>,
+    lpallocatemore: ::core::option::Option<LPALLOCATEMORE>,
+    lpfreebuffer: ::core::option::Option<LPFREEBUFFER>,
+    lpmalloc: Param3,
+    hinstance: Param4,
+    cpages: u32,
+    lppage: *mut DTPAGE,
+    ulflags: u32,
+    lpptable: *mut ::core::option::Option<IMAPITable>,
+    lpptbldata: *mut ::core::option::Option<ITableData>,
+) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -175,10 +186,10 @@ pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::windows::core::RawPtr, lpvue: ::windows::core::RawPtr)>;
+pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::windows::core::RawPtr, lpvue: ::windows::core::RawPtr);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
+pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: ::core::option::Option<PFNIDLE>, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -191,7 +202,7 @@ pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::core::option::Option<IPropData>) -> i32 {
+pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpallocatemore: ::core::option::Option<LPALLOCATEMORE>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::core::option::Option<IPropData>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -204,7 +215,7 @@ pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuf
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::core::option::Option<ITableData>) -> i32 {
+pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpallocatemore: ::core::option::Option<LPALLOCATEMORE>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::core::option::Option<ITableData>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -763,90 +774,90 @@ impl ::core::cmp::Eq for EXTENDED_NOTIFICATION {}
 unsafe impl ::windows::core::Abi for EXTENDED_NOTIFICATION {
     type Abi = Self;
 }
-pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600697i32);
-pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599672i32);
-pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599678i32);
-pub const E_IMAPI_DF2DATA_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599674i32);
-pub const E_IMAPI_DF2DATA_MEDIA_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599675i32);
-pub const E_IMAPI_DF2DATA_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599673i32);
-pub const E_IMAPI_DF2DATA_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599677i32);
-pub const E_IMAPI_DF2DATA_STREAM_TOO_LARGE_FOR_CURRENT_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599676i32);
-pub const E_IMAPI_DF2DATA_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599680i32);
-pub const E_IMAPI_DF2DATA_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599679i32);
-pub const E_IMAPI_DF2RAW_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599164i32);
-pub const E_IMAPI_DF2RAW_DATA_BLOCK_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599154i32);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599162i32);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599166i32);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599161i32);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599165i32);
-pub const E_IMAPI_DF2RAW_NOT_ENOUGH_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599159i32);
-pub const E_IMAPI_DF2RAW_NO_RECORDER_SPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599158i32);
-pub const E_IMAPI_DF2RAW_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599152i32);
-pub const E_IMAPI_DF2RAW_STREAM_LEADIN_TOO_SHORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599153i32);
-pub const E_IMAPI_DF2RAW_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599155i32);
-pub const E_IMAPI_DF2RAW_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599168i32);
-pub const E_IMAPI_DF2RAW_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599167i32);
-pub const E_IMAPI_DF2TAO_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599409i32);
-pub const E_IMAPI_DF2TAO_INVALID_ISRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599413i32);
-pub const E_IMAPI_DF2TAO_INVALID_MCN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599412i32);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599418i32);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599422i32);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599417i32);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599421i32);
-pub const E_IMAPI_DF2TAO_NOT_ENOUGH_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599415i32);
-pub const E_IMAPI_DF2TAO_NO_RECORDER_SPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599414i32);
-pub const E_IMAPI_DF2TAO_PROPERTY_FOR_BLANK_MEDIA_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599420i32);
-pub const E_IMAPI_DF2TAO_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599410i32);
-pub const E_IMAPI_DF2TAO_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599411i32);
-pub const E_IMAPI_DF2TAO_TABLE_OF_CONTENTS_EMPTY_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599419i32);
-pub const E_IMAPI_DF2TAO_TRACK_LIMIT_REACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599416i32);
-pub const E_IMAPI_DF2TAO_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599424i32);
-pub const E_IMAPI_DF2TAO_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599423i32);
-pub const E_IMAPI_ERASE_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598389i32);
-pub const E_IMAPI_ERASE_DISC_INFORMATION_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340222i32);
-pub const E_IMAPI_ERASE_DRIVE_FAILED_ERASE_COMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340219i32);
-pub const E_IMAPI_ERASE_DRIVE_FAILED_SPINUP_COMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340216i32);
-pub const E_IMAPI_ERASE_MEDIA_IS_NOT_ERASABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340220i32);
-pub const E_IMAPI_ERASE_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598391i32);
-pub const E_IMAPI_ERASE_MODE_PAGE_2A_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340221i32);
-pub const E_IMAPI_ERASE_ONLY_ONE_RECORDER_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340223i32);
-pub const E_IMAPI_ERASE_RECORDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340224i32);
-pub const E_IMAPI_ERASE_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598390i32);
-pub const E_IMAPI_ERASE_TOOK_LONGER_THAN_ONE_HOUR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340218i32);
-pub const E_IMAPI_ERASE_UNEXPECTED_DRIVE_RESPONSE_DURING_ERASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340217i32);
-pub const E_IMAPI_LOSS_OF_STREAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599936i32);
-pub const E_IMAPI_RAW_IMAGE_INSUFFICIENT_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339963i32);
-pub const E_IMAPI_RAW_IMAGE_IS_READ_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339968i32);
-pub const E_IMAPI_RAW_IMAGE_NO_TRACKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339965i32);
-pub const E_IMAPI_RAW_IMAGE_SECTOR_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339966i32);
-pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339967i32);
-pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACK_INDEXES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339962i32);
-pub const E_IMAPI_RAW_IMAGE_TRACKS_ALREADY_ADDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339964i32);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339961i32);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_OFFSET_ZERO_CANNOT_BE_CLEARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339959i32);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_TOO_CLOSE_TO_OTHER_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339958i32);
-pub const E_IMAPI_RECORDER_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600175i32);
-pub const E_IMAPI_RECORDER_COMMAND_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600179i32);
-pub const E_IMAPI_RECORDER_DVD_STRUCTURE_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600178i32);
-pub const E_IMAPI_RECORDER_FEATURE_IS_NOT_CURRENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600181i32);
-pub const E_IMAPI_RECORDER_GET_CONFIGURATION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600180i32);
-pub const E_IMAPI_RECORDER_INVALID_MODE_PARAMETERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600184i32);
-pub const E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599937i32);
-pub const E_IMAPI_RECORDER_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600176i32);
-pub const E_IMAPI_RECORDER_MEDIA_BECOMING_READY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600187i32);
-pub const E_IMAPI_RECORDER_MEDIA_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600185i32);
-pub const E_IMAPI_RECORDER_MEDIA_FORMAT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600186i32);
-pub const E_IMAPI_RECORDER_MEDIA_INCOMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600189i32);
-pub const E_IMAPI_RECORDER_MEDIA_NOT_FORMATTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600174i32);
-pub const E_IMAPI_RECORDER_MEDIA_NO_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600190i32);
-pub const E_IMAPI_RECORDER_MEDIA_SPEED_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600177i32);
-pub const E_IMAPI_RECORDER_MEDIA_UPSIDE_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600188i32);
-pub const E_IMAPI_RECORDER_MEDIA_WRITE_PROTECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600183i32);
-pub const E_IMAPI_RECORDER_NO_SUCH_FEATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600182i32);
-pub const E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600191i32);
-pub const E_IMAPI_RECORDER_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600701i32);
-pub const E_IMAPI_REQUEST_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600702i32);
-pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599935i32);
+pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600697i32 as _);
+pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599672i32 as _);
+pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599678i32 as _);
+pub const E_IMAPI_DF2DATA_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599674i32 as _);
+pub const E_IMAPI_DF2DATA_MEDIA_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599675i32 as _);
+pub const E_IMAPI_DF2DATA_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599673i32 as _);
+pub const E_IMAPI_DF2DATA_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599677i32 as _);
+pub const E_IMAPI_DF2DATA_STREAM_TOO_LARGE_FOR_CURRENT_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599676i32 as _);
+pub const E_IMAPI_DF2DATA_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599680i32 as _);
+pub const E_IMAPI_DF2DATA_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599679i32 as _);
+pub const E_IMAPI_DF2RAW_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599164i32 as _);
+pub const E_IMAPI_DF2RAW_DATA_BLOCK_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599154i32 as _);
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599162i32 as _);
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599166i32 as _);
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599161i32 as _);
+pub const E_IMAPI_DF2RAW_MEDIA_IS_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599165i32 as _);
+pub const E_IMAPI_DF2RAW_NOT_ENOUGH_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599159i32 as _);
+pub const E_IMAPI_DF2RAW_NO_RECORDER_SPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599158i32 as _);
+pub const E_IMAPI_DF2RAW_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599152i32 as _);
+pub const E_IMAPI_DF2RAW_STREAM_LEADIN_TOO_SHORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599153i32 as _);
+pub const E_IMAPI_DF2RAW_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599155i32 as _);
+pub const E_IMAPI_DF2RAW_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599168i32 as _);
+pub const E_IMAPI_DF2RAW_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599167i32 as _);
+pub const E_IMAPI_DF2TAO_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599409i32 as _);
+pub const E_IMAPI_DF2TAO_INVALID_ISRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599413i32 as _);
+pub const E_IMAPI_DF2TAO_INVALID_MCN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599412i32 as _);
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_BLANK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599418i32 as _);
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599422i32 as _);
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599417i32 as _);
+pub const E_IMAPI_DF2TAO_MEDIA_IS_PREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599421i32 as _);
+pub const E_IMAPI_DF2TAO_NOT_ENOUGH_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599415i32 as _);
+pub const E_IMAPI_DF2TAO_NO_RECORDER_SPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599414i32 as _);
+pub const E_IMAPI_DF2TAO_PROPERTY_FOR_BLANK_MEDIA_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599420i32 as _);
+pub const E_IMAPI_DF2TAO_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599410i32 as _);
+pub const E_IMAPI_DF2TAO_STREAM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599411i32 as _);
+pub const E_IMAPI_DF2TAO_TABLE_OF_CONTENTS_EMPTY_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599419i32 as _);
+pub const E_IMAPI_DF2TAO_TRACK_LIMIT_REACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599416i32 as _);
+pub const E_IMAPI_DF2TAO_WRITE_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599424i32 as _);
+pub const E_IMAPI_DF2TAO_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599423i32 as _);
+pub const E_IMAPI_ERASE_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598389i32 as _);
+pub const E_IMAPI_ERASE_DISC_INFORMATION_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340222i32 as _);
+pub const E_IMAPI_ERASE_DRIVE_FAILED_ERASE_COMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340219i32 as _);
+pub const E_IMAPI_ERASE_DRIVE_FAILED_SPINUP_COMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340216i32 as _);
+pub const E_IMAPI_ERASE_MEDIA_IS_NOT_ERASABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340220i32 as _);
+pub const E_IMAPI_ERASE_MEDIA_IS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598391i32 as _);
+pub const E_IMAPI_ERASE_MODE_PAGE_2A_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340221i32 as _);
+pub const E_IMAPI_ERASE_ONLY_ONE_RECORDER_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340223i32 as _);
+pub const E_IMAPI_ERASE_RECORDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340224i32 as _);
+pub const E_IMAPI_ERASE_RECORDER_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062598390i32 as _);
+pub const E_IMAPI_ERASE_TOOK_LONGER_THAN_ONE_HOUR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340218i32 as _);
+pub const E_IMAPI_ERASE_UNEXPECTED_DRIVE_RESPONSE_DURING_ERASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136340217i32 as _);
+pub const E_IMAPI_LOSS_OF_STREAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599936i32 as _);
+pub const E_IMAPI_RAW_IMAGE_INSUFFICIENT_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339963i32 as _);
+pub const E_IMAPI_RAW_IMAGE_IS_READ_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339968i32 as _);
+pub const E_IMAPI_RAW_IMAGE_NO_TRACKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339965i32 as _);
+pub const E_IMAPI_RAW_IMAGE_SECTOR_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339966i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACKS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339967i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACK_INDEXES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339962i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TRACKS_ALREADY_ADDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339964i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339961i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_OFFSET_ZERO_CANNOT_BE_CLEARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339959i32 as _);
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_TOO_CLOSE_TO_OTHER_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2136339958i32 as _);
+pub const E_IMAPI_RECORDER_CLIENT_NAME_IS_NOT_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600175i32 as _);
+pub const E_IMAPI_RECORDER_COMMAND_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600179i32 as _);
+pub const E_IMAPI_RECORDER_DVD_STRUCTURE_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600178i32 as _);
+pub const E_IMAPI_RECORDER_FEATURE_IS_NOT_CURRENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600181i32 as _);
+pub const E_IMAPI_RECORDER_GET_CONFIGURATION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600180i32 as _);
+pub const E_IMAPI_RECORDER_INVALID_MODE_PARAMETERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600184i32 as _);
+pub const E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599937i32 as _);
+pub const E_IMAPI_RECORDER_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600176i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_BECOMING_READY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600187i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600185i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_FORMAT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600186i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_INCOMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600189i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_NOT_FORMATTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600174i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_NO_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600190i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_SPEED_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600177i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_UPSIDE_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600188i32 as _);
+pub const E_IMAPI_RECORDER_MEDIA_WRITE_PROTECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600183i32 as _);
+pub const E_IMAPI_RECORDER_NO_SUCH_FEATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600182i32 as _);
+pub const E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600191i32 as _);
+pub const E_IMAPI_RECORDER_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600701i32 as _);
+pub const E_IMAPI_REQUEST_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062600702i32 as _);
+pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062599935i32 as _);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ftg: *mut ::core::ffi::c_void, fenable: Param1) {
@@ -957,7 +968,7 @@ unsafe impl ::windows::core::Abi for FLATMTSIDLIST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
@@ -1100,7 +1111,7 @@ pub unsafe fn FtSubFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void {
+pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: ::core::option::Option<PFNIDLE>, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1127,7 +1138,7 @@ unsafe impl ::windows::core::Abi for Gender {
     type Abi = Self;
 }
 #[inline]
-pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER) -> ::windows::core::Result<()> {
+pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1140,7 +1151,7 @@ pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, lpfnfiltercolumns: isize) -> ::windows::core::Result<()> {
+pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpfnfiltercolumns: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1154,7 +1165,7 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::core::IntoParam<'a, IMAPITab
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<()> {
+pub unsafe fn HrAllocAdviseSink(lpfncallback: ::core::option::Option<LPNOTIFCALLBACK>, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1525,7 +1536,7 @@ impl IAddrBook {
     pub unsafe fn Address(&self, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpuluiparam), ::core::mem::transmute(lpadrparms), ::core::mem::transmute(lppadrlist)).ok()
     }
-    pub unsafe fn Details(&self, lpuluiparam: *mut usize, lpfndismiss: LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Details(&self, lpuluiparam: *mut usize, lpfndismiss: ::core::option::Option<LPFNDISMISS>, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: ::core::option::Option<LPFNBUTTON>, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(lpuluiparam),
@@ -2859,68 +2870,68 @@ pub struct IMAPITable_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows::core::HRESULT,
 );
-pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555294i32);
-pub const IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555318i32);
-pub const IMAPI_E_BOOT_IMAGE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555320i32);
-pub const IMAPI_E_BOOT_OBJECT_CONFLICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555319i32);
-pub const IMAPI_E_DATA_STREAM_CREATE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555350i32);
-pub const IMAPI_E_DATA_STREAM_INCONSISTENCY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555352i32);
-pub const IMAPI_E_DATA_STREAM_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555351i32);
-pub const IMAPI_E_DATA_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555342i32);
-pub const IMAPI_E_DIRECTORY_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555349i32);
-pub const IMAPI_E_DIR_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555382i32);
-pub const IMAPI_E_DIR_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555366i32);
-pub const IMAPI_E_DISC_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555304i32);
-pub const IMAPI_E_DUP_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555374i32);
-pub const IMAPI_E_EMPTY_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555312i32);
-pub const IMAPI_E_FILE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555367i32);
-pub const IMAPI_E_FILE_SYSTEM_CHANGE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555293i32);
-pub const IMAPI_E_FILE_SYSTEM_FEATURE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555308i32);
-pub const IMAPI_E_FILE_SYSTEM_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555386i32);
-pub const IMAPI_E_FILE_SYSTEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555310i32);
-pub const IMAPI_E_FILE_SYSTEM_READ_CONSISTENCY_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555309i32);
-pub const IMAPI_E_FSI_INTERNAL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555392i32);
-pub const IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555136i32);
-pub const IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555133i32);
-pub const IMAPI_E_IMAGEMANAGER_NO_IMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555134i32);
-pub const IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555135i32);
-pub const IMAPI_E_IMAGE_SIZE_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555360i32);
-pub const IMAPI_E_IMAGE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555359i32);
-pub const IMAPI_E_IMPORT_MEDIA_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555303i32);
-pub const IMAPI_E_IMPORT_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555305i32);
-pub const IMAPI_E_IMPORT_SEEK_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555306i32);
-pub const IMAPI_E_IMPORT_TYPE_COLLISION_DIRECTORY_EXISTS_AS_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555298i32);
-pub const IMAPI_E_IMPORT_TYPE_COLLISION_FILE_EXISTS_AS_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555307i32);
-pub const IMAPI_E_INCOMPATIBLE_MULTISESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555301i32);
-pub const IMAPI_E_INCOMPATIBLE_PREVIOUS_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555341i32);
-pub const IMAPI_E_INVALID_DATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555387i32);
-pub const IMAPI_E_INVALID_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555391i32);
-pub const IMAPI_E_INVALID_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555376i32);
-pub const IMAPI_E_INVALID_VOLUME_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555388i32);
-pub const IMAPI_E_INVALID_WORKING_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555328i32);
-pub const IMAPI_E_ISO9660_LEVELS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555343i32);
-pub const IMAPI_E_ITEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555368i32);
-pub const IMAPI_E_MULTISESSION_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555299i32);
-pub const IMAPI_E_NOT_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555383i32);
-pub const IMAPI_E_NOT_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555384i32);
-pub const IMAPI_E_NOT_IN_FILE_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555381i32);
-pub const IMAPI_E_NO_COMPATIBLE_MULTISESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555300i32);
-pub const IMAPI_E_NO_OUTPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555389i32);
-pub const IMAPI_E_NO_SUPPORTED_FILE_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555311i32);
-pub const IMAPI_E_NO_UNIQUE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555373i32);
-pub const IMAPI_E_PROPERTY_NOT_ACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555296i32);
-pub const IMAPI_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555390i32);
-pub const IMAPI_E_RESTRICTED_NAME_VIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555375i32);
-pub const IMAPI_E_STASHFILE_MOVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555326i32);
-pub const IMAPI_E_STASHFILE_OPEN_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555336i32);
-pub const IMAPI_E_STASHFILE_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555333i32);
-pub const IMAPI_E_STASHFILE_SEEK_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555335i32);
-pub const IMAPI_E_STASHFILE_WRITE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555334i32);
-pub const IMAPI_E_TOO_MANY_DIRS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555344i32);
-pub const IMAPI_E_UDF_NOT_WRITE_COMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555302i32);
-pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555295i32);
-pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555327i32);
-pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11186527i32);
+pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555294i32 as _);
+pub const IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555318i32 as _);
+pub const IMAPI_E_BOOT_IMAGE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555320i32 as _);
+pub const IMAPI_E_BOOT_OBJECT_CONFLICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555319i32 as _);
+pub const IMAPI_E_DATA_STREAM_CREATE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555350i32 as _);
+pub const IMAPI_E_DATA_STREAM_INCONSISTENCY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555352i32 as _);
+pub const IMAPI_E_DATA_STREAM_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555351i32 as _);
+pub const IMAPI_E_DATA_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555342i32 as _);
+pub const IMAPI_E_DIRECTORY_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555349i32 as _);
+pub const IMAPI_E_DIR_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555382i32 as _);
+pub const IMAPI_E_DIR_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555366i32 as _);
+pub const IMAPI_E_DISC_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555304i32 as _);
+pub const IMAPI_E_DUP_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555374i32 as _);
+pub const IMAPI_E_EMPTY_DISC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555312i32 as _);
+pub const IMAPI_E_FILE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555367i32 as _);
+pub const IMAPI_E_FILE_SYSTEM_CHANGE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555293i32 as _);
+pub const IMAPI_E_FILE_SYSTEM_FEATURE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555308i32 as _);
+pub const IMAPI_E_FILE_SYSTEM_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555386i32 as _);
+pub const IMAPI_E_FILE_SYSTEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555310i32 as _);
+pub const IMAPI_E_FILE_SYSTEM_READ_CONSISTENCY_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555309i32 as _);
+pub const IMAPI_E_FSI_INTERNAL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555392i32 as _);
+pub const IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555136i32 as _);
+pub const IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555133i32 as _);
+pub const IMAPI_E_IMAGEMANAGER_NO_IMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555134i32 as _);
+pub const IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555135i32 as _);
+pub const IMAPI_E_IMAGE_SIZE_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555360i32 as _);
+pub const IMAPI_E_IMAGE_TOO_BIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555359i32 as _);
+pub const IMAPI_E_IMPORT_MEDIA_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555303i32 as _);
+pub const IMAPI_E_IMPORT_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555305i32 as _);
+pub const IMAPI_E_IMPORT_SEEK_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555306i32 as _);
+pub const IMAPI_E_IMPORT_TYPE_COLLISION_DIRECTORY_EXISTS_AS_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555298i32 as _);
+pub const IMAPI_E_IMPORT_TYPE_COLLISION_FILE_EXISTS_AS_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555307i32 as _);
+pub const IMAPI_E_INCOMPATIBLE_MULTISESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555301i32 as _);
+pub const IMAPI_E_INCOMPATIBLE_PREVIOUS_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555341i32 as _);
+pub const IMAPI_E_INVALID_DATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555387i32 as _);
+pub const IMAPI_E_INVALID_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555391i32 as _);
+pub const IMAPI_E_INVALID_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555376i32 as _);
+pub const IMAPI_E_INVALID_VOLUME_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555388i32 as _);
+pub const IMAPI_E_INVALID_WORKING_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555328i32 as _);
+pub const IMAPI_E_ISO9660_LEVELS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555343i32 as _);
+pub const IMAPI_E_ITEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555368i32 as _);
+pub const IMAPI_E_MULTISESSION_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555299i32 as _);
+pub const IMAPI_E_NOT_DIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555383i32 as _);
+pub const IMAPI_E_NOT_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555384i32 as _);
+pub const IMAPI_E_NOT_IN_FILE_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555381i32 as _);
+pub const IMAPI_E_NO_COMPATIBLE_MULTISESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555300i32 as _);
+pub const IMAPI_E_NO_OUTPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555389i32 as _);
+pub const IMAPI_E_NO_SUPPORTED_FILE_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555311i32 as _);
+pub const IMAPI_E_NO_UNIQUE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555373i32 as _);
+pub const IMAPI_E_PROPERTY_NOT_ACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555296i32 as _);
+pub const IMAPI_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555390i32 as _);
+pub const IMAPI_E_RESTRICTED_NAME_VIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555375i32 as _);
+pub const IMAPI_E_STASHFILE_MOVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555326i32 as _);
+pub const IMAPI_E_STASHFILE_OPEN_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555336i32 as _);
+pub const IMAPI_E_STASHFILE_READ_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555333i32 as _);
+pub const IMAPI_E_STASHFILE_SEEK_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555335i32 as _);
+pub const IMAPI_E_STASHFILE_WRITE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555334i32 as _);
+pub const IMAPI_E_TOO_MANY_DIRS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555344i32 as _);
+pub const IMAPI_E_UDF_NOT_WRITE_COMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555302i32 as _);
+pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555295i32 as _);
+pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1062555327i32 as _);
+pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11186527i32 as _);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMailUser(pub ::windows::core::IUnknown);
@@ -3698,7 +3709,7 @@ pub struct IProviderAdmin_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITableData(pub ::windows::core::IUnknown);
 impl ITableData {
-    pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows::core::Result<()> {
+    pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut ::core::option::Option<CALLERRELEASE>, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpssortorderset), ::core::mem::transmute(lpfcallerrelease), ::core::mem::transmute(ulcallerdata), ::core::mem::transmute(lppmapitable)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3944,31 +3955,31 @@ pub struct IWABOBJECT__abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpiab: ::windows::core::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub type IWABOBJECT_AddRef_METHOD = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type IWABOBJECT_AllocateBuffer_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-pub type IWABOBJECT_AllocateMore_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
+pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Backup_METHOD = ::core::option::Option<unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_Backup_METHOD = unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Find_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT>;
-pub type IWABOBJECT_FreeBuffer_METHOD = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-pub type IWABOBJECT_GetLastError_METHOD = ::core::option::Option<unsafe extern "system" fn(hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_Find_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
+pub type IWABOBJECT_FreeBuffer_METHOD = unsafe extern "system" fn(lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type IWABOBJECT_GetLastError_METHOD = unsafe extern "system" fn(hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_GetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_GetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Import_METHOD = ::core::option::Option<unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_Import_METHOD = unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_LDAPUrl_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
-pub type IWABOBJECT_QueryInterface_METHOD = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-pub type IWABOBJECT_Release_METHOD = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type IWABOBJECT_LDAPUrl_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type IWABOBJECT_QueryInterface_METHOD = unsafe extern "system" fn(riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type IWABOBJECT_Release_METHOD = unsafe extern "system" fn() -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_SetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_SetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardCreate_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardDisplay_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardRetrieve_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: ::windows::core::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWABObject(pub ::windows::core::IUnknown);
@@ -4077,26 +4088,26 @@ pub struct IWABObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpiab: ::windows::core::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
-pub type LPDISPATCHNOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(ulflags: u32) -> ::windows::core::HRESULT>;
+pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
+pub type LPDISPATCHNOTIFICATIONS = unsafe extern "system" fn(ulflags: u32) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNABSDI = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPFNBUTTON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
-pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void)>;
-pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32>;
+pub type LPFNABSDI = unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPFNBUTTON = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32;
+pub type LPFNDISMISS = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void);
+pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNOTIFCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
+pub type LPNOTIFCALLBACK = unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32;
 #[cfg(feature = "Win32_System_Com")]
-pub type LPOPENSTREAMONFILE = ::core::option::Option<unsafe extern "system" fn(lpallocatebuffer: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
-pub type LPWABALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPWABALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPWABFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, lpbuffer: *mut ::core::ffi::c_void) -> u32>;
+pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(lpallocatebuffer: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type LPWABALLOCATEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPWABALLOCATEMORE = unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPWABFREEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::core::RawPtr, lpbuffer: *mut ::core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWABOPEN = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut ::windows::core::RawPtr, lppwabobject: *mut ::windows::core::RawPtr, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows::core::HRESULT>;
+pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut ::windows::core::RawPtr, lppwabobject: *mut ::windows::core::RawPtr, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut ::windows::core::RawPtr, lppwabobject: *mut ::windows::core::RawPtr, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: ::windows::core::RawPtr, fnallocatemore: ::windows::core::RawPtr, fnfreebuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut ::windows::core::RawPtr, lppwabobject: *mut ::windows::core::RawPtr, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: ::windows::core::RawPtr, fnallocatemore: ::windows::core::RawPtr, fnfreebuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32 {
@@ -4492,7 +4503,7 @@ unsafe impl ::windows::core::Abi for OBJECT_NOTIFICATION {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8) -> ::windows::core::Result<super::Com::IStream> {
+pub unsafe fn OpenStreamOnFile(lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8) -> ::windows::core::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4506,7 +4517,7 @@ pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 pub const PRIHIGHEST: u32 = 32767u32;
 pub const PRILOWEST: i32 = -32768i32;
 pub const PRIUSER: u32 = 0u32;
@@ -4530,7 +4541,7 @@ pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulpropta
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: LPALLOCATEMORE, lpvobject: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: ::core::option::Option<LPALLOCATEMORE>, lpvobject: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5592,12 +5603,12 @@ impl ::core::cmp::Eq for SWStringArray {}
 unsafe impl ::windows::core::Abi for SWStringArray {
     type Abi = Self;
 }
-pub const S_IMAPI_BOTHADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141126i32);
-pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(11141632i32);
-pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(11143688i32);
-pub const S_IMAPI_ROTATIONADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141125i32);
-pub const S_IMAPI_SPEEDADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141124i32);
-pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(11141890i32);
+pub const S_IMAPI_BOTHADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141126i32 as _);
+pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(11141632i32 as _);
+pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(11143688i32 as _);
+pub const S_IMAPI_ROTATIONADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141125i32 as _);
+pub const S_IMAPI_SPEEDADJUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(11141124i32 as _);
+pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(11141890i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
@@ -5669,7 +5680,7 @@ pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbc
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32 {
+pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lppproparray: *mut *mut SPropValue) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

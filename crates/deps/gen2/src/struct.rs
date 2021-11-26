@@ -151,10 +151,6 @@ fn gen_nested_sys_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeD
     }
 }
 
-
-
-
-
 fn gen_win_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if let Some(replacement) = gen_replacement(def) {
         return replacement;
@@ -524,4 +520,3 @@ fn gen_extensions(def: &TypeDef) -> TokenStream {
         _ => TokenStream::new(),
     }
 }
-

@@ -2696,11 +2696,11 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
-pub const DIERR_ACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024726i32);
-pub const DIERR_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023649i32);
-pub const DIERR_BADDRIVERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024777i32);
+pub const DIERR_ACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024726i32 as _);
+pub const DIERR_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023649i32 as _);
+pub const DIERR_BADDRIVERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024777i32 as _);
 pub const DIERR_BADINF: i32 = -2147220478i32;
-pub const DIERR_BETADIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023743i32);
+pub const DIERR_BETADIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023743i32 as _);
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
 pub const DIERR_DEVICENOTREG: i32 = -2147221164i32;
@@ -2711,7 +2711,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
-pub const DIERR_INPUTLOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024866i32);
+pub const DIERR_INPUTLOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024866i32 as _);
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
 pub const DIERR_INVALIDPARAM: i32 = -2147024809i32;
@@ -2719,15 +2719,15 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
-pub const DIERR_NOMOREITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024637i32);
-pub const DIERR_NOTACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024884i32);
+pub const DIERR_NOMOREITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024637i32 as _);
+pub const DIERR_NOTACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024884i32 as _);
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
-pub const DIERR_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32);
-pub const DIERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024875i32);
-pub const DIERR_OBJECTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32);
-pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023746i32);
+pub const DIERR_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32 as _);
+pub const DIERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024875i32 as _);
+pub const DIERR_OBJECTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32 as _);
+pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023746i32 as _);
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const DIERR_READONLY: i32 = -2147024891i32;
@@ -4120,19 +4120,19 @@ pub const DIVOICE_TRANSMIT: u32 = 2197816333u32;
 pub const DIVOICE_VOICECOMMAND: u32 = 2197816336u32;
 pub const DI_BUFFEROVERFLOW: i32 = 1i32;
 pub const DI_DEGREES: u32 = 100u32;
-pub const DI_DOWNLOADSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(3i32);
-pub const DI_EFFECTRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(4i32);
+pub const DI_DOWNLOADSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(3i32 as _);
+pub const DI_EFFECTRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(4i32 as _);
 pub const DI_FFNOMINALMAX: u32 = 10000u32;
 pub const DI_NOEFFECT: i32 = 1i32;
 pub const DI_NOTATTACHED: i32 = 1i32;
 pub const DI_OK: i32 = 0i32;
-pub const DI_POLLEDDEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
+pub const DI_POLLEDDEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32 as _);
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
-pub const DI_SETTINGSNOTSAVED: ::windows::core::HRESULT = ::windows::core::HRESULT(11i32);
-pub const DI_TRUNCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(8i32);
-pub const DI_TRUNCATEDANDRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(12i32);
-pub const DI_WRITEPROTECT: ::windows::core::HRESULT = ::windows::core::HRESULT(19i32);
+pub const DI_SETTINGSNOTSAVED: ::windows::core::HRESULT = ::windows::core::HRESULT(11i32 as _);
+pub const DI_TRUNCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(8i32 as _);
+pub const DI_TRUNCATEDANDRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(12i32 as _);
+pub const DI_WRITEPROTECT: ::windows::core::HRESULT = ::windows::core::HRESULT(19i32 as _);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectInput8Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: Param4) -> ::windows::core::Result<()> {
@@ -6264,7 +6264,7 @@ pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::core::option::Option<PHIDP_INSERT_SCANCODES>, insertcodescontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6312,7 +6312,7 @@ impl IDirectInput2A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6400,7 +6400,7 @@ impl IDirectInput2W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6488,7 +6488,7 @@ impl IDirectInput7A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6600,7 +6600,7 @@ impl IDirectInput7W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6712,7 +6712,7 @@ impl IDirectInput8A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6731,11 +6731,11 @@ impl IDirectInput8A {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: ::core::option::Option<LPDIENUMDEVICESBYSEMANTICSCBA>, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn ConfigureDevices(&self, param0: ::core::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
@@ -6792,7 +6792,7 @@ impl IDirectInput8W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6811,11 +6811,11 @@ impl IDirectInput8W {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: ::core::option::Option<LPDIENUMDEVICESBYSEMANTICSCBW>, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn ConfigureDevices(&self, param0: ::core::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
@@ -6872,7 +6872,7 @@ impl IDirectInputA {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6934,7 +6934,7 @@ impl IDirectInputDevice2A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -6986,7 +6986,7 @@ impl IDirectInputDevice2A {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7000,7 +7000,7 @@ impl IDirectInputDevice2A {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7106,7 +7106,7 @@ impl IDirectInputDevice2W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -7156,7 +7156,7 @@ impl IDirectInputDevice2W {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -7169,7 +7169,7 @@ impl IDirectInputDevice2W {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7272,7 +7272,7 @@ impl IDirectInputDevice7A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -7324,7 +7324,7 @@ impl IDirectInputDevice7A {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7338,7 +7338,7 @@ impl IDirectInputDevice7A {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7351,7 +7351,7 @@ impl IDirectInputDevice7A {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7476,7 +7476,7 @@ impl IDirectInputDevice7W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -7526,7 +7526,7 @@ impl IDirectInputDevice7W {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -7539,7 +7539,7 @@ impl IDirectInputDevice7W {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7552,7 +7552,7 @@ impl IDirectInputDevice7W {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7674,7 +7674,7 @@ impl IDirectInputDevice8A {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -7726,7 +7726,7 @@ impl IDirectInputDevice8A {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7740,7 +7740,7 @@ impl IDirectInputDevice8A {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7753,7 +7753,7 @@ impl IDirectInputDevice8A {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7856,7 +7856,7 @@ impl IDirectInputDevice8W {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -7906,7 +7906,7 @@ impl IDirectInputDevice8W {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -7919,7 +7919,7 @@ impl IDirectInputDevice8W {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
@@ -7932,7 +7932,7 @@ impl IDirectInputDevice8W {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8032,7 +8032,7 @@ impl IDirectInputDeviceA {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -8142,7 +8142,7 @@ impl IDirectInputDeviceW {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
@@ -8416,7 +8416,7 @@ impl IDirectInputJoyConfig {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumTypes(&self, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8532,7 +8532,7 @@ impl IDirectInputJoyConfig8 {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumTypes(&self, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8638,7 +8638,7 @@ impl IDirectInputW {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -9331,31 +9331,31 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSINFILECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMEFFECTSINFILECALLBACK = unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIJOYTYPECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND)>;
+pub type LPFNSHOWJOYCPL = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND);
 pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
@@ -9515,9 +9515,9 @@ unsafe impl ::windows::core::Abi for MOUSE_UNIT_ID_PARAMETER {
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HidP_GetVersionInternal = ::core::option::Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
+pub type PFN_HidP_GetVersionInternal = unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
-pub type PHIDP_INSERT_SCANCODES = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN>;
+pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct USAGE_AND_PAGE {

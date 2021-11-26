@@ -2,7 +2,6 @@ use super::*;
 
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen2::gen_struct(def, &gen2::Gen { namespace: gen.relative, cfg: !gen.root.is_empty(), ..Default::default() })
-
 }
 
 // TODO: move to test crates
