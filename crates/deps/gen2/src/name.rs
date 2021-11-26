@@ -92,15 +92,23 @@ pub fn gen_abi_element_name(def: &ElementType, gen: &Gen, pointers: usize) -> To
                 let name = format_token!("{}", generic);
                 quote! { <#name as ::windows::core::Abi>::Abi }
             }
-            ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
+            ElementType::TypeDef(def) => gen_abi_type_name(def, gen, pointers),
             _ => gen_element_name(def, gen),
         }
     }
 }
 
-fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_abi_type_name(def: &TypeDef, gen: &Gen, pointers: usize) -> TokenStream {
     match def.kind() {
-        TypeKind::Enum | TypeKind::Struct => gen_type_name(def, gen),
+        TypeKind::Enum => gen_type_name(def, gen),
+        TypeKind::Struct => {
+            let name = gen_type_name(def, gen);
+            if def.is_blittable() {
+                name
+            } else {
+                quote! { ::core::mem::ManuallyDrop<#name> }
+            }
+        }
         _ => quote! { ::windows::core::RawPtr },
     }
 }
