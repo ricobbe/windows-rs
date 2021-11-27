@@ -549,5 +549,5 @@ pub struct IDXCoreAdapterList_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, preference: DXCoreAdapterPreference) -> bool,
 );
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows::core::RawPtr, context: *const ::core::ffi::c_void)>;
 pub const _FACDXCORE: u32 = 2176u32;

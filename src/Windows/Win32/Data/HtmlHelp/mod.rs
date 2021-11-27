@@ -1549,7 +1549,7 @@ pub struct IWordBreakerConfig_abi(
     #[cfg(not(feature = "Win32_System_Search"))] usize,
 );
 pub const MAX_COLUMNS: u32 = 256u32;
-pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
+pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);

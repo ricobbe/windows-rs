@@ -2662,7 +2662,7 @@ pub struct IWSDiscoveryPublisherNotify_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
-pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
+pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -5547,7 +5547,7 @@ unsafe impl ::windows::core::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
+pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

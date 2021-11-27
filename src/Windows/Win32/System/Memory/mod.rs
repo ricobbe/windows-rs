@@ -1715,7 +1715,7 @@ impl ::core::ops::Not for PAGE_TYPE {
         Self(self.0.not())
     }
 }
-pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
+pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1843,7 +1843,7 @@ unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
+pub type PSECURE_MEMORY_CACHE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrefetchVirtualMemory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, numberofentries: usize, virtualaddresses: *const WIN32_MEMORY_RANGE_ENTRY, flags: u32) -> super::super::Foundation::BOOL {

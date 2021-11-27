@@ -29336,6 +29336,6 @@ impl ::core::cmp::Eq for Matrix5x4F {}
 unsafe impl ::windows::core::Abi for Matrix5x4F {
     type Abi = Self;
 }
-pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
-pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::core::HRESULT;
-pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *const u8, datasize: u32) -> ::windows::core::HRESULT;
+pub type PD2D1_EFFECT_FACTORY = ::core::option::Option<unsafe extern "system" fn(effectimpl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type PD2D1_PROPERTY_GET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::core::HRESULT>;
+pub type PD2D1_PROPERTY_SET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows::core::RawPtr, data: *const u8, datasize: u32) -> ::windows::core::HRESULT>;

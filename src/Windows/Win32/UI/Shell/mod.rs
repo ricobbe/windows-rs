@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Abi for APPINFODATAFLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
+pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_MIN_WIDTH(pub i32);
@@ -1435,7 +1435,7 @@ unsafe impl ::windows::core::Abi for BASEBROWSERDATAXP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
+pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::core::Abi for DISPLAY_DEVICE_TYPE {
     type Abi = Self;
 }
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
-pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT;
+pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DLLVERSIONINFO {
@@ -46562,9 +46562,9 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::core::HRESULT = ::windows
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927232i32 as _);
 pub const LINK_E_DELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927485i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
+pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
+pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUserProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofileinfo: *mut PROFILEINFOA) -> super::super::Foundation::BOOL {
@@ -48069,9 +48069,9 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -48250,9 +48250,9 @@ unsafe impl ::windows::core::Abi for PERSIST_FOLDER_TARGET_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -58134,7 +58134,7 @@ unsafe impl ::windows::core::Abi for STPFLAG {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
+pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

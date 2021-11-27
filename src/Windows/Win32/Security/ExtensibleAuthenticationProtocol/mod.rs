@@ -3076,7 +3076,7 @@ impl ::core::cmp::Eq for NgcTicketContext {}
 unsafe impl ::windows::core::Abi for NgcTicketContext {
     type Abi = Self;
 }
-pub type NotificationHandler = unsafe extern "system" fn(connectionid: ::windows::core::GUID, pcontextdata: *mut ::core::ffi::c_void);
+pub type NotificationHandler = ::core::option::Option<unsafe extern "system" fn(connectionid: ::windows::core::GUID, pcontextdata: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PPP_EAP_ACTION(pub i32);

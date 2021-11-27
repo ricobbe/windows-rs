@@ -9422,7 +9422,7 @@ impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST {

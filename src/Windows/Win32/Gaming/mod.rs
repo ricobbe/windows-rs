@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
 }
 pub const GameExplorer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
-pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void);
+pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -838,7 +838,7 @@ impl ::core::convert::From<i32> for KnownGamingPrivileges {
 unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
     type Abi = Self;
 }
-pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, selectedxuidscount: usize);
+pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, selectedxuidscount: usize)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::core::Result<()> {
