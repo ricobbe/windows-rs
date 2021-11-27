@@ -103,7 +103,7 @@ fn gen_abi_type_name(def: &TypeDef, gen: &Gen, pointers: usize) -> TokenStream {
         TypeKind::Enum => gen_type_name(def, gen),
         TypeKind::Struct => {
             let name = gen_type_name(def, gen);
-            if def.is_blittable() {
+            if def.is_blittable() || pointers > 0 {
                 name
             } else {
                 quote! { ::core::mem::ManuallyDrop<#name> }
