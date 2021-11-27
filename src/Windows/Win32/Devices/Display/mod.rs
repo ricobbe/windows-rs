@@ -2796,12 +2796,12 @@ impl ::core::cmp::Eq for DRH_APIBITMAPDATA {}
 unsafe impl ::windows::core::Abi for DRH_APIBITMAPDATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVEROBJ {
     pub pvObj: *mut ::core::ffi::c_void,
-    pub pFreeProc: ::core::option::Option<FREEOBJPROC>,
+    pub pFreeProc: FREEOBJPROC,
     pub hdev: HDEV,
     pub dhpdev: DHPDEV,
 }
@@ -2829,7 +2829,7 @@ impl ::core::cmp::PartialEq for DRIVEROBJ {
 impl ::core::cmp::Eq for DRIVEROBJ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVEROBJ {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2858,11 +2858,11 @@ impl ::core::cmp::Eq for DRVENABLEDATA {}
 unsafe impl ::windows::core::Abi for DRVENABLEDATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRVFN {
     pub iFunc: u32,
-    pub pfn: ::core::option::Option<PFN>,
+    pub pfn: PFN,
 }
 impl DRVFN {}
 impl ::core::default::Default for DRVFN {
@@ -2882,7 +2882,7 @@ impl ::core::cmp::PartialEq for DRVFN {
 }
 impl ::core::cmp::Eq for DRVFN {}
 unsafe impl ::windows::core::Abi for DRVFN {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
@@ -4840,7 +4840,7 @@ pub const FO_VERT_FACE: u32 = 8388608u32;
 pub const FP_ALTERNATEMODE: i32 = 1i32;
 pub const FP_WINDINGMODE: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::core::mem::ManuallyDrop<DRIVEROBJ>) -> super::super::Foundation::BOOL;
+pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -8085,7 +8085,7 @@ pub type PFN_DrvDitherColor = unsafe extern "system" fn(param0: DHPDEV, param1: 
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvDrawEscape = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::core::ffi::c_void) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_CALLBACKS>, param2: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS>, param3: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS>) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_CALLBACKS, param2: *mut super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS, param3: *mut super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvEnableDriver = unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8103,7 +8103,7 @@ pub type PFN_DrvFillPath = unsafe extern "system" fn(param0: *mut SURFOBJ, param
 pub type PFN_DrvFontManagement = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void) -> u32;
 pub type PFN_DrvFree = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
-pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_HALINFO>, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_HALINFO, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10373,12 +10373,12 @@ impl ::core::cmp::Eq for VIDEO_VDM {}
 unsafe impl ::windows::core::Abi for VIDEO_VDM {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut ::core::ffi::c_void,
-    pub Callout: ::core::option::Option<PVIDEO_WIN32K_CALLOUT>,
+    pub Callout: PVIDEO_WIN32K_CALLOUT,
     pub bACPI: u32,
     pub pPhysDeviceObject: super::super::Foundation::HANDLE,
     pub DualviewFlags: u32,
@@ -10407,7 +10407,7 @@ impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS {
 impl ::core::cmp::Eq for VIDEO_WIN32K_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

@@ -639,7 +639,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::core::option::Option<LPTIMECALLBACK>, dwuser: usize, fuevent: u32) -> u32 {
+pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

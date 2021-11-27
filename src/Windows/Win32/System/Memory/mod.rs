@@ -3,7 +3,7 @@
 pub mod NonVolatile;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: ::core::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL {
+pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -831,7 +831,7 @@ pub unsafe fn HeapWalk<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsBadCodePtr(lpfn: ::core::option::Option<super::super::Foundation::FARPROC>) -> super::super::Foundation::BOOL {
+pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1914,7 +1914,7 @@ pub unsafe fn ReclaimVirtualMemory(virtualaddress: *const ::core::ffi::c_void, s
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RegisterBadMemoryNotification(callback: ::core::option::Option<PBAD_MEMORY_CALLBACK_ROUTINE>) -> *mut ::core::ffi::c_void {
+pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1928,7 +1928,7 @@ pub unsafe fn RegisterBadMemoryNotification(callback: ::core::option::Option<PBA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: ::core::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

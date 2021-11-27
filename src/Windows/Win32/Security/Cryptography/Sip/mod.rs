@@ -76,7 +76,7 @@ pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut ::core::mem::ManuallyDrop<SIP_DISPATCH_INFO>) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptSIPLoad(::core::mem::transmute(pgsubject), ::core::mem::transmute(dwflags), ::core::mem::transmute(psipdispatch)))
     }
@@ -428,17 +428,17 @@ unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3_0 {
 }
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
-    pub pfGet: ::core::option::Option<pCryptSIPGetSignedDataMsg>,
-    pub pfPut: ::core::option::Option<pCryptSIPPutSignedDataMsg>,
-    pub pfCreate: ::core::option::Option<pCryptSIPCreateIndirectData>,
-    pub pfVerify: ::core::option::Option<pCryptSIPVerifyIndirectData>,
-    pub pfRemove: ::core::option::Option<pCryptSIPRemoveSignedDataMsg>,
+    pub pfGet: pCryptSIPGetSignedDataMsg,
+    pub pfPut: pCryptSIPPutSignedDataMsg,
+    pub pfCreate: pCryptSIPCreateIndirectData,
+    pub pfVerify: pCryptSIPVerifyIndirectData,
+    pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl SIP_DISPATCH_INFO {}
@@ -464,7 +464,7 @@ impl ::core::cmp::PartialEq for SIP_DISPATCH_INFO {
 impl ::core::cmp::Eq for SIP_DISPATCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::core::Abi for SIP_DISPATCH_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

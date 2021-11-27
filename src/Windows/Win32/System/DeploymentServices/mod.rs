@@ -4944,16 +4944,16 @@ pub const WDS_MC_TRACE_FATAL: u32 = 1048576u32;
 pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
-    pub SessionStart: ::core::option::Option<PFN_WdsTransportClientSessionStart>,
-    pub SessionStartEx: ::core::option::Option<PFN_WdsTransportClientSessionStartEx>,
-    pub ReceiveContents: ::core::option::Option<PFN_WdsTransportClientReceiveContents>,
-    pub ReceiveMetadata: ::core::option::Option<PFN_WdsTransportClientReceiveMetadata>,
-    pub SessionComplete: ::core::option::Option<PFN_WdsTransportClientSessionComplete>,
-    pub SessionNegotiate: ::core::option::Option<PFN_WdsTransportClientSessionNegotiate>,
+    pub SessionStart: PFN_WdsTransportClientSessionStart,
+    pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
+    pub ReceiveContents: PFN_WdsTransportClientReceiveContents,
+    pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
+    pub SessionComplete: PFN_WdsTransportClientSessionComplete,
+    pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WDS_TRANSPORTCLIENT_CALLBACKS {}
@@ -4984,7 +4984,7 @@ impl ::core::cmp::PartialEq for WDS_TRANSPORTCLIENT_CALLBACKS {
 impl ::core::cmp::Eq for WDS_TRANSPORTCLIENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
@@ -5716,7 +5716,7 @@ pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliRegisterTrace(pfn: ::core::option::Option<PFN_WdsCliTraceFunction>) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5750,7 +5750,7 @@ pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, supe
     pwszlocalfilepath: Param3,
     dwflags: u32,
     dwreserved: u32,
-    pfnwdsclicallback: ::core::option::Option<PFN_WdsCliCallback>,
+    pfnwdsclicallback: PFN_WdsCliCallback,
     pvuserdata: *const ::core::ffi::c_void,
 ) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5778,7 +5778,7 @@ pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: ::core::option::Option<PFN_WdsCliCallback>, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

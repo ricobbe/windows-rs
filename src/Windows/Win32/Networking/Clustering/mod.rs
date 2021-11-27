@@ -40,7 +40,7 @@ pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: *const _HGROU
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
+pub unsafe fn AddClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -54,7 +54,7 @@ pub unsafe fn AddClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwflags: u32, pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
+pub unsafe fn AddClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -94,14 +94,7 @@ pub unsafe fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hcluster: *const _HCLUSTER,
-    lpsznodename: Param1,
-    pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>,
-    pvcallbackarg: *const ::core::ffi::c_void,
-    lpszclusterstoragenodedescription: Param4,
-    lpszclusterstoragenodelocation: Param5,
-) -> u32 {
+pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, lpszclusterstoragenodedescription: Param4, lpszclusterstoragenodelocation: Param5) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -371,25 +364,25 @@ pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
 pub const CLCTL_INTERNAL_SHIFT: u32 = 20u32;
 pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
 pub const CLCTL_USER_SHIFT: u32 = 21u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
-    pub LogEvent: ::core::option::Option<PLOG_EVENT_ROUTINE>,
-    pub SetResourceStatusEx: ::core::option::Option<PSET_RESOURCE_STATUS_ROUTINE_EX>,
-    pub SetResourceLockedMode: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_ROUTINE>,
-    pub SignalFailure: ::core::option::Option<PSIGNAL_FAILURE_ROUTINE>,
-    pub SetResourceInMemoryNodeLocalProperties: ::core::option::Option<PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE>,
-    pub EndControlCall: ::core::option::Option<PEND_CONTROL_CALL>,
-    pub EndTypeControlCall: ::core::option::Option<PEND_TYPE_CONTROL_CALL>,
-    pub ExtendControlCall: ::core::option::Option<PEXTEND_RES_CONTROL_CALL>,
-    pub ExtendTypeControlCall: ::core::option::Option<PEXTEND_RES_TYPE_CONTROL_CALL>,
-    pub RaiseResTypeNotification: ::core::option::Option<PRAISE_RES_TYPE_NOTIFICATION>,
-    pub ChangeResourceProcessForDumps: ::core::option::Option<PCHANGE_RESOURCE_PROCESS_FOR_DUMPS>,
-    pub ChangeResTypeProcessForDumps: ::core::option::Option<PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS>,
-    pub SetInternalState: ::core::option::Option<PSET_INTERNAL_STATE>,
-    pub SetResourceLockedModeEx: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE>,
-    pub RequestDump: ::core::option::Option<PREQUEST_DUMP_ROUTINE>,
+    pub LogEvent: PLOG_EVENT_ROUTINE,
+    pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
+    pub SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE,
+    pub SignalFailure: PSIGNAL_FAILURE_ROUTINE,
+    pub SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE,
+    pub EndControlCall: PEND_CONTROL_CALL,
+    pub EndTypeControlCall: PEND_TYPE_CONTROL_CALL,
+    pub ExtendControlCall: PEXTEND_RES_CONTROL_CALL,
+    pub ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL,
+    pub RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION,
+    pub ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS,
+    pub ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS,
+    pub SetInternalState: PSET_INTERNAL_STATE,
+    pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
+    pub RequestDump: PREQUEST_DUMP_ROUTINE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CLRES_CALLBACK_FUNCTION_TABLE {}
@@ -429,14 +422,9 @@ impl ::core::cmp::PartialEq for CLRES_CALLBACK_FUNCTION_TABLE {
 impl ::core::cmp::Eq for CLRES_CALLBACK_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLRES_CALLBACK_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::clone::Clone for CLRES_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_FUNCTION_TABLE {
@@ -462,21 +450,16 @@ impl ::core::cmp::PartialEq for CLRES_FUNCTION_TABLE {
 impl ::core::cmp::Eq for CLRES_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::clone::Clone for CLRES_FUNCTION_TABLE_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union CLRES_FUNCTION_TABLE_0 {
-    pub V1Functions: ::core::mem::ManuallyDrop<CLRES_V1_FUNCTIONS>,
-    pub V2Functions: ::core::mem::ManuallyDrop<CLRES_V2_FUNCTIONS>,
-    pub V3Functions: ::core::mem::ManuallyDrop<CLRES_V3_FUNCTIONS>,
-    pub V4Functions: ::core::mem::ManuallyDrop<CLRES_V4_FUNCTIONS>,
+    pub V1Functions: CLRES_V1_FUNCTIONS,
+    pub V2Functions: CLRES_V2_FUNCTIONS,
+    pub V3Functions: CLRES_V3_FUNCTIONS,
+    pub V4Functions: CLRES_V4_FUNCTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CLRES_FUNCTION_TABLE_0 {}
@@ -496,23 +479,23 @@ impl ::core::cmp::PartialEq for CLRES_FUNCTION_TABLE_0 {
 impl ::core::cmp::Eq for CLRES_FUNCTION_TABLE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_FUNCTION_TABLE_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V1_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
+    pub Open: POPEN_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_ROUTINE,
+    pub Offline: POFFLINE_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CLRES_V1_FUNCTIONS {}
@@ -548,24 +531,24 @@ impl ::core::cmp::PartialEq for CLRES_V1_FUNCTIONS {
 impl ::core::cmp::Eq for CLRES_V1_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V1_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V2_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CLRES_V2_FUNCTIONS {}
@@ -602,24 +585,24 @@ impl ::core::cmp::PartialEq for CLRES_V2_FUNCTIONS {
 impl ::core::cmp::Eq for CLRES_V2_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V2_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V3_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CLRES_V3_FUNCTIONS {}
@@ -656,26 +639,26 @@ impl ::core::cmp::PartialEq for CLRES_V3_FUNCTIONS {
 impl ::core::cmp::Eq for CLRES_V3_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V3_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V4_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
-    pub BeginResourceControlAsUser: ::core::option::Option<PBEGIN_RESCALL_AS_USER_ROUTINE>,
-    pub BeginResourceTypeControlAsUser: ::core::option::Option<PBEGIN_RESTYPECALL_AS_USER_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+    pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
+    pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CLRES_V4_FUNCTIONS {}
@@ -714,7 +697,7 @@ impl ::core::cmp::PartialEq for CLRES_V4_FUNCTIONS {
 impl ::core::cmp::Eq for CLRES_V4_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V4_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
 pub const CLRES_VERSION_V2_00: u32 = 512u32;
@@ -5539,7 +5522,7 @@ pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: ::core::option::Option<PWORKER_START_ROUTINE>, lpparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7098,7 +7081,7 @@ pub unsafe fn ClusterSharedVolumeSetSnapshotState<'a, Param0: ::windows::core::I
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, perform: Param1, pfnprogresscallback: ::core::option::Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, perform: Param1, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7112,7 +7095,7 @@ pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::core::IntoPar
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER {
+pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7182,7 +7165,7 @@ pub unsafe fn CreateClusterGroupSet<'a, Param1: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7304,7 +7287,7 @@ pub unsafe fn DeleteClusterResourceType<'a, Param1: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DestroyCluster<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, pfnprogresscallback: ::core::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: Param3) -> u32 {
+pub unsafe fn DestroyCluster<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14451,7 +14434,7 @@ pub type PSET_RESOURCE_STATUS_ROUTINE = unsafe extern "system" fn(resourcehandle
 pub type PSET_RESOURCE_STATUS_ROUTINE_EX = unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32;
 pub type PSIGNAL_FAILURE_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-pub type PSTARTUP_EX_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut ::core::mem::ManuallyDrop<CLRES_CALLBACK_FUNCTION_TABLE>, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
+pub type PSTARTUP_EX_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut CLRES_CALLBACK_FUNCTION_TABLE, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PSTARTUP_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: ::windows::core::RawPtr, logevent: ::windows::core::RawPtr, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
 pub type PTERMINATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void);
@@ -15225,7 +15208,7 @@ pub unsafe fn ResUtilDupString<'a, Param0: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, prescallback: ::core::option::Option<LPGROUP_CALLBACK_EX>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15238,7 +15221,7 @@ pub unsafe fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, p
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: ::core::option::Option<LPGROUP_CALLBACK_EX>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15280,7 +15263,7 @@ pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: *mut _HRESOURCE, lpszrestypename: Param1, prescallback: ::core::option::Option<LPRESOURCE_CALLBACK>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: *mut _HRESOURCE, lpszrestypename: Param1, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15294,7 +15277,7 @@ pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: ::core::option::Option<LPRESOURCE_CALLBACK_EX>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15308,7 +15291,7 @@ pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: ::core::option::Option<LPRESOURCE_CALLBACK_EX>, pparameter: *mut ::core::ffi::c_void, dwdesiredaccess: u32) -> u32 {
+pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void, dwdesiredaccess: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16040,7 +16023,7 @@ pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, righ
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: ::core::option::Option<LPNODE_CALLBACK>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16082,7 +16065,7 @@ pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, pfnlogevent: ::core::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
+pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16095,7 +16078,7 @@ pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::cor
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, prescallback: ::core::option::Option<LPRESOURCE_CALLBACK_EX>, pparameter: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16304,7 +16287,7 @@ pub unsafe fn ResUtilSetQwordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, hresource: *mut _HRESOURCE, pfnlogevent: ::core::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
+pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, hresource: *mut _HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16318,7 +16301,7 @@ pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::core::
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, pfnlogevent: ::core::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
+pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16332,7 +16315,7 @@ pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::co
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: ::core::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
+pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16430,7 +16413,7 @@ pub unsafe fn ResUtilStopService<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilTerminateServiceProcessFromResDll<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwservicepid: u32, boffline: Param1, pdwresourcestate: *mut u32, pfnlogevent: ::core::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
+pub unsafe fn ResUtilTerminateServiceProcessFromResDll<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwservicepid: u32, boffline: Param1, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

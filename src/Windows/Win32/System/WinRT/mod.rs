@@ -2450,7 +2450,7 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: ::core::option::Option<PINSPECT_MEMORY_CALLBACK>, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::Result<()> {
+pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2463,7 +2463,7 @@ pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, mac
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: ::core::option::Option<PINSPECT_MEMORY_CALLBACK>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
+pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2859,7 +2859,7 @@ pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: ::core::option::Option<PINSPECT_HSTRING_CALLBACK>, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::Result<()> {
+pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2872,7 +2872,7 @@ pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: ::core::option::Option<PINSPECT_HSTRING_CALLBACK2>, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::Result<()> {
+pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

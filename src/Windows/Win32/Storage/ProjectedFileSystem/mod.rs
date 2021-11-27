@@ -1,16 +1,16 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_CALLBACKS {
-    pub StartDirectoryEnumerationCallback: ::core::option::Option<PRJ_START_DIRECTORY_ENUMERATION_CB>,
-    pub EndDirectoryEnumerationCallback: ::core::option::Option<PRJ_END_DIRECTORY_ENUMERATION_CB>,
-    pub GetDirectoryEnumerationCallback: ::core::option::Option<PRJ_GET_DIRECTORY_ENUMERATION_CB>,
-    pub GetPlaceholderInfoCallback: ::core::option::Option<PRJ_GET_PLACEHOLDER_INFO_CB>,
-    pub GetFileDataCallback: ::core::option::Option<PRJ_GET_FILE_DATA_CB>,
-    pub QueryFileNameCallback: ::core::option::Option<PRJ_QUERY_FILE_NAME_CB>,
-    pub NotificationCallback: ::core::option::Option<PRJ_NOTIFICATION_CB>,
-    pub CancelCommandCallback: ::core::option::Option<PRJ_CANCEL_COMMAND_CB>,
+    pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
+    pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
+    pub GetDirectoryEnumerationCallback: PRJ_GET_DIRECTORY_ENUMERATION_CB,
+    pub GetPlaceholderInfoCallback: PRJ_GET_PLACEHOLDER_INFO_CB,
+    pub GetFileDataCallback: PRJ_GET_FILE_DATA_CB,
+    pub QueryFileNameCallback: PRJ_QUERY_FILE_NAME_CB,
+    pub NotificationCallback: PRJ_NOTIFICATION_CB,
+    pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl PRJ_CALLBACKS {}
@@ -43,7 +43,7 @@ impl ::core::cmp::PartialEq for PRJ_CALLBACKS {
 impl ::core::cmp::Eq for PRJ_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1258,7 +1258,7 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const ::core::mem::ManuallyDrop<PRJ_CALLBACKS>, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
+            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
         }
         let mut result__: <PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), ::core::mem::transmute(callbacks), ::core::mem::transmute(instancecontext), ::core::mem::transmute(options), &mut result__).from_abi::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>(result__)

@@ -818,7 +818,7 @@ pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -859,7 +859,7 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -873,7 +873,7 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -887,7 +887,7 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2829,7 +2829,7 @@ pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
@@ -2843,7 +2843,7 @@ pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
@@ -2857,7 +2857,7 @@ pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
@@ -2871,7 +2871,7 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
@@ -4132,7 +4132,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::core::option::Option<super::super::Foundation::FARPROC>) -> HIC {
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8075,18 +8075,13 @@ pub const MMIOERR_PATHNOTFOUND: u32 = 267u32;
 pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MMIOINFO {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
-    pub pIOProc: ::core::option::Option<LPMMIOPROC>,
+    pub pIOProc: LPMMIOPROC,
     pub wErrorRet: u32,
     pub htask: super::HTASK,
     pub cchBuffer: i32,
@@ -8119,7 +8114,7 @@ impl ::core::cmp::PartialEq for MMIOINFO {
 impl ::core::cmp::Eq for MMIOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMIOINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const MMIOM_CLOSE: u32 = 4u32;
 pub const MMIOM_OPEN: u32 = 3u32;
@@ -11217,16 +11212,12 @@ pub const TDD_GETDEVCAPS: u32 = 2060u32;
 pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-impl ::core::clone::Clone for TIMEREVENT {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::core::option::Option<super::LPTIMECALLBACK>,
+    pub lpFunction: super::LPTIMECALLBACK,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,
@@ -11244,7 +11235,7 @@ impl ::core::cmp::PartialEq for TIMEREVENT {
 }
 impl ::core::cmp::Eq for TIMEREVENT {}
 unsafe impl ::windows::core::Abi for TIMEREVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -12237,12 +12228,12 @@ pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC> {
+pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC>;
+            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
         }
         ::core::mem::transmute(mciGetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(pdwyielddata)))
     }
@@ -12333,7 +12324,7 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::F
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12347,7 +12338,7 @@ pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YI
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: ::core::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32 {
+pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12387,7 +12378,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmTaskCreate(lpfn: ::core::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
+pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12433,7 +12424,7 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuadvance: u32) -> u32;
+            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
         }
         ::core::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuadvance)))
     }
@@ -12512,7 +12503,7 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
         }
         ::core::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }
@@ -12521,12 +12512,12 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
@@ -12535,12 +12526,12 @@ pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
@@ -12554,7 +12545,7 @@ pub unsafe fn mmioOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
         ::core::mem::transmute(mmioOpenA(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
@@ -12568,7 +12559,7 @@ pub unsafe fn mmioOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
         ::core::mem::transmute(mmioOpenW(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
@@ -12595,7 +12586,7 @@ pub unsafe fn mmioRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
         ::core::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
@@ -12609,7 +12600,7 @@ pub unsafe fn mmioRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
         ::core::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
@@ -12664,7 +12655,7 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
         }
         ::core::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }

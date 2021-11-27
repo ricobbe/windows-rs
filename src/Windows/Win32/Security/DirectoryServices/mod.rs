@@ -6,8 +6,8 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::core::IntoParam
     pwszobjectclass: Param1,
     dwflags: u32,
     ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
-    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
+    pfnreadsd: PFNREADOBJECTSECURITY,
+    pfnwritesd: PFNWRITEOBJECTSECURITY,
     lpcontext: Param6,
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -31,8 +31,8 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoPar
     pwszpassword: Param4,
     dwflags: u32,
     ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
-    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
+    pfnreadsd: PFNREADOBJECTSECURITY,
+    pfnwritesd: PFNWRITEOBJECTSECURITY,
     lpcontext: Param9,
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -60,15 +60,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoPar
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
-    pwszobjectpath: Param0,
-    pwszobjectclass: Param1,
-    dwflags: u32,
-    phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE,
-    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
-    lpcontext: Param6,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(pwszobjectpath: Param0, pwszobjectclass: Param1, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -88,8 +80,8 @@ pub unsafe fn DSEditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::s
     pwszobjectclass: Param2,
     dwflags: u32,
     pwszcaption: Param4,
-    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
+    pfnreadsd: PFNREADOBJECTSECURITY,
+    pfnwritesd: PFNWRITEOBJECTSECURITY,
     lpcontext: Param7,
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]

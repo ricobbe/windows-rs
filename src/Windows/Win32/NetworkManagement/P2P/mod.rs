@@ -3289,7 +3289,7 @@ impl ::core::convert::From<i32> for PEER_RECORD_FLAGS {
 unsafe impl ::windows::core::Abi for PEER_RECORD_FLAGS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE {
@@ -3299,10 +3299,10 @@ pub struct PEER_SECURITY_INTERFACE {
     pub cbSecurityInfo: u32,
     pub pbSecurityInfo: *mut u8,
     pub pvContext: *mut ::core::ffi::c_void,
-    pub pfnValidateRecord: ::core::option::Option<PFNPEER_VALIDATE_RECORD>,
-    pub pfnSecureRecord: ::core::option::Option<PFNPEER_SECURE_RECORD>,
-    pub pfnFreeSecurityData: ::core::option::Option<PFNPEER_FREE_SECURITY_DATA>,
-    pub pfnAuthFailed: ::core::option::Option<PFNPEER_ON_PASSWORD_AUTH_FAILED>,
+    pub pfnValidateRecord: PFNPEER_VALIDATE_RECORD,
+    pub pfnSecureRecord: PFNPEER_SECURE_RECORD,
+    pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
+    pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl PEER_SECURITY_INTERFACE {}
@@ -3344,7 +3344,7 @@ impl ::core::cmp::PartialEq for PEER_SECURITY_INTERFACE {
 impl ::core::cmp::Eq for PEER_SECURITY_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -4831,7 +4831,7 @@ pub unsafe fn PeerGraphCreate<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const ::core::mem::ManuallyDrop<PEER_SECURITY_INTERFACE>, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         PeerGraphCreate(::core::mem::transmute(pgraphproperties), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(phgraph)).ok()
     }
@@ -5090,7 +5090,7 @@ pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::core::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PeerGraphOpen(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const ::core::mem::ManuallyDrop<PEER_SECURITY_INTERFACE>, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn PeerGraphOpen(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(crecordtypesyncprecedence), ::core::mem::transmute(precordtypesyncprecedence), ::core::mem::transmute(phgraph)).ok()
     }

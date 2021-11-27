@@ -101,7 +101,7 @@ pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, c
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::core::option::Option<PENUM_PAGE_FILE_CALLBACKA>, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -115,7 +115,7 @@ pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::core::option::Option<PENUM_P
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::core::option::Option<PENUM_PAGE_FILE_CALLBACKW>, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

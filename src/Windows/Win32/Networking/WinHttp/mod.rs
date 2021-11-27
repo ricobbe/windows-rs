@@ -2647,12 +2647,12 @@ pub unsafe fn WinHttpSetProxySettingsPerUser<'a, Param0: ::windows::core::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<WINHTTP_STATUS_CALLBACK>, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK> {
+pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK>;
+            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
         }
         ::core::mem::transmute(WinHttpSetStatusCallback(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback), ::core::mem::transmute(dwnotificationflags), ::core::mem::transmute(dwreserved)))
     }

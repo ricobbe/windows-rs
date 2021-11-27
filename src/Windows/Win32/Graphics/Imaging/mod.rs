@@ -616,7 +616,7 @@ pub struct IWICBitmapCodecInfo_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWICBitmapCodecProgressNotification(pub ::windows::core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
-    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: ::core::option::Option<PFNProgressNotification>, pvdata: *const ::core::ffi::c_void, dwprogressflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: *const ::core::ffi::c_void, dwprogressflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnprogressnotification), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwprogressflags)).ok()
     }
 }

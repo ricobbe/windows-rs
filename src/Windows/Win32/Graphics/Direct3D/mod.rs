@@ -1069,7 +1069,7 @@ pub struct ID3DBlob_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3DDestructionNotifier(pub ::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
-    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: ::core::option::Option<PFN_DESTRUCTION_CALLBACK>, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
+    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), &mut result__).from_abi::<u32>(result__)
     }

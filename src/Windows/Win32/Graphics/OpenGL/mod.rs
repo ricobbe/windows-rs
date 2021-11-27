@@ -6346,12 +6346,12 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> ::core::option::Option<super::super::Foundation::PROC> {
+pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::PROC>;
+            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PROC;
         }
         ::core::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
     }

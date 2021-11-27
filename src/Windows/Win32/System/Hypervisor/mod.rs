@@ -610,21 +610,21 @@ unsafe impl ::windows::core::Abi for HDV_PCI_BAR_SELECTOR {
 }
 pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::core::HRESULT;
 pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
-    pub Initialize: ::core::option::Option<HDV_PCI_DEVICE_INITIALIZE>,
-    pub Teardown: ::core::option::Option<HDV_PCI_DEVICE_TEARDOWN>,
-    pub SetConfiguration: ::core::option::Option<HDV_PCI_DEVICE_SET_CONFIGURATION>,
-    pub GetDetails: ::core::option::Option<HDV_PCI_DEVICE_GET_DETAILS>,
-    pub Start: ::core::option::Option<HDV_PCI_DEVICE_START>,
-    pub Stop: ::core::option::Option<HDV_PCI_DEVICE_STOP>,
-    pub ReadConfigSpace: ::core::option::Option<HDV_PCI_READ_CONFIG_SPACE>,
-    pub WriteConfigSpace: ::core::option::Option<HDV_PCI_WRITE_CONFIG_SPACE>,
-    pub ReadInterceptedMemory: ::core::option::Option<HDV_PCI_READ_INTERCEPTED_MEMORY>,
-    pub WriteInterceptedMemory: ::core::option::Option<HDV_PCI_WRITE_INTERCEPTED_MEMORY>,
+    pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
+    pub Teardown: HDV_PCI_DEVICE_TEARDOWN,
+    pub SetConfiguration: HDV_PCI_DEVICE_SET_CONFIGURATION,
+    pub GetDetails: HDV_PCI_DEVICE_GET_DETAILS,
+    pub Start: HDV_PCI_DEVICE_START,
+    pub Stop: HDV_PCI_DEVICE_STOP,
+    pub ReadConfigSpace: HDV_PCI_READ_CONFIG_SPACE,
+    pub WriteConfigSpace: HDV_PCI_WRITE_CONFIG_SPACE,
+    pub ReadInterceptedMemory: HDV_PCI_READ_INTERCEPTED_MEMORY,
+    pub WriteInterceptedMemory: HDV_PCI_WRITE_INTERCEPTED_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl HDV_PCI_DEVICE_INTERFACE {}
@@ -660,7 +660,7 @@ impl ::core::cmp::PartialEq for HDV_PCI_DEVICE_INTERFACE {
 impl ::core::cmp::Eq for HDV_PCI_DEVICE_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
@@ -1383,7 +1383,7 @@ unsafe impl ::windows::core::Abi for SOCKADDR_HV {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::core::option::Option<FOUND_IMAGE_CALLBACK>, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
+pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1420,7 +1420,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: ::core::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>) -> ::windows::core::Result<()> {
+pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2254,16 +2254,16 @@ impl ::core::cmp::Eq for WHV_DOORBELL_MATCH_DATA {}
 unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
-    pub WHvEmulatorIoPortCallback: ::core::option::Option<WHV_EMULATOR_IO_PORT_CALLBACK>,
-    pub WHvEmulatorMemoryCallback: ::core::option::Option<WHV_EMULATOR_MEMORY_CALLBACK>,
-    pub WHvEmulatorGetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorSetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorTranslateGvaPage: ::core::option::Option<WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK>,
+    pub WHvEmulatorIoPortCallback: WHV_EMULATOR_IO_PORT_CALLBACK,
+    pub WHvEmulatorMemoryCallback: WHV_EMULATOR_MEMORY_CALLBACK,
+    pub WHvEmulatorGetVirtualProcessorRegisters: WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorSetVirtualProcessorRegisters: WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorTranslateGvaPage: WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK,
 }
 impl WHV_EMULATOR_CALLBACKS {}
 impl ::core::default::Default for WHV_EMULATOR_CALLBACKS {
@@ -2289,7 +2289,7 @@ impl ::core::cmp::PartialEq for WHV_EMULATOR_CALLBACKS {
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -6426,7 +6426,7 @@ pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WHvEmulatorCreateEmulator(callbacks: *const ::core::mem::ManuallyDrop<WHV_EMULATOR_CALLBACKS>, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WHvEmulatorCreateEmulator(::core::mem::transmute(callbacks), ::core::mem::transmute(emulator)).ok()
     }

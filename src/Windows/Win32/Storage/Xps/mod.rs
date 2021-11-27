@@ -8811,7 +8811,7 @@ pub unsafe fn PrintWindow<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, proc: ::core::option::Option<ABORTPROC>) -> i32 {
+pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, proc: ABORTPROC) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

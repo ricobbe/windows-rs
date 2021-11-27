@@ -40,9 +40,9 @@ pub type DOT11EXTIHV_GET_VERSION_INFO = unsafe extern "system" fn(pdot11ihvversi
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXTIHV_INIT_ADAPTER = unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-pub type DOT11EXTIHV_INIT_SERVICE = unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const ::core::mem::ManuallyDrop<DOT11EXT_APIS>, pvreserved: *mut ::core::ffi::c_void, pdot11ihvhandlers: *mut ::core::mem::ManuallyDrop<DOT11EXT_IHV_HANDLERS>) -> u32;
+pub type DOT11EXTIHV_INIT_SERVICE = unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *mut ::core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = unsafe extern "system" fn(pdot11extvsapi: *const ::core::mem::ManuallyDrop<DOT11EXT_VIRTUAL_STATION_APIS>, pvreserved: *mut ::core::ffi::c_void) -> u32;
+pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *mut ::core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = unsafe extern "system" fn(guiduirequest: ::windows::core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
@@ -69,32 +69,32 @@ pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = unsafe extern "system" fn(hihvextadap
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_VALIDATE_PROFILE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32;
 pub type DOT11EXT_ALLOCATE_BUFFER = unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::core::ffi::c_void) -> u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_APIS {
-    pub Dot11ExtAllocateBuffer: ::core::option::Option<DOT11EXT_ALLOCATE_BUFFER>,
-    pub Dot11ExtFreeBuffer: ::core::option::Option<DOT11EXT_FREE_BUFFER>,
-    pub Dot11ExtSetProfileCustomUserData: ::core::option::Option<DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA>,
-    pub Dot11ExtGetProfileCustomUserData: ::core::option::Option<DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA>,
-    pub Dot11ExtSetCurrentProfile: ::core::option::Option<DOT11EXT_SET_CURRENT_PROFILE>,
-    pub Dot11ExtSendUIRequest: ::core::option::Option<DOT11EXT_SEND_UI_REQUEST>,
-    pub Dot11ExtPreAssociateCompletion: ::core::option::Option<DOT11EXT_PRE_ASSOCIATE_COMPLETION>,
-    pub Dot11ExtPostAssociateCompletion: ::core::option::Option<DOT11EXT_POST_ASSOCIATE_COMPLETION>,
-    pub Dot11ExtSendNotification: ::core::option::Option<DOT11EXT_SEND_NOTIFICATION>,
-    pub Dot11ExtSendPacket: ::core::option::Option<DOT11EXT_SEND_PACKET>,
-    pub Dot11ExtSetEtherTypeHandling: ::core::option::Option<DOT11EXT_SET_ETHERTYPE_HANDLING>,
-    pub Dot11ExtSetAuthAlgorithm: ::core::option::Option<DOT11EXT_SET_AUTH_ALGORITHM>,
-    pub Dot11ExtSetUnicastCipherAlgorithm: ::core::option::Option<DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM>,
-    pub Dot11ExtSetMulticastCipherAlgorithm: ::core::option::Option<DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM>,
-    pub Dot11ExtSetDefaultKey: ::core::option::Option<DOT11EXT_SET_DEFAULT_KEY>,
-    pub Dot11ExtSetKeyMappingKey: ::core::option::Option<DOT11EXT_SET_KEY_MAPPING_KEY>,
-    pub Dot11ExtSetDefaultKeyId: ::core::option::Option<DOT11EXT_SET_DEFAULT_KEY_ID>,
-    pub Dot11ExtNicSpecificExtension: ::core::option::Option<DOT11EXT_NIC_SPECIFIC_EXTENSION>,
-    pub Dot11ExtSetExcludeUnencrypted: ::core::option::Option<DOT11EXT_SET_EXCLUDE_UNENCRYPTED>,
-    pub Dot11ExtStartOneX: ::core::option::Option<DOT11EXT_ONEX_START>,
-    pub Dot11ExtStopOneX: ::core::option::Option<DOT11EXT_ONEX_STOP>,
-    pub Dot11ExtProcessSecurityPacket: ::core::option::Option<DOT11EXT_PROCESS_ONEX_PACKET>,
+    pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
+    pub Dot11ExtFreeBuffer: DOT11EXT_FREE_BUFFER,
+    pub Dot11ExtSetProfileCustomUserData: DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA,
+    pub Dot11ExtGetProfileCustomUserData: DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA,
+    pub Dot11ExtSetCurrentProfile: DOT11EXT_SET_CURRENT_PROFILE,
+    pub Dot11ExtSendUIRequest: DOT11EXT_SEND_UI_REQUEST,
+    pub Dot11ExtPreAssociateCompletion: DOT11EXT_PRE_ASSOCIATE_COMPLETION,
+    pub Dot11ExtPostAssociateCompletion: DOT11EXT_POST_ASSOCIATE_COMPLETION,
+    pub Dot11ExtSendNotification: DOT11EXT_SEND_NOTIFICATION,
+    pub Dot11ExtSendPacket: DOT11EXT_SEND_PACKET,
+    pub Dot11ExtSetEtherTypeHandling: DOT11EXT_SET_ETHERTYPE_HANDLING,
+    pub Dot11ExtSetAuthAlgorithm: DOT11EXT_SET_AUTH_ALGORITHM,
+    pub Dot11ExtSetUnicastCipherAlgorithm: DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM,
+    pub Dot11ExtSetMulticastCipherAlgorithm: DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM,
+    pub Dot11ExtSetDefaultKey: DOT11EXT_SET_DEFAULT_KEY,
+    pub Dot11ExtSetKeyMappingKey: DOT11EXT_SET_KEY_MAPPING_KEY,
+    pub Dot11ExtSetDefaultKeyId: DOT11EXT_SET_DEFAULT_KEY_ID,
+    pub Dot11ExtNicSpecificExtension: DOT11EXT_NIC_SPECIFIC_EXTENSION,
+    pub Dot11ExtSetExcludeUnencrypted: DOT11EXT_SET_EXCLUDE_UNENCRYPTED,
+    pub Dot11ExtStartOneX: DOT11EXT_ONEX_START,
+    pub Dot11ExtStopOneX: DOT11EXT_ONEX_STOP,
+    pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11EXT_APIS {}
@@ -141,7 +141,7 @@ impl ::core::cmp::PartialEq for DOT11EXT_APIS {
 impl ::core::cmp::Eq for DOT11EXT_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::core::Abi for DOT11EXT_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub type DOT11EXT_FREE_BUFFER = unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -258,29 +258,29 @@ impl ::core::cmp::Eq for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
 unsafe impl ::windows::core::Abi for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXT_IHV_HANDLERS {
-    pub Dot11ExtIhvDeinitService: ::core::option::Option<DOT11EXTIHV_DEINIT_SERVICE>,
-    pub Dot11ExtIhvInitAdapter: ::core::option::Option<DOT11EXTIHV_INIT_ADAPTER>,
-    pub Dot11ExtIhvDeinitAdapter: ::core::option::Option<DOT11EXTIHV_DEINIT_ADAPTER>,
-    pub Dot11ExtIhvPerformPreAssociate: ::core::option::Option<DOT11EXTIHV_PERFORM_PRE_ASSOCIATE>,
-    pub Dot11ExtIhvAdapterReset: ::core::option::Option<DOT11EXTIHV_ADAPTER_RESET>,
-    pub Dot11ExtIhvPerformPostAssociate: ::core::option::Option<DOT11EXTIHV_PERFORM_POST_ASSOCIATE>,
-    pub Dot11ExtIhvStopPostAssociate: ::core::option::Option<DOT11EXTIHV_STOP_POST_ASSOCIATE>,
-    pub Dot11ExtIhvValidateProfile: ::core::option::Option<DOT11EXTIHV_VALIDATE_PROFILE>,
-    pub Dot11ExtIhvPerformCapabilityMatch: ::core::option::Option<DOT11EXTIHV_PERFORM_CAPABILITY_MATCH>,
-    pub Dot11ExtIhvCreateDiscoveryProfiles: ::core::option::Option<DOT11EXTIHV_CREATE_DISCOVERY_PROFILES>,
-    pub Dot11ExtIhvProcessSessionChange: ::core::option::Option<DOT11EXTIHV_PROCESS_SESSION_CHANGE>,
-    pub Dot11ExtIhvReceiveIndication: ::core::option::Option<DOT11EXTIHV_RECEIVE_INDICATION>,
-    pub Dot11ExtIhvReceivePacket: ::core::option::Option<DOT11EXTIHV_RECEIVE_PACKET>,
-    pub Dot11ExtIhvSendPacketCompletion: ::core::option::Option<DOT11EXTIHV_SEND_PACKET_COMPLETION>,
-    pub Dot11ExtIhvIsUIRequestPending: ::core::option::Option<DOT11EXTIHV_IS_UI_REQUEST_PENDING>,
-    pub Dot11ExtIhvProcessUIResponse: ::core::option::Option<DOT11EXTIHV_PROCESS_UI_RESPONSE>,
-    pub Dot11ExtIhvQueryUIRequest: ::core::option::Option<DOT11EXTIHV_QUERY_UI_REQUEST>,
-    pub Dot11ExtIhvOnexIndicateResult: ::core::option::Option<DOT11EXTIHV_ONEX_INDICATE_RESULT>,
-    pub Dot11ExtIhvControl: ::core::option::Option<DOT11EXTIHV_CONTROL>,
+    pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
+    pub Dot11ExtIhvInitAdapter: DOT11EXTIHV_INIT_ADAPTER,
+    pub Dot11ExtIhvDeinitAdapter: DOT11EXTIHV_DEINIT_ADAPTER,
+    pub Dot11ExtIhvPerformPreAssociate: DOT11EXTIHV_PERFORM_PRE_ASSOCIATE,
+    pub Dot11ExtIhvAdapterReset: DOT11EXTIHV_ADAPTER_RESET,
+    pub Dot11ExtIhvPerformPostAssociate: DOT11EXTIHV_PERFORM_POST_ASSOCIATE,
+    pub Dot11ExtIhvStopPostAssociate: DOT11EXTIHV_STOP_POST_ASSOCIATE,
+    pub Dot11ExtIhvValidateProfile: DOT11EXTIHV_VALIDATE_PROFILE,
+    pub Dot11ExtIhvPerformCapabilityMatch: DOT11EXTIHV_PERFORM_CAPABILITY_MATCH,
+    pub Dot11ExtIhvCreateDiscoveryProfiles: DOT11EXTIHV_CREATE_DISCOVERY_PROFILES,
+    pub Dot11ExtIhvProcessSessionChange: DOT11EXTIHV_PROCESS_SESSION_CHANGE,
+    pub Dot11ExtIhvReceiveIndication: DOT11EXTIHV_RECEIVE_INDICATION,
+    pub Dot11ExtIhvReceivePacket: DOT11EXTIHV_RECEIVE_PACKET,
+    pub Dot11ExtIhvSendPacketCompletion: DOT11EXTIHV_SEND_PACKET_COMPLETION,
+    pub Dot11ExtIhvIsUIRequestPending: DOT11EXTIHV_IS_UI_REQUEST_PENDING,
+    pub Dot11ExtIhvProcessUIResponse: DOT11EXTIHV_PROCESS_UI_RESPONSE,
+    pub Dot11ExtIhvQueryUIRequest: DOT11EXTIHV_QUERY_UI_REQUEST,
+    pub Dot11ExtIhvOnexIndicateResult: DOT11EXTIHV_ONEX_INDICATE_RESULT,
+    pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl DOT11EXT_IHV_HANDLERS {}
@@ -324,7 +324,7 @@ impl ::core::cmp::PartialEq for DOT11EXT_IHV_HANDLERS {
 impl ::core::cmp::Eq for DOT11EXT_IHV_HANDLERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 unsafe impl ::windows::core::Abi for DOT11EXT_IHV_HANDLERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -553,14 +553,14 @@ pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot1
 pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *mut ::core::ffi::c_void) -> u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS {
-    pub Dot11ExtRequestVirtualStation: ::core::option::Option<DOT11EXT_REQUEST_VIRTUAL_STATION>,
-    pub Dot11ExtReleaseVirtualStation: ::core::option::Option<DOT11EXT_RELEASE_VIRTUAL_STATION>,
-    pub Dot11ExtQueryVirtualStationProperties: ::core::option::Option<DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES>,
-    pub Dot11ExtSetVirtualStationAPProperties: ::core::option::Option<DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES>,
+    pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
+    pub Dot11ExtReleaseVirtualStation: DOT11EXT_RELEASE_VIRTUAL_STATION,
+    pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
+    pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl DOT11EXT_VIRTUAL_STATION_APIS {}
@@ -589,7 +589,7 @@ impl ::core::cmp::PartialEq for DOT11EXT_VIRTUAL_STATION_APIS {
 impl ::core::cmp::Eq for DOT11EXT_VIRTUAL_STATION_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 unsafe impl ::windows::core::Abi for DOT11EXT_VIRTUAL_STATION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

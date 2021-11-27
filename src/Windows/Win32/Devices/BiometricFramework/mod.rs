@@ -1663,7 +1663,7 @@ impl ::core::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 unsafe impl ::windows::core::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_ENGINE_INTERFACE {
@@ -1671,47 +1671,47 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::core::GUID,
-    pub Attach: ::core::option::Option<PIBIO_ENGINE_ATTACH_FN>,
-    pub Detach: ::core::option::Option<PIBIO_ENGINE_DETACH_FN>,
-    pub ClearContext: ::core::option::Option<PIBIO_ENGINE_CLEAR_CONTEXT_FN>,
-    pub QueryPreferredFormat: ::core::option::Option<PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN>,
-    pub QueryIndexVectorSize: ::core::option::Option<PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN>,
-    pub QueryHashAlgorithms: ::core::option::Option<PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN>,
-    pub SetHashAlgorithm: ::core::option::Option<PIBIO_ENGINE_SET_HASH_ALGORITHM_FN>,
-    pub QuerySampleHint: ::core::option::Option<PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN>,
-    pub AcceptSampleData: ::core::option::Option<PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN>,
-    pub ExportEngineData: ::core::option::Option<PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN>,
-    pub VerifyFeatureSet: ::core::option::Option<PIBIO_ENGINE_VERIFY_FEATURE_SET_FN>,
-    pub IdentifyFeatureSet: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN>,
-    pub CreateEnrollment: ::core::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_FN>,
-    pub UpdateEnrollment: ::core::option::Option<PIBIO_ENGINE_UPDATE_ENROLLMENT_FN>,
-    pub GetEnrollmentStatus: ::core::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN>,
-    pub GetEnrollmentHash: ::core::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN>,
-    pub CheckForDuplicate: ::core::option::Option<PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN>,
-    pub CommitEnrollment: ::core::option::Option<PIBIO_ENGINE_COMMIT_ENROLLMENT_FN>,
-    pub DiscardEnrollment: ::core::option::Option<PIBIO_ENGINE_DISCARD_ENROLLMENT_FN>,
-    pub ControlUnit: ::core::option::Option<PIBIO_ENGINE_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::core::option::Option<PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN>,
-    pub Reserved_1: ::core::option::Option<PIBIO_ENGINE_RESERVED_1_FN>,
-    pub PipelineInit: ::core::option::Option<PIBIO_ENGINE_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::core::option::Option<PIBIO_ENGINE_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::core::option::Option<PIBIO_ENGINE_ACTIVATE_FN>,
-    pub Deactivate: ::core::option::Option<PIBIO_ENGINE_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::core::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN>,
-    pub IdentifyAll: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_ALL_FN>,
-    pub SetEnrollmentSelector: ::core::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN>,
-    pub SetEnrollmentParameters: ::core::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN>,
-    pub QueryExtendedEnrollmentStatus: ::core::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN>,
-    pub RefreshCache: ::core::option::Option<PIBIO_ENGINE_REFRESH_CACHE_FN>,
-    pub SelectCalibrationFormat: ::core::option::Option<PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN>,
-    pub QueryCalibrationData: ::core::option::Option<PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN>,
-    pub SetAccountPolicy: ::core::option::Option<PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN>,
-    pub CreateKey: ::core::option::Option<PIBIO_ENGINE_CREATE_KEY_FN>,
-    pub IdentifyFeatureSetSecure: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN>,
-    pub AcceptPrivateSensorTypeInfo: ::core::option::Option<PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN>,
-    pub CreateEnrollmentAuthenticated: ::core::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN>,
-    pub IdentifyFeatureSetAuthenticated: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN>,
+    pub Attach: PIBIO_ENGINE_ATTACH_FN,
+    pub Detach: PIBIO_ENGINE_DETACH_FN,
+    pub ClearContext: PIBIO_ENGINE_CLEAR_CONTEXT_FN,
+    pub QueryPreferredFormat: PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN,
+    pub QueryIndexVectorSize: PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN,
+    pub QueryHashAlgorithms: PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN,
+    pub SetHashAlgorithm: PIBIO_ENGINE_SET_HASH_ALGORITHM_FN,
+    pub QuerySampleHint: PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN,
+    pub AcceptSampleData: PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN,
+    pub ExportEngineData: PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN,
+    pub VerifyFeatureSet: PIBIO_ENGINE_VERIFY_FEATURE_SET_FN,
+    pub IdentifyFeatureSet: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN,
+    pub CreateEnrollment: PIBIO_ENGINE_CREATE_ENROLLMENT_FN,
+    pub UpdateEnrollment: PIBIO_ENGINE_UPDATE_ENROLLMENT_FN,
+    pub GetEnrollmentStatus: PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN,
+    pub GetEnrollmentHash: PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN,
+    pub CheckForDuplicate: PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN,
+    pub CommitEnrollment: PIBIO_ENGINE_COMMIT_ENROLLMENT_FN,
+    pub DiscardEnrollment: PIBIO_ENGINE_DISCARD_ENROLLMENT_FN,
+    pub ControlUnit: PIBIO_ENGINE_CONTROL_UNIT_FN,
+    pub ControlUnitPrivileged: PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN,
+    pub NotifyPowerChange: PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN,
+    pub Reserved_1: PIBIO_ENGINE_RESERVED_1_FN,
+    pub PipelineInit: PIBIO_ENGINE_PIPELINE_INIT_FN,
+    pub PipelineCleanup: PIBIO_ENGINE_PIPELINE_CLEANUP_FN,
+    pub Activate: PIBIO_ENGINE_ACTIVATE_FN,
+    pub Deactivate: PIBIO_ENGINE_DEACTIVATE_FN,
+    pub QueryExtendedInfo: PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN,
+    pub IdentifyAll: PIBIO_ENGINE_IDENTIFY_ALL_FN,
+    pub SetEnrollmentSelector: PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN,
+    pub SetEnrollmentParameters: PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN,
+    pub QueryExtendedEnrollmentStatus: PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN,
+    pub RefreshCache: PIBIO_ENGINE_REFRESH_CACHE_FN,
+    pub SelectCalibrationFormat: PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN,
+    pub QueryCalibrationData: PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN,
+    pub SetAccountPolicy: PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN,
+    pub CreateKey: PIBIO_ENGINE_CREATE_KEY_FN,
+    pub IdentifyFeatureSetSecure: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN,
+    pub AcceptPrivateSensorTypeInfo: PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN,
+    pub CreateEnrollmentAuthenticated: PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN,
+    pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_ENGINE_INTERFACE {}
@@ -1781,7 +1781,7 @@ impl ::core::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
 impl ::core::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_ENGINE_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2976,7 +2976,7 @@ impl ::core::cmp::Eq for WINBIO_FP_BU_STATE {}
 unsafe impl ::windows::core::Abi for WINBIO_FP_BU_STATE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
@@ -2984,50 +2984,50 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::core::GUID,
-    pub SetUnitStatus: ::core::option::Option<PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN>,
-    pub VsmStorageAttach: ::core::option::Option<PIBIO_STORAGE_ATTACH_FN>,
-    pub VsmStorageDetach: ::core::option::Option<PIBIO_STORAGE_DETACH_FN>,
-    pub VsmStorageClearContext: ::core::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
-    pub VsmStorageCreateDatabase: ::core::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
-    pub VsmStorageOpenDatabase: ::core::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
-    pub VsmStorageCloseDatabase: ::core::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
-    pub VsmStorageDeleteRecord: ::core::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
-    pub VsmStorageNotifyPowerChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
-    pub VsmStoragePipelineInit: ::core::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
-    pub VsmStoragePipelineCleanup: ::core::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
-    pub VsmStorageActivate: ::core::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
-    pub VsmStorageDeactivate: ::core::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
-    pub VsmStorageQueryExtendedInfo: ::core::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
-    pub VsmStorageCacheClear: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN>,
-    pub VsmStorageCacheImportBegin: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN>,
-    pub VsmStorageCacheImportNext: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN>,
-    pub VsmStorageCacheImportEnd: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN>,
-    pub VsmStorageCacheExportBegin: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN>,
-    pub VsmStorageCacheExportNext: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN>,
-    pub VsmStorageCacheExportEnd: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN>,
-    pub VsmSensorAttach: ::core::option::Option<PIBIO_SENSOR_ATTACH_FN>,
-    pub VsmSensorDetach: ::core::option::Option<PIBIO_SENSOR_DETACH_FN>,
-    pub VsmSensorClearContext: ::core::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
-    pub VsmSensorPushDataToEngine: ::core::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
-    pub VsmSensorNotifyPowerChange: ::core::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
-    pub VsmSensorPipelineInit: ::core::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
-    pub VsmSensorPipelineCleanup: ::core::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
-    pub VsmSensorActivate: ::core::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
-    pub VsmSensorDeactivate: ::core::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
-    pub VsmSensorAsyncImportRawBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
-    pub VsmSensorAsyncImportSecureBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
-    pub Reserved1: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN>,
-    pub Reserved2: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN>,
-    pub Reserved3: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN>,
-    pub Reserved4: ::core::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
-    pub Reserved5: ::core::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
-    pub AllocateMemory: ::core::option::Option<PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN>,
-    pub FreeMemory: ::core::option::Option<PIBIO_FRAMEWORK_FREE_MEMORY_FN>,
-    pub GetProperty: ::core::option::Option<PIBIO_FRAMEWORK_GET_PROPERTY_FN>,
-    pub LockAndValidateSecureBuffer: ::core::option::Option<PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN>,
-    pub ReleaseSecureBuffer: ::core::option::Option<PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN>,
-    pub QueryAuthorizedEnrollments: ::core::option::Option<PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN>,
-    pub DecryptSample: ::core::option::Option<PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN>,
+    pub SetUnitStatus: PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN,
+    pub VsmStorageAttach: PIBIO_STORAGE_ATTACH_FN,
+    pub VsmStorageDetach: PIBIO_STORAGE_DETACH_FN,
+    pub VsmStorageClearContext: PIBIO_STORAGE_CLEAR_CONTEXT_FN,
+    pub VsmStorageCreateDatabase: PIBIO_STORAGE_CREATE_DATABASE_FN,
+    pub VsmStorageOpenDatabase: PIBIO_STORAGE_OPEN_DATABASE_FN,
+    pub VsmStorageCloseDatabase: PIBIO_STORAGE_CLOSE_DATABASE_FN,
+    pub VsmStorageDeleteRecord: PIBIO_STORAGE_DELETE_RECORD_FN,
+    pub VsmStorageNotifyPowerChange: PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN,
+    pub VsmStoragePipelineInit: PIBIO_STORAGE_PIPELINE_INIT_FN,
+    pub VsmStoragePipelineCleanup: PIBIO_STORAGE_PIPELINE_CLEANUP_FN,
+    pub VsmStorageActivate: PIBIO_STORAGE_ACTIVATE_FN,
+    pub VsmStorageDeactivate: PIBIO_STORAGE_DEACTIVATE_FN,
+    pub VsmStorageQueryExtendedInfo: PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN,
+    pub VsmStorageCacheClear: PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN,
+    pub VsmStorageCacheImportBegin: PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN,
+    pub VsmStorageCacheImportNext: PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN,
+    pub VsmStorageCacheImportEnd: PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN,
+    pub VsmStorageCacheExportBegin: PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN,
+    pub VsmStorageCacheExportNext: PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN,
+    pub VsmStorageCacheExportEnd: PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN,
+    pub VsmSensorAttach: PIBIO_SENSOR_ATTACH_FN,
+    pub VsmSensorDetach: PIBIO_SENSOR_DETACH_FN,
+    pub VsmSensorClearContext: PIBIO_SENSOR_CLEAR_CONTEXT_FN,
+    pub VsmSensorPushDataToEngine: PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN,
+    pub VsmSensorNotifyPowerChange: PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN,
+    pub VsmSensorPipelineInit: PIBIO_SENSOR_PIPELINE_INIT_FN,
+    pub VsmSensorPipelineCleanup: PIBIO_SENSOR_PIPELINE_CLEANUP_FN,
+    pub VsmSensorActivate: PIBIO_SENSOR_ACTIVATE_FN,
+    pub VsmSensorDeactivate: PIBIO_SENSOR_DEACTIVATE_FN,
+    pub VsmSensorAsyncImportRawBuffer: PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN,
+    pub VsmSensorAsyncImportSecureBuffer: PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN,
+    pub Reserved1: PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN,
+    pub Reserved2: PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN,
+    pub Reserved3: PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN,
+    pub Reserved4: PIBIO_STORAGE_RESERVED_1_FN,
+    pub Reserved5: PIBIO_STORAGE_RESERVED_2_FN,
+    pub AllocateMemory: PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN,
+    pub FreeMemory: PIBIO_FRAMEWORK_FREE_MEMORY_FN,
+    pub GetProperty: PIBIO_FRAMEWORK_GET_PROPERTY_FN,
+    pub LockAndValidateSecureBuffer: PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN,
+    pub ReleaseSecureBuffer: PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN,
+    pub QueryAuthorizedEnrollments: PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN,
+    pub DecryptSample: PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_FRAMEWORK_INTERFACE {}
@@ -3100,7 +3100,7 @@ impl ::core::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
 impl ::core::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_FRAMEWORK_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -3802,7 +3802,7 @@ impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
 unsafe impl ::windows::core::Abi for WINBIO_SENSOR_ATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_SENSOR_INTERFACE {
@@ -3810,37 +3810,37 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::core::GUID,
-    pub Attach: ::core::option::Option<PIBIO_SENSOR_ATTACH_FN>,
-    pub Detach: ::core::option::Option<PIBIO_SENSOR_DETACH_FN>,
-    pub ClearContext: ::core::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
-    pub QueryStatus: ::core::option::Option<PIBIO_SENSOR_QUERY_STATUS_FN>,
-    pub Reset: ::core::option::Option<PIBIO_SENSOR_RESET_FN>,
-    pub SetMode: ::core::option::Option<PIBIO_SENSOR_SET_MODE_FN>,
-    pub SetIndicatorStatus: ::core::option::Option<PIBIO_SENSOR_SET_INDICATOR_STATUS_FN>,
-    pub GetIndicatorStatus: ::core::option::Option<PIBIO_SENSOR_GET_INDICATOR_STATUS_FN>,
-    pub StartCapture: ::core::option::Option<PIBIO_SENSOR_START_CAPTURE_FN>,
-    pub FinishCapture: ::core::option::Option<PIBIO_SENSOR_FINISH_CAPTURE_FN>,
-    pub ExportSensorData: ::core::option::Option<PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN>,
-    pub Cancel: ::core::option::Option<PIBIO_SENSOR_CANCEL_FN>,
-    pub PushDataToEngine: ::core::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
-    pub ControlUnit: ::core::option::Option<PIBIO_SENSOR_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::core::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
-    pub PipelineInit: ::core::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::core::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::core::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
-    pub Deactivate: ::core::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::core::option::Option<PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN>,
-    pub QueryCalibrationFormats: ::core::option::Option<PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN>,
-    pub SetCalibrationFormat: ::core::option::Option<PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN>,
-    pub AcceptCalibrationData: ::core::option::Option<PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN>,
-    pub AsyncImportRawBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
-    pub AsyncImportSecureBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
-    pub QueryPrivateSensorType: ::core::option::Option<PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN>,
-    pub ConnectSecure: ::core::option::Option<PIBIO_SENSOR_CONNECT_SECURE_FN>,
-    pub StartCaptureEx: ::core::option::Option<PIBIO_SENSOR_START_CAPTURE_EX_FN>,
-    pub StartNotifyWake: ::core::option::Option<PIBIO_SENSOR_START_NOTIFY_WAKE_FN>,
-    pub FinishNotifyWake: ::core::option::Option<PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN>,
+    pub Attach: PIBIO_SENSOR_ATTACH_FN,
+    pub Detach: PIBIO_SENSOR_DETACH_FN,
+    pub ClearContext: PIBIO_SENSOR_CLEAR_CONTEXT_FN,
+    pub QueryStatus: PIBIO_SENSOR_QUERY_STATUS_FN,
+    pub Reset: PIBIO_SENSOR_RESET_FN,
+    pub SetMode: PIBIO_SENSOR_SET_MODE_FN,
+    pub SetIndicatorStatus: PIBIO_SENSOR_SET_INDICATOR_STATUS_FN,
+    pub GetIndicatorStatus: PIBIO_SENSOR_GET_INDICATOR_STATUS_FN,
+    pub StartCapture: PIBIO_SENSOR_START_CAPTURE_FN,
+    pub FinishCapture: PIBIO_SENSOR_FINISH_CAPTURE_FN,
+    pub ExportSensorData: PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN,
+    pub Cancel: PIBIO_SENSOR_CANCEL_FN,
+    pub PushDataToEngine: PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN,
+    pub ControlUnit: PIBIO_SENSOR_CONTROL_UNIT_FN,
+    pub ControlUnitPrivileged: PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN,
+    pub NotifyPowerChange: PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN,
+    pub PipelineInit: PIBIO_SENSOR_PIPELINE_INIT_FN,
+    pub PipelineCleanup: PIBIO_SENSOR_PIPELINE_CLEANUP_FN,
+    pub Activate: PIBIO_SENSOR_ACTIVATE_FN,
+    pub Deactivate: PIBIO_SENSOR_DEACTIVATE_FN,
+    pub QueryExtendedInfo: PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN,
+    pub QueryCalibrationFormats: PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN,
+    pub SetCalibrationFormat: PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN,
+    pub AcceptCalibrationData: PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN,
+    pub AsyncImportRawBuffer: PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN,
+    pub AsyncImportSecureBuffer: PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN,
+    pub QueryPrivateSensorType: PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN,
+    pub ConnectSecure: PIBIO_SENSOR_CONNECT_SECURE_FN,
+    pub StartCaptureEx: PIBIO_SENSOR_START_CAPTURE_EX_FN,
+    pub StartNotifyWake: PIBIO_SENSOR_START_NOTIFY_WAKE_FN,
+    pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_SENSOR_INTERFACE {}
@@ -3900,7 +3900,7 @@ impl ::core::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
 impl ::core::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_SENSOR_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3971,7 +3971,7 @@ impl ::core::cmp::Eq for WINBIO_SET_INDICATOR {}
 unsafe impl ::windows::core::Abi for WINBIO_SET_INDICATOR {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_STORAGE_INTERFACE {
@@ -3979,36 +3979,36 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::core::GUID,
-    pub Attach: ::core::option::Option<PIBIO_STORAGE_ATTACH_FN>,
-    pub Detach: ::core::option::Option<PIBIO_STORAGE_DETACH_FN>,
-    pub ClearContext: ::core::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
-    pub CreateDatabase: ::core::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
-    pub EraseDatabase: ::core::option::Option<PIBIO_STORAGE_ERASE_DATABASE_FN>,
-    pub OpenDatabase: ::core::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
-    pub CloseDatabase: ::core::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
-    pub GetDataFormat: ::core::option::Option<PIBIO_STORAGE_GET_DATA_FORMAT_FN>,
-    pub GetDatabaseSize: ::core::option::Option<PIBIO_STORAGE_GET_DATABASE_SIZE_FN>,
-    pub AddRecord: ::core::option::Option<PIBIO_STORAGE_ADD_RECORD_FN>,
-    pub DeleteRecord: ::core::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
-    pub QueryBySubject: ::core::option::Option<PIBIO_STORAGE_QUERY_BY_SUBJECT_FN>,
-    pub QueryByContent: ::core::option::Option<PIBIO_STORAGE_QUERY_BY_CONTENT_FN>,
-    pub GetRecordCount: ::core::option::Option<PIBIO_STORAGE_GET_RECORD_COUNT_FN>,
-    pub FirstRecord: ::core::option::Option<PIBIO_STORAGE_FIRST_RECORD_FN>,
-    pub NextRecord: ::core::option::Option<PIBIO_STORAGE_NEXT_RECORD_FN>,
-    pub GetCurrentRecord: ::core::option::Option<PIBIO_STORAGE_GET_CURRENT_RECORD_FN>,
-    pub ControlUnit: ::core::option::Option<PIBIO_STORAGE_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
-    pub PipelineInit: ::core::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::core::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::core::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
-    pub Deactivate: ::core::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::core::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
-    pub NotifyDatabaseChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN>,
-    pub Reserved1: ::core::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
-    pub Reserved2: ::core::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
-    pub UpdateRecordBegin: ::core::option::Option<PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN>,
-    pub UpdateRecordCommit: ::core::option::Option<PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN>,
+    pub Attach: PIBIO_STORAGE_ATTACH_FN,
+    pub Detach: PIBIO_STORAGE_DETACH_FN,
+    pub ClearContext: PIBIO_STORAGE_CLEAR_CONTEXT_FN,
+    pub CreateDatabase: PIBIO_STORAGE_CREATE_DATABASE_FN,
+    pub EraseDatabase: PIBIO_STORAGE_ERASE_DATABASE_FN,
+    pub OpenDatabase: PIBIO_STORAGE_OPEN_DATABASE_FN,
+    pub CloseDatabase: PIBIO_STORAGE_CLOSE_DATABASE_FN,
+    pub GetDataFormat: PIBIO_STORAGE_GET_DATA_FORMAT_FN,
+    pub GetDatabaseSize: PIBIO_STORAGE_GET_DATABASE_SIZE_FN,
+    pub AddRecord: PIBIO_STORAGE_ADD_RECORD_FN,
+    pub DeleteRecord: PIBIO_STORAGE_DELETE_RECORD_FN,
+    pub QueryBySubject: PIBIO_STORAGE_QUERY_BY_SUBJECT_FN,
+    pub QueryByContent: PIBIO_STORAGE_QUERY_BY_CONTENT_FN,
+    pub GetRecordCount: PIBIO_STORAGE_GET_RECORD_COUNT_FN,
+    pub FirstRecord: PIBIO_STORAGE_FIRST_RECORD_FN,
+    pub NextRecord: PIBIO_STORAGE_NEXT_RECORD_FN,
+    pub GetCurrentRecord: PIBIO_STORAGE_GET_CURRENT_RECORD_FN,
+    pub ControlUnit: PIBIO_STORAGE_CONTROL_UNIT_FN,
+    pub ControlUnitPrivileged: PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN,
+    pub NotifyPowerChange: PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN,
+    pub PipelineInit: PIBIO_STORAGE_PIPELINE_INIT_FN,
+    pub PipelineCleanup: PIBIO_STORAGE_PIPELINE_CLEANUP_FN,
+    pub Activate: PIBIO_STORAGE_ACTIVATE_FN,
+    pub Deactivate: PIBIO_STORAGE_DEACTIVATE_FN,
+    pub QueryExtendedInfo: PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN,
+    pub NotifyDatabaseChange: PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN,
+    pub Reserved1: PIBIO_STORAGE_RESERVED_1_FN,
+    pub Reserved2: PIBIO_STORAGE_RESERVED_2_FN,
+    pub UpdateRecordBegin: PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN,
+    pub UpdateRecordCommit: PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_STORAGE_INTERFACE {}
@@ -4067,7 +4067,7 @@ impl ::core::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
 impl ::core::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_STORAGE_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -4336,7 +4336,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::core::ffi::c_void, asynchronousopen: Param5) -> ::windows::core::Result<u32> {
+pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: Param5) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4361,7 +4361,7 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, 
     notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD,
     targetwindow: Param7,
     messagecode: u32,
-    callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>,
+    callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK,
     userdata: *const ::core::ffi::c_void,
     asynchronousopen: Param11,
 ) -> ::windows::core::Result<u32> {
@@ -4419,7 +4419,7 @@ pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, un
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::core::option::Option<PWINBIO_CAPTURE_CALLBACK>, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4548,7 +4548,7 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::core::Result
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::core::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4758,7 +4758,7 @@ pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mu
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::core::option::Option<PWINBIO_IDENTIFY_CALLBACK>, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4811,7 +4811,7 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::core::Result<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::core::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4877,7 +4877,7 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::core::option::Option<PWINBIO_EVENT_CALLBACK>, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5008,7 +5008,7 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::core::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

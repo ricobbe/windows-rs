@@ -709,22 +709,22 @@ impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    pub ReturnFromEnclave: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE>,
-    pub ReturnFromException: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION>,
-    pub TerminateThread: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD>,
-    pub InterruptThread: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD>,
-    pub CommitPages: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES>,
-    pub DecommitPages: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES>,
-    pub ProtectPages: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES>,
-    pub CreateThread: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD>,
-    pub GetEnclaveInformation: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION>,
-    pub GenerateKey: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY>,
-    pub GenerateReport: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT>,
-    pub VerifyReport: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT>,
-    pub GenerateRandomData: ::core::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA>,
+    pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
+    pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
+    pub TerminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
+    pub InterruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
+    pub CommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
+    pub DecommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
+    pub ProtectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
+    pub CreateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+    pub GetEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
+    pub GenerateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
+    pub GenerateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
+    pub VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
+    pub GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
 }
 impl VBS_BASIC_ENCLAVE_SYSCALL_PAGE {}
 impl ::core::default::Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
@@ -756,7 +756,7 @@ impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
 }
 impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {}
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

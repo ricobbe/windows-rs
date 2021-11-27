@@ -1107,7 +1107,7 @@ pub unsafe fn CallNextHookEx<'a, Param0: ::windows::core::IntoParam<'a, HHOOK>, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallWindowProcA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
+pub unsafe fn CallWindowProcA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: WNDPROC, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1121,7 +1121,7 @@ pub unsafe fn CallWindowProcA<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallWindowProcW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
+pub unsafe fn CallWindowProcW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: WNDPROC, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1661,7 +1661,7 @@ pub unsafe fn CreateCursor<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1675,7 +1675,7 @@ pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1689,7 +1689,7 @@ pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1703,7 +1703,7 @@ pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2459,7 +2459,7 @@ pub unsafe fn DestroyWindow<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2473,7 +2473,7 @@ pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2487,7 +2487,7 @@ pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2501,7 +2501,7 @@ pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: DLGPROC, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2849,7 +2849,7 @@ pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumChildWindows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndparent: Param0, lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumChildWindows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndparent: Param0, lpenumfunc: WNDENUMPROC, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2863,7 +2863,7 @@ pub unsafe fn EnumChildWindows<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCA>) -> i32 {
+pub unsafe fn EnumPropsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: PROPENUMPROCA) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2877,7 +2877,7 @@ pub unsafe fn EnumPropsA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCEXA>, lparam: Param2) -> i32 {
+pub unsafe fn EnumPropsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: PROPENUMPROCEXA, lparam: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2891,7 +2891,7 @@ pub unsafe fn EnumPropsExA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCEXW>, lparam: Param2) -> i32 {
+pub unsafe fn EnumPropsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: PROPENUMPROCEXW, lparam: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2905,7 +2905,7 @@ pub unsafe fn EnumPropsExW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCW>) -> i32 {
+pub unsafe fn EnumPropsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: PROPENUMPROCW) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2919,7 +2919,7 @@ pub unsafe fn EnumPropsW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(dwthreadid: u32, lpfn: ::core::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(dwthreadid: u32, lpfn: WNDENUMPROC, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2933,7 +2933,7 @@ pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumWindows<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumWindows<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: WNDENUMPROC, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3558,7 +3558,7 @@ pub unsafe fn GetClassInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PSTR, lpwndclass: *mut ::core::mem::ManuallyDrop<WNDCLASSA>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PSTR, lpwndclass: *mut WNDCLASSA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetClassInfoA(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::core::mem::transmute(lpwndclass)))
     }
@@ -3572,7 +3572,7 @@ pub unsafe fn GetClassInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PSTR, lpwcx: *mut ::core::mem::ManuallyDrop<WNDCLASSEXA>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PSTR, lpwcx: *mut WNDCLASSEXA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetClassInfoExA(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::core::mem::transmute(lpwcx)))
     }
@@ -3586,7 +3586,7 @@ pub unsafe fn GetClassInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PWSTR, lpwcx: *mut ::core::mem::ManuallyDrop<WNDCLASSEXW>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PWSTR, lpwcx: *mut WNDCLASSEXW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetClassInfoExW(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::core::mem::transmute(lpwcx)))
     }
@@ -3600,7 +3600,7 @@ pub unsafe fn GetClassInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PWSTR, lpwndclass: *mut ::core::mem::ManuallyDrop<WNDCLASSW>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PWSTR, lpwndclass: *mut WNDCLASSW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetClassInfoW(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::core::mem::transmute(lpwndclass)))
     }
@@ -7445,7 +7445,7 @@ unsafe impl ::windows::core::Abi for MSG {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSA {
@@ -7457,7 +7457,7 @@ pub struct MSGBOXPARAMSA {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7494,9 +7494,9 @@ impl ::core::cmp::PartialEq for MSGBOXPARAMSA {
 impl ::core::cmp::Eq for MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for MSGBOXPARAMSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSW {
@@ -7508,7 +7508,7 @@ pub struct MSGBOXPARAMSW {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PWSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7545,7 +7545,7 @@ impl ::core::cmp::PartialEq for MSGBOXPARAMSW {
 impl ::core::cmp::Eq for MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for MSGBOXPARAMSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -7753,7 +7753,7 @@ pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RES
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MessageBoxIndirectA(lpmbp: *const ::core::mem::ManuallyDrop<MSGBOXPARAMSA>) -> MESSAGEBOX_RESULT;
+            fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT;
         }
         ::core::mem::transmute(MessageBoxIndirectA(::core::mem::transmute(lpmbp)))
     }
@@ -7767,7 +7767,7 @@ pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RES
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MessageBoxIndirectW(lpmbp: *const ::core::mem::ManuallyDrop<MSGBOXPARAMSW>) -> MESSAGEBOX_RESULT;
+            fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT;
         }
         ::core::mem::transmute(MessageBoxIndirectW(::core::mem::transmute(lpmbp)))
     }
@@ -9136,7 +9136,7 @@ pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassA(lpwndclass: *const ::core::mem::ManuallyDrop<WNDCLASSA>) -> u16;
+            fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16;
         }
         ::core::mem::transmute(RegisterClassA(::core::mem::transmute(lpwndclass)))
     }
@@ -9150,7 +9150,7 @@ pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassExA(param0: *const ::core::mem::ManuallyDrop<WNDCLASSEXA>) -> u16;
+            fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16;
         }
         ::core::mem::transmute(RegisterClassExA(::core::mem::transmute(param0)))
     }
@@ -9164,7 +9164,7 @@ pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassExW(param0: *const ::core::mem::ManuallyDrop<WNDCLASSEXW>) -> u16;
+            fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16;
         }
         ::core::mem::transmute(RegisterClassExW(::core::mem::transmute(param0)))
     }
@@ -9178,7 +9178,7 @@ pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassW(lpwndclass: *const ::core::mem::ManuallyDrop<WNDCLASSW>) -> u16;
+            fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16;
         }
         ::core::mem::transmute(RegisterClassW(::core::mem::transmute(lpwndclass)))
     }
@@ -10539,7 +10539,7 @@ pub unsafe fn SendMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: SENDASYNCPROC, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10553,7 +10553,7 @@ pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: SENDASYNCPROC, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10737,7 +10737,7 @@ pub unsafe fn SetClassWord<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>, utolerancedelay: u32) -> usize {
+pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC, utolerancedelay: u32) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11085,7 +11085,7 @@ pub unsafe fn SetSystemCursor<'a, Param0: ::windows::core::IntoParam<'a, HCURSOR
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>) -> usize {
+pub unsafe fn SetTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11241,7 +11241,7 @@ pub unsafe fn SetWindowWord<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK {
+pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11255,7 +11255,7 @@ pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::core::option::O
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
+pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11269,7 +11269,7 @@ pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
+pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11283,7 +11283,7 @@ pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK {
+pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11887,7 +11887,7 @@ pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> super::super::Foundation::BOOL {
+pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: HOOKPROC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12694,12 +12694,12 @@ pub const WM_WTSSESSION_CHANGE: u32 = 689u32;
 pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 pub const WM_XBUTTONUP: u32 = 524u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -12743,15 +12743,15 @@ impl ::core::cmp::PartialEq for WNDCLASSA {
 impl ::core::cmp::Eq for WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -12798,15 +12798,15 @@ impl ::core::cmp::PartialEq for WNDCLASSEXA {
 impl ::core::cmp::Eq for WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSEXA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -12853,14 +12853,14 @@ impl ::core::cmp::PartialEq for WNDCLASSEXW {
 impl ::core::cmp::Eq for WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSEXW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -12904,7 +12904,7 @@ impl ::core::cmp::PartialEq for WNDCLASSW {
 impl ::core::cmp::Eq for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]

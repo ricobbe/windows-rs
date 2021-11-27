@@ -597,7 +597,7 @@ impl ::core::cmp::Eq for DUMP_POINTERS {}
 unsafe impl ::windows::core::Abi for DUMP_POINTERS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS_EX {
@@ -615,7 +615,7 @@ pub struct DUMP_POINTERS_EX {
     pub AdapterObject: *mut ::core::ffi::c_void,
     pub MappedRegisterBase: *mut ::core::ffi::c_void,
     pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
-    pub DumpDevicePowerOn: ::core::option::Option<PDUMP_DEVICE_POWERON_ROUTINE>,
+    pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -673,7 +673,7 @@ impl ::core::cmp::PartialEq for DUMP_POINTERS_EX {
 impl ::core::cmp::Eq for DUMP_POINTERS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_POINTERS_EX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

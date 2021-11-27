@@ -3973,7 +3973,7 @@ pub unsafe fn NtClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn NtDeviceIoControlFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
     filehandle: Param0,
     event: Param1,
-    apcroutine: ::core::option::Option<PIO_APC_ROUTINE>,
+    apcroutine: PIO_APC_ROUTINE,
     apccontext: *mut ::core::ffi::c_void,
     iostatusblock: *mut IO_STATUS_BLOCK,
     iocontrolcode: u32,
@@ -4012,7 +4012,7 @@ pub unsafe fn NtNotifyChangeMultipleKeys<'a, Param0: ::windows::core::IntoParam<
     count: u32,
     subordinateobjects: *const OBJECT_ATTRIBUTES,
     event: Param3,
-    apcroutine: ::core::option::Option<PIO_APC_ROUTINE>,
+    apcroutine: PIO_APC_ROUTINE,
     apccontext: *const ::core::ffi::c_void,
     iostatusblock: *mut IO_STATUS_BLOCK,
     completionfilter: u32,
@@ -6082,7 +6082,7 @@ pub unsafe fn SignalObjectAndWait<'a, Param0: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: ::core::option::Option<PFEATURE_STATE_CHANGE_CALLBACK>, context: *const ::core::ffi::c_void) {
+pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6849,7 +6849,7 @@ pub unsafe fn WinWatchGetClipList<'a, Param0: ::windows::core::IntoParam<'a, HWI
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinWatchNotify<'a, Param0: ::windows::core::IntoParam<'a, HWINWATCH>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hww: Param0, notifycallback: ::core::option::Option<WINWATCHNOTIFYPROC>, notifyparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn WinWatchNotify<'a, Param0: ::windows::core::IntoParam<'a, HWINWATCH>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hww: Param0, notifycallback: WINWATCHNOTIFYPROC, notifyparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

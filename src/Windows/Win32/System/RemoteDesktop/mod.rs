@@ -225,16 +225,16 @@ impl ::core::cmp::Eq for CHANNEL_DEF {}
 unsafe impl ::windows::core::Abi for CHANNEL_DEF {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
-    pub pVirtualChannelInit: ::core::option::Option<PVIRTUALCHANNELINIT>,
-    pub pVirtualChannelOpen: ::core::option::Option<PVIRTUALCHANNELOPEN>,
-    pub pVirtualChannelClose: ::core::option::Option<PVIRTUALCHANNELCLOSE>,
-    pub pVirtualChannelWrite: ::core::option::Option<PVIRTUALCHANNELWRITE>,
+    pub pVirtualChannelInit: PVIRTUALCHANNELINIT,
+    pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
+    pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
+    pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CHANNEL_ENTRY_POINTS {}
@@ -260,7 +260,7 @@ impl ::core::cmp::PartialEq for CHANNEL_ENTRY_POINTS {
 impl ::core::cmp::Eq for CHANNEL_ENTRY_POINTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHANNEL_ENTRY_POINTS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
 pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
@@ -8095,7 +8095,7 @@ pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows::core::GUID = ::windows::c
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
 pub type PVIRTUALCHANNELCLOSE = unsafe extern "system" fn(openhandle: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut ::core::mem::ManuallyDrop<CHANNEL_ENTRY_POINTS>) -> super::super::Foundation::BOOL;
+pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELINIT = unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: ::windows::core::RawPtr) -> u32;
 #[cfg(feature = "Win32_Foundation")]

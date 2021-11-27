@@ -128,12 +128,12 @@ pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::core::option::Option<MagImageScalingCallback> {
+pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> MagImageScalingCallback {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MagGetImageScalingCallback(hwnd: super::super::Foundation::HWND) -> ::core::option::Option<MagImageScalingCallback>;
+            fn MagGetImageScalingCallback(hwnd: super::super::Foundation::HWND) -> MagImageScalingCallback;
         }
         ::core::mem::transmute(MagGetImageScalingCallback(hwnd.into_param().abi()))
     }
@@ -256,7 +256,7 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, callback: ::core::option::Option<MagImageScalingCallback>) -> super::super::Foundation::BOOL {
+pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, callback: MagImageScalingCallback) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

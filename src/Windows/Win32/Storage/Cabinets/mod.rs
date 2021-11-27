@@ -96,16 +96,7 @@ unsafe impl ::windows::core::Abi for ERF {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hfci: *const ::core::ffi::c_void,
-    pszsourcefile: Param1,
-    pszfilename: Param2,
-    fexecute: Param3,
-    pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>,
-    pfnfcis: ::core::option::Option<PFNFCISTATUS>,
-    pfnfcigoi: ::core::option::Option<PFNFCIGETOPENINFO>,
-    typecompress: u16,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, pszsourcefile: Param1, pszfilename: Param2, fexecute: Param3, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -119,21 +110,7 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCICreate(
-    perf: *const ERF,
-    pfnfcifp: ::core::option::Option<PFNFCIFILEPLACED>,
-    pfna: ::core::option::Option<PFNFCIALLOC>,
-    pfnf: ::core::option::Option<PFNFCIFREE>,
-    pfnopen: ::core::option::Option<PFNFCIOPEN>,
-    pfnread: ::core::option::Option<PFNFCIREAD>,
-    pfnwrite: ::core::option::Option<PFNFCIWRITE>,
-    pfnclose: ::core::option::Option<PFNFCICLOSE>,
-    pfnseek: ::core::option::Option<PFNFCISEEK>,
-    pfndelete: ::core::option::Option<PFNFCIDELETE>,
-    pfnfcigtf: ::core::option::Option<PFNFCIGETTEMPFILE>,
-    pccab: *const CCAB,
-    pv: *const ::core::ffi::c_void,
-) -> *mut ::core::ffi::c_void {
+pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -196,7 +173,7 @@ unsafe impl ::windows::core::Abi for FCIERROR {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
+pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -210,7 +187,7 @@ pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
+pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -313,7 +290,7 @@ impl ::core::ops::Not for FDICREATE_CPU_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: ::core::option::Option<PFNFDINOTIFY>, pfnfdid: ::core::option::Option<PFNFDIDECRYPT>, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -327,7 +304,7 @@ pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FDICreate(pfnalloc: ::core::option::Option<PFNALLOC>, pfnfree: ::core::option::Option<PFNFREE>, pfnopen: ::core::option::Option<PFNOPEN>, pfnread: ::core::option::Option<PFNREAD>, pfnwrite: ::core::option::Option<PFNWRITE>, pfnclose: ::core::option::Option<PFNCLOSE>, pfnseek: ::core::option::Option<PFNSEEK>, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
+pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

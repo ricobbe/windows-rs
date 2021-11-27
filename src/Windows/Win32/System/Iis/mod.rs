@@ -1007,11 +1007,11 @@ pub const HSE_STATUS_SUCCESS: u32 = 1u32;
 pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO {
-    pub pfnHseIO: ::core::option::Option<PFN_HSE_IO_COMPLETION>,
+    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut ::core::ffi::c_void,
     pub hFile: super::super::Foundation::HANDLE,
     pub pszStatusCode: super::super::Foundation::PSTR,
@@ -1058,7 +1058,7 @@ impl ::core::cmp::PartialEq for HSE_TF_INFO {
 impl ::core::cmp::Eq for HSE_TF_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TF_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

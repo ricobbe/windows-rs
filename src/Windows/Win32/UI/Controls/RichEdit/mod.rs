@@ -600,16 +600,12 @@ pub const ECO_SAVESEL: u32 = 32768u32;
 pub const ECO_SELECTIONBAR: u32 = 16777216u32;
 pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
-impl ::core::clone::Clone for EDITSTREAM {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
-    pub pfnCallback: ::core::option::Option<EDITSTREAMCALLBACK>,
+    pub pfnCallback: EDITSTREAMCALLBACK,
 }
 impl EDITSTREAM {}
 impl ::core::default::Default for EDITSTREAM {
@@ -624,7 +620,7 @@ impl ::core::cmp::PartialEq for EDITSTREAM {
 }
 impl ::core::cmp::Eq for EDITSTREAM {}
 unsafe impl ::windows::core::Abi for EDITSTREAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub type EDITSTREAMCALLBACK = unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
 #[cfg(feature = "Win32_Foundation")]

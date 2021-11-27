@@ -1824,15 +1824,7 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SwDeviceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    pszenumeratorname: Param0,
-    pszparentdeviceinstance: Param1,
-    pcreateinfo: *const SW_DEVICE_CREATE_INFO,
-    cpropertycount: u32,
-    pproperties: *const super::super::Properties::DEVPROPERTY,
-    pcallback: ::core::option::Option<SW_DEVICE_CREATE_CALLBACK>,
-    pcontext: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<isize> {
+pub unsafe fn SwDeviceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszenumeratorname: Param0, pszparentdeviceinstance: Param1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

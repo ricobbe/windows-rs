@@ -245,7 +245,7 @@ pub unsafe fn DavInvalidateCache<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavRegisterAuthCallback(callback: ::core::option::Option<PFNDAVAUTHCALLBACK>, version: u32) -> u32 {
+pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

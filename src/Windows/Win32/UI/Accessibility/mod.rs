@@ -20134,7 +20134,7 @@ pub const SemanticZoom_Control_GUID: ::windows::core::GUID = ::windows::core::GU
 pub const Separator_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8767eba3_2a63_4ab0_ac8d_aa50e23de978);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: ::core::option::Option<WINEVENTPROC>, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
+pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21472,7 +21472,7 @@ unsafe impl ::windows::core::Abi for UIAutomationType {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut ::core::option::Option<UiaEventCallback>, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
+pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22412,7 +22412,7 @@ unsafe impl ::windows::core::Abi for UiaRect {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut ::core::option::Option<UiaProviderCallback>) {
+pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

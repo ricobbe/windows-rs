@@ -999,7 +999,7 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::core::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1012,7 +1012,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::core::option::Opt
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

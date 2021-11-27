@@ -953,23 +953,23 @@ unsafe impl ::windows::core::Abi for MGM_IF_ENTRY {
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
 pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
-    pub lpfnMprAdminGetIpAddressForUser: ::core::option::Option<PMPRADMINGETIPADDRESSFORUSER>,
-    pub lpfnMprAdminReleaseIpAddress: ::core::option::Option<PMPRADMINRELEASEIPADRESS>,
-    pub lpfnMprAdminGetIpv6AddressForUser: ::core::option::Option<PMPRADMINGETIPV6ADDRESSFORUSER>,
-    pub lpfnMprAdminReleaseIpV6AddressForUser: ::core::option::Option<PMPRADMINRELEASEIPV6ADDRESSFORUSER>,
-    pub lpfnRasAdminAcceptNewLink: ::core::option::Option<PMPRADMINACCEPTNEWLINK>,
-    pub lpfnRasAdminLinkHangupNotification: ::core::option::Option<PMPRADMINLINKHANGUPNOTIFICATION>,
-    pub lpfnRasAdminTerminateDll: ::core::option::Option<PMPRADMINTERMINATEDLL>,
-    pub lpfnRasAdminAcceptNewConnectionEx: ::core::option::Option<PMPRADMINACCEPTNEWCONNECTIONEX>,
-    pub lpfnRasAdminAcceptEndpointChangeEx: ::core::option::Option<PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX>,
-    pub lpfnRasAdminAcceptReauthenticationEx: ::core::option::Option<PMPRADMINACCEPTREAUTHENTICATIONEX>,
-    pub lpfnRasAdminConnectionHangupNotificationEx: ::core::option::Option<PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX>,
-    pub lpfnRASValidatePreAuthenticatedConnectionEx: ::core::option::Option<PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX>,
+    pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
+    pub lpfnMprAdminReleaseIpAddress: PMPRADMINRELEASEIPADRESS,
+    pub lpfnMprAdminGetIpv6AddressForUser: PMPRADMINGETIPV6ADDRESSFORUSER,
+    pub lpfnMprAdminReleaseIpV6AddressForUser: PMPRADMINRELEASEIPV6ADDRESSFORUSER,
+    pub lpfnRasAdminAcceptNewLink: PMPRADMINACCEPTNEWLINK,
+    pub lpfnRasAdminLinkHangupNotification: PMPRADMINLINKHANGUPNOTIFICATION,
+    pub lpfnRasAdminTerminateDll: PMPRADMINTERMINATEDLL,
+    pub lpfnRasAdminAcceptNewConnectionEx: PMPRADMINACCEPTNEWCONNECTIONEX,
+    pub lpfnRasAdminAcceptEndpointChangeEx: PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX,
+    pub lpfnRasAdminAcceptReauthenticationEx: PMPRADMINACCEPTREAUTHENTICATIONEX,
+    pub lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
+    pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl MPRAPI_ADMIN_DLL_CALLBACKS {}
@@ -1007,7 +1007,7 @@ impl ::core::cmp::PartialEq for MPRAPI_ADMIN_DLL_CALLBACKS {
 impl ::core::cmp::Eq for MPRAPI_ADMIN_DLL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for MPRAPI_ADMIN_DLL_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
 pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
@@ -2531,7 +2531,7 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MgmRegisterMProtocol(prpiinfo: *mut ::core::mem::ManuallyDrop<ROUTING_PROTOCOL_CONFIG>, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
+            fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwcomponentid), ::core::mem::transmute(phprotocol)))
     }
@@ -5570,17 +5570,12 @@ impl ::core::cmp::Eq for RASCTRYINFO {}
 unsafe impl ::windows::core::Abi for RASCTRYINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
-    pub pfnRasSetCommSettings: ::core::option::Option<PFNRASSETCOMMSETTINGS>,
+    pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl RASCUSTOMSCRIPTEXTENSIONS {}
@@ -5600,7 +5595,7 @@ impl ::core::cmp::PartialEq for RASCUSTOMSCRIPTEXTENSIONS {
 impl ::core::cmp::Eq for RASCUSTOMSCRIPTEXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASCUSTOMSCRIPTEXTENSIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
@@ -6580,12 +6575,7 @@ pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
 pub const RASPBDFLAG_NoUser: u32 = 16u32;
 pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RASPBDLGA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA {
@@ -6595,7 +6585,7 @@ pub struct RASPBDLGA {
     pub xDlg: i32,
     pub yDlg: i32,
     pub dwCallbackId: usize,
-    pub pCallback: ::core::option::Option<RASPBDLGFUNCA>,
+    pub pCallback: RASPBDLGFUNCA,
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -6618,18 +6608,13 @@ impl ::core::cmp::PartialEq for RASPBDLGA {
 impl ::core::cmp::Eq for RASPBDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASPBDLGA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCA = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCW = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RASPBDLGW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW {
@@ -6639,7 +6624,7 @@ pub struct RASPBDLGW {
     pub xDlg: i32,
     pub yDlg: i32,
     pub dwCallbackId: usize,
-    pub pCallback: ::core::option::Option<RASPBDLGFUNCW>,
+    pub pCallback: RASPBDLGFUNCW,
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -6662,7 +6647,7 @@ impl ::core::cmp::PartialEq for RASPBDLGW {
 impl ::core::cmp::Eq for RASPBDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RASPBDLGW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -8502,20 +8487,20 @@ impl ::core::convert::From<i32> for ROUTER_INTERFACE_TYPE {
 unsafe impl ::windows::core::Abi for ROUTER_INTERFACE_TYPE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
-    pub pfnRpfCallback: ::core::option::Option<PMGM_RPF_CALLBACK>,
-    pub pfnCreationAlertCallback: ::core::option::Option<PMGM_CREATION_ALERT_CALLBACK>,
-    pub pfnPruneAlertCallback: ::core::option::Option<PMGM_PRUNE_ALERT_CALLBACK>,
-    pub pfnJoinAlertCallback: ::core::option::Option<PMGM_JOIN_ALERT_CALLBACK>,
-    pub pfnWrongIfCallback: ::core::option::Option<PMGM_WRONG_IF_CALLBACK>,
-    pub pfnLocalJoinCallback: ::core::option::Option<PMGM_LOCAL_JOIN_CALLBACK>,
-    pub pfnLocalLeaveCallback: ::core::option::Option<PMGM_LOCAL_LEAVE_CALLBACK>,
-    pub pfnDisableIgmpCallback: ::core::option::Option<PMGM_DISABLE_IGMP_CALLBACK>,
-    pub pfnEnableIgmpCallback: ::core::option::Option<PMGM_ENABLE_IGMP_CALLBACK>,
+    pub pfnRpfCallback: PMGM_RPF_CALLBACK,
+    pub pfnCreationAlertCallback: PMGM_CREATION_ALERT_CALLBACK,
+    pub pfnPruneAlertCallback: PMGM_PRUNE_ALERT_CALLBACK,
+    pub pfnJoinAlertCallback: PMGM_JOIN_ALERT_CALLBACK,
+    pub pfnWrongIfCallback: PMGM_WRONG_IF_CALLBACK,
+    pub pfnLocalJoinCallback: PMGM_LOCAL_JOIN_CALLBACK,
+    pub pfnLocalLeaveCallback: PMGM_LOCAL_LEAVE_CALLBACK,
+    pub pfnDisableIgmpCallback: PMGM_DISABLE_IGMP_CALLBACK,
+    pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ROUTING_PROTOCOL_CONFIG {}
@@ -8550,7 +8535,7 @@ impl ::core::cmp::PartialEq for ROUTING_PROTOCOL_CONFIG {
 impl ::core::cmp::Eq for ROUTING_PROTOCOL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ROUTING_PROTOCOL_CONFIG {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
@@ -8634,11 +8619,11 @@ unsafe impl ::windows::core::Abi for RTM_DEST_INFO_0 {
     type Abi = Self;
 }
 pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
-    pub Methods: [::core::option::Option<RTM_ENTITY_EXPORT_METHOD>; 1],
+    pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
 impl RTM_ENTITY_EXPORT_METHODS {}
 impl ::core::default::Default for RTM_ENTITY_EXPORT_METHODS {
@@ -8646,14 +8631,19 @@ impl ::core::default::Default for RTM_ENTITY_EXPORT_METHODS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+impl ::core::fmt::Debug for RTM_ENTITY_EXPORT_METHODS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).finish()
+    }
+}
 impl ::core::cmp::PartialEq for RTM_ENTITY_EXPORT_METHODS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        self.NumMethods == other.NumMethods && self.Methods == other.Methods
     }
 }
 impl ::core::cmp::Eq for RTM_ENTITY_EXPORT_METHODS {}
 unsafe impl ::windows::core::Abi for RTM_ENTITY_EXPORT_METHODS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -9981,7 +9971,7 @@ pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut ::core::mem::ManuallyDrop<RASPBDLGA>) -> super::super::Foundation::BOOL;
+            fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(RasPhonebookDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
     }
@@ -9995,7 +9985,7 @@ pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut ::core::mem::ManuallyDrop<RASPBDLGW>) -> super::super::Foundation::BOOL;
+            fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(RasPhonebookDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
     }
@@ -10622,7 +10612,7 @@ pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityi
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut ::core::option::Option<RTM_ENTITY_EXPORT_METHOD>) -> u32 {
+pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut RTM_ENTITY_EXPORT_METHOD) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10971,12 +10961,12 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: ::core::option::Option<RTM_EVENT_CALLBACK>, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
+pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut ::core::mem::ManuallyDrop<RTM_ENTITY_EXPORT_METHODS>, eventcallback: ::windows::core::RawPtr, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
+            fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: ::windows::core::RawPtr, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
         }
         ::core::mem::transmute(RtmRegisterEntity(::core::mem::transmute(rtmentityinfo), ::core::mem::transmute(exportmethods), ::core::mem::transmute(eventcallback), reserveopaquepointer.into_param().abi(), ::core::mem::transmute(rtmregprofile), ::core::mem::transmute(rtmreghandle)))
     }

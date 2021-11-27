@@ -9119,13 +9119,13 @@ pub const NMP_PROCESS_POST: u32 = 1u32;
 #[inline]
 pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::core::IntoParam<'a, super::super::System::Com::IMalloc>, Param6: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(
     lpmsgsess: *mut _MSGSESS,
-    lpallocatebuffer: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEBUFFER>,
-    lpallocatemore: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEMORE>,
-    lpfreebuffer: ::core::option::Option<super::super::System::AddressBook::LPFREEBUFFER>,
+    lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
+    lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
+    lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
     lpmalloc: Param4,
     lpmapisup: *mut ::core::ffi::c_void,
     lpstg: Param6,
-    lpfmsgcallrelease: *mut ::core::option::Option<MSGCALLRELEASE>,
+    lpfmsgcallrelease: *mut MSGCALLRELEASE,
     ulcallerdata: u32,
     ulflags: u32,
     lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>,

@@ -189,7 +189,7 @@ pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mu
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: ::core::option::Option<JsFinalizeCallback>, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -202,7 +202,7 @@ pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizec
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn JsCreateFunction(nativefunction: ::core::option::Option<JsNativeFunction>, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -254,7 +254,7 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: ::core::option::Option<JsThreadServiceCallback>, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1119,7 +1119,7 @@ pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: ::core::option::Option<JsBeforeCollectCallback>) -> JsErrorCode {
+pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1132,7 +1132,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: ::core::option::Option<JsMemoryAllocationCallback>) -> JsErrorCode {
+pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

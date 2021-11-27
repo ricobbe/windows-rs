@@ -11,7 +11,7 @@ impl ::core::convert::From<i32> for HCS_CREATE_OPTIONS {
 unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HCS_CREATE_OPTIONS_1 {
@@ -20,7 +20,7 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
     pub CallbackOptions: HCS_EVENT_OPTIONS,
     pub CallbackContext: *mut ::core::ffi::c_void,
-    pub Callback: ::core::option::Option<HCS_EVENT_CALLBACK>,
+    pub Callback: HCS_EVENT_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl HCS_CREATE_OPTIONS_1 {}
@@ -46,7 +46,7 @@ impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
 impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -433,7 +433,7 @@ pub unsafe fn HcsCreateEmptyRuntimeStateFile<'a, Param0: ::windows::core::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_OPERATION_COMPLETION>) -> HCS_OPERATION {
+pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -967,7 +967,7 @@ pub unsafe fn HcsSaveComputeSystem<'a, Param0: ::windows::core::IntoParam<'a, HC
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_SYSTEM>>(computesystem: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_EVENT_CALLBACK>) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSetComputeSystemCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_SYSTEM>>(computesystem: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -980,7 +980,7 @@ pub unsafe fn HcsSetComputeSystemCallback<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HcsSetOperationCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_OPERATION>>(operation: Param0, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_OPERATION_COMPLETION>) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSetOperationCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_OPERATION>>(operation: Param0, context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1007,7 +1007,7 @@ pub unsafe fn HcsSetOperationContext<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_PROCESS>>(process: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_EVENT_CALLBACK>) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::core::IntoParam<'a, HCS_PROCESS>>(process: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

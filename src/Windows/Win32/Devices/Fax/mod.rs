@@ -1980,16 +1980,16 @@ impl ::core::cmp::Eq for FAX_ROUTE {}
 unsafe impl ::windows::core::Abi for FAX_ROUTE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
-    pub FaxRouteAddFile: ::core::option::Option<PFAXROUTEADDFILE>,
-    pub FaxRouteDeleteFile: ::core::option::Option<PFAXROUTEDELETEFILE>,
-    pub FaxRouteGetFile: ::core::option::Option<PFAXROUTEGETFILE>,
-    pub FaxRouteEnumFiles: ::core::option::Option<PFAXROUTEENUMFILES>,
-    pub FaxRouteModifyRoutingData: ::core::option::Option<PFAXROUTEMODIFYROUTINGDATA>,
+    pub FaxRouteAddFile: PFAXROUTEADDFILE,
+    pub FaxRouteDeleteFile: PFAXROUTEDELETEFILE,
+    pub FaxRouteGetFile: PFAXROUTEGETFILE,
+    pub FaxRouteEnumFiles: PFAXROUTEENUMFILES,
+    pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl FAX_ROUTE_CALLBACKROUTINES {}
@@ -2020,7 +2020,7 @@ impl ::core::cmp::PartialEq for FAX_ROUTE_CALLBACKROUTINES {
 impl ::core::cmp::Eq for FAX_ROUTE_CALLBACKROUTINES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTE_CALLBACKROUTINES {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2904,7 +2904,7 @@ pub unsafe fn FaxRegisterRoutingExtensionW<'a, Param0: ::windows::core::IntoPara
     extensionname: Param1,
     friendlyname: Param2,
     imagename: Param3,
-    callback: ::core::option::Option<PFAX_ROUTING_INSTALLATION_CALLBACKW>,
+    callback: PFAX_ROUTING_INSTALLATION_CALLBACKW,
     context: *mut ::core::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2950,7 +2950,7 @@ pub unsafe fn FaxSendDocumentA<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FaxSendDocumentForBroadcastA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: ::core::option::Option<PFAX_RECIPIENT_CALLBACKA>, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FaxSendDocumentForBroadcastA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2964,7 +2964,7 @@ pub unsafe fn FaxSendDocumentForBroadcastA<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FaxSendDocumentForBroadcastW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: ::core::option::Option<PFAX_RECIPIENT_CALLBACKW>, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FaxSendDocumentForBroadcastW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11626,7 +11626,7 @@ pub type PFAXROUTEGETFILE = unsafe extern "system" fn(jobid: u32, index: u32, fi
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXROUTEGETROUTINGINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut u8, param3: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEINITIALIZE = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut ::core::mem::ManuallyDrop<FAX_ROUTE_CALLBACKROUTINES>) -> super::super::Foundation::BOOL;
+pub type PFAXROUTEINITIALIZE = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut FAX_ROUTE_CALLBACKROUTINES) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXROUTEMETHOD = unsafe extern "system" fn(param0: *const FAX_ROUTE, param1: *mut *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

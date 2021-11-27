@@ -272,14 +272,14 @@ pub const LDAP_OPT_TLS_INFO: u32 = 147u32;
 pub const LDAP_OPT_VERSION: u32 = 17u32;
 pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 pub const LDAP_PORT: u32 = 389u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
-    pub QueryForConnection: ::core::option::Option<QUERYFORCONNECTION>,
-    pub NotifyRoutine: ::core::option::Option<NOTIFYOFNEWCONNECTION>,
-    pub DereferenceRoutine: ::core::option::Option<DEREFERENCECONNECTION>,
+    pub QueryForConnection: QUERYFORCONNECTION,
+    pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
+    pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl LDAP_REFERRAL_CALLBACK {}
@@ -305,7 +305,7 @@ impl ::core::cmp::PartialEq for LDAP_REFERRAL_CALLBACK {
 impl ::core::cmp::Eq for LDAP_REFERRAL_CALLBACK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const LDAP_RES_ADD: i32 = 105i32;
 pub const LDAP_RES_ANY: i32 = -1i32;
@@ -3817,7 +3817,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_set_dbg_routine(debugprintroutine: ::core::option::Option<DBGPRINT>) {
+pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

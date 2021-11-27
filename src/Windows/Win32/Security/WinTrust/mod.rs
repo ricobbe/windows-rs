@@ -351,26 +351,26 @@ impl ::core::cmp::Eq for CRYPT_PROVIDER_DEFUSAGE {}
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_DEFUSAGE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub cbStruct: u32,
-    pub pfnAlloc: ::core::option::Option<PFN_CPD_MEM_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_CPD_MEM_FREE>,
-    pub pfnAddStore2Chain: ::core::option::Option<PFN_CPD_ADD_STORE>,
-    pub pfnAddSgnr2Chain: ::core::option::Option<PFN_CPD_ADD_SGNR>,
-    pub pfnAddCert2Chain: ::core::option::Option<PFN_CPD_ADD_CERT>,
-    pub pfnAddPrivData2Chain: ::core::option::Option<PFN_CPD_ADD_PRIVDATA>,
-    pub pfnInitialize: ::core::option::Option<PFN_PROVIDER_INIT_CALL>,
-    pub pfnObjectTrust: ::core::option::Option<PFN_PROVIDER_OBJTRUST_CALL>,
-    pub pfnSignatureTrust: ::core::option::Option<PFN_PROVIDER_SIGTRUST_CALL>,
-    pub pfnCertificateTrust: ::core::option::Option<PFN_PROVIDER_CERTTRUST_CALL>,
-    pub pfnFinalPolicy: ::core::option::Option<PFN_PROVIDER_FINALPOLICY_CALL>,
-    pub pfnCertCheckPolicy: ::core::option::Option<PFN_PROVIDER_CERTCHKPOLICY_CALL>,
-    pub pfnTestFinalPolicy: ::core::option::Option<PFN_PROVIDER_TESTFINALPOLICY_CALL>,
+    pub pfnAlloc: PFN_CPD_MEM_ALLOC,
+    pub pfnFree: PFN_CPD_MEM_FREE,
+    pub pfnAddStore2Chain: PFN_CPD_ADD_STORE,
+    pub pfnAddSgnr2Chain: PFN_CPD_ADD_SGNR,
+    pub pfnAddCert2Chain: PFN_CPD_ADD_CERT,
+    pub pfnAddPrivData2Chain: PFN_CPD_ADD_PRIVDATA,
+    pub pfnInitialize: PFN_PROVIDER_INIT_CALL,
+    pub pfnObjectTrust: PFN_PROVIDER_OBJTRUST_CALL,
+    pub pfnSignatureTrust: PFN_PROVIDER_SIGTRUST_CALL,
+    pub pfnCertificateTrust: PFN_PROVIDER_CERTTRUST_CALL,
+    pub pfnFinalPolicy: PFN_PROVIDER_FINALPOLICY_CALL,
+    pub pfnCertCheckPolicy: PFN_PROVIDER_CERTCHKPOLICY_CALL,
+    pub pfnTestFinalPolicy: PFN_PROVIDER_TESTFINALPOLICY_CALL,
     pub psUIpfns: *mut CRYPT_PROVUI_FUNCS,
-    pub pfnCleanupPolicy: ::core::option::Option<PFN_PROVIDER_CLEANUP_CALL>,
+    pub pfnCleanupPolicy: PFN_PROVIDER_CLEANUP_CALL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVIDER_FUNCTIONS {}
@@ -411,7 +411,7 @@ impl ::core::cmp::PartialEq for CRYPT_PROVIDER_FUNCTIONS {
 impl ::core::cmp::Eq for CRYPT_PROVIDER_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -652,16 +652,16 @@ impl ::core::cmp::Eq for CRYPT_PROVUI_DATA {}
 unsafe impl ::windows::core::Abi for CRYPT_PROVUI_DATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVUI_FUNCS {
     pub cbStruct: u32,
     pub psUIData: *mut CRYPT_PROVUI_DATA,
-    pub pfnOnMoreInfoClick: ::core::option::Option<PFN_PROVUI_CALL>,
-    pub pfnOnMoreInfoClickDefault: ::core::option::Option<PFN_PROVUI_CALL>,
-    pub pfnOnAdvancedClick: ::core::option::Option<PFN_PROVUI_CALL>,
-    pub pfnOnAdvancedClickDefault: ::core::option::Option<PFN_PROVUI_CALL>,
+    pub pfnOnMoreInfoClick: PFN_PROVUI_CALL,
+    pub pfnOnMoreInfoClickDefault: PFN_PROVUI_CALL,
+    pub pfnOnAdvancedClick: PFN_PROVUI_CALL,
+    pub pfnOnAdvancedClickDefault: PFN_PROVUI_CALL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVUI_FUNCS {}
@@ -687,7 +687,7 @@ impl ::core::cmp::PartialEq for CRYPT_PROVUI_FUNCS {
 impl ::core::cmp::Eq for CRYPT_PROVUI_FUNCS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPT_PROVUI_FUNCS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2396,19 +2396,14 @@ impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_DATA {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_DATA_0,
     pub pSignerChainInfo: *mut WTD_GENERIC_CHAIN_POLICY_CREATE_INFO,
     pub pCounterSignerChainInfo: *mut WTD_GENERIC_CHAIN_POLICY_CREATE_INFO,
-    pub pfnPolicyCallback: ::core::option::Option<PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK>,
+    pub pfnPolicyCallback: PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK,
     pub pvPolicyArg: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -2429,7 +2424,7 @@ impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_DATA {
 impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2697,7 +2692,7 @@ pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUID, ppfns: *mut ::core::mem::ManuallyDrop<CRYPT_PROVIDER_FUNCTIONS>) -> super::super::Foundation::BOOL;
+            fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::core::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WintrustLoadFunctionPointers(::core::mem::transmute(pgactionid), ::core::mem::transmute(ppfns)))
     }
