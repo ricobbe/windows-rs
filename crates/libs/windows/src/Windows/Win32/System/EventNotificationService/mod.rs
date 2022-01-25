@@ -545,7 +545,7 @@ pub struct ISensOnNowVtbl(
 pub unsafe fn IsDestinationReachableA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensapi", kind = "raw-dylib")]
         extern "system" {
             fn IsDestinationReachableA(lpszdestination: super::super::Foundation::PSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
         }
@@ -560,7 +560,7 @@ pub unsafe fn IsDestinationReachableA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn IsDestinationReachableW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensapi", kind = "raw-dylib")]
         extern "system" {
             fn IsDestinationReachableW(lpszdestination: super::super::Foundation::PWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
         }
@@ -575,7 +575,7 @@ pub unsafe fn IsDestinationReachableW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensapi", kind = "raw-dylib")]
         extern "system" {
             fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
         }

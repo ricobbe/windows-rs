@@ -9762,7 +9762,7 @@ impl ::core::default::Default for ONEX_VARIABLE_BLOB {
 pub unsafe fn WFDCancelOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDCancelOpenSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -9777,7 +9777,7 @@ pub unsafe fn WFDCancelOpenSession<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WFDCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDCloseHandle(hclienthandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -9792,7 +9792,7 @@ pub unsafe fn WFDCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WFDCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDCloseSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -9807,7 +9807,7 @@ pub unsafe fn WFDCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -9822,7 +9822,7 @@ pub unsafe fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32
 pub unsafe fn WFDOpenLegacySession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDOpenLegacySession(hclienthandle: super::super::Foundation::HANDLE, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows::core::GUID) -> u32;
         }
@@ -9877,7 +9877,7 @@ pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::windows::core::RawPtr, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -9891,7 +9891,7 @@ pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32;
         }
@@ -11975,7 +11975,7 @@ pub const WLAdvPage: WL_DISPLAY_PAGES = 2i32;
 pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void;
         }
@@ -11990,7 +11990,7 @@ pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void 
 pub unsafe fn WlanCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanCloseHandle(hclienthandle: super::super::Foundation::HANDLE, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12005,7 +12005,7 @@ pub unsafe fn WlanCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn WlanConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanConnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12020,7 +12020,7 @@ pub unsafe fn WlanConnect<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn WlanConnect2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanConnect2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12035,7 +12035,7 @@ pub unsafe fn WlanConnect2<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn WlanDeleteProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanDeleteProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12050,7 +12050,7 @@ pub unsafe fn WlanDeleteProfile<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
@@ -12065,7 +12065,7 @@ pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WlanDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanDisconnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12080,7 +12080,7 @@ pub unsafe fn WlanDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WlanEnumInterfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, preserved: *mut ::core::ffi::c_void, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanEnumInterfaces(hclienthandle: super::super::Foundation::HANDLE, preserved: *mut ::core::ffi::c_void, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32;
         }
@@ -12095,7 +12095,7 @@ pub unsafe fn WlanEnumInterfaces<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WlanExtractPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, dwiedatasize: u32, prawiedata: *const u8, strformat: Param3, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanExtractPsdIEDataList(hclienthandle: super::super::Foundation::HANDLE, dwiedatasize: u32, prawiedata: *const u8, strformat: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32;
         }
@@ -12109,7 +12109,7 @@ pub unsafe fn WlanExtractPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void);
         }
@@ -12124,7 +12124,7 @@ pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
 pub unsafe fn WlanGetAvailableNetworkList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetAvailableNetworkList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32;
         }
@@ -12139,7 +12139,7 @@ pub unsafe fn WlanGetAvailableNetworkList<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WlanGetAvailableNetworkList2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetAvailableNetworkList2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
         }
@@ -12154,7 +12154,7 @@ pub unsafe fn WlanGetAvailableNetworkList2<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanGetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: *mut ::core::ffi::c_void, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetFilterList(hclienthandle: super::super::Foundation::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: *mut ::core::ffi::c_void, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32;
         }
@@ -12169,7 +12169,7 @@ pub unsafe fn WlanGetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn WlanGetInterfaceCapability<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetInterfaceCapability(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32;
         }
@@ -12184,7 +12184,7 @@ pub unsafe fn WlanGetInterfaceCapability<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WlanGetNetworkBssList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: Param4, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetNetworkBssList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32;
         }
@@ -12199,7 +12199,7 @@ pub unsafe fn WlanGetNetworkBssList<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WlanGetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32;
         }
@@ -12214,7 +12214,7 @@ pub unsafe fn WlanGetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WlanGetProfileCustomUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
         }
@@ -12229,7 +12229,7 @@ pub unsafe fn WlanGetProfileCustomUserData<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanGetProfileList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32;
         }
@@ -12244,7 +12244,7 @@ pub unsafe fn WlanGetProfileList<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WlanGetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl: *mut super::super::Foundation::PWSTR, pdwgrantedaccess: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl: *mut super::super::Foundation::PWSTR, pdwgrantedaccess: *mut u32) -> u32;
         }
@@ -12259,7 +12259,7 @@ pub unsafe fn WlanGetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WlanGetSupportedDeviceServices<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanGetSupportedDeviceServices(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
         }
@@ -12274,7 +12274,7 @@ pub unsafe fn WlanGetSupportedDeviceServices<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WlanHostedNetworkForceStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkForceStart(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12289,7 +12289,7 @@ pub unsafe fn WlanHostedNetworkForceStart<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WlanHostedNetworkForceStop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkForceStop(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12304,7 +12304,7 @@ pub unsafe fn WlanHostedNetworkForceStop<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WlanHostedNetworkInitSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkInitSettings(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12319,7 +12319,7 @@ pub unsafe fn WlanHostedNetworkInitSettings<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WlanHostedNetworkQueryProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkQueryProperty(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12334,7 +12334,7 @@ pub unsafe fn WlanHostedNetworkQueryProperty<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WlanHostedNetworkQuerySecondaryKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkQuerySecondaryKey(hclienthandle: super::super::Foundation::HANDLE, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12349,7 +12349,7 @@ pub unsafe fn WlanHostedNetworkQuerySecondaryKey<'a, Param0: ::windows::core::In
 pub unsafe fn WlanHostedNetworkQueryStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkQueryStatus(hclienthandle: super::super::Foundation::HANDLE, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12364,7 +12364,7 @@ pub unsafe fn WlanHostedNetworkQueryStatus<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12379,7 +12379,7 @@ pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<'a, Param0: ::windows::co
 pub unsafe fn WlanHostedNetworkSetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkSetProperty(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12394,7 +12394,7 @@ pub unsafe fn WlanHostedNetworkSetProperty<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwkeylength: u32, puckeydata: *const u8, bispassphrase: Param3, bpersistent: Param4, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::super::Foundation::HANDLE, dwkeylength: u32, puckeydata: *const u8, bispassphrase: super::super::Foundation::BOOL, bpersistent: super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12409,7 +12409,7 @@ pub unsafe fn WlanHostedNetworkSetSecondaryKey<'a, Param0: ::windows::core::Into
 pub unsafe fn WlanHostedNetworkStartUsing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkStartUsing(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12424,7 +12424,7 @@ pub unsafe fn WlanHostedNetworkStartUsing<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WlanHostedNetworkStopUsing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanHostedNetworkStopUsing(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12439,7 +12439,7 @@ pub unsafe fn WlanHostedNetworkStopUsing<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WlanIhvControl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
@@ -12454,7 +12454,7 @@ pub unsafe fn WlanIhvControl<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WlanOpenHandle(dwclientversion: u32, preserved: *mut ::core::ffi::c_void, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanOpenHandle(dwclientversion: u32, preserved: *mut ::core::ffi::c_void, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -12469,7 +12469,7 @@ pub unsafe fn WlanOpenHandle(dwclientversion: u32, preserved: *mut ::core::ffi::
 pub unsafe fn WlanQueryAutoConfigParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanQueryAutoConfigParameter(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
         }
@@ -12484,7 +12484,7 @@ pub unsafe fn WlanQueryAutoConfigParameter<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanQueryInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
         }
@@ -12499,7 +12499,7 @@ pub unsafe fn WlanQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WlanReasonCodeToString<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanReasonCodeToString(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12514,7 +12514,7 @@ pub unsafe fn WlanReasonCodeToString<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanRegisterDeviceServiceNotification(hclienthandle: super::super::Foundation::HANDLE, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
         }
@@ -12529,7 +12529,7 @@ pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::core:
 pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwnotifsource: u32, bignoreduplicate: Param2, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: ::windows::core::RawPtr, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
         }
@@ -12544,7 +12544,7 @@ pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WlanRegisterVirtualStationNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, bregister: Param1, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanRegisterVirtualStationNotification(hclienthandle: super::super::Foundation::HANDLE, bregister: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12559,7 +12559,7 @@ pub unsafe fn WlanRegisterVirtualStationNotification<'a, Param0: ::windows::core
 pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, stroldprofilename: Param2, strnewprofilename: Param3, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanRenameProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, stroldprofilename: super::super::Foundation::PWSTR, strnewprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12574,7 +12574,7 @@ pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, stralluserprofilesecurity: Param3, dwflags: u32, boverwrite: Param5, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSaveTemporaryProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, dwflags: u32, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12589,7 +12589,7 @@ pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WlanScan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanScan(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12604,7 +12604,7 @@ pub unsafe fn WlanScan<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn WlanSetAutoConfigParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetAutoConfigParameter(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12619,7 +12619,7 @@ pub unsafe fn WlanSetAutoConfigParameter<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WlanSetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: *const DOT11_NETWORK_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetFilterList(hclienthandle: super::super::Foundation::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: *const DOT11_NETWORK_LIST, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12634,7 +12634,7 @@ pub unsafe fn WlanSetFilterList<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn WlanSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12649,7 +12649,7 @@ pub unsafe fn WlanSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WlanSetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, strprofilexml: Param3, stralluserprofilesecurity: Param4, boverwrite: Param5, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, strprofilexml: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32;
         }
@@ -12664,7 +12664,7 @@ pub unsafe fn WlanSetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12679,7 +12679,7 @@ pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, eaptype: Param3, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12694,7 +12694,7 @@ pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WlanSetProfileEapXmlUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: Param4, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfileEapXmlUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12709,7 +12709,7 @@ pub unsafe fn WlanSetProfileEapXmlUserData<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12724,7 +12724,7 @@ pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WlanSetProfilePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetProfilePosition(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12739,7 +12739,7 @@ pub unsafe fn WlanSetProfilePosition<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WlanSetPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, strformat: Param1, ppsdiedatalist: *const WLAN_RAW_DATA_LIST, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetPsdIEDataList(hclienthandle: super::super::Foundation::HANDLE, strformat: super::super::Foundation::PWSTR, ppsdiedatalist: *const WLAN_RAW_DATA_LIST, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -12754,7 +12754,7 @@ pub unsafe fn WlanSetPsdIEDataList<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WlanSetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclienthandle: Param0, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanapi", kind = "raw-dylib")]
         extern "system" {
             fn WlanSetSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12769,7 +12769,7 @@ pub unsafe fn WlanSetSecuritySettings<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WlanUIEditProfile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwclientversion: u32, wstrprofilename: Param1, pinterfaceguid: *const ::windows::core::GUID, hwnd: Param3, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wlanui", kind = "raw-dylib")]
         extern "system" {
             fn WlanUIEditProfile(dwclientversion: u32, wstrprofilename: super::super::Foundation::PWSTR, pinterfaceguid: *const ::windows::core::GUID, hwnd: super::super::Foundation::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32;
         }

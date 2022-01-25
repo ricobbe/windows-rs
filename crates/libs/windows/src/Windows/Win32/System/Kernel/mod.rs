@@ -635,7 +635,7 @@ pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
         }
@@ -649,7 +649,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
 pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
         }
@@ -663,7 +663,7 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
         }
@@ -677,7 +677,7 @@ pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIS
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
         }
@@ -691,7 +691,7 @@ pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut S
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
         }
@@ -705,7 +705,7 @@ pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentr
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
         }
@@ -719,7 +719,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *
 pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
         }

@@ -5,7 +5,7 @@
 pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::core::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "directml", kind = "raw-dylib")]
         extern "system" {
             fn DMLCreateDevice(d3d12device: ::windows::core::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -20,7 +20,7 @@ pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::core::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "directml", kind = "raw-dylib")]
         extern "system" {
             fn DMLCreateDevice1(d3d12device: ::windows::core::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

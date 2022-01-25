@@ -524,7 +524,7 @@ pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2i32;
 pub unsafe fn GetTnefStreamCodepage<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(lpstream: Param0, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "mapi32", kind = "raw-dylib")]
         extern "system" {
             fn GetTnefStreamCodepage(lpstream: ::windows::core::RawPtr, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -20405,7 +20405,7 @@ impl ::core::default::Default for NSID_0 {
 pub unsafe fn OpenTnefStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "mapi32", kind = "raw-dylib")]
         extern "system" {
             fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -20420,7 +20420,7 @@ pub unsafe fn OpenTnefStream<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn OpenTnefStreamEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>, Param6: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IAddrBook>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpadressbook: Param6, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "mapi32", kind = "raw-dylib")]
         extern "system" {
             fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::windows::core::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::core::RawPtr, wkeyval: u16, lpadressbook: ::windows::core::RawPtr, lpptnef: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -22362,7 +22362,7 @@ pub const atypPicture: i32 = 3i32;
 pub unsafe fn lineAccept<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAccept(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -22377,7 +22377,7 @@ pub unsafe fn lineAccept<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn lineAddProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAddProvider(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
         }
@@ -22392,7 +22392,7 @@ pub unsafe fn lineAddProvider<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn lineAddProviderA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAddProviderA(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
         }
@@ -22407,7 +22407,7 @@ pub unsafe fn lineAddProviderA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineAddProviderW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAddProviderW(lpszproviderfilename: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
         }
@@ -22421,7 +22421,7 @@ pub unsafe fn lineAddProviderW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
         }
@@ -22435,7 +22435,7 @@ pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
 pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -22450,7 +22450,7 @@ pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionid
 pub unsafe fn lineAnswer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineAnswer(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -22465,7 +22465,7 @@ pub unsafe fn lineAnswer<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn lineBlindTransfer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineBlindTransfer(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -22480,7 +22480,7 @@ pub unsafe fn lineBlindTransfer<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineBlindTransferA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineBlindTransferA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -22495,7 +22495,7 @@ pub unsafe fn lineBlindTransferA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineBlindTransferW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddressw: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineBlindTransferW(hcall: u32, lpszdestaddressw: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
         }
@@ -22509,7 +22509,7 @@ pub unsafe fn lineBlindTransferW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineClose(hline: u32) -> i32;
         }
@@ -22523,7 +22523,7 @@ pub unsafe fn lineClose(hline: u32) -> i32 {
 pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32;
         }
@@ -22537,7 +22537,7 @@ pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcomplet
 pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
         }
@@ -22552,7 +22552,7 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
 pub unsafe fn lineConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -22567,7 +22567,7 @@ pub unsafe fn lineConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -22582,7 +22582,7 @@ pub unsafe fn lineConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineConfigDialogEdit<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
         }
@@ -22597,7 +22597,7 @@ pub unsafe fn lineConfigDialogEdit<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn lineConfigDialogEditA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
         }
@@ -22612,7 +22612,7 @@ pub unsafe fn lineConfigDialogEditA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn lineConfigDialogEditW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
         }
@@ -22627,7 +22627,7 @@ pub unsafe fn lineConfigDialogEditW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn lineConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -22642,7 +22642,7 @@ pub unsafe fn lineConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineConfigProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, dwpermanentproviderid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
         }
@@ -22657,7 +22657,7 @@ pub unsafe fn lineConfigProvider<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineCreateAgentA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCreateAgentA(hline: u32, lpszagentid: super::super::Foundation::PSTR, lpszagentpin: super::super::Foundation::PSTR, lphagent: *mut u32) -> i32;
         }
@@ -22672,7 +22672,7 @@ pub unsafe fn lineCreateAgentA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
         }
@@ -22687,7 +22687,7 @@ pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
         }
@@ -22702,7 +22702,7 @@ pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn lineCreateAgentW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineCreateAgentW(hline: u32, lpszagentid: super::super::Foundation::PWSTR, lpszagentpin: super::super::Foundation::PWSTR, lphagent: *mut u32) -> i32;
         }
@@ -22716,7 +22716,7 @@ pub unsafe fn lineCreateAgentW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDeallocateCall(hcall: u32) -> i32;
         }
@@ -22730,7 +22730,7 @@ pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
 pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -22744,7 +22744,7 @@ pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams
 pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -22759,7 +22759,7 @@ pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut 
 pub unsafe fn lineDial<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDial(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -22774,7 +22774,7 @@ pub unsafe fn lineDial<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn lineDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDialA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -22789,7 +22789,7 @@ pub unsafe fn lineDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn lineDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDialW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
         }
@@ -22804,7 +22804,7 @@ pub unsafe fn lineDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn lineDrop<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineDrop(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -22818,7 +22818,7 @@ pub unsafe fn lineDrop<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -22832,7 +22832,7 @@ pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpfo
 pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -22846,7 +22846,7 @@ pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
 pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -22861,7 +22861,7 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
 pub unsafe fn lineGatherDigits<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
         }
@@ -22876,7 +22876,7 @@ pub unsafe fn lineGatherDigits<'a, Param4: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineGatherDigitsA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
         }
@@ -22891,7 +22891,7 @@ pub unsafe fn lineGatherDigitsA<'a, Param4: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGatherDigitsW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PWSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PWSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
         }
@@ -22906,7 +22906,7 @@ pub unsafe fn lineGatherDigitsW<'a, Param4: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGenerateDigits<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
         }
@@ -22921,7 +22921,7 @@ pub unsafe fn lineGenerateDigits<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineGenerateDigitsA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
         }
@@ -22936,7 +22936,7 @@ pub unsafe fn lineGenerateDigitsA<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineGenerateDigitsW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PWSTR, dwduration: u32) -> i32;
         }
@@ -22950,7 +22950,7 @@ pub unsafe fn lineGenerateDigitsW<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
         }
@@ -22964,7 +22964,7 @@ pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwn
 pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
         }
@@ -22978,7 +22978,7 @@ pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u3
 pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
         }
@@ -22992,7 +22992,7 @@ pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
 pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
         }
@@ -23007,7 +23007,7 @@ pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
 pub unsafe fn lineGetAddressID<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -23022,7 +23022,7 @@ pub unsafe fn lineGetAddressID<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineGetAddressIDA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -23037,7 +23037,7 @@ pub unsafe fn lineGetAddressIDA<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGetAddressIDW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PWSTR, dwsize: u32) -> i32;
         }
@@ -23051,7 +23051,7 @@ pub unsafe fn lineGetAddressIDW<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
         }
@@ -23065,7 +23065,7 @@ pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus
 pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
         }
@@ -23079,7 +23079,7 @@ pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatu
 pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
         }
@@ -23093,7 +23093,7 @@ pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatu
 pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
         }
@@ -23107,7 +23107,7 @@ pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentact
 pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
         }
@@ -23121,7 +23121,7 @@ pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentact
 pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
         }
@@ -23135,7 +23135,7 @@ pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
 pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
         }
@@ -23149,7 +23149,7 @@ pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
 pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -23163,7 +23163,7 @@ pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgroupl
 pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -23178,7 +23178,7 @@ pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgroupl
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
         }
@@ -23193,7 +23193,7 @@ pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAG
 pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32;
         }
@@ -23207,7 +23207,7 @@ pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentses
 pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32;
         }
@@ -23221,7 +23221,7 @@ pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlis
 pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
         }
@@ -23235,7 +23235,7 @@ pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *
 pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
         }
@@ -23250,7 +23250,7 @@ pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *
 pub unsafe fn lineGetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
         }
@@ -23265,7 +23265,7 @@ pub unsafe fn lineGetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineGetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
         }
@@ -23280,7 +23280,7 @@ pub unsafe fn lineGetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineGetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
         }
@@ -23294,7 +23294,7 @@ pub unsafe fn lineGetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -23308,7 +23308,7 @@ pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -23322,7 +23322,7 @@ pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -23337,7 +23337,7 @@ pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
         }
@@ -23351,7 +23351,7 @@ pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
         }
@@ -23365,7 +23365,7 @@ pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST)
 pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
         }
@@ -23379,7 +23379,7 @@ pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountryl
 pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
         }
@@ -23393,7 +23393,7 @@ pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountry
 pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
         }
@@ -23407,7 +23407,7 @@ pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountry
 pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
         }
@@ -23421,7 +23421,7 @@ pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, 
 pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
         }
@@ -23435,7 +23435,7 @@ pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
 pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
         }
@@ -23450,7 +23450,7 @@ pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
 pub unsafe fn lineGetDevConfig<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -23465,7 +23465,7 @@ pub unsafe fn lineGetDevConfig<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineGetDevConfigA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -23480,7 +23480,7 @@ pub unsafe fn lineGetDevConfigA<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGetDevConfigW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -23494,7 +23494,7 @@ pub unsafe fn lineGetDevConfigW<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -23508,7 +23508,7 @@ pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -23523,7 +23523,7 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
 pub unsafe fn lineGetID<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -23538,7 +23538,7 @@ pub unsafe fn lineGetID<'a, Param5: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn lineGetIDA<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -23553,7 +23553,7 @@ pub unsafe fn lineGetIDA<'a, Param5: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn lineGetIDW<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -23568,7 +23568,7 @@ pub unsafe fn lineGetIDW<'a, Param5: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn lineGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
         }
@@ -23583,7 +23583,7 @@ pub unsafe fn lineGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn lineGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
         }
@@ -23598,7 +23598,7 @@ pub unsafe fn lineGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
         }
@@ -23612,7 +23612,7 @@ pub unsafe fn lineGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -23626,7 +23626,7 @@ pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTAT
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -23640,7 +23640,7 @@ pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTA
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -23654,7 +23654,7 @@ pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTA
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
         }
@@ -23668,7 +23668,7 @@ pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeo
 pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32;
         }
@@ -23682,7 +23682,7 @@ pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcal
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
         }
@@ -23696,7 +23696,7 @@ pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
         }
@@ -23710,7 +23710,7 @@ pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPR
 pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
         }
@@ -23724,7 +23724,7 @@ pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEP
 pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
         }
@@ -23738,7 +23738,7 @@ pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEP
 pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32;
         }
@@ -23752,7 +23752,7 @@ pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion
 pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32;
         }
@@ -23766,7 +23766,7 @@ pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut
 pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
         }
@@ -23780,7 +23780,7 @@ pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUI
 pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
         }
@@ -23794,7 +23794,7 @@ pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUI
 pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -23808,7 +23808,7 @@ pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer:
 pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -23822,7 +23822,7 @@ pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
 pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -23836,7 +23836,7 @@ pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
 pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32;
         }
@@ -23850,7 +23850,7 @@ pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwad
 pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
         }
@@ -23864,7 +23864,7 @@ pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslate
 pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
         }
@@ -23878,7 +23878,7 @@ pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslat
 pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
         }
@@ -23893,7 +23893,7 @@ pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslat
 pub unsafe fn lineHandoff<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineHandoff(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
         }
@@ -23908,7 +23908,7 @@ pub unsafe fn lineHandoff<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn lineHandoffA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineHandoffA(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
         }
@@ -23923,7 +23923,7 @@ pub unsafe fn lineHandoffA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineHandoffW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineHandoffW(hcall: u32, lpszfilename: super::super::Foundation::PWSTR, dwmediamode: u32) -> i32;
         }
@@ -23937,7 +23937,7 @@ pub unsafe fn lineHandoffW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineHold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineHold(hcall: u32) -> i32;
         }
@@ -23952,7 +23952,7 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
 pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
         }
@@ -23967,7 +23967,7 @@ pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
         }
@@ -23982,7 +23982,7 @@ pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
         }
@@ -23997,7 +23997,7 @@ pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineMakeCall<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24012,7 +24012,7 @@ pub unsafe fn lineMakeCall<'a, Param2: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineMakeCallA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24027,7 +24027,7 @@ pub unsafe fn lineMakeCallA<'a, Param2: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn lineMakeCallW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24041,7 +24041,7 @@ pub unsafe fn lineMakeCallW<'a, Param2: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
         }
@@ -24055,7 +24055,7 @@ pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
         }
@@ -24069,7 +24069,7 @@ pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
 pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32;
         }
@@ -24083,7 +24083,7 @@ pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, d
 pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32;
         }
@@ -24097,7 +24097,7 @@ pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowve
 pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
         }
@@ -24111,7 +24111,7 @@ pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversi
 pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24125,7 +24125,7 @@ pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiv
 pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24139,7 +24139,7 @@ pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
 pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24154,7 +24154,7 @@ pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
 pub unsafe fn linePark<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
         }
@@ -24169,7 +24169,7 @@ pub unsafe fn linePark<'a, Param2: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn lineParkA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
         }
@@ -24184,7 +24184,7 @@ pub unsafe fn lineParkA<'a, Param2: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn lineParkW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
         }
@@ -24199,7 +24199,7 @@ pub unsafe fn lineParkW<'a, Param2: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn linePickup<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
         }
@@ -24214,7 +24214,7 @@ pub unsafe fn linePickup<'a, Param3: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn linePickupA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
         }
@@ -24229,7 +24229,7 @@ pub unsafe fn linePickupA<'a, Param3: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn linePickupW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszgroupid: super::super::Foundation::PWSTR) -> i32;
         }
@@ -24243,7 +24243,7 @@ pub unsafe fn linePickupW<'a, Param3: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24257,7 +24257,7 @@ pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u3
 pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24271,7 +24271,7 @@ pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u
 pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24285,7 +24285,7 @@ pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u
 pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32;
         }
@@ -24300,7 +24300,7 @@ pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32
 pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
         }
@@ -24315,7 +24315,7 @@ pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUES
 pub unsafe fn lineRedirect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRedirect(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -24330,7 +24330,7 @@ pub unsafe fn lineRedirect<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn lineRedirectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRedirectA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
         }
@@ -24345,7 +24345,7 @@ pub unsafe fn lineRedirectA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn lineRedirectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRedirectW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
         }
@@ -24359,7 +24359,7 @@ pub unsafe fn lineRedirectW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
         }
@@ -24373,7 +24373,7 @@ pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineReleaseUserUserInfo(hcall: u32) -> i32;
         }
@@ -24387,7 +24387,7 @@ pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRemoveFromConference(hcall: u32) -> i32;
         }
@@ -24402,7 +24402,7 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
 pub unsafe fn lineRemoveProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwpermanentproviderid: u32, hwndowner: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
         }
@@ -24416,7 +24416,7 @@ pub unsafe fn lineRemoveProvider<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSecureCall(hcall: u32) -> i32;
         }
@@ -24431,7 +24431,7 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
 pub unsafe fn lineSendUserUserInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -24445,7 +24445,7 @@ pub unsafe fn lineSendUserUserInfo<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
         }
@@ -24459,7 +24459,7 @@ pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u
 pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -24473,7 +24473,7 @@ pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: 
 pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32;
         }
@@ -24487,7 +24487,7 @@ pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasureme
 pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32;
         }
@@ -24501,7 +24501,7 @@ pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentse
 pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
         }
@@ -24515,7 +24515,7 @@ pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32,
 pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
         }
@@ -24530,7 +24530,7 @@ pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dw
 pub unsafe fn lineSetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
         }
@@ -24545,7 +24545,7 @@ pub unsafe fn lineSetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn lineSetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
         }
@@ -24560,7 +24560,7 @@ pub unsafe fn lineSetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineSetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PWSTR, dwpriority: u32) -> i32;
         }
@@ -24574,7 +24574,7 @@ pub unsafe fn lineSetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
         }
@@ -24588,7 +24588,7 @@ pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -24602,7 +24602,7 @@ pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, 
 pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32;
         }
@@ -24616,7 +24616,7 @@ pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, d
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
         }
@@ -24630,7 +24630,7 @@ pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
 pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32;
         }
@@ -24644,7 +24644,7 @@ pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
         }
@@ -24658,7 +24658,7 @@ pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
         }
@@ -24673,7 +24673,7 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
 pub unsafe fn lineSetDevConfig<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -24688,7 +24688,7 @@ pub unsafe fn lineSetDevConfig<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineSetDevConfigA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -24703,7 +24703,7 @@ pub unsafe fn lineSetDevConfigA<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineSetDevConfigW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -24717,7 +24717,7 @@ pub unsafe fn lineSetDevConfigW<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
         }
@@ -24731,7 +24731,7 @@ pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u
 pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32;
         }
@@ -24745,7 +24745,7 @@ pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwse
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
         }
@@ -24759,7 +24759,7 @@ pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
         }
@@ -24773,7 +24773,7 @@ pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> 
 pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32;
         }
@@ -24787,7 +24787,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasur
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
         }
@@ -24801,7 +24801,7 @@ pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstat
 pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
         }
@@ -24816,7 +24816,7 @@ pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect
 pub unsafe fn lineSetTollList<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
         }
@@ -24831,7 +24831,7 @@ pub unsafe fn lineSetTollList<'a, Param2: ::windows::core::IntoParam<'a, super::
 pub unsafe fn lineSetTollListA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
         }
@@ -24846,7 +24846,7 @@ pub unsafe fn lineSetTollListA<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineSetTollListW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: super::super::Foundation::PWSTR, dwtolllistoption: u32) -> i32;
         }
@@ -24860,7 +24860,7 @@ pub unsafe fn lineSetTollListW<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24874,7 +24874,7 @@ pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32,
 pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24888,7 +24888,7 @@ pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32
 pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24902,7 +24902,7 @@ pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32
 pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24916,7 +24916,7 @@ pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallpara
 pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24930,7 +24930,7 @@ pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallpar
 pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
         }
@@ -24944,7 +24944,7 @@ pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallpar
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineShutdown(hlineapp: u32) -> i32;
         }
@@ -24958,7 +24958,7 @@ pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
         }
@@ -24973,7 +24973,7 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
 pub unsafe fn lineTranslateAddress<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
         }
@@ -24988,7 +24988,7 @@ pub unsafe fn lineTranslateAddress<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn lineTranslateAddressA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
         }
@@ -25003,7 +25003,7 @@ pub unsafe fn lineTranslateAddressA<'a, Param3: ::windows::core::IntoParam<'a, s
 pub unsafe fn lineTranslateAddressW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
         }
@@ -25018,7 +25018,7 @@ pub unsafe fn lineTranslateAddressW<'a, Param3: ::windows::core::IntoParam<'a, s
 pub unsafe fn lineTranslateDialog<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
         }
@@ -25033,7 +25033,7 @@ pub unsafe fn lineTranslateDialog<'a, Param3: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lineTranslateDialogA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
         }
@@ -25048,7 +25048,7 @@ pub unsafe fn lineTranslateDialogA<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn lineTranslateDialogW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25062,7 +25062,7 @@ pub unsafe fn lineTranslateDialogW<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
         }
@@ -25076,7 +25076,7 @@ pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineUnhold(hcall: u32) -> i32;
         }
@@ -25091,7 +25091,7 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
 pub unsafe fn lineUnpark<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
         }
@@ -25106,7 +25106,7 @@ pub unsafe fn lineUnpark<'a, Param3: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn lineUnparkA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
         }
@@ -25121,7 +25121,7 @@ pub unsafe fn lineUnparkA<'a, Param3: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn lineUnparkW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25204,7 +25204,7 @@ impl ::core::default::Default for linereqmediacallW_tag {
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneClose(hphone: u32) -> i32;
         }
@@ -25219,7 +25219,7 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
 pub unsafe fn phoneConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -25234,7 +25234,7 @@ pub unsafe fn phoneConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn phoneConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -25249,7 +25249,7 @@ pub unsafe fn phoneConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn phoneConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25263,7 +25263,7 @@ pub unsafe fn phoneConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -25277,7 +25277,7 @@ pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, 
 pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
         }
@@ -25291,7 +25291,7 @@ pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
 pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
         }
@@ -25305,7 +25305,7 @@ pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
 pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
         }
@@ -25319,7 +25319,7 @@ pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
 pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -25333,7 +25333,7 @@ pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi:
 pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
         }
@@ -25347,7 +25347,7 @@ pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32
 pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
         }
@@ -25361,7 +25361,7 @@ pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
 pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
         }
@@ -25375,7 +25375,7 @@ pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
         }
@@ -25389,7 +25389,7 @@ pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
         }
@@ -25403,7 +25403,7 @@ pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
         }
@@ -25418,7 +25418,7 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
 pub unsafe fn phoneGetID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -25433,7 +25433,7 @@ pub unsafe fn phoneGetID<'a, Param2: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn phoneGetIDA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
         }
@@ -25448,7 +25448,7 @@ pub unsafe fn phoneGetIDA<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn phoneGetIDW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25463,7 +25463,7 @@ pub unsafe fn phoneGetIDW<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn phoneGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
         }
@@ -25478,7 +25478,7 @@ pub unsafe fn phoneGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn phoneGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
         }
@@ -25493,7 +25493,7 @@ pub unsafe fn phoneGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn phoneGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
         }
@@ -25507,7 +25507,7 @@ pub unsafe fn phoneGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
         }
@@ -25521,7 +25521,7 @@ pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut 
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32;
         }
@@ -25535,7 +25535,7 @@ pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwti
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
         }
@@ -25549,7 +25549,7 @@ pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -25563,7 +25563,7 @@ pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i3
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -25577,7 +25577,7 @@ pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
 pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32;
         }
@@ -25591,7 +25591,7 @@ pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpd
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -25605,7 +25605,7 @@ pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
         }
@@ -25620,7 +25620,7 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
 pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
         }
@@ -25635,7 +25635,7 @@ pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
         }
@@ -25650,7 +25650,7 @@ pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: ::windows::core::RawPtr, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
         }
@@ -25664,7 +25664,7 @@ pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
         }
@@ -25678,7 +25678,7 @@ pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilow
 pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
         }
@@ -25692,7 +25692,7 @@ pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiver
 pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32;
         }
@@ -25706,7 +25706,7 @@ pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwa
 pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
         }
@@ -25720,7 +25720,7 @@ pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
 pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
         }
@@ -25734,7 +25734,7 @@ pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
 pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
         }
@@ -25748,7 +25748,7 @@ pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
 pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
         }
@@ -25763,7 +25763,7 @@ pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ff
 pub unsafe fn phoneSetDisplay<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: Param3, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: super::super::Foundation::PSTR, dwsize: u32) -> i32;
         }
@@ -25777,7 +25777,7 @@ pub unsafe fn phoneSetDisplay<'a, Param3: ::windows::core::IntoParam<'a, super::
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
         }
@@ -25791,7 +25791,7 @@ pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i3
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32;
         }
@@ -25805,7 +25805,7 @@ pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitc
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
         }
@@ -25819,7 +25819,7 @@ pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) ->
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
         }
@@ -25833,7 +25833,7 @@ pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
 pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32;
         }
@@ -25847,7 +25847,7 @@ pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmo
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
         }
@@ -25861,7 +25861,7 @@ pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn phoneShutdown(hphoneapp: u32) -> i32;
         }
@@ -25876,7 +25876,7 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
 pub unsafe fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
         }
@@ -25891,7 +25891,7 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PST
 pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
         }
@@ -25906,7 +25906,7 @@ pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PS
 pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::PWSTR, lpszcitycodew: super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::PWSTR, lpszcitycodew: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25921,7 +25921,7 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::P
 pub unsafe fn tapiRequestDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
         }
@@ -25936,7 +25936,7 @@ pub unsafe fn tapiRequestDrop<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn tapiRequestMakeCall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMakeCall(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
         }
@@ -25951,7 +25951,7 @@ pub unsafe fn tapiRequestMakeCall<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMakeCallA(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
         }
@@ -25966,7 +25966,7 @@ pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn tapiRequestMakeCallW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMakeCallW(lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
         }
@@ -25992,7 +25992,7 @@ pub unsafe fn tapiRequestMediaCall<'a, Param0: ::windows::core::IntoParam<'a, su
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
         }
@@ -26018,7 +26018,7 @@ pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::windows::core::IntoParam<'a, s
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
         }
@@ -26044,7 +26044,7 @@ pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::windows::core::IntoParam<'a, s
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tapi32", kind = "raw-dylib")]
         extern "system" {
             fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceid: super::super::Foundation::PWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
         }

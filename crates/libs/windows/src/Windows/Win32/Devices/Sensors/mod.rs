@@ -41,7 +41,7 @@ pub const AXIS_MAX: AXIS = 3i32;
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes: *mut u32, ptargetbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes: *mut u32, ptargetbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
         }
@@ -56,7 +56,7 @@ pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const
 pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST, source: *const SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST, source: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -71,7 +71,7 @@ pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST
 pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32, sourcebuffer: *const u8, targetcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32, sourcebuffer: *const u8, targetcollection: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -85,7 +85,7 @@ pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32,
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32;
         }
@@ -100,7 +100,7 @@ pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32;
         }
@@ -115,7 +115,7 @@ pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECT
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *const SENSOR_COLLECTION_LIST) -> u32;
         }
@@ -130,7 +130,7 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32;
         }
@@ -145,7 +145,7 @@ pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECT
 pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -160,7 +160,7 @@ pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::
 pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes: u32, targetbuffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes: u32, targetbuffer: *mut u8) -> super::super::Foundation::NTSTATUS;
         }
@@ -175,7 +175,7 @@ pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_C
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *const SENSOR_COLLECTION_LIST, pcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *const SENSOR_COLLECTION_LIST, pcollection: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -190,7 +190,7 @@ pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *c
 pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COLLECTION_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -217,7 +217,7 @@ pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = -1i32;
 pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIST, oldsample: *const SENSOR_COLLECTION_LIST, thresholds: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIST, oldsample: *const SENSOR_COLLECTION_LIST, thresholds: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN;
         }
@@ -267,7 +267,7 @@ pub const GUID_SensorType_Temperature: ::windows::core::GUID = ::windows::core::
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn GetPerformanceTime(timems: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
@@ -847,7 +847,7 @@ pub struct ISensorManagerEventsVtbl(pub unsafe extern "system" fn(this: *mut ::c
 pub unsafe fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -863,7 +863,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUI
 pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn InitPropVariantFromFloat(fltval: f32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -879,7 +879,7 @@ pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<s
 pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN;
         }
@@ -894,7 +894,7 @@ pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: 
 pub unsafe fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
         }
@@ -909,7 +909,7 @@ pub unsafe fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, array
 pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
         }
@@ -924,7 +924,7 @@ pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST,
 pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN;
         }
@@ -939,7 +939,7 @@ pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pke
 pub unsafe fn IsSensorSubscribed<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
         }
@@ -1128,7 +1128,7 @@ pub const ProximityType_Force_Dword: PROXIMITY_TYPE = -1i32;
 pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
         }
@@ -1143,7 +1143,7 @@ pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: 
 pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> super::super::Foundation::NTSTATUS;
         }
@@ -1158,7 +1158,7 @@ pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey
 pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::NTSTATUS;
         }
@@ -1173,7 +1173,7 @@ pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pk
 pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1188,7 +1188,7 @@ pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey:
 pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
         }
@@ -1203,7 +1203,7 @@ pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: 
 pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1218,7 +1218,7 @@ pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey:
 pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
         }
@@ -1233,7 +1233,7 @@ pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey:
 pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> super::super::Foundation::NTSTATUS;
         }
@@ -1248,7 +1248,7 @@ pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pk
 pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1263,7 +1263,7 @@ pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pk
 pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
         }
@@ -1278,7 +1278,7 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, p
 pub unsafe fn PropKeyFindKeyGetPropVariant<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetPropVariant(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
         }
@@ -1293,7 +1293,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1308,7 +1308,7 @@ pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey:
 pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> super::super::Foundation::NTSTATUS;
         }
@@ -1323,7 +1323,7 @@ pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey
 pub unsafe fn PropKeyFindKeySetPropVariant<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropKeyFindKeySetPropVariant(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
         }
@@ -1338,7 +1338,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: *mut u32, propvariantsize: *mut u32, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: *mut u32, propvariantsize: *mut u32, propvariantpointer: *mut *mut ::core::ffi::c_void, remappedtype: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1353,7 +1353,7 @@ pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::S
 pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> super::super::Foundation::NTSTATUS;
         }
@@ -1367,7 +1367,7 @@ pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *con
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32;
         }
@@ -2100,7 +2100,7 @@ pub const SensorCollection: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
         }
@@ -2143,7 +2143,7 @@ pub const SENSOR_STATE_MAX: SensorState = 5i32;
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
         }
@@ -2157,7 +2157,7 @@ pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u
 pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sensorsutilsv2", kind = "raw-dylib")]
         extern "system" {
             fn SerializationBufferFree(buffer: *const u8);
         }

@@ -751,7 +751,7 @@ impl ::core::default::Default for CURRENCYFMTW {
 pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
         }
@@ -766,7 +766,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8,
 pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: Param2, cchcount1: i32, lpstring2: Param4, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: Param8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CompareStringEx(lplocalename: super::Foundation::PWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
         }
@@ -781,7 +781,7 @@ pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(lpstring1: Param0, cchcount1: i32, lpstring2: Param2, cchcount2: i32, bignorecase: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CompareStringOrdinal(lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, bignorecase: super::Foundation::BOOL) -> i32;
         }
@@ -796,7 +796,7 @@ pub unsafe fn CompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CompareStringW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwcmpflags: u32, lpstring1: Param2, cchcount1: i32, lpstring2: Param4, cchcount2: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32) -> i32;
         }
@@ -810,7 +810,7 @@ pub unsafe fn CompareStringW<'a, Param2: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ConvertDefaultLocale(locale: u32) -> u32;
         }
@@ -975,7 +975,7 @@ pub const LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = 2u32;
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumCalendarInfoA(lpcalinfoenumproc: ::windows::core::RawPtr, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
         }
@@ -990,7 +990,7 @@ pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u3
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumCalendarInfoExA(lpcalinfoenumprocex: ::windows::core::RawPtr, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
         }
@@ -1005,7 +1005,7 @@ pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, loca
 pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: Param1, calendar: u32, lpreserved: Param3, caltype: u32, lparam: Param5) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumCalendarInfoExEx(pcalinfoenumprocexex: ::windows::core::RawPtr, lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
         }
@@ -1020,7 +1020,7 @@ pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumCalendarInfoExW(lpcalinfoenumprocex: ::windows::core::RawPtr, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
         }
@@ -1035,7 +1035,7 @@ pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, loca
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumCalendarInfoW(lpcalinfoenumproc: ::windows::core::RawPtr, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
         }
@@ -1050,7 +1050,7 @@ pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u3
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDateFormatsA(lpdatefmtenumproc: ::windows::core::RawPtr, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1065,7 +1065,7 @@ pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDateFormatsExA(lpdatefmtenumprocex: ::windows::core::RawPtr, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1080,7 +1080,7 @@ pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, local
 pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: Param1, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDateFormatsExEx(lpdatefmtenumprocexex: ::windows::core::RawPtr, lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
         }
@@ -1095,7 +1095,7 @@ pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDateFormatsExW(lpdatefmtenumprocex: ::windows::core::RawPtr, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1110,7 +1110,7 @@ pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, local
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDateFormatsW(lpdatefmtenumproc: ::windows::core::RawPtr, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1125,7 +1125,7 @@ pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: ::windows::core::RawPtr, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1140,7 +1140,7 @@ pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCA
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: ::windows::core::RawPtr, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1155,7 +1155,7 @@ pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCA
 pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemCodePagesA(lpcodepageenumproc: ::windows::core::RawPtr, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
         }
@@ -1170,7 +1170,7 @@ pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwfla
 pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemCodePagesW(lpcodepageenumproc: ::windows::core::RawPtr, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
         }
@@ -1185,7 +1185,7 @@ pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwfla
 pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: ::windows::core::RawPtr) -> super::Foundation::BOOL;
         }
@@ -1200,7 +1200,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GE
 pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemGeoNames(geoclass: u32, geoenumproc: ::windows::core::RawPtr, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
         }
@@ -1215,7 +1215,7 @@ pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: ::windows::core::RawPtr, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1230,7 +1230,7 @@ pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_E
 pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: ::windows::core::RawPtr, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1245,7 +1245,7 @@ pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_E
 pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemLocalesA(lplocaleenumproc: ::windows::core::RawPtr, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1260,7 +1260,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u3
 pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: Param2, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemLocalesEx(lplocaleenumprocex: ::windows::core::RawPtr, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
         }
@@ -1275,7 +1275,7 @@ pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumSystemLocalesW(lplocaleenumproc: ::windows::core::RawPtr, dwflags: u32) -> super::Foundation::BOOL;
         }
@@ -1290,7 +1290,7 @@ pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u3
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumTimeFormatsA(lptimefmtenumproc: ::windows::core::RawPtr, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
         }
@@ -1305,7 +1305,7 @@ pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32
 pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: Param1, dwflags: u32, lparam: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumTimeFormatsEx(lptimefmtenumprocex: ::windows::core::RawPtr, lplocalename: super::Foundation::PWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
         }
@@ -1320,7 +1320,7 @@ pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumTimeFormatsW(lptimefmtenumproc: ::windows::core::RawPtr, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
         }
@@ -1335,7 +1335,7 @@ pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32
 pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumUILanguagesA(lpuilanguageenumproc: ::windows::core::RawPtr, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1350,7 +1350,7 @@ pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwfla
 pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn EnumUILanguagesW(lpuilanguageenumproc: ::windows::core::RawPtr, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
         }
@@ -1448,7 +1448,7 @@ impl ::core::default::Default for FONTSIGNATURE {
 pub unsafe fn FindNLSString<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwfindnlsstringflags: u32, lpstringsource: Param2, cchsource: i32, lpstringvalue: Param4, cchvalue: i32, pcchfound: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
         }
@@ -1463,7 +1463,7 @@ pub unsafe fn FindNLSString<'a, Param2: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwfindnlsstringflags: u32, lpstringsource: Param2, cchsource: i32, lpstringvalue: Param4, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: Param9) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FindNLSStringEx(lplocalename: super::Foundation::PWSTR, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
@@ -1478,7 +1478,7 @@ pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn FindStringOrdinal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(dwfindstringordinalflags: u32, lpstringsource: Param1, cchsource: i32, lpstringvalue: Param3, cchvalue: i32, bignorecase: Param5) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, bignorecase: super::Foundation::BOOL) -> i32;
         }
@@ -1493,7 +1493,7 @@ pub unsafe fn FindStringOrdinal<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn FoldStringA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: Param1, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
         }
@@ -1508,7 +1508,7 @@ pub unsafe fn FoldStringA<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn FoldStringW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: Param1, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
         }
@@ -1558,7 +1558,7 @@ pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub unsafe fn GetACP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetACP() -> u32;
         }
@@ -1573,7 +1573,7 @@ pub unsafe fn GetACP() -> u32 {
 pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
         }
@@ -1588,7 +1588,7 @@ pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundati
 pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL;
         }
@@ -1603,7 +1603,7 @@ pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
 pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL;
         }
@@ -1618,7 +1618,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
@@ -1633,7 +1633,7 @@ pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcalda
 pub unsafe fn GetCalendarInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, calendar: u32, lpreserved: Param2, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCalendarInfoEx(lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
@@ -1648,7 +1648,7 @@ pub unsafe fn GetCalendarInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
@@ -1663,7 +1663,7 @@ pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcalda
 pub unsafe fn GetCurrencyFormatA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTA, lpcurrencystr: super::Foundation::PSTR, cchcurrency: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCurrencyFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const CURRENCYFMTA, lpcurrencystr: super::Foundation::PSTR, cchcurrency: i32) -> i32;
         }
@@ -1678,7 +1678,7 @@ pub unsafe fn GetCurrencyFormatA<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetCurrencyFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCurrencyFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
         }
@@ -1693,7 +1693,7 @@ pub unsafe fn GetCurrencyFormatEx<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetCurrencyFormatW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCurrencyFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
         }
@@ -1708,7 +1708,7 @@ pub unsafe fn GetCurrencyFormatW<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetDateFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PSTR, cchdate: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetDateFormatA(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lpdatestr: super::Foundation::PSTR, cchdate: i32) -> i32;
         }
@@ -1723,7 +1723,7 @@ pub unsafe fn GetDateFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetDateFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PWSTR, cchdate: i32, lpcalendar: Param6) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetDateFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32, lpcalendar: super::Foundation::PWSTR) -> i32;
         }
@@ -1738,7 +1738,7 @@ pub unsafe fn GetDateFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetDateFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PWSTR, cchdate: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetDateFormatW(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32) -> i32;
         }
@@ -1753,7 +1753,7 @@ pub unsafe fn GetDateFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetDistanceOfClosestLanguageInList<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pszlanguage: Param0, pszlanguageslist: Param1, wchlistdelimiter: u16) -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bcp47mrm", kind = "raw-dylib")]
         extern "system" {
             fn GetDistanceOfClosestLanguageInList(pszlanguage: super::Foundation::PWSTR, pszlanguageslist: super::Foundation::PWSTR, wchlistdelimiter: u16, pclosestdistance: *mut f64) -> ::windows::core::HRESULT;
         }
@@ -1769,7 +1769,7 @@ pub unsafe fn GetDistanceOfClosestLanguageInList<'a, Param0: ::windows::core::In
 pub unsafe fn GetDurationFormat<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: Param4, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetDurationFormat(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
         }
@@ -1784,7 +1784,7 @@ pub unsafe fn GetDurationFormat<'a, Param4: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetDurationFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: Param4, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetDurationFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
         }
@@ -1799,7 +1799,7 @@ pub unsafe fn GetDurationFormatEx<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetFileMUIInfo<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwszfilepath: Param1, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetFileMUIInfo(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL;
         }
@@ -1814,7 +1814,7 @@ pub unsafe fn GetFileMUIInfo<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetFileMUIPath<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwszfilepath: Param1, pwszlanguage: Param2, pcchlanguage: *mut u32, pwszfilemuipath: super::Foundation::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetFileMUIPath(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pwszlanguage: super::Foundation::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: super::Foundation::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL;
         }
@@ -1829,7 +1829,7 @@ pub unsafe fn GetFileMUIPath<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundation::PSTR, cchdata: i32, langid: u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundation::PSTR, cchdata: i32, langid: u16) -> i32;
         }
@@ -1844,7 +1844,7 @@ pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundat
 pub unsafe fn GetGeoInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(location: Param0, geotype: u32, geodata: super::Foundation::PWSTR, geodatacount: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetGeoInfoEx(location: super::Foundation::PWSTR, geotype: u32, geodata: super::Foundation::PWSTR, geodatacount: i32) -> i32;
         }
@@ -1859,7 +1859,7 @@ pub unsafe fn GetGeoInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundation::PWSTR, cchdata: i32, langid: u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundation::PWSTR, cchdata: i32, langid: u16) -> i32;
         }
@@ -1874,7 +1874,7 @@ pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundat
 pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR, cchdata: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR, cchdata: i32) -> i32;
         }
@@ -1889,7 +1889,7 @@ pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundati
 pub unsafe fn GetLocaleInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetLocaleInfoEx(lplocalename: super::Foundation::PWSTR, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
         }
@@ -1904,7 +1904,7 @@ pub unsafe fn GetLocaleInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
         }
@@ -1919,7 +1919,7 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundati
 pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL;
         }
@@ -1934,7 +1934,7 @@ pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *m
 pub unsafe fn GetNLSVersionEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, lplocalename: Param1, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNLSVersionEx(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL;
         }
@@ -1949,7 +1949,7 @@ pub unsafe fn GetNLSVersionEx<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetNumberFormatA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTA, lpnumberstr: super::Foundation::PSTR, cchnumber: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNumberFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const NUMBERFMTA, lpnumberstr: super::Foundation::PSTR, cchnumber: i32) -> i32;
         }
@@ -1964,7 +1964,7 @@ pub unsafe fn GetNumberFormatA<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetNumberFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNumberFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
         }
@@ -1979,7 +1979,7 @@ pub unsafe fn GetNumberFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetNumberFormatW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNumberFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
         }
@@ -1993,7 +1993,7 @@ pub unsafe fn GetNumberFormatW<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetOEMCP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetOEMCP() -> u32;
         }
@@ -2008,7 +2008,7 @@ pub unsafe fn GetOEMCP() -> u32 {
 pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
         }
@@ -2023,7 +2023,7 @@ pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut
 pub unsafe fn GetStringScripts<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpstring: Param1, cchstring: i32, lpscripts: super::Foundation::PWSTR, cchscripts: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStringScripts(dwflags: u32, lpstring: super::Foundation::PWSTR, cchstring: i32, lpscripts: super::Foundation::PWSTR, cchscripts: i32) -> i32;
         }
@@ -2038,7 +2038,7 @@ pub unsafe fn GetStringScripts<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetStringTypeA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
@@ -2053,7 +2053,7 @@ pub unsafe fn GetStringTypeA<'a, Param2: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetStringTypeExA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
@@ -2068,7 +2068,7 @@ pub unsafe fn GetStringTypeExA<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetStringTypeExW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
@@ -2083,7 +2083,7 @@ pub unsafe fn GetStringTypeExW<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetStringTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwinfotype: u32, lpsrcstr: Param1, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStringTypeW(dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
@@ -2097,7 +2097,7 @@ pub unsafe fn GetStringTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetSystemDefaultLCID() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetSystemDefaultLCID() -> u32;
         }
@@ -2111,7 +2111,7 @@ pub unsafe fn GetSystemDefaultLCID() -> u32 {
 pub unsafe fn GetSystemDefaultLangID() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetSystemDefaultLangID() -> u16;
         }
@@ -2126,7 +2126,7 @@ pub unsafe fn GetSystemDefaultLangID() -> u16 {
 pub unsafe fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
         }
@@ -2140,7 +2140,7 @@ pub unsafe fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR,
 pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetSystemDefaultUILanguage() -> u16;
         }
@@ -2155,7 +2155,7 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
 pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
         }
@@ -2170,7 +2170,7 @@ pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
 pub unsafe fn GetTextCharset<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "gdi32", kind = "raw-dylib")]
         extern "system" {
             fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32;
         }
@@ -2185,7 +2185,7 @@ pub unsafe fn GetTextCharset<'a, Param0: ::windows::core::IntoParam<'a, super::G
 pub unsafe fn GetTextCharsetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "gdi32", kind = "raw-dylib")]
         extern "system" {
             fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32;
         }
@@ -2199,7 +2199,7 @@ pub unsafe fn GetTextCharsetInfo<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetThreadLocale() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetThreadLocale() -> u32;
         }
@@ -2214,7 +2214,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
 pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
         }
@@ -2228,7 +2228,7 @@ pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
 pub unsafe fn GetThreadUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetThreadUILanguage() -> u16;
         }
@@ -2243,7 +2243,7 @@ pub unsafe fn GetThreadUILanguage() -> u16 {
 pub unsafe fn GetTimeFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PSTR, cchtime: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetTimeFormatA(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lptimestr: super::Foundation::PSTR, cchtime: i32) -> i32;
         }
@@ -2258,7 +2258,7 @@ pub unsafe fn GetTimeFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetTimeFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetTimeFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
         }
@@ -2273,7 +2273,7 @@ pub unsafe fn GetTimeFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetTimeFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetTimeFormatW(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
         }
@@ -2288,7 +2288,7 @@ pub unsafe fn GetTimeFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn GetUILanguageInfo<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwmszlanguage: Param1, pwszfallbacklanguages: super::Foundation::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUILanguageInfo(dwflags: u32, pwmszlanguage: super::Foundation::PWSTR, pwszfallbacklanguages: super::Foundation::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL;
         }
@@ -2303,7 +2303,7 @@ pub unsafe fn GetUILanguageInfo<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32;
         }
@@ -2317,7 +2317,7 @@ pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonameco
 pub unsafe fn GetUserDefaultLCID() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserDefaultLCID() -> u32;
         }
@@ -2331,7 +2331,7 @@ pub unsafe fn GetUserDefaultLCID() -> u32 {
 pub unsafe fn GetUserDefaultLangID() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserDefaultLangID() -> u16;
         }
@@ -2346,7 +2346,7 @@ pub unsafe fn GetUserDefaultLangID() -> u16 {
 pub unsafe fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
         }
@@ -2360,7 +2360,7 @@ pub unsafe fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, c
 pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserDefaultUILanguage() -> u16;
         }
@@ -2374,7 +2374,7 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
 pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserGeoID(geoclass: u32) -> i32;
         }
@@ -2389,7 +2389,7 @@ pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
 pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
         }
@@ -5243,7 +5243,7 @@ pub struct IUserDictionariesRegistrarVtbl(
 pub unsafe fn IdnToAscii<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpunicodecharstr: Param1, cchunicodechar: i32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "normaliz", kind = "raw-dylib")]
         extern "system" {
             fn IdnToAscii(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32) -> i32;
         }
@@ -5258,7 +5258,7 @@ pub unsafe fn IdnToAscii<'a, Param1: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn IdnToNameprepUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpunicodecharstr: Param1, cchunicodechar: i32, lpnameprepcharstr: super::Foundation::PWSTR, cchnameprepchar: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpnameprepcharstr: super::Foundation::PWSTR, cchnameprepchar: i32) -> i32;
         }
@@ -5273,7 +5273,7 @@ pub unsafe fn IdnToNameprepUnicode<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn IdnToUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpasciicharstr: Param1, cchasciichar: i32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "normaliz", kind = "raw-dylib")]
         extern "system" {
             fn IdnToUnicode(dwflags: u32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32) -> i32;
         }
@@ -5288,7 +5288,7 @@ pub unsafe fn IdnToUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL;
         }
@@ -5303,7 +5303,7 @@ pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
 pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL;
         }
@@ -5318,7 +5318,7 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation
 pub unsafe fn IsNLSDefinedString<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: Param3, cchstr: i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: super::Foundation::PWSTR, cchstr: i32) -> super::Foundation::BOOL;
         }
@@ -5333,7 +5333,7 @@ pub unsafe fn IsNLSDefinedString<'a, Param3: ::windows::core::IntoParam<'a, supe
 pub unsafe fn IsNormalizedString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(normform: NORM_FORM, lpstring: Param1, cwlength: i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsNormalizedString(normform: NORM_FORM, lpstring: super::Foundation::PWSTR, cwlength: i32) -> super::Foundation::BOOL;
         }
@@ -5348,7 +5348,7 @@ pub unsafe fn IsNormalizedString<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
         }
@@ -5363,7 +5363,7 @@ pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresu
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL;
         }
@@ -5378,7 +5378,7 @@ pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
 pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL;
         }
@@ -5393,7 +5393,7 @@ pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANG
 pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL;
         }
@@ -5408,7 +5408,7 @@ pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> supe
 pub unsafe fn IsValidLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsValidLocaleName(lplocalename: super::Foundation::PWSTR) -> super::Foundation::BOOL;
         }
@@ -5423,7 +5423,7 @@ pub unsafe fn IsValidLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn IsValidNLSVersion<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, lplocalename: Param1, lpversioninformation: *const NLSVERSIONINFOEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn IsValidNLSVersion(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *const NLSVERSIONINFOEX) -> u32;
         }
@@ -5438,7 +5438,7 @@ pub unsafe fn IsValidNLSVersion<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn IsWellFormedTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(psztag: Param0) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bcp47mrm", kind = "raw-dylib")]
         extern "system" {
             fn IsWellFormedTag(psztag: super::Foundation::PWSTR) -> u8;
         }
@@ -5465,7 +5465,7 @@ pub type LANGUAGEGROUP_ENUMPROCW = ::core::option::Option<unsafe extern "system"
 pub unsafe fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32;
         }
@@ -5510,7 +5510,7 @@ pub const LCMAP_UPPERCASE: u32 = 512u32;
 pub unsafe fn LCMapStringA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
         }
@@ -5525,7 +5525,7 @@ pub unsafe fn LCMapStringA<'a, Param2: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: Param8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn LCMapStringEx(lplocalename: super::Foundation::PWSTR, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
@@ -5540,7 +5540,7 @@ pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn LCMapStringW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
         }
@@ -5973,7 +5973,7 @@ pub const LOW_SURROGATE_START: u32 = 56320u32;
 pub unsafe fn LocaleNameToLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpname: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn LocaleNameToLCID(lpname: super::Foundation::PWSTR, dwflags: u32) -> u32;
         }
@@ -6415,7 +6415,7 @@ pub const MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 4u32;
 pub unsafe fn MappingDoAction<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "elscore", kind = "raw-dylib")]
         extern "system" {
             fn MappingDoAction(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6430,7 +6430,7 @@ pub unsafe fn MappingDoAction<'a, Param2: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "elscore", kind = "raw-dylib")]
         extern "system" {
             fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
         }
@@ -6445,7 +6445,7 @@ pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::win
 pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "elscore", kind = "raw-dylib")]
         extern "system" {
             fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::HRESULT;
         }
@@ -6460,7 +6460,7 @@ pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> 
 pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "elscore", kind = "raw-dylib")]
         extern "system" {
             fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6475,7 +6475,7 @@ pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservi
 pub unsafe fn MappingRecognizeText<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: Param1, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "elscore", kind = "raw-dylib")]
         extern "system" {
             fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: super::Foundation::PWSTR, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
         }
@@ -6490,7 +6490,7 @@ pub unsafe fn MappingRecognizeText<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn MultiByteToWideChar<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: Param2, cbmultibyte: i32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> i32;
         }
@@ -6723,7 +6723,7 @@ pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub unsafe fn NormalizeString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(normform: NORM_FORM, lpsrcstring: Param1, cwsrclength: i32, lpdststring: super::Foundation::PWSTR, cwdstlength: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn NormalizeString(normform: NORM_FORM, lpsrcstring: super::Foundation::PWSTR, cwsrclength: i32, lpdststring: super::Foundation::PWSTR, cwdstlength: i32) -> i32;
         }
@@ -6738,7 +6738,7 @@ pub unsafe fn NormalizeString<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn NotifyUILanguageChange<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwstrnewlanguage: Param1, pcwstrpreviouslanguage: Param2, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn NotifyUILanguageChange(dwflags: u32, pcwstrnewlanguage: super::Foundation::PWSTR, pcwstrpreviouslanguage: super::Foundation::PWSTR, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL;
         }
@@ -6787,7 +6787,7 @@ impl ::core::default::Default for RFC1766INFO {
 pub unsafe fn ResolveLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpnametoresolve: Param0, lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ResolveLocaleName(lpnametoresolve: super::Foundation::PWSTR, lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
         }
@@ -6801,7 +6801,7 @@ pub unsafe fn ResolveLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn RestoreThreadPreferredUILanguages<'a, Param0: ::windows::core::IntoParam<'a, HSAVEDUILANGUAGES>>(snapshot: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
         }
@@ -7361,7 +7361,7 @@ pub const COMPARE_STRING: SYSNLS_FUNCTION = 1i32;
 pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::HRESULT;
         }
@@ -7376,7 +7376,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7391,7 +7391,7 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
 pub unsafe fn ScriptBreak<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcchars: Param0, cchars: i32, psa: *const SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptBreak(pwcchars: super::Foundation::PWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::HRESULT;
         }
@@ -7407,7 +7407,7 @@ pub unsafe fn ScriptBreak<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn ScriptCPtoX<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(icp: i32, ftrailing: Param1, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptCPtoX(icp: i32, ftrailing: super::Foundation::BOOL, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7422,7 +7422,7 @@ pub unsafe fn ScriptCPtoX<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn ScriptCacheGetHeight<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptCacheGetHeight(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7436,7 +7436,7 @@ pub unsafe fn ScriptCacheGetHeight<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7451,7 +7451,7 @@ pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::
 pub unsafe fn ScriptGetCMap<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwcinchars: Param2, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetCMap(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcinchars: super::Foundation::PWSTR, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -7466,7 +7466,7 @@ pub unsafe fn ScriptGetCMap<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
 pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetFontAlternateGlyphs(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7481,7 +7481,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ScriptGetFontFeatureTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetFontFeatureTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7496,7 +7496,7 @@ pub unsafe fn ScriptGetFontFeatureTags<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ScriptGetFontLanguageTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetFontLanguageTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7511,7 +7511,7 @@ pub unsafe fn ScriptGetFontLanguageTags<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ScriptGetFontProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetFontProperties(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows::core::HRESULT;
         }
@@ -7526,7 +7526,7 @@ pub unsafe fn ScriptGetFontProperties<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ScriptGetFontScriptTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetFontScriptTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7541,7 +7541,7 @@ pub unsafe fn ScriptGetFontScriptTags<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ScriptGetGlyphABCWidth<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetGlyphABCWidth(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
         }
@@ -7555,7 +7555,7 @@ pub unsafe fn ScriptGetGlyphABCWidth<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::HRESULT;
         }
@@ -7569,7 +7569,7 @@ pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, c
 pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7584,7 +7584,7 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinums
 pub unsafe fn ScriptIsComplex<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptIsComplex(pwcinchars: super::Foundation::PWSTR, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -7599,7 +7599,7 @@ pub unsafe fn ScriptIsComplex<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ScriptItemize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptItemize(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7614,7 +7614,7 @@ pub unsafe fn ScriptItemize<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ScriptItemizeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptItemizeOpenType(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7628,7 +7628,7 @@ pub unsafe fn ScriptItemizeOpenType<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7643,7 +7643,7 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7658,7 +7658,7 @@ pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *m
 pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
         }
@@ -7673,7 +7673,7 @@ pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
 pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
         }
@@ -7708,7 +7708,7 @@ pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ScriptPositionSingleGlyph<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param9: ::windows::core::IntoParam<'a, GOFFSET>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: Param9, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows::core::HRESULT;
         }
@@ -7722,7 +7722,7 @@ pub unsafe fn ScriptPositionSingleGlyph<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Result<SCRIPT_DIGITSUBSTITUTE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptRecordDigitSubstitution(locale: u32, psds: *mut SCRIPT_DIGITSUBSTITUTE) -> ::windows::core::HRESULT;
         }
@@ -7738,7 +7738,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Res
 pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwcchars: Param2, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7753,7 +7753,7 @@ pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
 pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7786,7 +7786,7 @@ pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7801,7 +7801,7 @@ pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ScriptStringCPtoX<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: Param2) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringCPtoX(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: super::Foundation::BOOL, px: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7816,7 +7816,7 @@ pub unsafe fn ScriptStringCPtoX<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7830,7 +7830,7 @@ pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows
 pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7844,7 +7844,7 @@ pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx
 pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7859,7 +7859,7 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mu
 pub unsafe fn ScriptStringOut<'a, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: Param7) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringOut(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -7873,7 +7873,7 @@ pub unsafe fn ScriptStringOut<'a, Param7: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7887,7 +7887,7 @@ pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows
 pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7901,7 +7901,7 @@ pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: 
 pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR;
         }
@@ -7916,7 +7916,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCR
 pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE;
         }
@@ -7930,7 +7930,7 @@ pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super:
 pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32;
         }
@@ -7945,7 +7945,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i
 pub unsafe fn ScriptSubstituteSingleGlyph<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptSubstituteSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -7960,7 +7960,7 @@ pub unsafe fn ScriptSubstituteSingleGlyph<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param7: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: Param7, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: super::Foundation::PWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::HRESULT;
         }
@@ -7974,7 +7974,7 @@ pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
 pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "usp10", kind = "raw-dylib")]
         extern "system" {
             fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7989,7 +7989,7 @@ pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const
 pub unsafe fn SetCalendarInfoA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, calendar: u32, caltype: u32, lpcaldata: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR) -> super::Foundation::BOOL;
         }
@@ -8004,7 +8004,7 @@ pub unsafe fn SetCalendarInfoA<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetCalendarInfoW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, calendar: u32, caltype: u32, lpcaldata: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
         }
@@ -8019,7 +8019,7 @@ pub unsafe fn SetCalendarInfoW<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetLocaleInfoA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, lctype: u32, lplcdata: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR) -> super::Foundation::BOOL;
         }
@@ -8034,7 +8034,7 @@ pub unsafe fn SetLocaleInfoA<'a, Param2: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn SetLocaleInfoW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, lctype: u32, lplcdata: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
         }
@@ -8049,7 +8049,7 @@ pub unsafe fn SetLocaleInfoW<'a, Param2: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn SetProcessPreferredUILanguages<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwszlanguagesbuffer: Param1, pulnumlanguages: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetProcessPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
         }
@@ -8064,7 +8064,7 @@ pub unsafe fn SetProcessPreferredUILanguages<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL;
         }
@@ -8079,7 +8079,7 @@ pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
 pub unsafe fn SetThreadPreferredUILanguages<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwszlanguagesbuffer: Param1, pulnumlanguages: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetThreadPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
         }
@@ -8094,7 +8094,7 @@ pub unsafe fn SetThreadPreferredUILanguages<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SetThreadPreferredUILanguages2<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(flags: u32, languages: Param1, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetThreadPreferredUILanguages2(flags: u32, languages: super::Foundation::PWSTR, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL;
         }
@@ -8108,7 +8108,7 @@ pub unsafe fn SetThreadPreferredUILanguages2<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetThreadUILanguage(langid: u16) -> u16;
         }
@@ -8123,7 +8123,7 @@ pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
 pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL;
         }
@@ -8138,7 +8138,7 @@ pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
 pub unsafe fn SetUserGeoName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(geoname: Param0) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetUserGeoName(geoname: super::Foundation::PWSTR) -> super::Foundation::BOOL;
         }
@@ -8183,7 +8183,7 @@ pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = 4096u32;
 pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "gdi32", kind = "raw-dylib")]
         extern "system" {
             fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL;
         }
@@ -8946,7 +8946,7 @@ pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
 pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -8961,7 +8961,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, f
 pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -8976,7 +8976,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fro
 pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -8991,7 +8991,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fro
 pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -9012,7 +9012,7 @@ pub const UCNV_SO: u32 = 14u32;
 pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -9027,7 +9027,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -9042,7 +9042,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -9057,7 +9057,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
@@ -13617,7 +13617,7 @@ pub const VS_ALLOW_LATIN: u32 = 1u32;
 pub unsafe fn VerifyScripts<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lplocalescripts: Param1, cchlocalescripts: i32, lptestscripts: Param3, cchtestscripts: i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn VerifyScripts(dwflags: u32, lplocalescripts: super::Foundation::PWSTR, cchlocalescripts: i32, lptestscripts: super::Foundation::PWSTR, cchtestscripts: i32) -> super::Foundation::BOOL;
         }
@@ -13654,7 +13654,7 @@ pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = 3i32;
 pub unsafe fn WideCharToMultiByte<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(codepage: u32, dwflags: u32, lpwidecharstr: Param2, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: Param6, lpuseddefaultchar: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: super::Foundation::PSTR, lpuseddefaultchar: *mut i32) -> i32;
         }
@@ -13669,7 +13669,7 @@ pub unsafe fn WideCharToMultiByte<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn lstrcatA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcatA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -13684,7 +13684,7 @@ pub unsafe fn lstrcatA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcatW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcatW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
         }
@@ -13699,7 +13699,7 @@ pub unsafe fn lstrcatW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcmpA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcmpA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
         }
@@ -13714,7 +13714,7 @@ pub unsafe fn lstrcmpA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcmpW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcmpW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
         }
@@ -13729,7 +13729,7 @@ pub unsafe fn lstrcmpW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcmpiA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcmpiA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
         }
@@ -13744,7 +13744,7 @@ pub unsafe fn lstrcmpiA<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn lstrcmpiW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcmpiW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
         }
@@ -13759,7 +13759,7 @@ pub unsafe fn lstrcmpiW<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn lstrcpyA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: super::Foundation::PSTR, lpstring2: Param1) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcpyA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -13774,7 +13774,7 @@ pub unsafe fn lstrcpyA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcpyW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: super::Foundation::PWSTR, lpstring2: Param1) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcpyW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
         }
@@ -13789,7 +13789,7 @@ pub unsafe fn lstrcpyW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrcpynA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: super::Foundation::PSTR, lpstring2: Param1, imaxlength: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcpynA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR, imaxlength: i32) -> super::Foundation::PSTR;
         }
@@ -13804,7 +13804,7 @@ pub unsafe fn lstrcpynA<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn lstrcpynW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: super::Foundation::PWSTR, lpstring2: Param1, imaxlength: i32) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrcpynW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR, imaxlength: i32) -> super::Foundation::PWSTR;
         }
@@ -13819,7 +13819,7 @@ pub unsafe fn lstrcpynW<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn lstrlenA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrlenA(lpstring: super::Foundation::PSTR) -> i32;
         }
@@ -13834,7 +13834,7 @@ pub unsafe fn lstrlenA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
 pub unsafe fn lstrlenW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn lstrlenW(lpstring: super::Foundation::PWSTR) -> i32;
         }
@@ -14012,7 +14012,7 @@ impl ::core::default::Default for textrange_properties {
 pub unsafe fn u_UCharsToChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(us: *const u16, cs: Param1, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_UCharsToChars(us: *const u16, cs: super::Foundation::PSTR, length: i32);
         }
@@ -14027,7 +14027,7 @@ pub unsafe fn u_UCharsToChars<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn u_austrcpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: Param0, src: *const u16) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_austrcpy(dst: super::Foundation::PSTR, src: *const u16) -> super::Foundation::PSTR;
         }
@@ -14042,7 +14042,7 @@ pub unsafe fn u_austrcpy<'a, Param0: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn u_austrncpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: Param0, src: *const u16, n: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_austrncpy(dst: super::Foundation::PSTR, src: *const u16, n: i32) -> super::Foundation::PSTR;
         }
@@ -14056,7 +14056,7 @@ pub unsafe fn u_austrncpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_catclose(catd: *mut UResourceBundle);
         }
@@ -14070,7 +14070,7 @@ pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
 pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
         }
@@ -14085,7 +14085,7 @@ pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, 
 pub unsafe fn u_catopen<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, locale: Param1, ec: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_catopen(name: super::Foundation::PSTR, locale: super::Foundation::PSTR, ec: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -14099,7 +14099,7 @@ pub unsafe fn u_catopen<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charAge(c: i32, versionarray: *mut u8);
         }
@@ -14113,7 +14113,7 @@ pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
 pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charDigitValue(c: i32) -> i32;
         }
@@ -14127,7 +14127,7 @@ pub unsafe fn u_charDigitValue(c: i32) -> i32 {
 pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charDirection(c: i32) -> UCharDirection;
         }
@@ -14142,7 +14142,7 @@ pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
 pub unsafe fn u_charFromName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(namechoice: UCharNameChoice, name: Param1, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charFromName(namechoice: UCharNameChoice, name: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -14156,7 +14156,7 @@ pub unsafe fn u_charFromName<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn u_charMirror(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charMirror(c: i32) -> i32;
         }
@@ -14171,7 +14171,7 @@ pub unsafe fn u_charMirror(c: i32) -> i32 {
 pub unsafe fn u_charName<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(code: i32, namechoice: UCharNameChoice, buffer: Param2, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charName(code: i32, namechoice: UCharNameChoice, buffer: super::Foundation::PSTR, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -14185,7 +14185,7 @@ pub unsafe fn u_charName<'a, Param2: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn u_charType(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charType(c: i32) -> i8;
         }
@@ -14200,7 +14200,7 @@ pub unsafe fn u_charType(c: i32) -> i8 {
 pub unsafe fn u_charsToUChars<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cs: Param0, us: *mut u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_charsToUChars(cs: super::Foundation::PSTR, us: *mut u16, length: i32);
         }
@@ -14214,7 +14214,7 @@ pub unsafe fn u_charsToUChars<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn u_cleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_cleanup();
         }
@@ -14228,7 +14228,7 @@ pub unsafe fn u_cleanup() {
 pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_countChar32(s: *const u16, length: i32) -> i32;
         }
@@ -14242,7 +14242,7 @@ pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
 pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_digit(ch: i32, radix: i8) -> i32;
         }
@@ -14257,7 +14257,7 @@ pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
 pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut ::windows::core::RawPtr, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode);
         }
@@ -14271,7 +14271,7 @@ pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesF
 pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_enumCharTypes(enumrange: *mut ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
         }
@@ -14286,7 +14286,7 @@ pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *cons
 pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR;
         }
@@ -14300,7 +14300,7 @@ pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
 pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_foldCase(c: i32, options: u32) -> i32;
         }
@@ -14314,7 +14314,7 @@ pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
 pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_forDigit(digit: i32, radix: i8) -> i32;
         }
@@ -14329,7 +14329,7 @@ pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
 pub unsafe fn u_formatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_formatMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -14344,7 +14344,7 @@ pub unsafe fn u_formatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn u_formatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_formatMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32;
         }
@@ -14358,7 +14358,7 @@ pub unsafe fn u_formatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getBidiPairedBracket(c: i32) -> i32;
         }
@@ -14372,7 +14372,7 @@ pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
 pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet;
         }
@@ -14386,7 +14386,7 @@ pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErro
 pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getCombiningClass(c: i32) -> u8;
         }
@@ -14400,7 +14400,7 @@ pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
 pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode);
         }
@@ -14414,7 +14414,7 @@ pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCo
 pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -14428,7 +14428,7 @@ pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, pe
 pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap;
         }
@@ -14442,7 +14442,7 @@ pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCo
 pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getIntPropertyMaxValue(which: UProperty) -> i32;
         }
@@ -14456,7 +14456,7 @@ pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
 pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getIntPropertyMinValue(which: UProperty) -> i32;
         }
@@ -14470,7 +14470,7 @@ pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
 pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32;
         }
@@ -14484,7 +14484,7 @@ pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
 pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getNumericValue(c: i32) -> f64;
         }
@@ -14499,7 +14499,7 @@ pub unsafe fn u_getNumericValue(c: i32) -> f64 {
 pub unsafe fn u_getPropertyEnum<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0) -> UProperty {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getPropertyEnum(alias: super::Foundation::PSTR) -> UProperty;
         }
@@ -14514,7 +14514,7 @@ pub unsafe fn u_getPropertyEnum<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR;
         }
@@ -14529,7 +14529,7 @@ pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameCh
 pub unsafe fn u_getPropertyValueEnum<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(property: UProperty, alias: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getPropertyValueEnum(property: UProperty, alias: super::Foundation::PSTR) -> i32;
         }
@@ -14544,7 +14544,7 @@ pub unsafe fn u_getPropertyValueEnum<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR;
         }
@@ -14558,7 +14558,7 @@ pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice
 pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getUnicodeVersion(versionarray: *mut u8);
         }
@@ -14572,7 +14572,7 @@ pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
 pub unsafe fn u_getVersion(versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_getVersion(versionarray: *mut u8);
         }
@@ -14586,7 +14586,7 @@ pub unsafe fn u_getVersion(versionarray: *mut u8) {
 pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8;
         }
@@ -14600,7 +14600,7 @@ pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
 pub unsafe fn u_init(status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_init(status: *mut UErrorCode);
         }
@@ -14614,7 +14614,7 @@ pub unsafe fn u_init(status: *mut UErrorCode) {
 pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isIDIgnorable(c: i32) -> i8;
         }
@@ -14628,7 +14628,7 @@ pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
 pub unsafe fn u_isIDPart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isIDPart(c: i32) -> i8;
         }
@@ -14642,7 +14642,7 @@ pub unsafe fn u_isIDPart(c: i32) -> i8 {
 pub unsafe fn u_isIDStart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isIDStart(c: i32) -> i8;
         }
@@ -14656,7 +14656,7 @@ pub unsafe fn u_isIDStart(c: i32) -> i8 {
 pub unsafe fn u_isISOControl(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isISOControl(c: i32) -> i8;
         }
@@ -14670,7 +14670,7 @@ pub unsafe fn u_isISOControl(c: i32) -> i8 {
 pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isJavaIDPart(c: i32) -> i8;
         }
@@ -14684,7 +14684,7 @@ pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
 pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isJavaIDStart(c: i32) -> i8;
         }
@@ -14698,7 +14698,7 @@ pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
 pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isJavaSpaceChar(c: i32) -> i8;
         }
@@ -14712,7 +14712,7 @@ pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
 pub unsafe fn u_isMirrored(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isMirrored(c: i32) -> i8;
         }
@@ -14726,7 +14726,7 @@ pub unsafe fn u_isMirrored(c: i32) -> i8 {
 pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isUAlphabetic(c: i32) -> i8;
         }
@@ -14740,7 +14740,7 @@ pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
 pub unsafe fn u_isULowercase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isULowercase(c: i32) -> i8;
         }
@@ -14754,7 +14754,7 @@ pub unsafe fn u_isULowercase(c: i32) -> i8 {
 pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isUUppercase(c: i32) -> i8;
         }
@@ -14768,7 +14768,7 @@ pub unsafe fn u_isUUppercase(c: i32) -> i8 {
 pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isUWhiteSpace(c: i32) -> i8;
         }
@@ -14782,7 +14782,7 @@ pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
 pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isWhitespace(c: i32) -> i8;
         }
@@ -14796,7 +14796,7 @@ pub unsafe fn u_isWhitespace(c: i32) -> i8 {
 pub unsafe fn u_isalnum(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isalnum(c: i32) -> i8;
         }
@@ -14810,7 +14810,7 @@ pub unsafe fn u_isalnum(c: i32) -> i8 {
 pub unsafe fn u_isalpha(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isalpha(c: i32) -> i8;
         }
@@ -14824,7 +14824,7 @@ pub unsafe fn u_isalpha(c: i32) -> i8 {
 pub unsafe fn u_isbase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isbase(c: i32) -> i8;
         }
@@ -14838,7 +14838,7 @@ pub unsafe fn u_isbase(c: i32) -> i8 {
 pub unsafe fn u_isblank(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isblank(c: i32) -> i8;
         }
@@ -14852,7 +14852,7 @@ pub unsafe fn u_isblank(c: i32) -> i8 {
 pub unsafe fn u_iscntrl(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_iscntrl(c: i32) -> i8;
         }
@@ -14866,7 +14866,7 @@ pub unsafe fn u_iscntrl(c: i32) -> i8 {
 pub unsafe fn u_isdefined(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isdefined(c: i32) -> i8;
         }
@@ -14880,7 +14880,7 @@ pub unsafe fn u_isdefined(c: i32) -> i8 {
 pub unsafe fn u_isdigit(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isdigit(c: i32) -> i8;
         }
@@ -14894,7 +14894,7 @@ pub unsafe fn u_isdigit(c: i32) -> i8 {
 pub unsafe fn u_isgraph(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isgraph(c: i32) -> i8;
         }
@@ -14908,7 +14908,7 @@ pub unsafe fn u_isgraph(c: i32) -> i8 {
 pub unsafe fn u_islower(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_islower(c: i32) -> i8;
         }
@@ -14922,7 +14922,7 @@ pub unsafe fn u_islower(c: i32) -> i8 {
 pub unsafe fn u_isprint(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isprint(c: i32) -> i8;
         }
@@ -14936,7 +14936,7 @@ pub unsafe fn u_isprint(c: i32) -> i8 {
 pub unsafe fn u_ispunct(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_ispunct(c: i32) -> i8;
         }
@@ -14950,7 +14950,7 @@ pub unsafe fn u_ispunct(c: i32) -> i8 {
 pub unsafe fn u_isspace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isspace(c: i32) -> i8;
         }
@@ -14964,7 +14964,7 @@ pub unsafe fn u_isspace(c: i32) -> i8 {
 pub unsafe fn u_istitle(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_istitle(c: i32) -> i8;
         }
@@ -14978,7 +14978,7 @@ pub unsafe fn u_istitle(c: i32) -> i8 {
 pub unsafe fn u_isupper(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isupper(c: i32) -> i8;
         }
@@ -14992,7 +14992,7 @@ pub unsafe fn u_isupper(c: i32) -> i8 {
 pub unsafe fn u_isxdigit(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_isxdigit(c: i32) -> i8;
         }
@@ -15006,7 +15006,7 @@ pub unsafe fn u_isxdigit(c: i32) -> i8 {
 pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32;
         }
@@ -15020,7 +15020,7 @@ pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options:
 pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16;
         }
@@ -15034,7 +15034,7 @@ pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
         }
@@ -15048,7 +15048,7 @@ pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32;
         }
@@ -15062,7 +15062,7 @@ pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
 pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32;
         }
@@ -15076,7 +15076,7 @@ pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32)
 pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
         }
@@ -15090,7 +15090,7 @@ pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 
 pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
         }
@@ -15104,7 +15104,7 @@ pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16
 pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16;
         }
@@ -15118,7 +15118,7 @@ pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
         }
@@ -15132,7 +15132,7 @@ pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16;
         }
@@ -15147,7 +15147,7 @@ pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
 pub unsafe fn u_parseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_parseMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode);
         }
@@ -15162,7 +15162,7 @@ pub unsafe fn u_parseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_parseMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
@@ -15176,7 +15176,7 @@ pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut ::windows::core::RawPtr, r: *mut ::windows::core::RawPtr, f: *mut ::windows::core::RawPtr, status: *mut UErrorCode);
         }
@@ -15190,7 +15190,7 @@ pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut 
 pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15204,7 +15204,7 @@ pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u1
 pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15218,7 +15218,7 @@ pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, len
 pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32;
         }
@@ -15232,7 +15232,7 @@ pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2
 pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32;
         }
@@ -15246,7 +15246,7 @@ pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharItera
 pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
         }
@@ -15260,7 +15260,7 @@ pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, 
 pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16;
         }
@@ -15274,7 +15274,7 @@ pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, s
 pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15289,7 +15289,7 @@ pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, 
 pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromJavaModifiedUTF8WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PSTR, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15303,7 +15303,7 @@ pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, Param3: ::windows::core::Into
 pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15317,7 +15317,7 @@ pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mu
 pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15332,7 +15332,7 @@ pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestleng
 pub unsafe fn u_strFromUTF8<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromUTF8(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15347,7 +15347,7 @@ pub unsafe fn u_strFromUTF8<'a, Param3: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn u_strFromUTF8Lenient<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromUTF8Lenient(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15362,7 +15362,7 @@ pub unsafe fn u_strFromUTF8Lenient<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn u_strFromUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromUTF8WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PSTR, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15377,7 +15377,7 @@ pub unsafe fn u_strFromUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn u_strFromWCS<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strFromWCS(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PWSTR, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
@@ -15391,7 +15391,7 @@ pub unsafe fn u_strFromWCS<'a, Param3: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8;
         }
@@ -15406,7 +15406,7 @@ pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) ->
 pub unsafe fn u_strToJavaModifiedUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToJavaModifiedUTF8(dest: super::Foundation::PSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -15421,7 +15421,7 @@ pub unsafe fn u_strToJavaModifiedUTF8<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn u_strToLower<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: Param4, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToLower(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15436,7 +15436,7 @@ pub unsafe fn u_strToLower<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn u_strToTitle<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: Param5, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToTitle(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15450,7 +15450,7 @@ pub unsafe fn u_strToTitle<'a, Param5: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32;
         }
@@ -15464,7 +15464,7 @@ pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut 
 pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32;
         }
@@ -15479,7 +15479,7 @@ pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength
 pub unsafe fn u_strToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToUTF8(dest: super::Foundation::PSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -15494,7 +15494,7 @@ pub unsafe fn u_strToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn u_strToUTF8WithSub<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToUTF8WithSub(dest: super::Foundation::PSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -15509,7 +15509,7 @@ pub unsafe fn u_strToUTF8WithSub<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn u_strToUpper<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: Param4, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToUpper(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -15524,7 +15524,7 @@ pub unsafe fn u_strToUpper<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn u_strToWCS<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strToWCS(dest: super::Foundation::PWSTR, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PWSTR;
         }
@@ -15538,7 +15538,7 @@ pub unsafe fn u_strToWCS<'a, Param0: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32;
         }
@@ -15552,7 +15552,7 @@ pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 
 pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16;
         }
@@ -15566,7 +15566,7 @@ pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
 pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strchr(s: *const u16, c: u16) -> *mut u16;
         }
@@ -15580,7 +15580,7 @@ pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
 pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strchr32(s: *const u16, c: i32) -> *mut u16;
         }
@@ -15594,7 +15594,7 @@ pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
 pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcmp(s1: *const u16, s2: *const u16) -> i32;
         }
@@ -15608,7 +15608,7 @@ pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
 pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32;
         }
@@ -15622,7 +15622,7 @@ pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
 pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16;
         }
@@ -15636,7 +15636,7 @@ pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
 pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strcspn(string: *const u16, matchset: *const u16) -> i32;
         }
@@ -15650,7 +15650,7 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
 pub unsafe fn u_strlen(s: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strlen(s: *const u16) -> i32;
         }
@@ -15664,7 +15664,7 @@ pub unsafe fn u_strlen(s: *const u16) -> i32 {
 pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32;
         }
@@ -15678,7 +15678,7 @@ pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32
 pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
         }
@@ -15692,7 +15692,7 @@ pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32;
         }
@@ -15706,7 +15706,7 @@ pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
 pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32;
         }
@@ -15720,7 +15720,7 @@ pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) ->
 pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
         }
@@ -15734,7 +15734,7 @@ pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16;
         }
@@ -15748,7 +15748,7 @@ pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
 pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strrchr(s: *const u16, c: u16) -> *mut u16;
         }
@@ -15762,7 +15762,7 @@ pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
 pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strrchr32(s: *const u16, c: i32) -> *mut u16;
         }
@@ -15776,7 +15776,7 @@ pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
 pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16;
         }
@@ -15790,7 +15790,7 @@ pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
 pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strspn(string: *const u16, matchset: *const u16) -> i32;
         }
@@ -15804,7 +15804,7 @@ pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
 pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16;
         }
@@ -15818,7 +15818,7 @@ pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
 pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16;
         }
@@ -15832,7 +15832,7 @@ pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut 
 pub unsafe fn u_tolower(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_tolower(c: i32) -> i32;
         }
@@ -15846,7 +15846,7 @@ pub unsafe fn u_tolower(c: i32) -> i32 {
 pub unsafe fn u_totitle(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_totitle(c: i32) -> i32;
         }
@@ -15860,7 +15860,7 @@ pub unsafe fn u_totitle(c: i32) -> i32 {
 pub unsafe fn u_toupper(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_toupper(c: i32) -> i32;
         }
@@ -15875,7 +15875,7 @@ pub unsafe fn u_toupper(c: i32) -> i32 {
 pub unsafe fn u_uastrcpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: *mut u16, src: Param1) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_uastrcpy(dst: *mut u16, src: super::Foundation::PSTR) -> *mut u16;
         }
@@ -15890,7 +15890,7 @@ pub unsafe fn u_uastrcpy<'a, Param1: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn u_uastrncpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: *mut u16, src: Param1, n: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_uastrncpy(dst: *mut u16, src: super::Foundation::PSTR, n: i32) -> *mut u16;
         }
@@ -15905,7 +15905,7 @@ pub unsafe fn u_uastrncpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn u_unescape<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(src: Param0, dest: *mut u16, destcapacity: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_unescape(src: super::Foundation::PSTR, dest: *mut u16, destcapacity: i32) -> i32;
         }
@@ -15919,7 +15919,7 @@ pub unsafe fn u_unescape<'a, Param0: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_unescapeAt(charat: ::windows::core::RawPtr, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32;
         }
@@ -15934,7 +15934,7 @@ pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i
 pub unsafe fn u_versionFromString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(versionarray: *mut u8, versionstring: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_versionFromString(versionarray: *mut u8, versionstring: super::Foundation::PSTR);
         }
@@ -15948,7 +15948,7 @@ pub unsafe fn u_versionFromString<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16);
         }
@@ -15963,7 +15963,7 @@ pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const 
 pub unsafe fn u_versionToString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(versionarray: *const u8, versionstring: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_versionToString(versionarray: *const u8, versionstring: super::Foundation::PSTR);
         }
@@ -15978,7 +15978,7 @@ pub unsafe fn u_versionToString<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn u_vformatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_vformatMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
         }
@@ -15993,7 +15993,7 @@ pub unsafe fn u_vformatMessage<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn u_vformatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_vformatMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32;
         }
@@ -16008,7 +16008,7 @@ pub unsafe fn u_vformatMessageWithError<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn u_vparseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_vparseMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode);
         }
@@ -16023,7 +16023,7 @@ pub unsafe fn u_vparseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn u_vparseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn u_vparseMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
@@ -16037,7 +16037,7 @@ pub unsafe fn u_vparseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_close(pbidi: *mut UBiDi);
         }
@@ -16051,7 +16051,7 @@ pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
 pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32;
         }
@@ -16065,7 +16065,7 @@ pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
 pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16079,7 +16079,7 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection;
         }
@@ -16093,7 +16093,7 @@ pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDire
 pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
@@ -16107,7 +16107,7 @@ pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCal
 pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection;
         }
@@ -16121,7 +16121,7 @@ pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirect
 pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection;
         }
@@ -16135,7 +16135,7 @@ pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
 pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLength(pbidi: *const UBiDi) -> i32;
         }
@@ -16149,7 +16149,7 @@ pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8;
         }
@@ -16163,7 +16163,7 @@ pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
 pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8;
         }
@@ -16177,7 +16177,7 @@ pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16191,7 +16191,7 @@ pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorc
 pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
         }
@@ -16205,7 +16205,7 @@ pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorc
 pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8);
         }
@@ -16219,7 +16219,7 @@ pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plo
 pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8;
         }
@@ -16233,7 +16233,7 @@ pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
 pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16247,7 +16247,7 @@ pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart
 pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode);
         }
@@ -16261,7 +16261,7 @@ pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, ppa
 pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32;
         }
@@ -16275,7 +16275,7 @@ pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode;
         }
@@ -16289,7 +16289,7 @@ pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode 
 pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32;
         }
@@ -16303,7 +16303,7 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
 pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32;
         }
@@ -16317,7 +16317,7 @@ pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16;
         }
@@ -16331,7 +16331,7 @@ pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
 pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16345,7 +16345,7 @@ pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorc
 pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
         }
@@ -16359,7 +16359,7 @@ pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorco
 pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection;
         }
@@ -16373,7 +16373,7 @@ pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart
 pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32);
         }
@@ -16387,7 +16387,7 @@ pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32
 pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8;
         }
@@ -16401,7 +16401,7 @@ pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
 pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8;
         }
@@ -16415,7 +16415,7 @@ pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
 pub unsafe fn ubidi_open() -> *mut UBiDi {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_open() -> *mut UBiDi;
         }
@@ -16429,7 +16429,7 @@ pub unsafe fn ubidi_open() -> *mut UBiDi {
 pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi;
         }
@@ -16443,7 +16443,7 @@ pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut
 pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8);
         }
@@ -16457,7 +16457,7 @@ pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8
 pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32);
         }
@@ -16471,7 +16471,7 @@ pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mu
 pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32);
         }
@@ -16485,7 +16485,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
 pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldfn: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode);
         }
@@ -16499,7 +16499,7 @@ pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallbac
 pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode);
         }
@@ -16513,7 +16513,7 @@ pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolengt
 pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8);
         }
@@ -16527,7 +16527,7 @@ pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
 pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode);
         }
@@ -16541,7 +16541,7 @@ pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, pli
 pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode);
         }
@@ -16555,7 +16555,7 @@ pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, pa
 pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode);
         }
@@ -16569,7 +16569,7 @@ pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiRe
 pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32);
         }
@@ -16583,7 +16583,7 @@ pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u
 pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16597,7 +16597,7 @@ pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: 
 pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -16611,7 +16611,7 @@ pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16
 pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubiditransform_close(pbiditransform: *mut UBiDiTransform);
         }
@@ -16625,7 +16625,7 @@ pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
 pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform;
         }
@@ -16639,7 +16639,7 @@ pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTran
 pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32;
         }
@@ -16653,7 +16653,7 @@ pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src:
 pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ublock_getCode(c: i32) -> UBlockCode;
         }
@@ -16667,7 +16667,7 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
 pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_close(bi: *mut UBreakIterator);
         }
@@ -16681,7 +16681,7 @@ pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
 pub unsafe fn ubrk_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_countAvailable() -> i32;
         }
@@ -16695,7 +16695,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
 pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_current(bi: *const UBreakIterator) -> i32;
         }
@@ -16709,7 +16709,7 @@ pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
 pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_first(bi: *mut UBreakIterator) -> i32;
         }
@@ -16723,7 +16723,7 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32;
         }
@@ -16738,7 +16738,7 @@ pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
 pub unsafe fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR;
         }
@@ -16752,7 +16752,7 @@ pub unsafe fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR {
 pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -16767,7 +16767,7 @@ pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8,
 pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -16781,7 +16781,7 @@ pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLo
 pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32;
         }
@@ -16795,7 +16795,7 @@ pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -16809,7 +16809,7 @@ pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32
 pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8;
         }
@@ -16823,7 +16823,7 @@ pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
 pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_last(bi: *mut UBreakIterator) -> i32;
         }
@@ -16837,7 +16837,7 @@ pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_next(bi: *mut UBreakIterator) -> i32;
         }
@@ -16852,7 +16852,7 @@ pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_open<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(r#type: UBreakIteratorType, locale: Param1, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_open(r#type: UBreakIteratorType, locale: super::Foundation::PSTR, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator;
         }
@@ -16866,7 +16866,7 @@ pub unsafe fn ubrk_open<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator;
         }
@@ -16880,7 +16880,7 @@ pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, tex
 pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator;
         }
@@ -16894,7 +16894,7 @@ pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u
 pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32;
         }
@@ -16908,7 +16908,7 @@ pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
 pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_previous(bi: *mut UBreakIterator) -> i32;
         }
@@ -16922,7 +16922,7 @@ pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
         }
@@ -16936,7 +16936,7 @@ pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, statu
 pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator;
         }
@@ -16950,7 +16950,7 @@ pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core
 pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
@@ -16964,7 +16964,7 @@ pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength
 pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
         }
@@ -16978,7 +16978,7 @@ pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *
 pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
         }
@@ -16992,7 +16992,7 @@ pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
 pub unsafe fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void);
         }
@@ -17006,7 +17006,7 @@ pub unsafe fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields);
         }
@@ -17020,7 +17020,7 @@ pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalend
 pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -17034,7 +17034,7 @@ pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UE
 pub unsafe fn ucal_close(cal: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_close(cal: *mut *mut ::core::ffi::c_void);
         }
@@ -17048,7 +17048,7 @@ pub unsafe fn ucal_close(cal: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn ucal_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_countAvailable() -> i32;
         }
@@ -17062,7 +17062,7 @@ pub unsafe fn ucal_countAvailable() -> i32 {
 pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *const *const ::core::ffi::c_void) -> i8;
         }
@@ -17076,7 +17076,7 @@ pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *
 pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
         }
@@ -17090,7 +17090,7 @@ pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarD
 pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UCalendarAttribute) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UCalendarAttribute) -> i32;
         }
@@ -17105,7 +17105,7 @@ pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UC
 pub unsafe fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -17119,7 +17119,7 @@ pub unsafe fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
 pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32;
         }
@@ -17133,7 +17133,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut
 pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32;
         }
@@ -17147,7 +17147,7 @@ pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32
 pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType;
         }
@@ -17161,7 +17161,7 @@ pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayo
 pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -17175,7 +17175,7 @@ pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec:
 pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32;
         }
@@ -17189,7 +17189,7 @@ pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target
 pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64;
         }
@@ -17203,7 +17203,7 @@ pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, pe
 pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -17218,7 +17218,7 @@ pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *m
 pub unsafe fn ucal_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getKeywordValuesForLocale(key: super::Foundation::PSTR, locale: super::Foundation::PSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -17232,7 +17232,7 @@ pub unsafe fn ucal_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32;
         }
@@ -17247,7 +17247,7 @@ pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCale
 pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -17261,7 +17261,7 @@ pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#typ
 pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -17275,7 +17275,7 @@ pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mu
 pub unsafe fn ucal_getNow() -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getNow() -> f64;
         }
@@ -17290,7 +17290,7 @@ pub unsafe fn ucal_getNow() -> f64 {
 pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -17305,7 +17305,7 @@ pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundatio
 pub unsafe fn ucal_getTimeZoneDisplayName<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: Param2, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getTimeZoneDisplayName(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: super::Foundation::PSTR, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -17319,7 +17319,7 @@ pub unsafe fn ucal_getTimeZoneDisplayName<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -17334,7 +17334,7 @@ pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result:
 pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(winid: *const u16, len: i32, region: Param2, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getTimeZoneIDForWindowsID(winid: *const u16, len: i32, region: super::Foundation::PSTR, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -17348,7 +17348,7 @@ pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, Param2: ::windows::core::IntoPa
 pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8;
         }
@@ -17363,7 +17363,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_v
 pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -17377,7 +17377,7 @@ pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut 
 pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32;
         }
@@ -17391,7 +17391,7 @@ pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, 
 pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -17405,7 +17405,7 @@ pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u1
 pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
         }
@@ -17419,7 +17419,7 @@ pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status
 pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields) -> i8;
         }
@@ -17433,7 +17433,7 @@ pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalenda
 pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8;
         }
@@ -17448,7 +17448,7 @@ pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, 
 pub unsafe fn ucal_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(zoneid: *const u16, len: i32, locale: Param2, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_open(zoneid: *const u16, len: i32, locale: super::Foundation::PSTR, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -17463,7 +17463,7 @@ pub unsafe fn ucal_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn ucal_openCountryTimeZones<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(country: Param0, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_openCountryTimeZones(country: super::Foundation::PSTR, ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -17478,7 +17478,7 @@ pub unsafe fn ucal_openCountryTimeZones<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(zonetype: USystemTimeZoneType, region: Param1, rawoffset: *const i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_openTimeZoneIDEnumeration(zonetype: USystemTimeZoneType, region: super::Foundation::PSTR, rawoffset: *const i32, ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -17492,7 +17492,7 @@ pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -17506,7 +17506,7 @@ pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
 pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
         }
@@ -17520,7 +17520,7 @@ pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDate
 pub unsafe fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, value: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, value: i32);
         }
@@ -17534,7 +17534,7 @@ pub unsafe fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
 pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalendarAttribute, newvalue: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalendarAttribute, newvalue: i32);
         }
@@ -17548,7 +17548,7 @@ pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalen
 pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode);
         }
@@ -17562,7 +17562,7 @@ pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month:
 pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode);
         }
@@ -17576,7 +17576,7 @@ pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, mo
 pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode);
         }
@@ -17590,7 +17590,7 @@ pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
 pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode);
         }
@@ -17604,7 +17604,7 @@ pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: 
 pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode);
         }
@@ -17618,7 +17618,7 @@ pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, 
 pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode);
         }
@@ -17632,7 +17632,7 @@ pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *cons
 pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_close(csm: *mut UCaseMap);
         }
@@ -17646,7 +17646,7 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
 pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator;
         }
@@ -17661,7 +17661,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
 pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PSTR;
         }
@@ -17675,7 +17675,7 @@ pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PST
 pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_getOptions(csm: *const UCaseMap) -> u32;
         }
@@ -17690,7 +17690,7 @@ pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
 pub unsafe fn ucasemap_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_open(locale: super::Foundation::PSTR, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap;
         }
@@ -17704,7 +17704,7 @@ pub unsafe fn ucasemap_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode);
         }
@@ -17719,7 +17719,7 @@ pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UB
 pub unsafe fn ucasemap_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *mut UCaseMap, locale: Param1, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_setLocale(csm: *mut UCaseMap, locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode);
         }
@@ -17733,7 +17733,7 @@ pub unsafe fn ucasemap_setLocale<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode);
         }
@@ -17747,7 +17747,7 @@ pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: 
 pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -17762,7 +17762,7 @@ pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity:
 pub unsafe fn ucasemap_utf8FoldCase<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_utf8FoldCase(csm: *const UCaseMap, dest: super::Foundation::PSTR, destcapacity: i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -17777,7 +17777,7 @@ pub unsafe fn ucasemap_utf8FoldCase<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn ucasemap_utf8ToLower<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_utf8ToLower(csm: *const UCaseMap, dest: super::Foundation::PSTR, destcapacity: i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -17792,7 +17792,7 @@ pub unsafe fn ucasemap_utf8ToLower<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucasemap_utf8ToTitle<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *mut UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_utf8ToTitle(csm: *mut UCaseMap, dest: super::Foundation::PSTR, destcapacity: i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -17807,7 +17807,7 @@ pub unsafe fn ucasemap_utf8ToTitle<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucasemap_utf8ToUpper<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucasemap_utf8ToUpper(csm: *const UCaseMap, dest: super::Foundation::PSTR, destcapacity: i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -17821,7 +17821,7 @@ pub unsafe fn ucasemap_utf8ToUpper<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition);
         }
@@ -17835,7 +17835,7 @@ pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
 pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode);
         }
@@ -17849,7 +17849,7 @@ pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, c
 pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode);
         }
@@ -17863,7 +17863,7 @@ pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, cate
 pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
         }
@@ -17877,7 +17877,7 @@ pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *
 pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32;
         }
@@ -17891,7 +17891,7 @@ pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut
 pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode);
         }
@@ -17905,7 +17905,7 @@ pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart
 pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64;
         }
@@ -17919,7 +17919,7 @@ pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPo
 pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8;
         }
@@ -17933,7 +17933,7 @@ pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, cate
 pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition;
         }
@@ -17947,7 +17947,7 @@ pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition
 pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode);
         }
@@ -17961,7 +17961,7 @@ pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErr
 pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode);
         }
@@ -17975,7 +17975,7 @@ pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosi
 pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode);
         }
@@ -17990,7 +17990,7 @@ pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: 
 pub unsafe fn ucnv_cbFromUWriteBytes<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(args: *mut UConverterFromUnicodeArgs, source: Param1, length: i32, offsetindex: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_cbFromUWriteBytes(args: *mut UConverterFromUnicodeArgs, source: super::Foundation::PSTR, length: i32, offsetindex: i32, err: *mut UErrorCode);
         }
@@ -18005,7 +18005,7 @@ pub unsafe fn ucnv_cbFromUWriteBytes<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
         }
@@ -18020,7 +18020,7 @@ pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offseti
 pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode);
         }
@@ -18035,7 +18035,7 @@ pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, sour
 pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
         }
@@ -18050,7 +18050,7 @@ pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex
 pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode);
         }
@@ -18064,7 +18064,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: 
 pub unsafe fn ucnv_close(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_close(converter: *mut UConverter);
         }
@@ -18079,7 +18079,7 @@ pub unsafe fn ucnv_close(converter: *mut UConverter) {
 pub unsafe fn ucnv_compareNames<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name1: Param0, name2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_compareNames(name1: super::Foundation::PSTR, name2: super::Foundation::PSTR) -> i32;
         }
@@ -18094,7 +18094,7 @@ pub unsafe fn ucnv_compareNames<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ucnv_convert<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(toconvertername: Param0, fromconvertername: Param1, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_convert(toconvertername: super::Foundation::PSTR, fromconvertername: super::Foundation::PSTR, target: super::Foundation::PSTR, targetcapacity: i32, source: super::Foundation::PSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -18109,7 +18109,7 @@ pub unsafe fn ucnv_convert<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: Param3, source: *const *const i8, sourcelimit: Param5, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_convertEx(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: super::Foundation::PSTR, source: *const *const i8, sourcelimit: super::Foundation::PSTR, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode);
         }
@@ -18124,7 +18124,7 @@ pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn ucnv_countAliases<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, perrorcode: *mut UErrorCode) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_countAliases(alias: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> u16;
         }
@@ -18138,7 +18138,7 @@ pub unsafe fn ucnv_countAliases<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ucnv_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_countAvailable() -> i32;
         }
@@ -18152,7 +18152,7 @@ pub unsafe fn ucnv_countAvailable() -> i32 {
 pub unsafe fn ucnv_countStandards() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_countStandards() -> u16;
         }
@@ -18167,7 +18167,7 @@ pub unsafe fn ucnv_countStandards() -> u16 {
 pub unsafe fn ucnv_detectUnicodeSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(source: Param0, sourcelength: i32, signaturelength: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_detectUnicodeSignature(source: super::Foundation::PSTR, sourcelength: i32, signaturelength: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18181,7 +18181,7 @@ pub unsafe fn ucnv_detectUnicodeSignature<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32);
         }
@@ -18195,7 +18195,7 @@ pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, so
 pub unsafe fn ucnv_flushCache() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_flushCache() -> i32;
         }
@@ -18210,7 +18210,7 @@ pub unsafe fn ucnv_flushCache() -> i32 {
 pub unsafe fn ucnv_fromAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, algorithmictype: UConverterType, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_fromAlgorithmic(cnv: *mut UConverter, algorithmictype: UConverterType, target: super::Foundation::PSTR, targetcapacity: i32, source: super::Foundation::PSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -18225,7 +18225,7 @@ pub unsafe fn ucnv_fromAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucnv_fromUChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, dest: Param1, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_fromUChars(cnv: *mut UConverter, dest: super::Foundation::PSTR, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -18239,7 +18239,7 @@ pub unsafe fn ucnv_fromUChars<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         }
@@ -18254,7 +18254,7 @@ pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UError
 pub unsafe fn ucnv_fromUnicode<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, target: *mut *mut i8, targetlimit: Param2, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_fromUnicode(converter: *mut UConverter, target: *mut *mut i8, targetlimit: super::Foundation::PSTR, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode);
         }
@@ -18269,7 +18269,7 @@ pub unsafe fn ucnv_fromUnicode<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ucnv_getAlias<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getAlias(alias: super::Foundation::PSTR, n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18284,7 +18284,7 @@ pub unsafe fn ucnv_getAlias<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ucnv_getAliases<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, aliases: *const *const i8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getAliases(alias: super::Foundation::PSTR, aliases: *const *const i8, perrorcode: *mut UErrorCode);
         }
@@ -18299,7 +18299,7 @@ pub unsafe fn ucnv_getAliases<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR;
         }
@@ -18313,7 +18313,7 @@ pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
 pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32;
         }
@@ -18328,7 +18328,7 @@ pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) 
 pub unsafe fn ucnv_getCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getCanonicalName(alias: super::Foundation::PSTR, standard: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18343,7 +18343,7 @@ pub unsafe fn ucnv_getCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ucnv_getDefaultName() -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getDefaultName() -> super::Foundation::PSTR;
         }
@@ -18358,7 +18358,7 @@ pub unsafe fn ucnv_getDefaultName() -> super::Foundation::PSTR {
 pub unsafe fn ucnv_getDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, displaylocale: Param1, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getDisplayName(converter: *const UConverter, displaylocale: super::Foundation::PSTR, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -18373,7 +18373,7 @@ pub unsafe fn ucnv_getDisplayName<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
@@ -18388,7 +18388,7 @@ pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut U
 pub unsafe fn ucnv_getInvalidChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, errbytes: Param1, len: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getInvalidChars(converter: *const UConverter, errbytes: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
         }
@@ -18402,7 +18402,7 @@ pub unsafe fn ucnv_getInvalidChars<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode);
         }
@@ -18416,7 +18416,7 @@ pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mu
 pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8;
         }
@@ -18430,7 +18430,7 @@ pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
 pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getMinCharSize(converter: *const UConverter) -> i8;
         }
@@ -18445,7 +18445,7 @@ pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
 pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18460,7 +18460,7 @@ pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -
 pub unsafe fn ucnv_getNextUChar<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, source: *const *const i8, sourcelimit: Param2, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getNextUChar(converter: *mut UConverter, source: *const *const i8, sourcelimit: super::Foundation::PSTR, err: *mut UErrorCode) -> i32;
         }
@@ -18474,7 +18474,7 @@ pub unsafe fn ucnv_getNextUChar<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform;
         }
@@ -18489,7 +18489,7 @@ pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCod
 pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18504,7 +18504,7 @@ pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Fo
 pub unsafe fn ucnv_getStandardName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getStandardName(name: super::Foundation::PSTR, standard: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -18518,7 +18518,7 @@ pub unsafe fn ucnv_getStandardName<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode);
         }
@@ -18533,7 +18533,7 @@ pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, 
 pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, subchars: Param1, len: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getSubstChars(converter: *const UConverter, subchars: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
         }
@@ -18548,7 +18548,7 @@ pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
@@ -18562,7 +18562,7 @@ pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UCo
 pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getType(converter: *const UConverter) -> UConverterType;
         }
@@ -18576,7 +18576,7 @@ pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
 pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode);
         }
@@ -18590,7 +18590,7 @@ pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, w
 pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8;
         }
@@ -18604,7 +18604,7 @@ pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
 pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8;
         }
@@ -18619,7 +18619,7 @@ pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -
 pub unsafe fn ucnv_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(convertername: Param0, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_open(convertername: super::Foundation::PSTR, err: *mut UErrorCode) -> *mut UConverter;
         }
@@ -18633,7 +18633,7 @@ pub unsafe fn ucnv_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -18647,7 +18647,7 @@ pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeratio
 pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter;
         }
@@ -18662,7 +18662,7 @@ pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *
 pub unsafe fn ucnv_openPackage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, convertername: Param1, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_openPackage(packagename: super::Foundation::PSTR, convertername: super::Foundation::PSTR, err: *mut UErrorCode) -> *mut UConverter;
         }
@@ -18677,7 +18677,7 @@ pub unsafe fn ucnv_openPackage<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ucnv_openStandardNames<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(convname: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_openStandardNames(convname: super::Foundation::PSTR, standard: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -18691,7 +18691,7 @@ pub unsafe fn ucnv_openStandardNames<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter;
         }
@@ -18705,7 +18705,7 @@ pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConver
 pub unsafe fn ucnv_reset(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_reset(converter: *mut UConverter);
         }
@@ -18719,7 +18719,7 @@ pub unsafe fn ucnv_reset(converter: *mut UConverter) {
 pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_resetFromUnicode(converter: *mut UConverter);
         }
@@ -18733,7 +18733,7 @@ pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
 pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_resetToUnicode(converter: *mut UConverter);
         }
@@ -18747,7 +18747,7 @@ pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
 pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter;
         }
@@ -18762,7 +18762,7 @@ pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::f
 pub unsafe fn ucnv_setDefaultName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setDefaultName(name: super::Foundation::PSTR);
         }
@@ -18776,7 +18776,7 @@ pub unsafe fn ucnv_setDefaultName<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8);
         }
@@ -18791,7 +18791,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
 pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
         }
@@ -18806,7 +18806,7 @@ pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConv
 pub unsafe fn ucnv_setSubstChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, subchars: Param1, len: i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setSubstChars(converter: *mut UConverter, subchars: super::Foundation::PSTR, len: i8, err: *mut UErrorCode);
         }
@@ -18820,7 +18820,7 @@ pub unsafe fn ucnv_setSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode);
         }
@@ -18835,7 +18835,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
 pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
         }
@@ -18850,7 +18850,7 @@ pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConver
 pub unsafe fn ucnv_toAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(algorithmictype: UConverterType, cnv: *mut UConverter, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: *mut UConverter, target: super::Foundation::PSTR, targetcapacity: i32, source: super::Foundation::PSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -18865,7 +18865,7 @@ pub unsafe fn ucnv_toAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ucnv_toUChars<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_toUChars(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: super::Foundation::PSTR, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -18879,7 +18879,7 @@ pub unsafe fn ucnv_toUChars<'a, Param3: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         }
@@ -18894,7 +18894,7 @@ pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCo
 pub unsafe fn ucnv_toUnicode<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: Param4, offsets: *mut i32, flush: i8, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_toUnicode(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: super::Foundation::PSTR, offsets: *mut i32, flush: i8, err: *mut UErrorCode);
         }
@@ -18908,7 +18908,7 @@ pub unsafe fn ucnv_toUnicode<'a, Param4: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnv_usesFallback(cnv: *const UConverter) -> i8;
         }
@@ -18922,7 +18922,7 @@ pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
 pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_close(sel: *mut UConverterSelector);
         }
@@ -18936,7 +18936,7 @@ pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
 pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector;
         }
@@ -18950,7 +18950,7 @@ pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i
 pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector;
         }
@@ -18964,7 +18964,7 @@ pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, len
 pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -18979,7 +18979,7 @@ pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const 
 pub unsafe fn ucnvsel_selectForUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sel: *const UConverterSelector, s: Param1, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_selectForUTF8(sel: *const UConverterSelector, s: super::Foundation::PSTR, length: i32, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -18993,7 +18993,7 @@ pub unsafe fn ucnvsel_selectForUTF8<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -19007,7 +19007,7 @@ pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::c
 pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -19021,7 +19021,7 @@ pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity
 pub unsafe fn ucol_close(coll: *mut UCollator) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_close(coll: *mut UCollator);
         }
@@ -19035,7 +19035,7 @@ pub unsafe fn ucol_close(coll: *mut UCollator) {
 pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_closeElements(elems: *mut UCollationElements);
         }
@@ -19049,7 +19049,7 @@ pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
 pub unsafe fn ucol_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_countAvailable() -> i32;
         }
@@ -19063,7 +19063,7 @@ pub unsafe fn ucol_countAvailable() -> i32 {
 pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
         }
@@ -19077,7 +19077,7 @@ pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelengt
 pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue;
         }
@@ -19092,7 +19092,7 @@ pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, sta
 pub unsafe fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -19106,7 +19106,7 @@ pub unsafe fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
 pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -19120,7 +19120,7 @@ pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UCo
 pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode);
         }
@@ -19135,7 +19135,7 @@ pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contract
 pub unsafe fn ucol_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(objloc: Param0, disploc: Param1, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getDisplayName(objloc: super::Foundation::PSTR, disploc: super::Foundation::PSTR, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -19149,7 +19149,7 @@ pub unsafe fn ucol_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -19164,7 +19164,7 @@ pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, d
 pub unsafe fn ucol_getFunctionalEquivalent<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultcapacity: i32, keyword: Param2, locale: Param3, isavailable: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getFunctionalEquivalent(result: super::Foundation::PSTR, resultcapacity: i32, keyword: super::Foundation::PSTR, locale: super::Foundation::PSTR, isavailable: *mut i8, status: *mut UErrorCode) -> i32;
         }
@@ -19179,7 +19179,7 @@ pub unsafe fn ucol_getFunctionalEquivalent<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ucol_getKeywordValues<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getKeywordValues(keyword: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -19194,7 +19194,7 @@ pub unsafe fn ucol_getKeywordValues<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ucol_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getKeywordValuesForLocale(key: super::Foundation::PSTR, locale: super::Foundation::PSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -19208,7 +19208,7 @@ pub unsafe fn ucol_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -19223,7 +19223,7 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
 pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -19237,7 +19237,7 @@ pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocal
 pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32;
         }
@@ -19251,7 +19251,7 @@ pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32)
 pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode;
         }
@@ -19265,7 +19265,7 @@ pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
 pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getOffset(elems: *const UCollationElements) -> i32;
         }
@@ -19279,7 +19279,7 @@ pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
 pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -19293,7 +19293,7 @@ pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destc
 pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16;
         }
@@ -19307,7 +19307,7 @@ pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u1
 pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32;
         }
@@ -19321,7 +19321,7 @@ pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buf
 pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32;
         }
@@ -19335,7 +19335,7 @@ pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, source
 pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue;
         }
@@ -19349,7 +19349,7 @@ pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
 pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet;
         }
@@ -19363,7 +19363,7 @@ pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCod
 pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8);
         }
@@ -19377,7 +19377,7 @@ pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
 pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32;
         }
@@ -19391,7 +19391,7 @@ pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCod
 pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_getVersion(coll: *const UCollator, info: *mut u8);
         }
@@ -19405,7 +19405,7 @@ pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
 pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
         }
@@ -19419,7 +19419,7 @@ pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelen
 pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8;
         }
@@ -19433,7 +19433,7 @@ pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, so
 pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_keyHashCode(key: *const u8, length: i32) -> i32;
         }
@@ -19447,7 +19447,7 @@ pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
 pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32;
         }
@@ -19461,7 +19461,7 @@ pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const 
 pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
         }
@@ -19475,7 +19475,7 @@ pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode)
 pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
         }
@@ -19490,7 +19490,7 @@ pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharItera
 pub unsafe fn ucol_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(loc: Param0, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_open(loc: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UCollator;
         }
@@ -19504,7 +19504,7 @@ pub unsafe fn ucol_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -19518,7 +19518,7 @@ pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumer
 pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator;
         }
@@ -19532,7 +19532,7 @@ pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollato
 pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements;
         }
@@ -19546,7 +19546,7 @@ pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textle
 pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator;
         }
@@ -19560,7 +19560,7 @@ pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationm
 pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
         }
@@ -19574,7 +19574,7 @@ pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorC
 pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_primaryOrder(order: i32) -> i32;
         }
@@ -19588,7 +19588,7 @@ pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
 pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_reset(elems: *mut UCollationElements);
         }
@@ -19602,7 +19602,7 @@ pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
 pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator;
         }
@@ -19616,7 +19616,7 @@ pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::f
 pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_secondaryOrder(order: i32) -> i32;
         }
@@ -19630,7 +19630,7 @@ pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
 pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode);
         }
@@ -19644,7 +19644,7 @@ pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value
 pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode);
         }
@@ -19658,7 +19658,7 @@ pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, 
 pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode);
         }
@@ -19672,7 +19672,7 @@ pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status
 pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode);
         }
@@ -19686,7 +19686,7 @@ pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i3
 pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue);
         }
@@ -19700,7 +19700,7 @@ pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValu
 pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
@@ -19714,7 +19714,7 @@ pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, tex
 pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult;
         }
@@ -19728,7 +19728,7 @@ pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelen
 pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult;
         }
@@ -19743,7 +19743,7 @@ pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator
 pub unsafe fn ucol_strcollUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(coll: *const UCollator, source: Param1, sourcelength: i32, target: Param3, targetlength: i32, status: *mut UErrorCode) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_strcollUTF8(coll: *const UCollator, source: super::Foundation::PSTR, sourcelength: i32, target: super::Foundation::PSTR, targetlength: i32, status: *mut UErrorCode) -> UCollationResult;
         }
@@ -19757,7 +19757,7 @@ pub unsafe fn ucol_strcollUTF8<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucol_tertiaryOrder(order: i32) -> i32;
         }
@@ -19771,7 +19771,7 @@ pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
 pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucpmap_get(map: *const UCPMap, c: i32) -> u32;
         }
@@ -19785,7 +19785,7 @@ pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
 pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::windows::core::RawPtr, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
         }
@@ -19799,7 +19799,7 @@ pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRang
 pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_close(trie: *mut UCPTrie);
         }
@@ -19813,7 +19813,7 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
 pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32;
         }
@@ -19827,7 +19827,7 @@ pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
 pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::windows::core::RawPtr, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
         }
@@ -19841,7 +19841,7 @@ pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapR
 pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType;
         }
@@ -19855,7 +19855,7 @@ pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
 pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth;
         }
@@ -19869,7 +19869,7 @@ pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
 pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32;
         }
@@ -19883,7 +19883,7 @@ pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
 pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32;
         }
@@ -19897,7 +19897,7 @@ pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u
 pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32;
         }
@@ -19911,7 +19911,7 @@ pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *
 pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
         }
@@ -19925,7 +19925,7 @@ pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieVal
 pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -19939,7 +19939,7 @@ pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_v
 pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_close(ucsd: *mut UCharsetDetector);
         }
@@ -19953,7 +19953,7 @@ pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
 pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch;
         }
@@ -19967,7 +19967,7 @@ pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode
 pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch;
         }
@@ -19981,7 +19981,7 @@ pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i
 pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8;
         }
@@ -19995,7 +19995,7 @@ pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) 
 pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -20009,7 +20009,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, sta
 pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32;
         }
@@ -20024,7 +20024,7 @@ pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErr
 pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -20039,7 +20039,7 @@ pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UError
 pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -20053,7 +20053,7 @@ pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode
 pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32;
         }
@@ -20067,7 +20067,7 @@ pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i
 pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8;
         }
@@ -20081,7 +20081,7 @@ pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
 pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector;
         }
@@ -20096,7 +20096,7 @@ pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
 pub unsafe fn ucsdet_setDeclaredEncoding<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ucsd: *mut UCharsetDetector, encoding: Param1, length: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_setDeclaredEncoding(ucsd: *mut UCharsetDetector, encoding: super::Foundation::PSTR, length: i32, status: *mut UErrorCode);
         }
@@ -20111,7 +20111,7 @@ pub unsafe fn ucsdet_setDeclaredEncoding<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn ucsdet_setText<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ucsd: *mut UCharsetDetector, textin: Param1, len: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucsdet_setText(ucsd: *mut UCharsetDetector, textin: super::Foundation::PSTR, len: i32, status: *mut UErrorCode);
         }
@@ -20126,7 +20126,7 @@ pub unsafe fn ucsdet_setText<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn ucurr_countCurrencies<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, date: f64, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_countCurrencies(locale: super::Foundation::PSTR, date: f64, ec: *mut UErrorCode) -> i32;
         }
@@ -20141,7 +20141,7 @@ pub unsafe fn ucurr_countCurrencies<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ucurr_forLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_forLocale(locale: super::Foundation::PSTR, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -20156,7 +20156,7 @@ pub unsafe fn ucurr_forLocale<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ucurr_forLocaleAndDate<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_forLocaleAndDate(locale: super::Foundation::PSTR, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -20170,7 +20170,7 @@ pub unsafe fn ucurr_forLocaleAndDate<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32;
         }
@@ -20184,7 +20184,7 @@ pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErr
 pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32;
         }
@@ -20199,7 +20199,7 @@ pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage
 pub unsafe fn ucurr_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getKeywordValuesForLocale(key: super::Foundation::PSTR, locale: super::Foundation::PSTR, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -20214,7 +20214,7 @@ pub unsafe fn ucurr_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoP
 pub unsafe fn ucurr_getName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(currency: *const u16, locale: Param1, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getName(currency: *const u16, locale: super::Foundation::PSTR, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
         }
@@ -20228,7 +20228,7 @@ pub unsafe fn ucurr_getName<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getNumericCode(currency: *const u16) -> i32;
         }
@@ -20243,7 +20243,7 @@ pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
 pub unsafe fn ucurr_getPluralName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(currency: *const u16, locale: Param1, ischoiceformat: *mut i8, pluralcount: Param3, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getPluralName(currency: *const u16, locale: super::Foundation::PSTR, ischoiceformat: *mut i8, pluralcount: super::Foundation::PSTR, len: *mut i32, ec: *mut UErrorCode) -> *mut u16;
         }
@@ -20257,7 +20257,7 @@ pub unsafe fn ucurr_getPluralName<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64;
         }
@@ -20271,7 +20271,7 @@ pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCo
 pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64;
         }
@@ -20285,7 +20285,7 @@ pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UC
 pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8;
         }
@@ -20299,7 +20299,7 @@ pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorco
 pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -20314,7 +20314,7 @@ pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode
 pub unsafe fn ucurr_register<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(isocode: *const u16, locale: Param1, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_register(isocode: *const u16, locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
         }
@@ -20328,7 +20328,7 @@ pub unsafe fn ucurr_register<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8;
         }
@@ -20342,7 +20342,7 @@ pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErro
 pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoadopt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoadopt: *mut *mut ::core::ffi::c_void);
         }
@@ -20356,7 +20356,7 @@ pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberf
 pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -20370,7 +20370,7 @@ pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void
 pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32);
         }
@@ -20384,7 +20384,7 @@ pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
 pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20398,7 +20398,7 @@ pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
 pub unsafe fn udat_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_close(format: *mut *mut ::core::ffi::c_void);
         }
@@ -20412,7 +20412,7 @@ pub unsafe fn udat_close(format: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn udat_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_countAvailable() -> i32;
         }
@@ -20426,7 +20426,7 @@ pub unsafe fn udat_countAvailable() -> i32 {
 pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType) -> i32;
         }
@@ -20440,7 +20440,7 @@ pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: 
 pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -20454,7 +20454,7 @@ pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoforma
 pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -20468,7 +20468,7 @@ pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, cal
 pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
         }
@@ -20482,7 +20482,7 @@ pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_
 pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
         }
@@ -20496,7 +20496,7 @@ pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, da
 pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -20511,7 +20511,7 @@ pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, st
 pub unsafe fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -20525,7 +20525,7 @@ pub unsafe fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
 pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8;
         }
@@ -20539,7 +20539,7 @@ pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, a
 pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20553,7 +20553,7 @@ pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *
 pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
         }
@@ -20568,7 +20568,7 @@ pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
 pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -20582,7 +20582,7 @@ pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
 pub unsafe fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20596,7 +20596,7 @@ pub unsafe fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *m
 pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_void, field: u16) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_void, field: u16) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20610,7 +20610,7 @@ pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_voi
 pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -20624,7 +20624,7 @@ pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UD
 pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8;
         }
@@ -20639,7 +20639,7 @@ pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
 pub unsafe fn udat_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Param2, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_open(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: super::Foundation::PSTR, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20653,7 +20653,7 @@ pub unsafe fn udat_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
         }
@@ -20667,7 +20667,7 @@ pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const
 pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode);
         }
@@ -20681,7 +20681,7 @@ pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, cale
 pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode);
         }
@@ -20695,7 +20695,7 @@ pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64
 pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode);
         }
@@ -20709,7 +20709,7 @@ pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr:
 pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset: *const *const ::core::ffi::c_void);
         }
@@ -20723,7 +20723,7 @@ pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset
 pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
         }
@@ -20737,7 +20737,7 @@ pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
 pub unsafe fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8);
         }
@@ -20751,7 +20751,7 @@ pub unsafe fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8)
 pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoset: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoset: *const *const ::core::ffi::c_void);
         }
@@ -20765,7 +20765,7 @@ pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberfor
 pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode);
         }
@@ -20779,7 +20779,7 @@ pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDa
 pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields;
         }
@@ -20793,7 +20793,7 @@ pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDate
 pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -20807,7 +20807,7 @@ pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: 
 pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict;
         }
@@ -20821,7 +20821,7 @@ pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *c
 pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -20835,7 +20835,7 @@ pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: 
 pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void);
         }
@@ -20849,7 +20849,7 @@ pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
         }
@@ -20863,7 +20863,7 @@ pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void
 pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16;
         }
@@ -20877,7 +20877,7 @@ pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, 
 pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -20891,7 +20891,7 @@ pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, 
 pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -20905,7 +20905,7 @@ pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleto
 pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -20919,7 +20919,7 @@ pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_vo
 pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
         }
@@ -20933,7 +20933,7 @@ pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
 pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16;
         }
@@ -20947,7 +20947,7 @@ pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength
 pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -20961,7 +20961,7 @@ pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void
 pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16;
         }
@@ -20975,7 +20975,7 @@ pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_vo
 pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -20990,7 +20990,7 @@ pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, patt
 pub unsafe fn udatpg_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_open(locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -21004,7 +21004,7 @@ pub unsafe fn udatpg_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -21018,7 +21018,7 @@ pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, 
 pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -21032,7 +21032,7 @@ pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core:
 pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -21046,7 +21046,7 @@ pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perr
 pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21060,7 +21060,7 @@ pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, patt
 pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21074,7 +21074,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c
 pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
         }
@@ -21088,7 +21088,7 @@ pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, fi
 pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
         }
@@ -21102,7 +21102,7 @@ pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, fiel
 pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32);
         }
@@ -21116,7 +21116,7 @@ pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
 pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32);
         }
@@ -21130,7 +21130,7 @@ pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *c
 pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_close(formatter: *mut UDateIntervalFormat);
         }
@@ -21144,7 +21144,7 @@ pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
 pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval);
         }
@@ -21158,7 +21158,7 @@ pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
 pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -21173,7 +21173,7 @@ pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: 
 pub unsafe fn udtitvfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_open(locale: super::Foundation::PSTR, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat;
         }
@@ -21187,7 +21187,7 @@ pub unsafe fn udtitvfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval;
         }
@@ -21201,7 +21201,7 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
 pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue;
         }
@@ -21215,7 +21215,7 @@ pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec
 pub unsafe fn uenum_close(en: *mut UEnumeration) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_close(en: *mut UEnumeration);
         }
@@ -21229,7 +21229,7 @@ pub unsafe fn uenum_close(en: *mut UEnumeration) {
 pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         }
@@ -21244,7 +21244,7 @@ pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32
 pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -21258,7 +21258,7 @@ pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: 
 pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -21272,7 +21272,7 @@ pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count:
 pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -21286,7 +21286,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, coun
 pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode);
         }
@@ -21300,7 +21300,7 @@ pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
 pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -21314,7 +21314,7 @@ pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status:
 pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator);
         }
@@ -21328,7 +21328,7 @@ pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
 pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32;
         }
@@ -21342,7 +21342,7 @@ pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginind
 pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator;
         }
@@ -21356,7 +21356,7 @@ pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPosition
 pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void);
         }
@@ -21370,7 +21370,7 @@ pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -21384,7 +21384,7 @@ pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i3
 pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
         }
@@ -21398,7 +21398,7 @@ pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status
 pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -21413,7 +21413,7 @@ pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut 
 pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -21427,7 +21427,7 @@ pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut 
 pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -21441,7 +21441,7 @@ pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UE
 pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64;
         }
@@ -21455,7 +21455,7 @@ pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UEr
 pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32;
         }
@@ -21469,7 +21469,7 @@ pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErr
 pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
         }
@@ -21483,7 +21483,7 @@ pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mu
 pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType;
         }
@@ -21497,7 +21497,7 @@ pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut 
 pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -21511,7 +21511,7 @@ pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, 
 pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8;
         }
@@ -21525,7 +21525,7 @@ pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
 pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -21539,7 +21539,7 @@ pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_voi
 pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16;
         }
@@ -21553,7 +21553,7 @@ pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i
 pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8;
         }
@@ -21568,7 +21568,7 @@ pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut
 pub unsafe fn ugender_getInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UGenderInfo {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ugender_getInstance(locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UGenderInfo;
         }
@@ -21582,7 +21582,7 @@ pub unsafe fn ugender_getInstance<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender;
         }
@@ -21596,7 +21596,7 @@ pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *co
 pub unsafe fn uidna_close(idna: *mut UIDNA) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_close(idna: *mut UIDNA);
         }
@@ -21610,7 +21610,7 @@ pub unsafe fn uidna_close(idna: *mut UIDNA) {
 pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21625,7 +21625,7 @@ pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: 
 pub unsafe fn uidna_labelToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, label: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_labelToASCII_UTF8(idna: *const UIDNA, label: super::Foundation::PSTR, length: i32, dest: super::Foundation::PSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21639,7 +21639,7 @@ pub unsafe fn uidna_labelToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21654,7 +21654,7 @@ pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length
 pub unsafe fn uidna_labelToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, label: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_labelToUnicodeUTF8(idna: *const UIDNA, label: super::Foundation::PSTR, length: i32, dest: super::Foundation::PSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21668,7 +21668,7 @@ pub unsafe fn uidna_labelToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21683,7 +21683,7 @@ pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i3
 pub unsafe fn uidna_nameToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, name: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_nameToASCII_UTF8(idna: *const UIDNA, name: super::Foundation::PSTR, length: i32, dest: super::Foundation::PSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21697,7 +21697,7 @@ pub unsafe fn uidna_nameToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21712,7 +21712,7 @@ pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: 
 pub unsafe fn uidna_nameToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, name: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_nameToUnicodeUTF8(idna: *const UIDNA, name: super::Foundation::PSTR, length: i32, dest: super::Foundation::PSTR, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21726,7 +21726,7 @@ pub unsafe fn uidna_nameToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA;
         }
@@ -21740,7 +21740,7 @@ pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut
 pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_current32(iter: *mut UCharIterator) -> i32;
         }
@@ -21754,7 +21754,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_getState(iter: *const UCharIterator) -> u32;
         }
@@ -21768,7 +21768,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
 pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_next32(iter: *mut UCharIterator) -> i32;
         }
@@ -21782,7 +21782,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_previous32(iter: *mut UCharIterator) -> i32;
         }
@@ -21796,7 +21796,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
         }
@@ -21810,7 +21810,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
 pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32);
         }
@@ -21825,7 +21825,7 @@ pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i
 pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(iter: *mut UCharIterator, s: Param1, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_setUTF16BE(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
@@ -21840,7 +21840,7 @@ pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(iter: *mut UCharIterator, s: Param1, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uiter_setUTF8(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
@@ -21854,7 +21854,7 @@ pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_close(ldn: *mut ULocaleDisplayNames);
         }
@@ -21868,7 +21868,7 @@ pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
 pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext;
         }
@@ -21882,7 +21882,7 @@ pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayC
 pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling;
         }
@@ -21897,7 +21897,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
 pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundation::PSTR;
         }
@@ -21912,7 +21912,7 @@ pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundati
 pub unsafe fn uldn_keyDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, key: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_keyDisplayName(ldn: *const ULocaleDisplayNames, key: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21927,7 +21927,7 @@ pub unsafe fn uldn_keyDisplayName<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uldn_keyValueDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, key: Param1, value: Param2, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_keyValueDisplayName(ldn: *const ULocaleDisplayNames, key: super::Foundation::PSTR, value: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21942,7 +21942,7 @@ pub unsafe fn uldn_keyValueDisplayName<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn uldn_languageDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, lang: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_languageDisplayName(ldn: *const ULocaleDisplayNames, lang: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21957,7 +21957,7 @@ pub unsafe fn uldn_languageDisplayName<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn uldn_localeDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, locale: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_localeDisplayName(ldn: *const ULocaleDisplayNames, locale: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -21972,7 +21972,7 @@ pub unsafe fn uldn_localeDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn uldn_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_open(locale: super::Foundation::PSTR, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames;
         }
@@ -21987,7 +21987,7 @@ pub unsafe fn uldn_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn uldn_openForContext<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_openForContext(locale: super::Foundation::PSTR, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames;
         }
@@ -22002,7 +22002,7 @@ pub unsafe fn uldn_openForContext<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uldn_regionDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, region: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_regionDisplayName(ldn: *const ULocaleDisplayNames, region: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -22016,7 +22016,7 @@ pub unsafe fn uldn_regionDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -22031,7 +22031,7 @@ pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, script
 pub unsafe fn uldn_scriptDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, script: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_scriptDisplayName(ldn: *const ULocaleDisplayNames, script: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -22046,7 +22046,7 @@ pub unsafe fn uldn_scriptDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn uldn_variantDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, variant: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uldn_variantDisplayName(ldn: *const ULocaleDisplayNames, variant: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -22060,7 +22060,7 @@ pub unsafe fn uldn_variantDisplayName<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_close(listfmt: *mut UListFormatter);
         }
@@ -22074,7 +22074,7 @@ pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
 pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_closeResult(uresult: *mut UFormattedList);
         }
@@ -22088,7 +22088,7 @@ pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
 pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22102,7 +22102,7 @@ pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *c
 pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode);
         }
@@ -22117,7 +22117,7 @@ pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, str
 pub unsafe fn ulistfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UListFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_open(locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UListFormatter;
         }
@@ -22132,7 +22132,7 @@ pub unsafe fn ulistfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ulistfmt_openForType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, r#type: UListFormatterType, width: UListFormatterWidth, status: *mut UErrorCode) -> *mut UListFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_openForType(locale: super::Foundation::PSTR, r#type: UListFormatterType, width: UListFormatterWidth, status: *mut UErrorCode) -> *mut UListFormatter;
         }
@@ -22146,7 +22146,7 @@ pub unsafe fn ulistfmt_openForType<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList;
         }
@@ -22160,7 +22160,7 @@ pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
 pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue;
         }
@@ -22175,7 +22175,7 @@ pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UE
 pub unsafe fn uloc_acceptLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_acceptLanguage(result: super::Foundation::PSTR, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         }
@@ -22190,7 +22190,7 @@ pub unsafe fn uloc_acceptLanguage<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uloc_acceptLanguageFromHTTP<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: Param3, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_acceptLanguageFromHTTP(result: super::Foundation::PSTR, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: super::Foundation::PSTR, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         }
@@ -22205,7 +22205,7 @@ pub unsafe fn uloc_acceptLanguageFromHTTP<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn uloc_addLikelySubtags<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, maximizedlocaleid: Param1, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_addLikelySubtags(localeid: super::Foundation::PSTR, maximizedlocaleid: super::Foundation::PSTR, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22220,7 +22220,7 @@ pub unsafe fn uloc_addLikelySubtags<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn uloc_canonicalize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_canonicalize(localeid: super::Foundation::PSTR, name: super::Foundation::PSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22234,7 +22234,7 @@ pub unsafe fn uloc_canonicalize<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn uloc_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_countAvailable() -> i32;
         }
@@ -22249,7 +22249,7 @@ pub unsafe fn uloc_countAvailable() -> i32 {
 pub unsafe fn uloc_forLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(langtag: Param0, localeid: Param1, localeidcapacity: i32, parsedlength: *mut i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_forLanguageTag(langtag: super::Foundation::PSTR, localeid: super::Foundation::PSTR, localeidcapacity: i32, parsedlength: *mut i32, err: *mut UErrorCode) -> i32;
         }
@@ -22264,7 +22264,7 @@ pub unsafe fn uloc_forLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR;
         }
@@ -22279,7 +22279,7 @@ pub unsafe fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR {
 pub unsafe fn uloc_getBaseName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getBaseName(localeid: super::Foundation::PSTR, name: super::Foundation::PSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22294,7 +22294,7 @@ pub unsafe fn uloc_getBaseName<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn uloc_getCharacterOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> ULayoutType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getCharacterOrientation(localeid: super::Foundation::PSTR, status: *mut UErrorCode) -> ULayoutType;
         }
@@ -22309,7 +22309,7 @@ pub unsafe fn uloc_getCharacterOrientation<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn uloc_getCountry<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, country: Param1, countrycapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getCountry(localeid: super::Foundation::PSTR, country: super::Foundation::PSTR, countrycapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22324,7 +22324,7 @@ pub unsafe fn uloc_getCountry<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn uloc_getDefault() -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDefault() -> super::Foundation::PSTR;
         }
@@ -22339,7 +22339,7 @@ pub unsafe fn uloc_getDefault() -> super::Foundation::PSTR {
 pub unsafe fn uloc_getDisplayCountry<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, country: *mut u16, countrycapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayCountry(locale: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, country: *mut u16, countrycapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22354,7 +22354,7 @@ pub unsafe fn uloc_getDisplayCountry<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn uloc_getDisplayKeyword<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, displaylocale: Param1, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayKeyword(keyword: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22369,7 +22369,7 @@ pub unsafe fn uloc_getDisplayKeyword<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn uloc_getDisplayKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, keyword: Param1, displaylocale: Param2, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayKeywordValue(locale: super::Foundation::PSTR, keyword: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22384,7 +22384,7 @@ pub unsafe fn uloc_getDisplayKeywordValue<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn uloc_getDisplayLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayLanguage(locale: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22399,7 +22399,7 @@ pub unsafe fn uloc_getDisplayLanguage<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn uloc_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, inlocaleid: Param1, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayName(localeid: super::Foundation::PSTR, inlocaleid: super::Foundation::PSTR, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22414,7 +22414,7 @@ pub unsafe fn uloc_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uloc_getDisplayScript<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayScript(locale: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22429,7 +22429,7 @@ pub unsafe fn uloc_getDisplayScript<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn uloc_getDisplayVariant<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getDisplayVariant(locale: super::Foundation::PSTR, displaylocale: super::Foundation::PSTR, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22444,7 +22444,7 @@ pub unsafe fn uloc_getDisplayVariant<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn uloc_getISO3Country<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getISO3Country(localeid: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22459,7 +22459,7 @@ pub unsafe fn uloc_getISO3Country<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn uloc_getISO3Language<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getISO3Language(localeid: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22473,7 +22473,7 @@ pub unsafe fn uloc_getISO3Language<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getISOCountries() -> *mut *mut i8;
         }
@@ -22487,7 +22487,7 @@ pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
 pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getISOLanguages() -> *mut *mut i8;
         }
@@ -22502,7 +22502,7 @@ pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
 pub unsafe fn uloc_getKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, keywordname: Param1, buffer: Param2, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getKeywordValue(localeid: super::Foundation::PSTR, keywordname: super::Foundation::PSTR, buffer: super::Foundation::PSTR, buffercapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22517,7 +22517,7 @@ pub unsafe fn uloc_getKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn uloc_getLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getLCID(localeid: super::Foundation::PSTR) -> u32;
         }
@@ -22532,7 +22532,7 @@ pub unsafe fn uloc_getLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn uloc_getLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, language: Param1, languagecapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getLanguage(localeid: super::Foundation::PSTR, language: super::Foundation::PSTR, languagecapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22547,7 +22547,7 @@ pub unsafe fn uloc_getLanguage<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn uloc_getLineOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> ULayoutType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getLineOrientation(localeid: super::Foundation::PSTR, status: *mut UErrorCode) -> ULayoutType;
         }
@@ -22562,7 +22562,7 @@ pub unsafe fn uloc_getLineOrientation<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn uloc_getLocaleForLCID<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(hostid: u32, locale: Param1, localecapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getLocaleForLCID(hostid: u32, locale: super::Foundation::PSTR, localecapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22577,7 +22577,7 @@ pub unsafe fn uloc_getLocaleForLCID<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn uloc_getName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getName(localeid: super::Foundation::PSTR, name: super::Foundation::PSTR, namecapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22592,7 +22592,7 @@ pub unsafe fn uloc_getName<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn uloc_getParent<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, parent: Param1, parentcapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getParent(localeid: super::Foundation::PSTR, parent: super::Foundation::PSTR, parentcapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22607,7 +22607,7 @@ pub unsafe fn uloc_getParent<'a, Param0: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn uloc_getScript<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, script: Param1, scriptcapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getScript(localeid: super::Foundation::PSTR, script: super::Foundation::PSTR, scriptcapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22622,7 +22622,7 @@ pub unsafe fn uloc_getScript<'a, Param0: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn uloc_getVariant<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, variant: Param1, variantcapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_getVariant(localeid: super::Foundation::PSTR, variant: super::Foundation::PSTR, variantcapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22637,7 +22637,7 @@ pub unsafe fn uloc_getVariant<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn uloc_isRightToLeft<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_isRightToLeft(locale: super::Foundation::PSTR) -> i8;
         }
@@ -22652,7 +22652,7 @@ pub unsafe fn uloc_isRightToLeft<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn uloc_minimizeSubtags<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, minimizedlocaleid: Param1, minimizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_minimizeSubtags(localeid: super::Foundation::PSTR, minimizedlocaleid: super::Foundation::PSTR, minimizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -22666,7 +22666,7 @@ pub unsafe fn uloc_minimizeSubtags<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -22681,7 +22681,7 @@ pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut U
 pub unsafe fn uloc_openKeywords<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_openKeywords(localeid: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -22696,7 +22696,7 @@ pub unsafe fn uloc_openKeywords<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn uloc_setDefault<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_setDefault(localeid: super::Foundation::PSTR, status: *mut UErrorCode);
         }
@@ -22711,7 +22711,7 @@ pub unsafe fn uloc_setDefault<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn uloc_setKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keywordname: Param0, keywordvalue: Param1, buffer: Param2, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_setKeywordValue(keywordname: super::Foundation::PSTR, keywordvalue: super::Foundation::PSTR, buffer: super::Foundation::PSTR, buffercapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22726,7 +22726,7 @@ pub unsafe fn uloc_setKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn uloc_toLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, langtag: Param1, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_toLanguageTag(localeid: super::Foundation::PSTR, langtag: super::Foundation::PSTR, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32;
         }
@@ -22741,7 +22741,7 @@ pub unsafe fn uloc_toLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn uloc_toLegacyKey<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_toLegacyKey(keyword: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22756,7 +22756,7 @@ pub unsafe fn uloc_toLegacyKey<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn uloc_toLegacyType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, value: Param1) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_toLegacyType(keyword: super::Foundation::PSTR, value: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22771,7 +22771,7 @@ pub unsafe fn uloc_toLegacyType<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn uloc_toUnicodeLocaleKey<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_toUnicodeLocaleKey(keyword: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22786,7 +22786,7 @@ pub unsafe fn uloc_toUnicodeLocaleKey<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn uloc_toUnicodeLocaleType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, value: Param1) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uloc_toUnicodeLocaleType(keyword: super::Foundation::PSTR, value: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -22800,7 +22800,7 @@ pub unsafe fn uloc_toUnicodeLocaleType<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_close(uld: *mut ULocaleData);
         }
@@ -22814,7 +22814,7 @@ pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
 pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode);
         }
@@ -22828,7 +22828,7 @@ pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UError
 pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22842,7 +22842,7 @@ pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDe
 pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet;
         }
@@ -22856,7 +22856,7 @@ pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, 
 pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22870,7 +22870,7 @@ pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *
 pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -22885,7 +22885,7 @@ pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut
 pub unsafe fn ulocdata_getMeasurementSystem<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> UMeasurementSystem {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getMeasurementSystem(localeid: super::Foundation::PSTR, status: *mut UErrorCode) -> UMeasurementSystem;
         }
@@ -22899,7 +22899,7 @@ pub unsafe fn ulocdata_getMeasurementSystem<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8;
         }
@@ -22914,7 +22914,7 @@ pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
 pub unsafe fn ulocdata_getPaperSize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, height: *mut i32, width: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_getPaperSize(localeid: super::Foundation::PSTR, height: *mut i32, width: *mut i32, status: *mut UErrorCode);
         }
@@ -22929,7 +22929,7 @@ pub unsafe fn ulocdata_getPaperSize<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ulocdata_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> *mut ULocaleData {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_open(localeid: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut ULocaleData;
         }
@@ -22943,7 +22943,7 @@ pub unsafe fn ulocdata_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8);
         }
@@ -22957,7 +22957,7 @@ pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
 pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
@@ -22971,7 +22971,7 @@ pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *co
 pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -22985,7 +22985,7 @@ pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, 
 pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void;
         }
@@ -22999,7 +22999,7 @@ pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
 pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_close(format: *mut *mut ::core::ffi::c_void);
         }
@@ -23013,7 +23013,7 @@ pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -23028,7 +23028,7 @@ pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u
 pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> super::Foundation::PSTR;
         }
@@ -23043,7 +23043,7 @@ pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> super::F
 pub unsafe fn umsg_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: *const u16, patternlength: i32, locale: Param2, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_open(pattern: *const u16, patternlength: i32, locale: super::Foundation::PSTR, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -23057,7 +23057,7 @@ pub unsafe fn umsg_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode);
         }
@@ -23072,7 +23072,7 @@ pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const 
 pub unsafe fn umsg_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *mut *mut ::core::ffi::c_void, locale: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_setLocale(fmt: *mut *mut ::core::ffi::c_void, locale: super::Foundation::PSTR);
         }
@@ -23086,7 +23086,7 @@ pub unsafe fn umsg_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -23100,7 +23100,7 @@ pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mu
 pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32;
         }
@@ -23114,7 +23114,7 @@ pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut 
 pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode);
         }
@@ -23128,7 +23128,7 @@ pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const
 pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie;
         }
@@ -23142,7 +23142,7 @@ pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: U
 pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
         }
@@ -23156,7 +23156,7 @@ pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mu
 pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_close(trie: *mut UMutableCPTrie);
         }
@@ -23170,7 +23170,7 @@ pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
 pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
         }
@@ -23184,7 +23184,7 @@ pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UEr
 pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
         }
@@ -23198,7 +23198,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut 
 pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32;
         }
@@ -23212,7 +23212,7 @@ pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
 pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::windows::core::RawPtr, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
         }
@@ -23226,7 +23226,7 @@ pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, o
 pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
         }
@@ -23240,7 +23240,7 @@ pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode
 pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode);
         }
@@ -23254,7 +23254,7 @@ pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, 
 pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode);
         }
@@ -23268,7 +23268,7 @@ pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end
 pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23282,7 +23282,7 @@ pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstle
 pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_close(norm2: *mut UNormalizer2);
         }
@@ -23296,7 +23296,7 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
 pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32;
         }
@@ -23310,7 +23310,7 @@ pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> 
 pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8;
         }
@@ -23324,7 +23324,7 @@ pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8
 pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23339,7 +23339,7 @@ pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomp
 pub unsafe fn unorm2_getInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, name: Param1, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getInstance(packagename: super::Foundation::PSTR, name: super::Foundation::PSTR, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23353,7 +23353,7 @@ pub unsafe fn unorm2_getInstance<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23367,7 +23367,7 @@ pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23381,7 +23381,7 @@ pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23395,7 +23395,7 @@ pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mu
 pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23409,7 +23409,7 @@ pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23423,7 +23423,7 @@ pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23437,7 +23437,7 @@ pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, dec
 pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -23451,7 +23451,7 @@ pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 
 pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -23465,7 +23465,7 @@ pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8
 pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -23479,7 +23479,7 @@ pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
 pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8;
         }
@@ -23493,7 +23493,7 @@ pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, len
 pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23507,7 +23507,7 @@ pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, leng
 pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23521,7 +23521,7 @@ pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first:
 pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -23535,7 +23535,7 @@ pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const 
 pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult;
         }
@@ -23549,7 +23549,7 @@ pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, lengt
 pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23563,7 +23563,7 @@ pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16
 pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -23577,7 +23577,7 @@ pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length
 pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
@@ -23591,7 +23591,7 @@ pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
 pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -23605,7 +23605,7 @@ pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
 pub unsafe fn unum_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_close(fmt: *mut *mut ::core::ffi::c_void);
         }
@@ -23619,7 +23619,7 @@ pub unsafe fn unum_close(fmt: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn unum_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_countAvailable() -> i32;
         }
@@ -23633,7 +23633,7 @@ pub unsafe fn unum_countAvailable() -> i32 {
 pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23648,7 +23648,7 @@ pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, r
 pub unsafe fn unum_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *const *const ::core::ffi::c_void, number: Param1, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatDecimal(fmt: *const *const ::core::ffi::c_void, number: super::Foundation::PSTR, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23662,7 +23662,7 @@ pub unsafe fn unum_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23676,7 +23676,7 @@ pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: 
 pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23690,7 +23690,7 @@ pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, 
 pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32;
         }
@@ -23704,7 +23704,7 @@ pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_vo
 pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23718,7 +23718,7 @@ pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i
 pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32;
         }
@@ -23732,7 +23732,7 @@ pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, nu
 pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> i32;
         }
@@ -23747,7 +23747,7 @@ pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UN
 pub unsafe fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -23761,7 +23761,7 @@ pub unsafe fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
 pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext;
         }
@@ -23775,7 +23775,7 @@ pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
 pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> f64;
         }
@@ -23790,7 +23790,7 @@ pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, at
 pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -23804,7 +23804,7 @@ pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
 pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32;
         }
@@ -23818,7 +23818,7 @@ pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNu
 pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -23833,7 +23833,7 @@ pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag:
 pub unsafe fn unum_open<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: Param3, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_open(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: super::Foundation::PSTR, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -23847,7 +23847,7 @@ pub unsafe fn unum_open<'a, Param3: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32;
         }
@@ -23862,7 +23862,7 @@ pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u1
 pub unsafe fn unum_parseDecimal<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: Param4, outbuflength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parseDecimal(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: super::Foundation::PSTR, outbuflength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -23876,7 +23876,7 @@ pub unsafe fn unum_parseDecimal<'a, Param4: ::windows::core::IntoParam<'a, super
 pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64;
         }
@@ -23890,7 +23890,7 @@ pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *co
 pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64;
         }
@@ -23904,7 +23904,7 @@ pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, t
 pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64;
         }
@@ -23918,7 +23918,7 @@ pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *con
 pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -23932,7 +23932,7 @@ pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, r
 pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: i32);
         }
@@ -23946,7 +23946,7 @@ pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumbe
 pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
         }
@@ -23960,7 +23960,7 @@ pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
 pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: f64);
         }
@@ -23974,7 +23974,7 @@ pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: 
 pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode);
         }
@@ -23988,7 +23988,7 @@ pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumber
 pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode);
         }
@@ -24002,7 +24002,7 @@ pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNu
 pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24016,7 +24016,7 @@ pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlo
 pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_close(uformatter: *mut UNumberFormatter);
         }
@@ -24030,7 +24030,7 @@ pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
 pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_closeResult(uresult: *mut UFormattedNumber);
         }
@@ -24045,7 +24045,7 @@ pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
 pub unsafe fn unumf_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(uformatter: *const UNumberFormatter, value: Param1, valuelen: i32, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_formatDecimal(uformatter: *const UNumberFormatter, value: super::Foundation::PSTR, valuelen: i32, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
@@ -24059,7 +24059,7 @@ pub unsafe fn unumf_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
@@ -24073,7 +24073,7 @@ pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64
 pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
@@ -24088,7 +24088,7 @@ pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, u
 pub unsafe fn unumf_openForSkeletonAndLocale<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(skeleton: *const u16, skeletonlen: i32, locale: Param2, ec: *mut UErrorCode) -> *mut UNumberFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_openForSkeletonAndLocale(skeleton: *const u16, skeletonlen: i32, locale: super::Foundation::PSTR, ec: *mut UErrorCode) -> *mut UNumberFormatter;
         }
@@ -24103,7 +24103,7 @@ pub unsafe fn unumf_openForSkeletonAndLocale<'a, Param2: ::windows::core::IntoPa
 pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(skeleton: *const u16, skeletonlen: i32, locale: Param2, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_openForSkeletonAndLocaleWithError(skeleton: *const u16, skeletonlen: i32, locale: super::Foundation::PSTR, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter;
         }
@@ -24117,7 +24117,7 @@ pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, Param2: ::windows::cor
 pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber;
         }
@@ -24131,7 +24131,7 @@ pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
 pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue;
         }
@@ -24145,7 +24145,7 @@ pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UEr
 pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode);
         }
@@ -24159,7 +24159,7 @@ pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber,
 pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8;
         }
@@ -24173,7 +24173,7 @@ pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, uf
 pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -24187,7 +24187,7 @@ pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mu
 pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_close(unumsys: *mut UNumberingSystem);
         }
@@ -24201,7 +24201,7 @@ pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
 pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24216,7 +24216,7 @@ pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *
 pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Foundation::PSTR;
         }
@@ -24230,7 +24230,7 @@ pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Founda
 pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32;
         }
@@ -24244,7 +24244,7 @@ pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
 pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8;
         }
@@ -24259,7 +24259,7 @@ pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
 pub unsafe fn unumsys_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UNumberingSystem {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_open(locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UNumberingSystem;
         }
@@ -24273,7 +24273,7 @@ pub unsafe fn unumsys_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -24288,7 +24288,7 @@ pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnume
 pub unsafe fn unumsys_openByName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, status: *mut UErrorCode) -> *mut UNumberingSystem {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn unumsys_openByName(name: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UNumberingSystem;
         }
@@ -24302,7 +24302,7 @@ pub unsafe fn unumsys_openByName<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_close(uplrules: *mut UPluralRules);
         }
@@ -24316,7 +24316,7 @@ pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
 pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -24331,7 +24331,7 @@ pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut U
 pub unsafe fn uplrules_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UPluralRules {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_open(locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UPluralRules;
         }
@@ -24346,7 +24346,7 @@ pub unsafe fn uplrules_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn uplrules_openForType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, r#type: UPluralType, status: *mut UErrorCode) -> *mut UPluralRules {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_openForType(locale: super::Foundation::PSTR, r#type: UPluralType, status: *mut UErrorCode) -> *mut UPluralRules;
         }
@@ -24360,7 +24360,7 @@ pub unsafe fn uplrules_openForType<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24374,7 +24374,7 @@ pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keywor
 pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24388,7 +24388,7 @@ pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *c
 pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
         }
@@ -24402,7 +24402,7 @@ pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacem
 pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode);
         }
@@ -24416,7 +24416,7 @@ pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, rep
 pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32;
         }
@@ -24430,7 +24430,7 @@ pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *
 pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
         }
@@ -24444,7 +24444,7 @@ pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut
 pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression;
         }
@@ -24458,7 +24458,7 @@ pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErro
 pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_close(regexp: *mut URegularExpression);
         }
@@ -24472,7 +24472,7 @@ pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
 pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24486,7 +24486,7 @@ pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status:
 pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
         }
@@ -24500,7 +24500,7 @@ pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, statu
 pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
         }
@@ -24514,7 +24514,7 @@ pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, stat
 pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
         }
@@ -24528,7 +24528,7 @@ pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, st
 pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -24542,7 +24542,7 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
 pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24556,7 +24556,7 @@ pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErro
 pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -24570,7 +24570,7 @@ pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, 
 pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -24584,7 +24584,7 @@ pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callbac
 pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24598,7 +24598,7 @@ pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *m
 pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -24612,7 +24612,7 @@ pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i
 pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24626,7 +24626,7 @@ pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mu
 pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
         }
@@ -24640,7 +24640,7 @@ pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText,
 pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24654,7 +24654,7 @@ pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest:
 pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24669,7 +24669,7 @@ pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UE
 pub unsafe fn uregex_groupNumberFromCName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(regexp: *mut URegularExpression, groupname: Param1, namelength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_groupNumberFromCName(regexp: *mut URegularExpression, groupname: super::Foundation::PSTR, namelength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24683,7 +24683,7 @@ pub unsafe fn uregex_groupNumberFromCName<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24697,7 +24697,7 @@ pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupn
 pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText;
         }
@@ -24711,7 +24711,7 @@ pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, 
 pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -24725,7 +24725,7 @@ pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, statu
 pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -24739,7 +24739,7 @@ pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, sta
 pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -24753,7 +24753,7 @@ pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErr
 pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
         }
@@ -24767,7 +24767,7 @@ pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32,
 pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
         }
@@ -24781,7 +24781,7 @@ pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i6
 pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8;
         }
@@ -24795,7 +24795,7 @@ pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, s
 pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
         }
@@ -24809,7 +24809,7 @@ pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64,
 pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
         }
@@ -24824,7 +24824,7 @@ pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, p
 pub unsafe fn uregex_openC<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: Param0, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_openC(pattern: super::Foundation::PSTR, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
         }
@@ -24838,7 +24838,7 @@ pub unsafe fn uregex_openC<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression;
         }
@@ -24852,7 +24852,7 @@ pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseE
 pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -24866,7 +24866,7 @@ pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut 
 pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText;
         }
@@ -24880,7 +24880,7 @@ pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mu
 pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
         }
@@ -24894,7 +24894,7 @@ pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UT
 pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24908,7 +24908,7 @@ pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut U
 pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
         }
@@ -24922,7 +24922,7 @@ pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut
 pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -24936,7 +24936,7 @@ pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut
 pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64;
         }
@@ -24950,7 +24950,7 @@ pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *m
 pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24964,7 +24964,7 @@ pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext
 pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
         }
@@ -24978,7 +24978,7 @@ pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacemen
 pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -24992,7 +24992,7 @@ pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementte
 pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText;
         }
@@ -25006,7 +25006,7 @@ pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacem
 pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -25020,7 +25020,7 @@ pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut 
 pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode);
         }
@@ -25034,7 +25034,7 @@ pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: 
 pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode);
         }
@@ -25048,7 +25048,7 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
 pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -25062,7 +25062,7 @@ pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, ca
 pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -25076,7 +25076,7 @@ pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback:
 pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode);
         }
@@ -25090,7 +25090,7 @@ pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32
 pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode);
         }
@@ -25104,7 +25104,7 @@ pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i
 pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode);
         }
@@ -25118,7 +25118,7 @@ pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionst
 pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
         }
@@ -25132,7 +25132,7 @@ pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, 
 pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
@@ -25146,7 +25146,7 @@ pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, 
 pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
         }
@@ -25160,7 +25160,7 @@ pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, s
 pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
         }
@@ -25174,7 +25174,7 @@ pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText,
 pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25188,7 +25188,7 @@ pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, d
 pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25202,7 +25202,7 @@ pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mu
 pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25216,7 +25216,7 @@ pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, statu
 pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64;
         }
@@ -25230,7 +25230,7 @@ pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, sta
 pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
         }
@@ -25244,7 +25244,7 @@ pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, 
 pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
         }
@@ -25258,7 +25258,7 @@ pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8
 pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8;
         }
@@ -25272,7 +25272,7 @@ pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const UReg
 pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8;
         }
@@ -25286,7 +25286,7 @@ pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const UReg
 pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -25300,7 +25300,7 @@ pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode)
 pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -25314,7 +25314,7 @@ pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut 
 pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -25328,7 +25328,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type:
 pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion;
         }
@@ -25342,7 +25342,7 @@ pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegi
 pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion;
         }
@@ -25356,7 +25356,7 @@ pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type:
 pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getNumericCode(uregion: *const URegion) -> i32;
         }
@@ -25370,7 +25370,7 @@ pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
 pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -25385,7 +25385,7 @@ pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut U
 pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundation::PSTR;
         }
@@ -25400,7 +25400,7 @@ pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundatio
 pub unsafe fn uregion_getRegionFromCode<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(regioncode: Param0, status: *mut UErrorCode) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getRegionFromCode(regioncode: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut URegion;
         }
@@ -25414,7 +25414,7 @@ pub unsafe fn uregion_getRegionFromCode<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion;
         }
@@ -25428,7 +25428,7 @@ pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCod
 pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uregion_getType(uregion: *const URegion) -> URegionType;
         }
@@ -25442,7 +25442,7 @@ pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
 pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter);
         }
@@ -25456,7 +25456,7 @@ pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
 pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime);
         }
@@ -25470,7 +25470,7 @@ pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
 pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25484,7 +25484,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTim
 pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25498,7 +25498,7 @@ pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, 
 pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -25512,7 +25512,7 @@ pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeForm
 pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
         }
@@ -25526,7 +25526,7 @@ pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDate
 pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
         }
@@ -25541,7 +25541,7 @@ pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFor
 pub unsafe fn ureldatefmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_open(locale: super::Foundation::PSTR, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter;
         }
@@ -25555,7 +25555,7 @@ pub unsafe fn ureldatefmt_open<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime;
         }
@@ -25569,7 +25569,7 @@ pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRela
 pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue;
         }
@@ -25583,7 +25583,7 @@ pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime
 pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_close(resourcebundle: *mut UResourceBundle);
         }
@@ -25597,7 +25597,7 @@ pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
 pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8;
         }
@@ -25611,7 +25611,7 @@ pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i
 pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25626,7 +25626,7 @@ pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i3
 pub unsafe fn ures_getByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resourcebundle: *const UResourceBundle, key: Param1, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getByKey(resourcebundle: *const UResourceBundle, key: super::Foundation::PSTR, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25640,7 +25640,7 @@ pub unsafe fn ures_getByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32;
         }
@@ -25654,7 +25654,7 @@ pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut U
 pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32;
         }
@@ -25669,7 +25669,7 @@ pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mu
 pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foundation::PSTR;
         }
@@ -25684,7 +25684,7 @@ pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foun
 pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -25698,7 +25698,7 @@ pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#typ
 pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25712,7 +25712,7 @@ pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin:
 pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16;
         }
@@ -25726,7 +25726,7 @@ pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut
 pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32;
         }
@@ -25740,7 +25740,7 @@ pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
 pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -25754,7 +25754,7 @@ pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i
 pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -25769,7 +25769,7 @@ pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, inde
 pub unsafe fn ures_getStringByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, key: Param1, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getStringByKey(resb: *const UResourceBundle, key: super::Foundation::PSTR, len: *mut i32, status: *mut UErrorCode) -> *mut u16;
         }
@@ -25783,7 +25783,7 @@ pub unsafe fn ures_getStringByKey<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType;
         }
@@ -25797,7 +25797,7 @@ pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
 pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32;
         }
@@ -25812,7 +25812,7 @@ pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut 
 pub unsafe fn ures_getUTF8String<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, dest: Param1, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getUTF8String(resb: *const UResourceBundle, dest: super::Foundation::PSTR, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -25827,7 +25827,7 @@ pub unsafe fn ures_getUTF8String<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ures_getUTF8StringByIndex<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, stringindex: i32, dest: Param2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getUTF8StringByIndex(resb: *const UResourceBundle, stringindex: i32, dest: super::Foundation::PSTR, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -25842,7 +25842,7 @@ pub unsafe fn ures_getUTF8StringByIndex<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn ures_getUTF8StringByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, key: Param1, dest: Param2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getUTF8StringByKey(resb: *const UResourceBundle, key: super::Foundation::PSTR, dest: super::Foundation::PSTR, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -25856,7 +25856,7 @@ pub unsafe fn ures_getUTF8StringByKey<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8);
         }
@@ -25870,7 +25870,7 @@ pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8
 pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8;
         }
@@ -25885,7 +25885,7 @@ pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
 pub unsafe fn ures_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_open(packagename: super::Foundation::PSTR, locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25900,7 +25900,7 @@ pub unsafe fn ures_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
 pub unsafe fn ures_openAvailableLocales<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_openAvailableLocales(packagename: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -25915,7 +25915,7 @@ pub unsafe fn ures_openAvailableLocales<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ures_openDirect<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_openDirect(packagename: super::Foundation::PSTR, locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25930,7 +25930,7 @@ pub unsafe fn ures_openDirect<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ures_openU<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: *const u16, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_openU(packagename: *const u16, locale: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UResourceBundle;
         }
@@ -25944,7 +25944,7 @@ pub unsafe fn ures_openU<'a, Param1: ::windows::core::IntoParam<'a, super::Found
 pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn ures_resetIterator(resourcebundle: *mut UResourceBundle);
         }
@@ -25958,7 +25958,7 @@ pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
 pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8;
         }
@@ -25973,7 +25973,7 @@ pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
 pub unsafe fn uscript_getCode<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(nameorabbrorlocale: Param0, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getCode(nameorabbrorlocale: super::Foundation::PSTR, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32;
         }
@@ -25988,7 +25988,7 @@ pub unsafe fn uscript_getCode<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PSTR;
         }
@@ -26002,7 +26002,7 @@ pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PST
 pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -26016,7 +26016,7 @@ pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capac
 pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode;
         }
@@ -26030,7 +26030,7 @@ pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScript
 pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32;
         }
@@ -26045,7 +26045,7 @@ pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, cap
 pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation::PSTR;
         }
@@ -26059,7 +26059,7 @@ pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation
 pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_getUsage(script: UScriptCode) -> UScriptUsage;
         }
@@ -26073,7 +26073,7 @@ pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
 pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8;
         }
@@ -26087,7 +26087,7 @@ pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
 pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_isCased(script: UScriptCode) -> i8;
         }
@@ -26101,7 +26101,7 @@ pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
 pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uscript_isRightToLeft(script: UScriptCode) -> i8;
         }
@@ -26115,7 +26115,7 @@ pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
 pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_close(searchiter: *mut UStringSearch);
         }
@@ -26129,7 +26129,7 @@ pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
 pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -26143,7 +26143,7 @@ pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode
 pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
         }
@@ -26157,7 +26157,7 @@ pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, stat
 pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue;
         }
@@ -26171,7 +26171,7 @@ pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USe
 pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator;
         }
@@ -26185,7 +26185,7 @@ pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UB
 pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator;
         }
@@ -26199,7 +26199,7 @@ pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollat
 pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32;
         }
@@ -26213,7 +26213,7 @@ pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
 pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32;
         }
@@ -26227,7 +26227,7 @@ pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
 pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -26241,7 +26241,7 @@ pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut
 pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getOffset(strsrch: *const UStringSearch) -> i32;
         }
@@ -26255,7 +26255,7 @@ pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
 pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
         }
@@ -26269,7 +26269,7 @@ pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32
 pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
         }
@@ -26283,7 +26283,7 @@ pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -
 pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -26297,7 +26297,7 @@ pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode)
 pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -26312,7 +26312,7 @@ pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode)
 pub unsafe fn usearch_open<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, locale: Param4, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_open(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, locale: super::Foundation::PSTR, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch;
         }
@@ -26326,7 +26326,7 @@ pub unsafe fn usearch_open<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
 pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch;
         }
@@ -26340,7 +26340,7 @@ pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, 
 pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32;
         }
@@ -26354,7 +26354,7 @@ pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, stat
 pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -26368,7 +26368,7 @@ pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorC
 pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_reset(strsrch: *mut UStringSearch);
         }
@@ -26382,7 +26382,7 @@ pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
 pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode);
         }
@@ -26396,7 +26396,7 @@ pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USear
 pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode);
         }
@@ -26410,7 +26410,7 @@ pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *
 pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode);
         }
@@ -26424,7 +26424,7 @@ pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const 
 pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode);
         }
@@ -26438,7 +26438,7 @@ pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, stat
 pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode);
         }
@@ -26452,7 +26452,7 @@ pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u1
 pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
@@ -26466,7 +26466,7 @@ pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, tex
 pub unsafe fn uset_add(set: *mut USet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_add(set: *mut USet, c: i32);
         }
@@ -26480,7 +26480,7 @@ pub unsafe fn uset_add(set: *mut USet, c: i32) {
 pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_addAll(set: *mut USet, additionalset: *const USet);
         }
@@ -26494,7 +26494,7 @@ pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
 pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -26508,7 +26508,7 @@ pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32
 pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_addRange(set: *mut USet, start: i32, end: i32);
         }
@@ -26522,7 +26522,7 @@ pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_addString(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -26536,7 +26536,7 @@ pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
 pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode);
         }
@@ -26550,7 +26550,7 @@ pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value:
 pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32;
         }
@@ -26564,7 +26564,7 @@ pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternleng
 pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode);
         }
@@ -26578,7 +26578,7 @@ pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, propleng
 pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_charAt(set: *const USet, charindex: i32) -> i32;
         }
@@ -26592,7 +26592,7 @@ pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
 pub unsafe fn uset_clear(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_clear(set: *mut USet);
         }
@@ -26606,7 +26606,7 @@ pub unsafe fn uset_clear(set: *mut USet) {
 pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_clone(set: *const USet) -> *mut USet;
         }
@@ -26620,7 +26620,7 @@ pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
 pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_cloneAsThawed(set: *const USet) -> *mut USet;
         }
@@ -26634,7 +26634,7 @@ pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
 pub unsafe fn uset_close(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_close(set: *mut USet);
         }
@@ -26648,7 +26648,7 @@ pub unsafe fn uset_close(set: *mut USet) {
 pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_closeOver(set: *mut USet, attributes: i32);
         }
@@ -26662,7 +26662,7 @@ pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
 pub unsafe fn uset_compact(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_compact(set: *mut USet);
         }
@@ -26676,7 +26676,7 @@ pub unsafe fn uset_compact(set: *mut USet) {
 pub unsafe fn uset_complement(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_complement(set: *mut USet);
         }
@@ -26690,7 +26690,7 @@ pub unsafe fn uset_complement(set: *mut USet) {
 pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_complementAll(set: *mut USet, complement: *const USet);
         }
@@ -26704,7 +26704,7 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
 pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_contains(set: *const USet, c: i32) -> i8;
         }
@@ -26718,7 +26718,7 @@ pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
 pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -26732,7 +26732,7 @@ pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8;
         }
@@ -26746,7 +26746,7 @@ pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strl
 pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -26760,7 +26760,7 @@ pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8;
         }
@@ -26774,7 +26774,7 @@ pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
 pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -26788,7 +26788,7 @@ pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8;
         }
@@ -26802,7 +26802,7 @@ pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32
 pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_equals(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -26816,7 +26816,7 @@ pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_freeze(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_freeze(set: *mut USet);
         }
@@ -26830,7 +26830,7 @@ pub unsafe fn uset_freeze(set: *mut USet) {
 pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32;
         }
@@ -26844,7 +26844,7 @@ pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, en
 pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_getItemCount(set: *const USet) -> i32;
         }
@@ -26858,7 +26858,7 @@ pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
 pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8;
         }
@@ -26872,7 +26872,7 @@ pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i3
 pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32;
         }
@@ -26886,7 +26886,7 @@ pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
 pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8;
         }
@@ -26900,7 +26900,7 @@ pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u1
 pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_indexOf(set: *const USet, c: i32) -> i32;
         }
@@ -26914,7 +26914,7 @@ pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
 pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_isEmpty(set: *const USet) -> i8;
         }
@@ -26928,7 +26928,7 @@ pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
 pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_isFrozen(set: *const USet) -> i8;
         }
@@ -26942,7 +26942,7 @@ pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
 pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_open(start: i32, end: i32) -> *mut USet;
         }
@@ -26956,7 +26956,7 @@ pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
 pub unsafe fn uset_openEmpty() -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_openEmpty() -> *mut USet;
         }
@@ -26970,7 +26970,7 @@ pub unsafe fn uset_openEmpty() -> *mut USet {
 pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet;
         }
@@ -26984,7 +26984,7 @@ pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut
 pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet;
         }
@@ -26998,7 +26998,7 @@ pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, o
 pub unsafe fn uset_remove(set: *mut USet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_remove(set: *mut USet, c: i32);
         }
@@ -27012,7 +27012,7 @@ pub unsafe fn uset_remove(set: *mut USet, c: i32) {
 pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_removeAll(set: *mut USet, removeset: *const USet);
         }
@@ -27026,7 +27026,7 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
 pub unsafe fn uset_removeAllStrings(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_removeAllStrings(set: *mut USet);
         }
@@ -27040,7 +27040,7 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
 pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_removeRange(set: *mut USet, start: i32, end: i32);
         }
@@ -27054,7 +27054,7 @@ pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -27068,7 +27068,7 @@ pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
 pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8;
         }
@@ -27082,7 +27082,7 @@ pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos
 pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_retain(set: *mut USet, start: i32, end: i32);
         }
@@ -27096,7 +27096,7 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_retainAll(set: *mut USet, retain: *const USet);
         }
@@ -27110,7 +27110,7 @@ pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
 pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -27124,7 +27124,7 @@ pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32
 pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8;
         }
@@ -27138,7 +27138,7 @@ pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 
 pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_set(set: *mut USet, start: i32, end: i32);
         }
@@ -27152,7 +27152,7 @@ pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32);
         }
@@ -27166,7 +27166,7 @@ pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
 pub unsafe fn uset_size(set: *const USet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_size(set: *const USet) -> i32;
         }
@@ -27180,7 +27180,7 @@ pub unsafe fn uset_size(set: *const USet) -> i32 {
 pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
         }
@@ -27194,7 +27194,7 @@ pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondit
 pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32;
         }
@@ -27209,7 +27209,7 @@ pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spanco
 pub unsafe fn uset_spanBackUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(set: *const USet, s: Param1, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_spanBackUTF8(set: *const USet, s: super::Foundation::PSTR, length: i32, spancondition: USetSpanCondition) -> i32;
         }
@@ -27224,7 +27224,7 @@ pub unsafe fn uset_spanBackUTF8<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn uset_spanUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(set: *const USet, s: Param1, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_spanUTF8(set: *const USet, s: super::Foundation::PSTR, length: i32, spancondition: USetSpanCondition) -> i32;
         }
@@ -27238,7 +27238,7 @@ pub unsafe fn uset_spanUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32;
         }
@@ -27252,7 +27252,7 @@ pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity:
 pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27267,7 +27267,7 @@ pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, le
 pub unsafe fn uspoof_areConfusableUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id1: Param1, length1: i32, id2: Param3, length2: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_areConfusableUTF8(sc: *const USpoofChecker, id1: super::Foundation::PSTR, length1: i32, id2: super::Foundation::PSTR, length2: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27281,7 +27281,7 @@ pub unsafe fn uspoof_areConfusableUTF8<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32;
         }
@@ -27295,7 +27295,7 @@ pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32
 pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32;
         }
@@ -27310,7 +27310,7 @@ pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i3
 pub unsafe fn uspoof_check2UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id: Param1, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_check2UTF8(sc: *const USpoofChecker, id: super::Foundation::PSTR, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32;
         }
@@ -27325,7 +27325,7 @@ pub unsafe fn uspoof_check2UTF8<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn uspoof_checkUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id: Param1, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_checkUTF8(sc: *const USpoofChecker, id: super::Foundation::PSTR, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32;
         }
@@ -27339,7 +27339,7 @@ pub unsafe fn uspoof_checkUTF8<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker;
         }
@@ -27353,7 +27353,7 @@ pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) ->
 pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_close(sc: *mut USpoofChecker);
         }
@@ -27367,7 +27367,7 @@ pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
 pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult);
         }
@@ -27381,7 +27381,7 @@ pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
 pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet;
         }
@@ -27396,7 +27396,7 @@ pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErr
 pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -27410,7 +27410,7 @@ pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErr
 pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32;
         }
@@ -27424,7 +27424,7 @@ pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult,
 pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet;
         }
@@ -27438,7 +27438,7 @@ pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResul
 pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel;
         }
@@ -27452,7 +27452,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCh
 pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32;
         }
@@ -27466,7 +27466,7 @@ pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode
 pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet;
         }
@@ -27480,7 +27480,7 @@ pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
 pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet;
         }
@@ -27494,7 +27494,7 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
 pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel;
         }
@@ -27508,7 +27508,7 @@ pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestricti
 pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27523,7 +27523,7 @@ pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *con
 pub unsafe fn uspoof_getSkeletonUTF8<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, r#type: u32, id: Param2, length: i32, dest: Param4, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_getSkeletonUTF8(sc: *const USpoofChecker, r#type: u32, id: super::Foundation::PSTR, length: i32, dest: super::Foundation::PSTR, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27537,7 +27537,7 @@ pub unsafe fn uspoof_getSkeletonUTF8<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker;
         }
@@ -27551,7 +27551,7 @@ pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
 pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult;
         }
@@ -27565,7 +27565,7 @@ pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofChec
 pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker;
         }
@@ -27580,7 +27580,7 @@ pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length
 pub unsafe fn uspoof_openFromSource<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(confusables: Param0, confusableslen: i32, confusableswholescript: Param2, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_openFromSource(confusables: super::Foundation::PSTR, confusableslen: i32, confusableswholescript: super::Foundation::PSTR, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker;
         }
@@ -27594,7 +27594,7 @@ pub unsafe fn uspoof_openFromSource<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27608,7 +27608,7 @@ pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c
 pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode);
         }
@@ -27623,7 +27623,7 @@ pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet,
 pub unsafe fn uspoof_setAllowedLocales<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *mut USpoofChecker, localeslist: Param1, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_setAllowedLocales(sc: *mut USpoofChecker, localeslist: super::Foundation::PSTR, status: *mut UErrorCode);
         }
@@ -27637,7 +27637,7 @@ pub unsafe fn uspoof_setAllowedLocales<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode);
         }
@@ -27651,7 +27651,7 @@ pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut
 pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel);
         }
@@ -27665,7 +27665,7 @@ pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionleve
 pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usprep_close(profile: *mut UStringPrepProfile);
         }
@@ -27680,7 +27680,7 @@ pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
 pub unsafe fn usprep_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(path: Param0, filename: Param1, status: *mut UErrorCode) -> *mut UStringPrepProfile {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usprep_open(path: super::Foundation::PSTR, filename: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UStringPrepProfile;
         }
@@ -27694,7 +27694,7 @@ pub unsafe fn usprep_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
 pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile;
         }
@@ -27708,7 +27708,7 @@ pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UEr
 pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32;
         }
@@ -27722,7 +27722,7 @@ pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, s
 pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -27736,7 +27736,7 @@ pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
 pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText;
         }
@@ -27750,7 +27750,7 @@ pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonl
 pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_close(ut: *mut UText) -> *mut UText;
         }
@@ -27764,7 +27764,7 @@ pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
 pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode);
         }
@@ -27778,7 +27778,7 @@ pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, des
 pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_current32(ut: *mut UText) -> i32;
         }
@@ -27792,7 +27792,7 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_equals(a: *const UText, b: *const UText) -> i8;
         }
@@ -27806,7 +27806,7 @@ pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
 pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
         }
@@ -27820,7 +27820,7 @@ pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, 
 pub unsafe fn utext_freeze(ut: *mut UText) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_freeze(ut: *mut UText);
         }
@@ -27834,7 +27834,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
 pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_getNativeIndex(ut: *const UText) -> i64;
         }
@@ -27848,7 +27848,7 @@ pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
 pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64;
         }
@@ -27862,7 +27862,7 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
 pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_hasMetaData(ut: *const UText) -> i8;
         }
@@ -27876,7 +27876,7 @@ pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
 pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_isLengthExpensive(ut: *const UText) -> i8;
         }
@@ -27890,7 +27890,7 @@ pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
 pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_isWritable(ut: *const UText) -> i8;
         }
@@ -27904,7 +27904,7 @@ pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
 pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8;
         }
@@ -27918,7 +27918,7 @@ pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
 pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_nativeLength(ut: *mut UText) -> i64;
         }
@@ -27932,7 +27932,7 @@ pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
 pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_next32(ut: *mut UText) -> i32;
         }
@@ -27946,7 +27946,7 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -27960,7 +27960,7 @@ pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
 pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText;
         }
@@ -27975,7 +27975,7 @@ pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, statu
 pub unsafe fn utext_openUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ut: *mut UText, s: Param1, length: i64, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_openUTF8(ut: *mut UText, s: super::Foundation::PSTR, length: i64, status: *mut UErrorCode) -> *mut UText;
         }
@@ -27989,7 +27989,7 @@ pub unsafe fn utext_openUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_previous32(ut: *mut UText) -> i32;
         }
@@ -28003,7 +28003,7 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -28017,7 +28017,7 @@ pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
 pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -28031,7 +28031,7 @@ pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, 
 pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64);
         }
@@ -28045,7 +28045,7 @@ pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
 pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText;
         }
@@ -28059,7 +28059,7 @@ pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCo
 pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32;
         }
@@ -28073,7 +28073,7 @@ pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, p
 pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32;
         }
@@ -28087,7 +28087,7 @@ pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
 pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32;
         }
@@ -28101,7 +28101,7 @@ pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: 
 pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32;
         }
@@ -28115,7 +28115,7 @@ pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i
 pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
         }
@@ -28129,7 +28129,7 @@ pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, stat
 pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64;
         }
@@ -28143,7 +28143,7 @@ pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTime
 pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64;
         }
@@ -28158,7 +28158,7 @@ pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, st
 pub unsafe fn utrace_format<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(outbuf: Param0, capacity: i32, indent: i32, fmt: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_format(outbuf: super::Foundation::PSTR, capacity: i32, indent: i32, fmt: super::Foundation::PSTR) -> i32;
         }
@@ -28173,7 +28173,7 @@ pub unsafe fn utrace_format<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
 pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR;
         }
@@ -28188,7 +28188,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
 pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut ::windows::core::RawPtr, x: *mut ::windows::core::RawPtr, d: *mut ::windows::core::RawPtr);
         }
@@ -28202,7 +28202,7 @@ pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e:
 pub unsafe fn utrace_getLevel() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_getLevel() -> i32;
         }
@@ -28217,7 +28217,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
 pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: ::windows::core::RawPtr, x: ::windows::core::RawPtr, d: ::windows::core::RawPtr);
         }
@@ -28231,7 +28231,7 @@ pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTrace
 pub unsafe fn utrace_setLevel(tracelevel: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_setLevel(tracelevel: i32);
         }
@@ -28246,7 +28246,7 @@ pub unsafe fn utrace_setLevel(tracelevel: i32) {
 pub unsafe fn utrace_vformat<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(outbuf: Param0, capacity: i32, indent: i32, fmt: Param3, args: *mut i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrace_vformat(outbuf: super::Foundation::PSTR, capacity: i32, indent: i32, fmt: super::Foundation::PSTR, args: *mut i8) -> i32;
         }
@@ -28260,7 +28260,7 @@ pub unsafe fn utrace_vformat<'a, Param0: ::windows::core::IntoParam<'a, super::F
 pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -28274,7 +28274,7 @@ pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mu
 pub unsafe fn utrans_close(trans: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_close(trans: *mut *mut ::core::ffi::c_void);
         }
@@ -28288,7 +28288,7 @@ pub unsafe fn utrans_close(trans: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn utrans_countAvailableIDs() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_countAvailableIDs() -> i32;
         }
@@ -28302,7 +28302,7 @@ pub unsafe fn utrans_countAvailableIDs() -> i32 {
 pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet;
         }
@@ -28316,7 +28316,7 @@ pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, igno
 pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16;
         }
@@ -28330,7 +28330,7 @@ pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resu
 pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -28344,7 +28344,7 @@ pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
 pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -28358,7 +28358,7 @@ pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, statu
 pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void;
         }
@@ -28372,7 +28372,7 @@ pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, 
 pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
         }
@@ -28386,7 +28386,7 @@ pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, statu
 pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode);
         }
@@ -28400,7 +28400,7 @@ pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpatte
 pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32;
         }
@@ -28414,7 +28414,7 @@ pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunp
 pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode);
         }
@@ -28428,7 +28428,7 @@ pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *
 pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode);
         }
@@ -28442,7 +28442,7 @@ pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, 
 pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode);
         }
@@ -28456,7 +28456,7 @@ pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_
 pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode);
         }
@@ -28470,7 +28470,7 @@ pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text:
 pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "icu", kind = "raw-dylib")]
         extern "system" {
             fn utrans_unregisterID(id: *const u16, idlength: i32);
         }

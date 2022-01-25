@@ -691,7 +691,7 @@ pub const WAVERR_BASE: u32 = 32u32;
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeBeginPeriod(uperiod: u32) -> u32;
         }
@@ -705,7 +705,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeEndPeriod(uperiod: u32) -> u32;
         }
@@ -719,7 +719,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
         }
@@ -733,7 +733,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
@@ -747,7 +747,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeGetTime() -> u32;
         }
@@ -761,7 +761,7 @@ pub unsafe fn timeGetTime() -> u32 {
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeKillEvent(utimerid: u32) -> u32;
         }
@@ -775,7 +775,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::windows::core::RawPtr, dwuser: usize, fuevent: u32) -> u32;
         }

@@ -9,7 +9,7 @@ pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 pub unsafe fn AddConsoleAliasA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(source: Param0, target: Param1, exename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AddConsoleAliasA(source: super::super::Foundation::PSTR, target: super::super::Foundation::PSTR, exename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -24,7 +24,7 @@ pub unsafe fn AddConsoleAliasA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn AddConsoleAliasW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, target: Param1, exename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AddConsoleAliasW(source: super::super::Foundation::PWSTR, target: super::super::Foundation::PWSTR, exename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -39,7 +39,7 @@ pub unsafe fn AddConsoleAliasW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AllocConsole() -> super::super::Foundation::BOOL;
         }
@@ -54,7 +54,7 @@ pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
 pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL;
         }
@@ -489,7 +489,7 @@ pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
 pub unsafe fn ClosePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, HPCON>>(hpc: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ClosePseudoConsole(hpc: HPCON);
         }
@@ -504,7 +504,7 @@ pub unsafe fn ClosePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, HPCO
 pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflags: u32, lpscreenbufferdata: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflags: u32, lpscreenbufferdata: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -519,7 +519,7 @@ pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, 
 pub unsafe fn CreatePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, COORD>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(size: Param0, hinput: Param1, houtput: Param2, dwflags: u32) -> ::windows::core::Result<HPCON> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn CreatePseudoConsole(size: COORD, hinput: super::super::Foundation::HANDLE, houtput: super::super::Foundation::HANDLE, dwflags: u32, phpc: *mut HPCON) -> ::windows::core::HRESULT;
         }
@@ -539,7 +539,7 @@ pub const ENHANCED_KEY: u32 = 256u32;
 pub unsafe fn ExpungeConsoleCommandHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(exename: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ExpungeConsoleCommandHistoryA(exename: super::super::Foundation::PSTR);
         }
@@ -554,7 +554,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn ExpungeConsoleCommandHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(exename: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ExpungeConsoleCommandHistoryW(exename: super::super::Foundation::PWSTR);
         }
@@ -619,7 +619,7 @@ pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 pub unsafe fn FillConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, wattribute: u16, nlength: u32, dwwritecoord: Param3, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FillConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattribute: u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -634,7 +634,7 @@ pub unsafe fn FillConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn FillConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, ccharacter: Param1, nlength: u32, dwwritecoord: Param3, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FillConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, ccharacter: super::super::Foundation::CHAR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -649,7 +649,7 @@ pub unsafe fn FillConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn FillConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, ccharacter: u16, nlength: u32, dwwritecoord: Param3, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FillConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, ccharacter: u16, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -664,7 +664,7 @@ pub unsafe fn FillConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn FlushConsoleInputBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FlushConsoleInputBuffer(hconsoleinput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -679,7 +679,7 @@ pub unsafe fn FlushConsoleInputBuffer<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FreeConsole() -> super::super::Foundation::BOOL;
         }
@@ -694,7 +694,7 @@ pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
 pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> super::super::Foundation::BOOL;
         }
@@ -709,7 +709,7 @@ pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) 
 pub unsafe fn GetConsoleAliasA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(source: Param0, targetbuffer: super::super::Foundation::PSTR, targetbufferlength: u32, exename: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasA(source: super::super::Foundation::PSTR, targetbuffer: super::super::Foundation::PSTR, targetbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
         }
@@ -724,7 +724,7 @@ pub unsafe fn GetConsoleAliasA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetConsoleAliasExesA(exenamebuffer: super::super::Foundation::PSTR, exenamebufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasExesA(exenamebuffer: super::super::Foundation::PSTR, exenamebufferlength: u32) -> u32;
         }
@@ -738,7 +738,7 @@ pub unsafe fn GetConsoleAliasExesA(exenamebuffer: super::super::Foundation::PSTR
 pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasExesLengthA() -> u32;
         }
@@ -752,7 +752,7 @@ pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
 pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasExesLengthW() -> u32;
         }
@@ -767,7 +767,7 @@ pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
 pub unsafe fn GetConsoleAliasExesW(exenamebuffer: super::super::Foundation::PWSTR, exenamebufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasExesW(exenamebuffer: super::super::Foundation::PWSTR, exenamebufferlength: u32) -> u32;
         }
@@ -782,7 +782,7 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: super::super::Foundation::PWST
 pub unsafe fn GetConsoleAliasW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, targetbuffer: super::super::Foundation::PWSTR, targetbufferlength: u32, exename: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasW(source: super::super::Foundation::PWSTR, targetbuffer: super::super::Foundation::PWSTR, targetbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -797,7 +797,7 @@ pub unsafe fn GetConsoleAliasW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetConsoleAliasesA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(aliasbuffer: super::super::Foundation::PSTR, aliasbufferlength: u32, exename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasesA(aliasbuffer: super::super::Foundation::PSTR, aliasbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
         }
@@ -812,7 +812,7 @@ pub unsafe fn GetConsoleAliasesA<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetConsoleAliasesLengthA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(exename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasesLengthA(exename: super::super::Foundation::PSTR) -> u32;
         }
@@ -827,7 +827,7 @@ pub unsafe fn GetConsoleAliasesLengthA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetConsoleAliasesLengthW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(exename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasesLengthW(exename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -842,7 +842,7 @@ pub unsafe fn GetConsoleAliasesLengthW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetConsoleAliasesW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(aliasbuffer: super::super::Foundation::PWSTR, aliasbufferlength: u32, exename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleAliasesW(aliasbuffer: super::super::Foundation::PWSTR, aliasbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -856,7 +856,7 @@ pub unsafe fn GetConsoleAliasesW<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetConsoleCP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCP() -> u32;
         }
@@ -871,7 +871,7 @@ pub unsafe fn GetConsoleCP() -> u32 {
 pub unsafe fn GetConsoleCommandHistoryA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(commands: super::super::Foundation::PSTR, commandbufferlength: u32, exename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCommandHistoryA(commands: super::super::Foundation::PSTR, commandbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
         }
@@ -886,7 +886,7 @@ pub unsafe fn GetConsoleCommandHistoryA<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn GetConsoleCommandHistoryLengthA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(exename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCommandHistoryLengthA(exename: super::super::Foundation::PSTR) -> u32;
         }
@@ -901,7 +901,7 @@ pub unsafe fn GetConsoleCommandHistoryLengthA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn GetConsoleCommandHistoryLengthW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(exename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCommandHistoryLengthW(exename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -916,7 +916,7 @@ pub unsafe fn GetConsoleCommandHistoryLengthW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn GetConsoleCommandHistoryW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(commands: super::super::Foundation::PWSTR, commandbufferlength: u32, exename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCommandHistoryW(commands: super::super::Foundation::PWSTR, commandbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -931,7 +931,7 @@ pub unsafe fn GetConsoleCommandHistoryW<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn GetConsoleCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
         }
@@ -946,7 +946,7 @@ pub unsafe fn GetConsoleCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -961,7 +961,7 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foun
 pub unsafe fn GetConsoleFontSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, nfont: u32) -> COORD {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleFontSize(hconsoleoutput: super::super::Foundation::HANDLE, nfont: u32) -> COORD;
         }
@@ -976,7 +976,7 @@ pub unsafe fn GetConsoleFontSize<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
         }
@@ -991,7 +991,7 @@ pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_I
 pub unsafe fn GetConsoleMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsolehandle: Param0, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL;
         }
@@ -1006,7 +1006,7 @@ pub unsafe fn GetConsoleMode<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleOriginalTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
@@ -1021,7 +1021,7 @@ pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: super::super::Foundation:
 pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleOriginalTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
@@ -1035,7 +1035,7 @@ pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: super::super::Foundation:
 pub unsafe fn GetConsoleOutputCP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleOutputCP() -> u32;
         }
@@ -1049,7 +1049,7 @@ pub unsafe fn GetConsoleOutputCP() -> u32 {
 pub unsafe fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u32) -> u32;
         }
@@ -1064,7 +1064,7 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u
 pub unsafe fn GetConsoleScreenBufferInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpconsolescreenbufferinfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleScreenBufferInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1079,7 +1079,7 @@ pub unsafe fn GetConsoleScreenBufferInfo<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetConsoleScreenBufferInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpconsolescreenbufferinfoex: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleScreenBufferInfoEx(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfoex: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
         }
@@ -1094,7 +1094,7 @@ pub unsafe fn GetConsoleScreenBufferInfoEx<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1109,7 +1109,7 @@ pub unsafe fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELEC
 pub unsafe fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
@@ -1124,7 +1124,7 @@ pub unsafe fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, n
 pub unsafe fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
@@ -1139,7 +1139,7 @@ pub unsafe fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, 
 pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetConsoleWindow() -> super::super::Foundation::HWND;
         }
@@ -1154,7 +1154,7 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
 pub unsafe fn GetCurrentConsoleFont<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconsoleoutput: Param0, bmaximumwindow: Param1, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCurrentConsoleFont(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1169,7 +1169,7 @@ pub unsafe fn GetCurrentConsoleFont<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetCurrentConsoleFontEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconsoleoutput: Param0, bmaximumwindow: Param1, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
         }
@@ -1184,7 +1184,7 @@ pub unsafe fn GetCurrentConsoleFontEx<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn GetLargestConsoleWindowSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0) -> COORD {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetLargestConsoleWindowSize(hconsoleoutput: super::super::Foundation::HANDLE) -> COORD;
         }
@@ -1199,7 +1199,7 @@ pub unsafe fn GetLargestConsoleWindowSize<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetNumberOfConsoleInputEvents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpnumberofevents: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNumberOfConsoleInputEvents(hconsoleinput: super::super::Foundation::HANDLE, lpnumberofevents: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1214,7 +1214,7 @@ pub unsafe fn GetNumberOfConsoleInputEvents<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1229,7 +1229,7 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
 pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::HANDLE;
         }
@@ -1476,7 +1476,7 @@ pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub unsafe fn PeekConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn PeekConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1491,7 +1491,7 @@ pub unsafe fn PeekConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PeekConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn PeekConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1512,7 +1512,7 @@ pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 pub unsafe fn ReadConsoleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
         }
@@ -1527,7 +1527,7 @@ pub unsafe fn ReadConsoleA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ReadConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1542,7 +1542,7 @@ pub unsafe fn ReadConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ReadConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1557,7 +1557,7 @@ pub unsafe fn ReadConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ReadConsoleOutputA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, COORD>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpbuffer: *mut CHAR_INFO, dwbuffersize: Param2, dwbuffercoord: Param3, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleOutputA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
         }
@@ -1572,7 +1572,7 @@ pub unsafe fn ReadConsoleOutputA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ReadConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpattribute: *mut u16, nlength: u32, dwreadcoord: Param3, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *mut u16, nlength: u32, dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1587,7 +1587,7 @@ pub unsafe fn ReadConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn ReadConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpcharacter: super::super::Foundation::PSTR, nlength: u32, dwreadcoord: Param3, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1602,7 +1602,7 @@ pub unsafe fn ReadConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ReadConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpcharacter: super::super::Foundation::PWSTR, nlength: u32, dwreadcoord: Param3, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PWSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1617,7 +1617,7 @@ pub unsafe fn ReadConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ReadConsoleOutputW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, COORD>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpbuffer: *mut CHAR_INFO, dwbuffersize: Param2, dwbuffercoord: Param3, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
         }
@@ -1632,7 +1632,7 @@ pub unsafe fn ReadConsoleOutputW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ReadConsoleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ReadConsoleW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
         }
@@ -1646,7 +1646,7 @@ pub unsafe fn ReadConsoleW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ResizePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, HPCON>, Param1: ::windows::core::IntoParam<'a, COORD>>(hpc: Param0, size: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ResizePseudoConsole(hpc: HPCON, size: COORD) -> ::windows::core::HRESULT;
         }
@@ -1701,7 +1701,7 @@ pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
 pub unsafe fn ScrollConsoleScreenBufferA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: Param3, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ScrollConsoleScreenBufferA(hconsoleoutput: super::super::Foundation::HANDLE, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1716,7 +1716,7 @@ pub unsafe fn ScrollConsoleScreenBufferA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn ScrollConsoleScreenBufferW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: Param3, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn ScrollConsoleScreenBufferW(hconsoleoutput: super::super::Foundation::HANDLE, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: *const SMALL_RECT, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1731,7 +1731,7 @@ pub unsafe fn ScrollConsoleScreenBufferW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetConsoleActiveScreenBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleActiveScreenBuffer(hconsoleoutput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1746,7 +1746,7 @@ pub unsafe fn SetConsoleActiveScreenBuffer<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
         }
@@ -1761,7 +1761,7 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn SetConsoleCtrlHandler<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(handlerroutine: PHANDLER_ROUTINE, add: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleCtrlHandler(handlerroutine: ::windows::core::RawPtr, add: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1776,7 +1776,7 @@ pub unsafe fn SetConsoleCtrlHandler<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetConsoleCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1791,7 +1791,7 @@ pub unsafe fn SetConsoleCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetConsoleCursorPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, dwcursorposition: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleCursorPosition(hconsoleoutput: super::super::Foundation::HANDLE, dwcursorposition: COORD) -> super::super::Foundation::BOOL;
         }
@@ -1806,7 +1806,7 @@ pub unsafe fn SetConsoleCursorPosition<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn SetConsoleDisplayMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, dwflags: u32, lpnewscreenbufferdimensions: *mut COORD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleDisplayMode(hconsoleoutput: super::super::Foundation::HANDLE, dwflags: u32, lpnewscreenbufferdimensions: *mut COORD) -> super::super::Foundation::BOOL;
         }
@@ -1821,7 +1821,7 @@ pub unsafe fn SetConsoleDisplayMode<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1836,7 +1836,7 @@ pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY
 pub unsafe fn SetConsoleMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsolehandle: Param0, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL;
         }
@@ -1851,7 +1851,7 @@ pub unsafe fn SetConsoleMode<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetConsoleNumberOfCommandsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(number: u32, exename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleNumberOfCommandsA(number: u32, exename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1866,7 +1866,7 @@ pub unsafe fn SetConsoleNumberOfCommandsA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetConsoleNumberOfCommandsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(number: u32, exename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleNumberOfCommandsW(number: u32, exename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1881,7 +1881,7 @@ pub unsafe fn SetConsoleNumberOfCommandsW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
         }
@@ -1896,7 +1896,7 @@ pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::
 pub unsafe fn SetConsoleScreenBufferInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpconsolescreenbufferinfoex: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleScreenBufferInfoEx(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolescreenbufferinfoex: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
         }
@@ -1911,7 +1911,7 @@ pub unsafe fn SetConsoleScreenBufferInfoEx<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetConsoleScreenBufferSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, dwsize: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleScreenBufferSize(hconsoleoutput: super::super::Foundation::HANDLE, dwsize: COORD) -> super::super::Foundation::BOOL;
         }
@@ -1926,7 +1926,7 @@ pub unsafe fn SetConsoleScreenBufferSize<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetConsoleTextAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, wattributes: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: u16) -> super::super::Foundation::BOOL;
         }
@@ -1941,7 +1941,7 @@ pub unsafe fn SetConsoleTextAttribute<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetConsoleTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpconsoletitle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1956,7 +1956,7 @@ pub unsafe fn SetConsoleTitleA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetConsoleTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpconsoletitle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1971,7 +1971,7 @@ pub unsafe fn SetConsoleTitleW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetConsoleWindowInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconsoleoutput: Param0, babsolute: Param1, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetConsoleWindowInfo(hconsoleoutput: super::super::Foundation::HANDLE, babsolute: super::super::Foundation::BOOL, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL;
         }
@@ -1986,7 +1986,7 @@ pub unsafe fn SetConsoleWindowInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetCurrentConsoleFontEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconsoleoutput: Param0, bmaximumwindow: Param1, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetCurrentConsoleFontEx(hconsoleoutput: super::super::Foundation::HANDLE, bmaximumwindow: super::super::Foundation::BOOL, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
         }
@@ -2001,7 +2001,7 @@ pub unsafe fn SetCurrentConsoleFontEx<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetStdHandle<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(nstdhandle: STD_HANDLE, hhandle: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetStdHandle(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2016,7 +2016,7 @@ pub unsafe fn SetStdHandle<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn SetStdHandleEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(nstdhandle: STD_HANDLE, hhandle: Param1, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2058,7 +2058,7 @@ impl ::core::default::Default for WINDOW_BUFFER_SIZE_RECORD {
 pub unsafe fn WriteConsoleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2073,7 +2073,7 @@ pub unsafe fn WriteConsoleA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn WriteConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2088,7 +2088,7 @@ pub unsafe fn WriteConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WriteConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleinput: Param0, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2103,7 +2103,7 @@ pub unsafe fn WriteConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WriteConsoleOutputA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, COORD>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpbuffer: *const CHAR_INFO, dwbuffersize: Param2, dwbuffercoord: Param3, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleOutputA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
         }
@@ -2118,7 +2118,7 @@ pub unsafe fn WriteConsoleOutputA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WriteConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpattribute: *const u16, nlength: u32, dwwritecoord: Param3, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *const u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2133,7 +2133,7 @@ pub unsafe fn WriteConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WriteConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpcharacter: Param1, nlength: u32, dwwritecoord: Param3, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2148,7 +2148,7 @@ pub unsafe fn WriteConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WriteConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpcharacter: Param1, nlength: u32, dwwritecoord: Param3, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PWSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2163,7 +2163,7 @@ pub unsafe fn WriteConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WriteConsoleOutputW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, COORD>, Param3: ::windows::core::IntoParam<'a, COORD>>(hconsoleoutput: Param0, lpbuffer: *const CHAR_INFO, dwbuffersize: Param2, dwbuffercoord: Param3, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
         }
@@ -2178,7 +2178,7 @@ pub unsafe fn WriteConsoleOutputW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WriteConsoleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hconsoleoutput: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn WriteConsoleW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }

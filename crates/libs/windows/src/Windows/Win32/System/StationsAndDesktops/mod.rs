@@ -72,7 +72,7 @@ impl ::core::default::Default for BSMINFO {
 pub unsafe fn BroadcastSystemMessageA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: u32, lpinfo: *mut u32, msg: u32, wparam: Param3, lparam: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn BroadcastSystemMessageA(flags: u32, lpinfo: *mut u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> i32;
         }
@@ -87,7 +87,7 @@ pub unsafe fn BroadcastSystemMessageA<'a, Param3: ::windows::core::IntoParam<'a,
 pub unsafe fn BroadcastSystemMessageExA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4, pbsminfo: *mut BSMINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
         }
@@ -102,7 +102,7 @@ pub unsafe fn BroadcastSystemMessageExA<'a, Param3: ::windows::core::IntoParam<'
 pub unsafe fn BroadcastSystemMessageExW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4, pbsminfo: *mut BSMINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
         }
@@ -117,7 +117,7 @@ pub unsafe fn BroadcastSystemMessageExW<'a, Param3: ::windows::core::IntoParam<'
 pub unsafe fn BroadcastSystemMessageW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> i32;
         }
@@ -132,7 +132,7 @@ pub unsafe fn BroadcastSystemMessageW<'a, Param3: ::windows::core::IntoParam<'a,
 pub unsafe fn CloseDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CloseDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }
@@ -147,7 +147,7 @@ pub unsafe fn CloseDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDESK>>(hd
 pub unsafe fn CloseWindowStation<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>>(hwinsta: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CloseWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
         }
@@ -162,7 +162,7 @@ pub unsafe fn CloseWindowStation<'a, Param0: ::windows::core::IntoParam<'a, HWIN
 pub unsafe fn CreateDesktopA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateDesktopA(lpszdesktop: super::super::Foundation::PSTR, lpszdevice: super::super::Foundation::PSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
         }
@@ -177,7 +177,7 @@ pub unsafe fn CreateDesktopA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CreateDesktopExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateDesktopExA(lpszdesktop: super::super::Foundation::PSTR, lpszdevice: super::super::Foundation::PSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
         }
@@ -192,7 +192,7 @@ pub unsafe fn CreateDesktopExA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CreateDesktopExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateDesktopExW(lpszdesktop: super::super::Foundation::PWSTR, lpszdevice: super::super::Foundation::PWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> HDESK;
         }
@@ -207,7 +207,7 @@ pub unsafe fn CreateDesktopExW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CreateDesktopW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateDesktopW(lpszdesktop: super::super::Foundation::PWSTR, lpszdevice: super::super::Foundation::PWSTR, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK;
         }
@@ -222,7 +222,7 @@ pub unsafe fn CreateDesktopW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CreateWindowStationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpwinsta: Param0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateWindowStationA(lpwinsta: super::super::Foundation::PSTR, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA;
         }
@@ -237,7 +237,7 @@ pub unsafe fn CreateWindowStationA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CreateWindowStationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwinsta: Param0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CreateWindowStationW(lpwinsta: super::super::Foundation::PWSTR, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA;
         }
@@ -258,7 +258,7 @@ pub type DESKTOPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(par
 pub unsafe fn EnumDesktopWindows<'a, Param0: ::windows::core::IntoParam<'a, HDESK>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdesktop: Param0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDesktopWindows(hdesktop: HDESK, lpfn: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -273,7 +273,7 @@ pub unsafe fn EnumDesktopWindows<'a, Param0: ::windows::core::IntoParam<'a, HDES
 pub unsafe fn EnumDesktopsA<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwinsta: Param0, lpenumfunc: DESKTOPENUMPROCA, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -288,7 +288,7 @@ pub unsafe fn EnumDesktopsA<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>,
 pub unsafe fn EnumDesktopsW<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwinsta: Param0, lpenumfunc: DESKTOPENUMPROCW, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -303,7 +303,7 @@ pub unsafe fn EnumDesktopsW<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>,
 pub unsafe fn EnumWindowStationsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: WINSTAENUMPROCA, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumWindowStationsA(lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -318,7 +318,7 @@ pub unsafe fn EnumWindowStationsA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumWindowStationsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: WINSTAENUMPROCW, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumWindowStationsW(lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -332,7 +332,7 @@ pub unsafe fn EnumWindowStationsW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetProcessWindowStation() -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetProcessWindowStation() -> HWINSTA;
         }
@@ -346,7 +346,7 @@ pub unsafe fn GetProcessWindowStation() -> HWINSTA {
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetThreadDesktop(dwthreadid: u32) -> HDESK;
         }
@@ -361,7 +361,7 @@ pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> HDESK {
 pub unsafe fn GetUserObjectInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserObjectInformationA(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -376,7 +376,7 @@ pub unsafe fn GetUserObjectInformationA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetUserObjectInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -393,7 +393,7 @@ pub type HWINSTA = isize;
 pub unsafe fn OpenDesktopA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszdesktop: Param0, dwflags: u32, finherit: Param2, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenDesktopA(lpszdesktop: super::super::Foundation::PSTR, dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
         }
@@ -408,7 +408,7 @@ pub unsafe fn OpenDesktopA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn OpenDesktopW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszdesktop: Param0, dwflags: u32, finherit: Param2, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenDesktopW(lpszdesktop: super::super::Foundation::PWSTR, dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
         }
@@ -423,7 +423,7 @@ pub unsafe fn OpenDesktopW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn OpenInputDesktop<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwflags: u32, finherit: Param1, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenInputDesktop(dwflags: u32, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HDESK;
         }
@@ -438,7 +438,7 @@ pub unsafe fn OpenInputDesktop<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn OpenWindowStationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszwinsta: Param0, finherit: Param1, dwdesiredaccess: u32) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenWindowStationA(lpszwinsta: super::super::Foundation::PSTR, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HWINSTA;
         }
@@ -453,7 +453,7 @@ pub unsafe fn OpenWindowStationA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn OpenWindowStationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszwinsta: Param0, finherit: Param1, dwdesiredaccess: u32) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenWindowStationW(lpszwinsta: super::super::Foundation::PWSTR, finherit: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> HWINSTA;
         }
@@ -468,7 +468,7 @@ pub unsafe fn OpenWindowStationW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetProcessWindowStation<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>>(hwinsta: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetProcessWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
         }
@@ -483,7 +483,7 @@ pub unsafe fn SetProcessWindowStation<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetThreadDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetThreadDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }
@@ -498,7 +498,7 @@ pub unsafe fn SetThreadDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDESK>
 pub unsafe fn SetUserObjectInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetUserObjectInformationA(hobj: super::super::Foundation::HANDLE, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -513,7 +513,7 @@ pub unsafe fn SetUserObjectInformationA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SetUserObjectInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: i32, pvinfo: *const ::core::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -528,7 +528,7 @@ pub unsafe fn SetUserObjectInformationW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SwitchDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }

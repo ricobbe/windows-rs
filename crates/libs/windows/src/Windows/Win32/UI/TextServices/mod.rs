@@ -30,7 +30,7 @@ pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, heventforservicestop: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msctfmonitor", kind = "raw-dylib")]
         extern "system" {
             fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -12928,7 +12928,7 @@ pub struct IVersionInfoVtbl(
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msctfmonitor", kind = "raw-dylib")]
         extern "system" {
             fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -14551,7 +14551,7 @@ pub const TS_SD_FORWARD: TsShiftDir = 1i32;
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msctfmonitor", kind = "raw-dylib")]
         extern "system" {
             fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT;
         }

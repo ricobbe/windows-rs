@@ -1621,7 +1621,7 @@ pub const BasicPrintingServiceClassID_UUID16: u32 = 4386u32;
 pub unsafe fn BluetoothAuthenticateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hradio: Param1, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: Param3, ulpasskeylength: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR, ulpasskeylength: u32) -> u32;
         }
@@ -1636,7 +1636,7 @@ pub unsafe fn BluetoothAuthenticateDevice<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn BluetoothAuthenticateDeviceEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hwndparentin: Param0, hradioin: Param1, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
         }
@@ -1651,7 +1651,7 @@ pub unsafe fn BluetoothAuthenticateDeviceEx<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn BluetoothAuthenticateMultipleDevices<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hwndparent: Param0, hradio: Param1, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
         }
@@ -1666,7 +1666,7 @@ pub unsafe fn BluetoothAuthenticateMultipleDevices<'a, Param0: ::windows::core::
 pub unsafe fn BluetoothDisplayDeviceProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1681,7 +1681,7 @@ pub unsafe fn BluetoothDisplayDeviceProperties<'a, Param0: ::windows::core::Into
 pub unsafe fn BluetoothEnableDiscovery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hradio: Param0, fenabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothEnableDiscovery(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1696,7 +1696,7 @@ pub unsafe fn BluetoothEnableDiscovery<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn BluetoothEnableIncomingConnections<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hradio: Param0, fenabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothEnableIncomingConnections(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1711,7 +1711,7 @@ pub unsafe fn BluetoothEnableIncomingConnections<'a, Param0: ::windows::core::In
 pub unsafe fn BluetoothEnumerateInstalledServices<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pcserviceinout: *mut u32, pguidservices: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothEnumerateInstalledServices(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pcserviceinout: *mut u32, pguidservices: *mut ::windows::core::GUID) -> u32;
         }
@@ -1726,7 +1726,7 @@ pub unsafe fn BluetoothEnumerateInstalledServices<'a, Param0: ::windows::core::I
 pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL;
         }
@@ -1741,7 +1741,7 @@ pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation
 pub unsafe fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> isize;
         }
@@ -1756,7 +1756,7 @@ pub unsafe fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PAR
 pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> isize;
         }
@@ -1771,7 +1771,7 @@ pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS
 pub unsafe fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1786,7 +1786,7 @@ pub unsafe fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE
 pub unsafe fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1801,7 +1801,7 @@ pub unsafe fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::F
 pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL;
         }
@@ -1816,7 +1816,7 @@ pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation:
 pub unsafe fn BluetoothGetDeviceInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothGetDeviceInfo(hradio: super::super::Foundation::HANDLE, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
         }
@@ -1831,7 +1831,7 @@ pub unsafe fn BluetoothGetDeviceInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn BluetoothGetRadioInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0, pradioinfo: *mut BLUETOOTH_RADIO_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothGetRadioInfo(hradio: super::super::Foundation::HANDLE, pradioinfo: *mut BLUETOOTH_RADIO_INFO) -> u32;
         }
@@ -1846,7 +1846,7 @@ pub unsafe fn BluetoothGetRadioInfo<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn BluetoothIsConnectable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothIsConnectable(hradio: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1861,7 +1861,7 @@ pub unsafe fn BluetoothIsConnectable<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn BluetoothIsDiscoverable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothIsDiscoverable(hradio: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1876,7 +1876,7 @@ pub unsafe fn BluetoothIsDiscoverable<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> super::super::Foundation::BOOL;
         }
@@ -1891,7 +1891,7 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
 pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::windows::core::RawPtr, pvparam: *const ::core::ffi::c_void) -> u32;
         }
@@ -1906,7 +1906,7 @@ pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_
 pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::windows::core::RawPtr, pvparam: *const ::core::ffi::c_void) -> u32;
         }
@@ -1920,7 +1920,7 @@ pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEV
 pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32;
         }
@@ -1935,7 +1935,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::windows::core::RawPtr, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1950,7 +1950,7 @@ pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u3
 pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordlength: u32, usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordlength: u32, usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32;
         }
@@ -1965,7 +1965,7 @@ pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordle
 pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, cbcontainerlength: u32, pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, cbcontainerlength: u32, pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
@@ -1980,7 +1980,7 @@ pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, c
 pub unsafe fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
@@ -1995,7 +1995,7 @@ pub unsafe fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlengt
 pub unsafe fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: super::super::Foundation::PWSTR, pcchstringlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: super::super::Foundation::PWSTR, pcchstringlength: *mut u32) -> u32;
         }
@@ -2010,7 +2010,7 @@ pub unsafe fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u3
 pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -2025,7 +2025,7 @@ pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS
 pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bthprops", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -2040,7 +2040,7 @@ pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PA
 pub unsafe fn BluetoothSendAuthenticationResponse<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hradio: Param0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR) -> u32;
         }
@@ -2055,7 +2055,7 @@ pub unsafe fn BluetoothSendAuthenticationResponse<'a, Param0: ::windows::core::I
 pub unsafe fn BluetoothSendAuthenticationResponseEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradioin: Param0, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSendAuthenticationResponseEx(hradioin: super::super::Foundation::HANDLE, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
         }
@@ -2070,7 +2070,7 @@ pub unsafe fn BluetoothSendAuthenticationResponseEx<'a, Param0: ::windows::core:
 pub unsafe fn BluetoothSetLocalServiceInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradioin: Param0, pclassguid: *const ::windows::core::GUID, ulinstance: u32, pserviceinfoin: *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSetLocalServiceInfo(hradioin: super::super::Foundation::HANDLE, pclassguid: *const ::windows::core::GUID, ulinstance: u32, pserviceinfoin: *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32;
         }
@@ -2085,7 +2085,7 @@ pub unsafe fn BluetoothSetLocalServiceInfo<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn BluetoothSetServiceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hradio: Param0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pguidservice: *const ::windows::core::GUID, dwserviceflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothSetServiceState(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pguidservice: *const ::windows::core::GUID, dwserviceflags: u32) -> u32;
         }
@@ -2100,7 +2100,7 @@ pub unsafe fn BluetoothSetServiceState<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::super::Foundation::BOOL;
         }
@@ -2115,7 +2115,7 @@ pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::sup
 pub unsafe fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "bluetoothapis", kind = "raw-dylib")]
         extern "system" {
             fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32;
         }

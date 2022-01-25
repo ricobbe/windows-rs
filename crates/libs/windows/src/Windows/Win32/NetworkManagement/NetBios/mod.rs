@@ -453,7 +453,7 @@ pub const NRC_TOOMANY: u32 = 34u32;
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "netapi32", kind = "raw-dylib")]
         extern "system" {
             fn Netbios(pncb: *mut NCB) -> u8;
         }

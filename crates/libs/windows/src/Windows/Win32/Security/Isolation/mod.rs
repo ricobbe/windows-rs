@@ -5,7 +5,7 @@
 pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0, pszdisplayname: Param1, pszdescription: Param2, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn CreateAppContainerProfile(pszappcontainername: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, pszdescription: super::super::Foundation::PWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
@@ -21,7 +21,7 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn DeleteAppContainerProfile(pszappcontainername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -36,7 +36,7 @@ pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: super::super::Foundation::PWSTR, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
@@ -52,7 +52,7 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::c
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psidappcontainersid: Param0, pszrestrictedappcontainername: Param1) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: super::super::Foundation::PSID, pszrestrictedappcontainername: super::super::Foundation::PWSTR, ppsidrestrictedappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
@@ -68,7 +68,7 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
 pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainersid: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn GetAppContainerFolderPath(pszappcontainersid: super::super::Foundation::PWSTR, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -84,7 +84,7 @@ pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(token: Param0, appcontainersid: Param1, objectpathlength: u32, objectpath: super::super::Foundation::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetAppContainerNamedObjectPath(token: super::super::Foundation::HANDLE, appcontainersid: super::super::Foundation::PSID, objectpathlength: u32, objectpath: super::super::Foundation::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -99,7 +99,7 @@ pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "userenv", kind = "raw-dylib")]
         extern "system" {
             fn GetAppContainerRegistryLocation(desiredaccess: u32, phappcontainerkey: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT;
         }
@@ -169,7 +169,7 @@ pub struct IIsolatedAppLauncherVtbl(
 pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "api-ms-win-security-isolatedcontainer-l1-1-0", kind = "raw-dylib")]
         extern "system" {
             fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -185,7 +185,7 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::s
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "isolatedwindowsenvironmentutils", kind = "raw-dylib")]
         extern "system" {
             fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -201,7 +201,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "api-ms-win-security-isolatedcontainer-l1-1-1", kind = "raw-dylib")]
         extern "system" {
             fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }

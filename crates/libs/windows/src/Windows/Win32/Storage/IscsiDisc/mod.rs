@@ -175,7 +175,7 @@ impl ::core::default::Default for ATA_PASS_THROUGH_EX32 {
 pub unsafe fn AddISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddISNSServerA(address: super::super::Foundation::PSTR) -> u32;
         }
@@ -190,7 +190,7 @@ pub unsafe fn AddISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn AddISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
         }
@@ -205,7 +205,7 @@ pub unsafe fn AddISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -220,7 +220,7 @@ pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -235,7 +235,7 @@ pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
@@ -250,7 +250,7 @@ pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
@@ -265,7 +265,7 @@ pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiStaticTargetA(targetname: super::super::Foundation::PSTR, targetalias: super::super::Foundation::PSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32;
         }
@@ -280,7 +280,7 @@ pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddIScsiStaticTargetW(targetname: super::super::Foundation::PWSTR, targetalias: super::super::Foundation::PWSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32;
         }
@@ -295,7 +295,7 @@ pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddPersistentIScsiDeviceA(devicepath: super::super::Foundation::PSTR) -> u32;
         }
@@ -310,7 +310,7 @@ pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddPersistentIScsiDeviceW(devicepath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -325,7 +325,7 @@ pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddRadiusServerA(address: super::super::Foundation::PSTR) -> u32;
         }
@@ -340,7 +340,7 @@ pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn AddRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn AddRadiusServerW(address: super::super::Foundation::PWSTR) -> u32;
         }
@@ -354,7 +354,7 @@ pub unsafe fn AddRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ClearPersistentIScsiDevices() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ClearPersistentIScsiDevices() -> u32;
         }
@@ -682,7 +682,7 @@ pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
 pub unsafe fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32;
         }
@@ -697,7 +697,7 @@ pub unsafe fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESS
 pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32;
         }
@@ -712,7 +712,7 @@ pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESS
 pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
         }
@@ -727,7 +727,7 @@ pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
         }
@@ -742,7 +742,7 @@ pub unsafe fn GetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
         }
@@ -757,7 +757,7 @@ pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Founda
 pub unsafe fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -772,7 +772,7 @@ pub unsafe fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Founda
 pub unsafe fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOA) -> u32;
         }
@@ -787,7 +787,7 @@ pub unsafe fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32,
 pub unsafe fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFO_EX) -> u32;
         }
@@ -802,7 +802,7 @@ pub unsafe fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut 
 pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOW) -> u32;
         }
@@ -817,7 +817,7 @@ pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32,
 pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiTargetInformationA(targetname: super::super::Foundation::PSTR, discoverymechanism: super::super::Foundation::PSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
@@ -832,7 +832,7 @@ pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetIScsiTargetInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiTargetInformationW(targetname: super::super::Foundation::PWSTR, discoverymechanism: super::super::Foundation::PWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
@@ -846,7 +846,7 @@ pub unsafe fn GetIScsiTargetInformationW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32;
         }
@@ -2123,7 +2123,7 @@ pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::core::IntoParam<'a, super
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn LoginIScsiTargetA(targetname: super::super::Foundation::PSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -2166,7 +2166,7 @@ pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::core::IntoParam<'a, super
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn LoginIScsiTargetW(targetname: super::super::Foundation::PWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -2194,7 +2194,7 @@ pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -2969,7 +2969,7 @@ impl ::core::default::Default for PERSISTENT_ISCSI_LOGIN_INFOW {
 pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RefreshISNSServerA(address: super::super::Foundation::PSTR) -> u32;
         }
@@ -2984,7 +2984,7 @@ pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RefreshISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
         }
@@ -2999,7 +2999,7 @@ pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RefreshIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
@@ -3014,7 +3014,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RefreshIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
@@ -3029,7 +3029,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveISNSServerA(address: super::super::Foundation::PSTR) -> u32;
         }
@@ -3044,7 +3044,7 @@ pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn RemoveISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3058,7 +3058,7 @@ pub unsafe fn RemoveISNSServerW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
@@ -3073,7 +3073,7 @@ pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_I
 pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiPersistentTargetA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PSTR, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
@@ -3088,7 +3088,7 @@ pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiPersistentTargetW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PWSTR, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
@@ -3103,7 +3103,7 @@ pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
@@ -3118,7 +3118,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
@@ -3133,7 +3133,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiStaticTargetA(targetname: super::super::Foundation::PSTR) -> u32;
         }
@@ -3148,7 +3148,7 @@ pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveIScsiStaticTargetW(targetname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3163,7 +3163,7 @@ pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemovePersistentIScsiDeviceA(devicepath: super::super::Foundation::PSTR) -> u32;
         }
@@ -3178,7 +3178,7 @@ pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemovePersistentIScsiDeviceW(devicepath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3193,7 +3193,7 @@ pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveRadiusServerA(address: super::super::Foundation::PSTR) -> u32;
         }
@@ -3208,7 +3208,7 @@ pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn RemoveRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn RemoveRadiusServerW(address: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3223,7 +3223,7 @@ pub unsafe fn RemoveRadiusServerW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32;
         }
@@ -3237,7 +3237,7 @@ pub unsafe fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcoun
 pub unsafe fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGW) -> u32;
         }
@@ -3252,7 +3252,7 @@ pub unsafe fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcoun
 pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -3267,7 +3267,7 @@ pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::s
 pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3282,7 +3282,7 @@ pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::s
 pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -3297,7 +3297,7 @@ pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn ReportIScsiInitiatorListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3312,7 +3312,7 @@ pub unsafe fn ReportIScsiInitiatorListW<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32;
         }
@@ -3327,7 +3327,7 @@ pub unsafe fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo:
 pub unsafe fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes: *mut u32) -> u32;
         }
@@ -3342,7 +3342,7 @@ pub unsafe fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo:
 pub unsafe fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA) -> u32;
         }
@@ -3357,7 +3357,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *
 pub unsafe fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32;
         }
@@ -3371,7 +3371,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfos
 pub unsafe fn ReportIScsiSendTargetPortalsExW(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiSendTargetPortalsExW(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32;
         }
@@ -3385,7 +3385,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsExW(portalcount: *mut u32, portalinfos
 pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW) -> u32;
         }
@@ -3400,7 +3400,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *
 pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiTargetPortalsA(initiatorname: super::super::Foundation::PSTR, targetname: super::super::Foundation::PSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
@@ -3415,7 +3415,7 @@ pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiTargetPortalsW(initiatorname: super::super::Foundation::PWSTR, targetname: super::super::Foundation::PWSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
@@ -3430,7 +3430,7 @@ pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiTargetsA(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -3445,7 +3445,7 @@ pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ReportIScsiTargetsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportIScsiTargetsW(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3460,7 +3460,7 @@ pub unsafe fn ReportIScsiTargetsW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -3475,7 +3475,7 @@ pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: 
 pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3490,7 +3490,7 @@ pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: 
 pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -3505,7 +3505,7 @@ pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super:
 pub unsafe fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4455,7 +4455,7 @@ pub const ScsiRawInterfaceGuid: ::windows::core::GUID = ::windows::core::GUID::f
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
@@ -4469,7 +4469,7 @@ pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun
 pub unsafe fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
@@ -4483,7 +4483,7 @@ pub unsafe fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID
 pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
@@ -4498,7 +4498,7 @@ pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, 
 pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(keylength: u32, key: *mut u8, persist: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiGroupPresharedKey(keylength: u32, key: *mut u8, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
@@ -4513,7 +4513,7 @@ pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
@@ -4528,7 +4528,7 @@ pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
@@ -4542,7 +4542,7 @@ pub unsafe fn SetIScsiIKEInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
         }
@@ -4557,7 +4557,7 @@ pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, shareds
 pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
         }
@@ -4572,7 +4572,7 @@ pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetIScsiInitiatorNodeNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4586,7 +4586,7 @@ pub unsafe fn SetIScsiInitiatorNodeNameW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
         }
@@ -4601,7 +4601,7 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, share
 pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiTunnelModeOuterAddressA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PSTR, outermodeaddress: super::super::Foundation::PSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
@@ -4616,7 +4616,7 @@ pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SetIScsiTunnelModeOuterAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetIScsiTunnelModeOuterAddressW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PWSTR, outermodeaddress: super::super::Foundation::PWSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
@@ -4630,7 +4630,7 @@ pub unsafe fn SetIScsiTunnelModeOuterAddressW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SetupPersistentIScsiDevices() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetupPersistentIScsiDevices() -> u32;
         }
@@ -4644,7 +4644,7 @@ pub unsafe fn SetupPersistentIScsiDevices() -> u32 {
 pub unsafe fn SetupPersistentIScsiVolumes() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "iscsidsc", kind = "raw-dylib")]
         extern "system" {
             fn SetupPersistentIScsiVolumes() -> u32;
         }

@@ -75,7 +75,7 @@ pub const ALLJOYN_WRITE_READY: u32 = 2u32;
 pub unsafe fn AllJoynAcceptBusConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(serverbushandle: Param0, abortevent: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynAcceptBusConnection(serverbushandle: super::super::Foundation::HANDLE, abortevent: super::super::Foundation::HANDLE) -> u32;
         }
@@ -90,7 +90,7 @@ pub unsafe fn AllJoynAcceptBusConnection<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn AllJoynCloseBusHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(bushandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynCloseBusHandle(bushandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -105,7 +105,7 @@ pub unsafe fn AllJoynCloseBusHandle<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(connectionspec: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynConnectToBus(connectionspec: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
@@ -120,7 +120,7 @@ pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
@@ -135,7 +135,7 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
 pub unsafe fn AllJoynEnumEvents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, eventtoreset: Param1, eventtypes: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: super::super::Foundation::HANDLE, eventtypes: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -150,7 +150,7 @@ pub unsafe fn AllJoynEnumEvents<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AllJoynEventSelect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, eventhandle: Param1, eventtypes: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> super::super::Foundation::BOOL;
         }
@@ -165,7 +165,7 @@ pub unsafe fn AllJoynEventSelect<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn AllJoynReceiveFromBus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, buffer: *mut ::core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -180,7 +180,7 @@ pub unsafe fn AllJoynReceiveFromBus<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AllJoynSendToBus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, buffer: *const ::core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const ::core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -197,7 +197,7 @@ pub const QCC_FALSE: u32 = 0u32;
 pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR;
         }
@@ -1022,7 +1022,7 @@ pub type alljoyn_aboutdata = isize;
 pub unsafe fn alljoyn_aboutdata_create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(defaultlanguage: Param0) -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_create(defaultlanguage: super::super::Foundation::PSTR) -> alljoyn_aboutdata;
         }
@@ -1036,7 +1036,7 @@ pub unsafe fn alljoyn_aboutdata_create<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata;
         }
@@ -1051,7 +1051,7 @@ pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
 pub unsafe fn alljoyn_aboutdata_create_full<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, language: Param1) -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_create_full(arg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> alljoyn_aboutdata;
         }
@@ -1066,7 +1066,7 @@ pub unsafe fn alljoyn_aboutdata_create_full<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_aboutdata_createfrommsgarg<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, arg: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_createfrommsgarg(data: alljoyn_aboutdata, arg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1081,7 +1081,7 @@ pub unsafe fn alljoyn_aboutdata_createfrommsgarg<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_aboutdata_createfromxml<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, aboutdataxml: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_createfromxml(data: alljoyn_aboutdata, aboutdataxml: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1095,7 +1095,7 @@ pub unsafe fn alljoyn_aboutdata_createfromxml<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_destroy(data: alljoyn_aboutdata);
         }
@@ -1110,7 +1110,7 @@ pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_aboutdata_getaboutdata<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, msgarg: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1124,7 +1124,7 @@ pub unsafe fn alljoyn_aboutdata_getaboutdata<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, ajsoftwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getajsoftwareversion(data: alljoyn_aboutdata, ajsoftwareversion: *mut *mut i8) -> QStatus;
         }
@@ -1138,7 +1138,7 @@ pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(data: Param0, msgarg: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getannouncedaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg) -> QStatus;
         }
@@ -1152,7 +1152,7 @@ pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_aboutdata_getappid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, appid: *mut *mut u8, num: *mut usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getappid(data: alljoyn_aboutdata, appid: *mut *mut u8, num: *mut usize) -> QStatus;
         }
@@ -1167,7 +1167,7 @@ pub unsafe fn alljoyn_aboutdata_getappid<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_aboutdata_getappname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appname: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getappname(data: alljoyn_aboutdata, appname: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1181,7 +1181,7 @@ pub unsafe fn alljoyn_aboutdata_getappname<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, dateofmanufacture: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: *mut *mut i8) -> QStatus;
         }
@@ -1195,7 +1195,7 @@ pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, defaultlanguage: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: *mut *mut i8) -> QStatus;
         }
@@ -1210,7 +1210,7 @@ pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_getdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, description: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getdescription(data: alljoyn_aboutdata, description: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1224,7 +1224,7 @@ pub unsafe fn alljoyn_aboutdata_getdescription<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_aboutdata_getdeviceid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, deviceid: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getdeviceid(data: alljoyn_aboutdata, deviceid: *mut *mut i8) -> QStatus;
         }
@@ -1239,7 +1239,7 @@ pub unsafe fn alljoyn_aboutdata_getdeviceid<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_aboutdata_getdevicename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, devicename: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getdevicename(data: alljoyn_aboutdata, devicename: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1254,7 +1254,7 @@ pub unsafe fn alljoyn_aboutdata_getdevicename<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_aboutdata_getfield<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, name: Param1, value: *mut alljoyn_msgarg, language: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getfield(data: alljoyn_aboutdata, name: super::super::Foundation::PSTR, value: *mut alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1268,7 +1268,7 @@ pub unsafe fn alljoyn_aboutdata_getfield<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_aboutdata_getfields<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, fields: *const *const i8, num_fields: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *const *const i8, num_fields: usize) -> usize;
         }
@@ -1283,7 +1283,7 @@ pub unsafe fn alljoyn_aboutdata_getfields<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_aboutdata_getfieldsignature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getfieldsignature(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -1297,7 +1297,7 @@ pub unsafe fn alljoyn_aboutdata_getfieldsignature<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_aboutdata_gethardwareversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, hardwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_gethardwareversion(data: alljoyn_aboutdata, hardwareversion: *mut *mut i8) -> QStatus;
         }
@@ -1312,7 +1312,7 @@ pub unsafe fn alljoyn_aboutdata_gethardwareversion<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_getmanufacturer<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, manufacturer: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getmanufacturer(data: alljoyn_aboutdata, manufacturer: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1326,7 +1326,7 @@ pub unsafe fn alljoyn_aboutdata_getmanufacturer<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_aboutdata_getmodelnumber<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, modelnumber: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getmodelnumber(data: alljoyn_aboutdata, modelnumber: *mut *mut i8) -> QStatus;
         }
@@ -1340,7 +1340,7 @@ pub unsafe fn alljoyn_aboutdata_getmodelnumber<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_aboutdata_getsoftwareversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, softwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getsoftwareversion(data: alljoyn_aboutdata, softwareversion: *mut *mut i8) -> QStatus;
         }
@@ -1354,7 +1354,7 @@ pub unsafe fn alljoyn_aboutdata_getsoftwareversion<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, languagetags: *const *const i8, num: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: *const *const i8, num: usize) -> usize;
         }
@@ -1368,7 +1368,7 @@ pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_aboutdata_getsupporturl<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, supporturl: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_getsupporturl(data: alljoyn_aboutdata, supporturl: *mut *mut i8) -> QStatus;
         }
@@ -1383,7 +1383,7 @@ pub unsafe fn alljoyn_aboutdata_getsupporturl<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_aboutdata_isfieldannounced<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldannounced(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
         }
@@ -1398,7 +1398,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldannounced<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_aboutdata_isfieldlocalized<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldlocalized(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
         }
@@ -1413,7 +1413,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldlocalized<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_aboutdata_isfieldrequired<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldrequired(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
         }
@@ -1428,7 +1428,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldrequired<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_aboutdata_isvalid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, language: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_isvalid(data: alljoyn_aboutdata, language: super::super::Foundation::PSTR) -> u8;
         }
@@ -1442,7 +1442,7 @@ pub unsafe fn alljoyn_aboutdata_isvalid<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_aboutdata_setappid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, appid: *const u8, num: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setappid(data: alljoyn_aboutdata, appid: *const u8, num: usize) -> QStatus;
         }
@@ -1457,7 +1457,7 @@ pub unsafe fn alljoyn_aboutdata_setappid<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_aboutdata_setappid_fromstring<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appid: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setappid_fromstring(data: alljoyn_aboutdata, appid: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1472,7 +1472,7 @@ pub unsafe fn alljoyn_aboutdata_setappid_fromstring<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_aboutdata_setappname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appname: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setappname(data: alljoyn_aboutdata, appname: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1487,7 +1487,7 @@ pub unsafe fn alljoyn_aboutdata_setappname<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, dateofmanufacture: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1502,7 +1502,7 @@ pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, defaultlanguage: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1517,7 +1517,7 @@ pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_setdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, description: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setdescription(data: alljoyn_aboutdata, description: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1532,7 +1532,7 @@ pub unsafe fn alljoyn_aboutdata_setdescription<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_aboutdata_setdeviceid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, deviceid: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setdeviceid(data: alljoyn_aboutdata, deviceid: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1547,7 +1547,7 @@ pub unsafe fn alljoyn_aboutdata_setdeviceid<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_aboutdata_setdevicename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, devicename: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setdevicename(data: alljoyn_aboutdata, devicename: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1562,7 +1562,7 @@ pub unsafe fn alljoyn_aboutdata_setdevicename<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_aboutdata_setfield<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, name: Param1, value: Param2, language: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setfield(data: alljoyn_aboutdata, name: super::super::Foundation::PSTR, value: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1577,7 +1577,7 @@ pub unsafe fn alljoyn_aboutdata_setfield<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_aboutdata_sethardwareversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, hardwareversion: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_sethardwareversion(data: alljoyn_aboutdata, hardwareversion: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1592,7 +1592,7 @@ pub unsafe fn alljoyn_aboutdata_sethardwareversion<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_setmanufacturer<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, manufacturer: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setmanufacturer(data: alljoyn_aboutdata, manufacturer: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1607,7 +1607,7 @@ pub unsafe fn alljoyn_aboutdata_setmanufacturer<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_aboutdata_setmodelnumber<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, modelnumber: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setmodelnumber(data: alljoyn_aboutdata, modelnumber: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1622,7 +1622,7 @@ pub unsafe fn alljoyn_aboutdata_setmodelnumber<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_aboutdata_setsoftwareversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, softwareversion: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setsoftwareversion(data: alljoyn_aboutdata, softwareversion: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1637,7 +1637,7 @@ pub unsafe fn alljoyn_aboutdata_setsoftwareversion<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, language: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setsupportedlanguage(data: alljoyn_aboutdata, language: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1652,7 +1652,7 @@ pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, supporturl: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdata_setsupporturl(data: alljoyn_aboutdata, supporturl: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1701,7 +1701,7 @@ impl ::core::default::Default for alljoyn_aboutdatalistener_callbacks {
 pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener;
         }
@@ -1715,7 +1715,7 @@ pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutda
 pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutdatalistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener);
         }
@@ -1734,7 +1734,7 @@ pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = ::core::option::O
 pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle);
         }
@@ -1748,7 +1748,7 @@ pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
 pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle;
         }
@@ -1762,7 +1762,7 @@ pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
 pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle);
         }
@@ -1776,7 +1776,7 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
 pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize);
         }
@@ -1790,7 +1790,7 @@ pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle,
 pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8);
         }
@@ -1805,7 +1805,7 @@ pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#t
 pub unsafe fn alljoyn_abouticon_setcontent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(icon: *mut _alljoyn_abouticon_handle, r#type: Param1, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_setcontent(icon: *mut _alljoyn_abouticon_handle, r#type: super::super::Foundation::PSTR, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus;
         }
@@ -1819,7 +1819,7 @@ pub unsafe fn alljoyn_abouticon_setcontent<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<'a, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(icon: *mut _alljoyn_abouticon_handle, arg: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_setcontent_frommsgarg(icon: *mut _alljoyn_abouticon_handle, arg: alljoyn_msgarg) -> QStatus;
         }
@@ -1834,7 +1834,7 @@ pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<'a, Param1: ::windows::cor
 pub unsafe fn alljoyn_abouticon_seturl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(icon: *mut _alljoyn_abouticon_handle, r#type: Param1, url: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticon_seturl(icon: *mut _alljoyn_abouticon_handle, r#type: super::super::Foundation::PSTR, url: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -1848,7 +1848,7 @@ pub unsafe fn alljoyn_abouticon_seturl<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_abouticonobj_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonobj_create(bus: alljoyn_busattachment, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle;
         }
@@ -1862,7 +1862,7 @@ pub unsafe fn alljoyn_abouticonobj_create<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle);
         }
@@ -1877,7 +1877,7 @@ pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_hand
 pub unsafe fn alljoyn_abouticonproxy_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, busname: Param1, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonproxy_create(bus: alljoyn_busattachment, busname: super::super::Foundation::PSTR, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle;
         }
@@ -1891,7 +1891,7 @@ pub unsafe fn alljoyn_abouticonproxy_create<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle);
         }
@@ -1905,7 +1905,7 @@ pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy
 pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus;
         }
@@ -1919,7 +1919,7 @@ pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy
 pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus;
         }
@@ -1967,7 +1967,7 @@ impl ::core::default::Default for alljoyn_aboutlistener_callback {
 pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener;
         }
@@ -1981,7 +1981,7 @@ pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistene
 pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener);
         }
@@ -1996,7 +1996,7 @@ pub type alljoyn_aboutobj = isize;
 pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(obj: Param0, sessionport: u16, aboutdata: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobj_announce(obj: alljoyn_aboutobj, sessionport: u16, aboutdata: alljoyn_aboutdata) -> QStatus;
         }
@@ -2010,7 +2010,7 @@ pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::core::IntoParam<'a, alljoyn_aboutdatalistener>>(obj: Param0, sessionport: u16, aboutlistener: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobj_announce_using_datalistener(obj: alljoyn_aboutobj, sessionport: u16, aboutlistener: alljoyn_aboutdatalistener) -> QStatus;
         }
@@ -2024,7 +2024,7 @@ pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<'a, Param0: ::windows
 pub unsafe fn alljoyn_aboutobj_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobj_create(bus: alljoyn_busattachment, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj;
         }
@@ -2038,7 +2038,7 @@ pub unsafe fn alljoyn_aboutobj_create<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>>(obj: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj);
         }
@@ -2052,7 +2052,7 @@ pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>>(obj: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobj_unannounce(obj: alljoyn_aboutobj) -> QStatus;
         }
@@ -2067,7 +2067,7 @@ pub type alljoyn_aboutobjectdescription = isize;
 pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription);
         }
@@ -2081,7 +2081,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription;
         }
@@ -2095,7 +2095,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdesc
 pub unsafe fn alljoyn_aboutobjectdescription_create_full<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_create_full(arg: alljoyn_msgarg) -> alljoyn_aboutobjectdescription;
         }
@@ -2109,7 +2109,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create_full<'a, Param0: ::windows::
 pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(description: Param0, arg: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_createfrommsgarg(description: alljoyn_aboutobjectdescription, arg: alljoyn_msgarg) -> QStatus;
         }
@@ -2123,7 +2123,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<'a, Param0: ::wind
 pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription);
         }
@@ -2138,7 +2138,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, interfacename: Param1, paths: *const *const i8, numpaths: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getinterfacepaths(description: alljoyn_aboutobjectdescription, interfacename: super::super::Foundation::PSTR, paths: *const *const i8, numpaths: usize) -> usize;
         }
@@ -2153,7 +2153,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<'a, Param0: ::win
 pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1, interfaces: *const *const i8, numinterfaces: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getinterfaces(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR, interfaces: *const *const i8, numinterfaces: usize) -> usize;
         }
@@ -2167,7 +2167,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<'a, Param0: ::windows
 pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(description: Param0, msgarg: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_aboutobjectdescription, msgarg: alljoyn_msgarg) -> QStatus;
         }
@@ -2181,7 +2181,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_aboutobjectdescription_getpaths<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0, paths: *const *const i8, numpaths: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: *const *const i8, numpaths: usize) -> usize;
         }
@@ -2196,7 +2196,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getpaths<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, interfacename: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_hasinterface(description: alljoyn_aboutobjectdescription, interfacename: super::super::Foundation::PSTR) -> u8;
         }
@@ -2211,7 +2211,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<'a, Param0: ::windows:
 pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1, interfacename: Param2) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_hasinterfaceatpath(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR, interfacename: super::super::Foundation::PSTR) -> u8;
         }
@@ -2226,7 +2226,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<'a, Param0: ::wi
 pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_haspath(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR) -> u8;
         }
@@ -2242,7 +2242,7 @@ pub type alljoyn_aboutproxy = isize;
 pub unsafe fn alljoyn_aboutproxy_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, busname: Param1, sessionid: u32) -> alljoyn_aboutproxy {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutproxy_create(bus: alljoyn_busattachment, busname: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_aboutproxy;
         }
@@ -2256,7 +2256,7 @@ pub unsafe fn alljoyn_aboutproxy_create<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutproxy>>(proxy: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy);
         }
@@ -2271,7 +2271,7 @@ pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_aboutproxy_getaboutdata<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutproxy>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxy: Param0, language: Param1, data: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutproxy_getaboutdata(proxy: alljoyn_aboutproxy, language: super::super::Foundation::PSTR, data: alljoyn_msgarg) -> QStatus;
         }
@@ -2285,7 +2285,7 @@ pub unsafe fn alljoyn_aboutproxy_getaboutdata<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_aboutproxy_getobjectdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutproxy>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxy: Param0, objectdesc: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutproxy_getobjectdescription(proxy: alljoyn_aboutproxy, objectdesc: alljoyn_msgarg) -> QStatus;
         }
@@ -2299,7 +2299,7 @@ pub unsafe fn alljoyn_aboutproxy_getobjectdescription<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_aboutproxy_getversion<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutproxy>>(proxy: Param0, version: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_aboutproxy_getversion(proxy: alljoyn_aboutproxy, version: *mut u16) -> QStatus;
         }
@@ -2349,7 +2349,7 @@ impl ::core::default::Default for alljoyn_applicationstatelistener_callbacks {
 pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener;
         }
@@ -2363,7 +2363,7 @@ pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_
 pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_applicationstatelistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener);
         }
@@ -2419,7 +2419,7 @@ impl ::core::default::Default for alljoyn_authlistener_callbacks {
 pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
         }
@@ -2433,7 +2433,7 @@ pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener
 pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener);
         }
@@ -2453,7 +2453,7 @@ pub type alljoyn_authlistener_requestcredentialsasync_ptr = ::core::option::Opti
 pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, alljoyn_credentials>>(listener: Param0, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: alljoyn_credentials) -> QStatus;
         }
@@ -2469,7 +2469,7 @@ pub type alljoyn_authlistener_securityviolation_ptr = ::core::option::Option<uns
 pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus;
         }
@@ -2489,7 +2489,7 @@ pub type alljoyn_authlistener_verifycredentialsasync_ptr = ::core::option::Optio
 pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus;
         }
@@ -2539,7 +2539,7 @@ impl ::core::default::Default for alljoyn_authlistenerasync_callbacks {
 pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
         }
@@ -2553,7 +2553,7 @@ pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlis
 pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener);
         }
@@ -2569,7 +2569,7 @@ pub type alljoyn_autopinger = isize;
 pub unsafe fn alljoyn_autopinger_adddestination<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, destination: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_adddestination(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2584,7 +2584,7 @@ pub unsafe fn alljoyn_autopinger_adddestination<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_pinglistener>>(autopinger: Param0, group: Param1, listener: Param2, pinginterval: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, listener: alljoyn_pinglistener, pinginterval: u32);
         }
@@ -2598,7 +2598,7 @@ pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_autopinger_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_autopinger {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_create(bus: alljoyn_busattachment) -> alljoyn_autopinger;
         }
@@ -2618,7 +2618,7 @@ pub type alljoyn_autopinger_destination_lost_ptr = ::core::option::Option<unsafe
 pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger);
         }
@@ -2632,7 +2632,7 @@ pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_pause(autopinger: alljoyn_autopinger);
         }
@@ -2647,7 +2647,7 @@ pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_autopinger_removedestination<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, destination: Param2, removeall: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_removedestination(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR, removeall: i32) -> QStatus;
         }
@@ -2662,7 +2662,7 @@ pub unsafe fn alljoyn_autopinger_removedestination<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR);
         }
@@ -2676,7 +2676,7 @@ pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_resume(autopinger: alljoyn_autopinger);
         }
@@ -2691,7 +2691,7 @@ pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, pinginterval: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_autopinger_setpinginterval(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, pinginterval: u32) -> QStatus;
         }
@@ -2707,7 +2707,7 @@ pub type alljoyn_busattachment = isize;
 pub unsafe fn alljoyn_busattachment_addlogonentry<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, authmechanism: Param1, username: Param2, password: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_addlogonentry(bus: alljoyn_busattachment, authmechanism: super::super::Foundation::PSTR, username: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2722,7 +2722,7 @@ pub unsafe fn alljoyn_busattachment_addlogonentry<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_busattachment_addmatch<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, rule: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_addmatch(bus: alljoyn_busattachment, rule: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2737,7 +2737,7 @@ pub unsafe fn alljoyn_busattachment_addmatch<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_busattachment_advertisename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_advertisename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, transports: u16) -> QStatus;
         }
@@ -2751,7 +2751,7 @@ pub unsafe fn alljoyn_busattachment_advertisename<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_busattachment_bindsessionport<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_sessionopts>, Param3: ::windows::core::IntoParam<'a, alljoyn_sessionportlistener>>(bus: Param0, sessionport: *mut u16, opts: Param2, listener: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_bindsessionport(bus: alljoyn_busattachment, sessionport: *mut u16, opts: alljoyn_sessionopts, listener: alljoyn_sessionportlistener) -> QStatus;
         }
@@ -2766,7 +2766,7 @@ pub unsafe fn alljoyn_busattachment_bindsessionport<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_busattachment_canceladvertisename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_canceladvertisename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, transports: u16) -> QStatus;
         }
@@ -2781,7 +2781,7 @@ pub unsafe fn alljoyn_busattachment_canceladvertisename<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_cancelfindadvertisedname(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2796,7 +2796,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<'a, Param0: ::windo
 pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_cancelfindadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR, transports: u16) -> QStatus;
         }
@@ -2811,7 +2811,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<'a, Para
 pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, implementsinterface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_cancelwhoimplements_interface(bus: alljoyn_busattachment, implementsinterface: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2825,7 +2825,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<'a, Param0: ::
 pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
         }
@@ -2840,7 +2840,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<'a, Param0: :
 pub unsafe fn alljoyn_busattachment_clearkeys<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_clearkeys(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2854,7 +2854,7 @@ pub unsafe fn alljoyn_busattachment_clearkeys<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment);
         }
@@ -2869,7 +2869,7 @@ pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_busattachment_connect<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, connectspec: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_connect(bus: alljoyn_busattachment, connectspec: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2884,7 +2884,7 @@ pub unsafe fn alljoyn_busattachment_connect<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_busattachment_create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0, allowremotemessages: i32) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_create(applicationname: super::super::Foundation::PSTR, allowremotemessages: i32) -> alljoyn_busattachment;
         }
@@ -2899,7 +2899,7 @@ pub unsafe fn alljoyn_busattachment_create<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_busattachment_create_concurrency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_create_concurrency(applicationname: super::super::Foundation::PSTR, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment;
         }
@@ -2914,7 +2914,7 @@ pub unsafe fn alljoyn_busattachment_create_concurrency<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_createinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, iface: *mut alljoyn_interfacedescription) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_createinterface(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, iface: *mut alljoyn_interfacedescription) -> QStatus;
         }
@@ -2929,7 +2929,7 @@ pub unsafe fn alljoyn_busattachment_createinterface<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_busattachment_createinterface_secure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_createinterface_secure(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus;
         }
@@ -2944,7 +2944,7 @@ pub unsafe fn alljoyn_busattachment_createinterface_secure<'a, Param0: ::windows
 pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, xml: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_createinterfacesfromxml(bus: alljoyn_busattachment, xml: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2959,7 +2959,7 @@ pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<'a, Param0: ::window
 pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_deletedefaultkeystore(applicationname: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -2973,7 +2973,7 @@ pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_deleteinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_deleteinterface(bus: alljoyn_busattachment, iface: alljoyn_interfacedescription) -> QStatus;
         }
@@ -2987,7 +2987,7 @@ pub unsafe fn alljoyn_busattachment_deleteinterface<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_destroy(bus: alljoyn_busattachment);
         }
@@ -3002,7 +3002,7 @@ pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_busattachment_disconnect<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, unused: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_disconnect(bus: alljoyn_busattachment, unused: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3016,7 +3016,7 @@ pub unsafe fn alljoyn_busattachment_disconnect<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment);
         }
@@ -3031,7 +3031,7 @@ pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::wind
 pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, authmechanisms: Param1, listener: Param2, keystorefilename: Param3, isshared: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_enablepeersecurity(bus: alljoyn_busattachment, authmechanisms: super::super::Foundation::PSTR, listener: alljoyn_authlistener, keystorefilename: super::super::Foundation::PSTR, isshared: i32) -> QStatus;
         }
@@ -3046,7 +3046,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(bus: Param0, authmechanisms: Param1, authlistener: Param2, keystorefilename: Param3, isshared: i32, permissionconfigurationlistener: Param5) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus: alljoyn_busattachment, authmechanisms: super::super::Foundation::PSTR, authlistener: alljoyn_authlistener, keystorefilename: super::super::Foundation::PSTR, isshared: i32, permissionconfigurationlistener: alljoyn_permissionconfigurationlistener) -> QStatus;
         }
@@ -3061,7 +3061,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfiguratio
 pub unsafe fn alljoyn_busattachment_findadvertisedname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_findadvertisedname(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3076,7 +3076,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisedname<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_findadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR, transports: u16) -> QStatus;
         }
@@ -3090,7 +3090,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<'a, Param0: ::
 pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getalljoyndebugobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
         }
@@ -3104,7 +3104,7 @@ pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getalljoynproxyobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
         }
@@ -3118,7 +3118,7 @@ pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_getconcurrency<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment) -> u32;
         }
@@ -3133,7 +3133,7 @@ pub unsafe fn alljoyn_busattachment_getconcurrency<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_busattachment_getconnectspec<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
         }
@@ -3147,7 +3147,7 @@ pub unsafe fn alljoyn_busattachment_getconnectspec<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_busattachment_getdbusproxyobj<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getdbusproxyobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
         }
@@ -3162,7 +3162,7 @@ pub unsafe fn alljoyn_busattachment_getdbusproxyobj<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_busattachment_getglobalguidstring<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
         }
@@ -3177,7 +3177,7 @@ pub unsafe fn alljoyn_busattachment_getglobalguidstring<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_busattachment_getinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1) -> alljoyn_interfacedescription {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getinterface(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR) -> alljoyn_interfacedescription;
         }
@@ -3191,7 +3191,7 @@ pub unsafe fn alljoyn_busattachment_getinterface<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busattachment_getinterfaces<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
         }
@@ -3206,7 +3206,7 @@ pub unsafe fn alljoyn_busattachment_getinterfaces<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_busattachment_getkeyexpiration<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1, timeout: *mut u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getkeyexpiration(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR, timeout: *mut u32) -> QStatus;
         }
@@ -3221,7 +3221,7 @@ pub unsafe fn alljoyn_busattachment_getkeyexpiration<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_busattachment_getpeerguid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, guid: Param2, guidsz: *mut usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getpeerguid(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, guid: super::super::Foundation::PSTR, guidsz: *mut usize) -> QStatus;
         }
@@ -3235,7 +3235,7 @@ pub unsafe fn alljoyn_busattachment_getpeerguid<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_permissionconfigurator {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getpermissionconfigurator(bus: alljoyn_busattachment) -> alljoyn_permissionconfigurator;
         }
@@ -3249,7 +3249,7 @@ pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<'a, Param0: ::wind
 pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_gettimestamp() -> u32;
         }
@@ -3264,7 +3264,7 @@ pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
 pub unsafe fn alljoyn_busattachment_getuniquename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
         }
@@ -3278,7 +3278,7 @@ pub unsafe fn alljoyn_busattachment_getuniquename<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_busattachment_isconnected<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_isconnected(bus: alljoyn_busattachment) -> i32;
         }
@@ -3292,7 +3292,7 @@ pub unsafe fn alljoyn_busattachment_isconnected<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_ispeersecurityenabled(bus: alljoyn_busattachment) -> i32;
         }
@@ -3306,7 +3306,7 @@ pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_isstarted<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_isstarted(bus: alljoyn_busattachment) -> i32;
         }
@@ -3320,7 +3320,7 @@ pub unsafe fn alljoyn_busattachment_isstarted<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_busattachment_isstopping<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_isstopping(bus: alljoyn_busattachment) -> i32;
         }
@@ -3334,7 +3334,7 @@ pub unsafe fn alljoyn_busattachment_isstopping<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_busattachment_join<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_join(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -3349,7 +3349,7 @@ pub unsafe fn alljoyn_busattachment_join<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_busattachment_joinsession<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>, Param5: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(bus: Param0, sessionhost: Param1, sessionport: u16, listener: Param3, sessionid: *mut u32, opts: Param5) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, sessionid: *mut u32, opts: alljoyn_sessionopts) -> QStatus;
         }
@@ -3364,7 +3364,7 @@ pub unsafe fn alljoyn_busattachment_joinsession<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>, Param4: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(bus: Param0, sessionhost: Param1, sessionport: u16, listener: Param3, opts: Param4, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -3380,7 +3380,7 @@ pub type alljoyn_busattachment_joinsessioncb_ptr = ::core::option::Option<unsafe
 pub unsafe fn alljoyn_busattachment_leavesession<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: u32) -> QStatus;
         }
@@ -3395,7 +3395,7 @@ pub unsafe fn alljoyn_busattachment_leavesession<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busattachment_namehasowner<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, hasowner: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_namehasowner(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, hasowner: *mut i32) -> QStatus;
         }
@@ -3410,7 +3410,7 @@ pub unsafe fn alljoyn_busattachment_namehasowner<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busattachment_ping<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, timeout: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_ping(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, timeout: u32) -> QStatus;
         }
@@ -3424,7 +3424,7 @@ pub unsafe fn alljoyn_busattachment_ping<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_aboutlistener>>(bus: Param0, aboutlistener: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
@@ -3438,7 +3438,7 @@ pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_applicationstatelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registerapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener) -> QStatus;
         }
@@ -3452,7 +3452,7 @@ pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<'a, Param0:
 pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_buslistener>>(bus: Param0, listener: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
@@ -3466,7 +3466,7 @@ pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_busattachment_registerbusobject<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, obj: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registerbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject) -> QStatus;
         }
@@ -3480,7 +3480,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_busattachment_registerbusobject_secure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, obj: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registerbusobject_secure(bus: alljoyn_busattachment, obj: alljoyn_busobject) -> QStatus;
         }
@@ -3494,7 +3494,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject_secure<'a, Param0: ::windo
 pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_keystorelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registerkeystorelistener(bus: alljoyn_busattachment, listener: alljoyn_keystorelistener) -> QStatus;
         }
@@ -3509,7 +3509,7 @@ pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, Param0: ::windo
 pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3524,7 +3524,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3539,7 +3539,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::
 pub unsafe fn alljoyn_busattachment_releasename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_releasename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3553,7 +3553,7 @@ pub unsafe fn alljoyn_busattachment_releasename<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_reloadkeystore<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -3568,7 +3568,7 @@ pub unsafe fn alljoyn_busattachment_reloadkeystore<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_busattachment_removematch<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, rule: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_removematch(bus: alljoyn_busattachment, rule: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3583,7 +3583,7 @@ pub unsafe fn alljoyn_busattachment_removematch<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_removesessionmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, sessionid: u32, membername: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_removesessionmember(bus: alljoyn_busattachment, sessionid: u32, membername: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3598,7 +3598,7 @@ pub unsafe fn alljoyn_busattachment_removesessionmember<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_busattachment_requestname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, requestedname: Param1, flags: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_requestname(bus: alljoyn_busattachment, requestedname: super::super::Foundation::PSTR, flags: u32) -> QStatus;
         }
@@ -3613,7 +3613,7 @@ pub unsafe fn alljoyn_busattachment_requestname<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busattachment_secureconnection<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, forceauth: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_secureconnection(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, forceauth: i32) -> QStatus;
         }
@@ -3628,7 +3628,7 @@ pub unsafe fn alljoyn_busattachment_secureconnection<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_busattachment_secureconnectionasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, forceauth: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_secureconnectionasync(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, forceauth: i32) -> QStatus;
         }
@@ -3643,7 +3643,7 @@ pub unsafe fn alljoyn_busattachment_secureconnectionasync<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_setdaemondebug<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, module: Param1, level: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_setdaemondebug(bus: alljoyn_busattachment, module: super::super::Foundation::PSTR, level: u32) -> QStatus;
         }
@@ -3658,7 +3658,7 @@ pub unsafe fn alljoyn_busattachment_setdaemondebug<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_busattachment_setkeyexpiration<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1, timeout: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR, timeout: u32) -> QStatus;
         }
@@ -3672,7 +3672,7 @@ pub unsafe fn alljoyn_busattachment_setkeyexpiration<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: *mut u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: u32, linktimeout: *mut u32) -> QStatus;
         }
@@ -3686,7 +3686,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -3702,7 +3702,7 @@ pub type alljoyn_busattachment_setlinktimeoutcb_ptr = ::core::option::Option<uns
 pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>>(bus: Param0, sessionid: u32, listener: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: u32, listener: alljoyn_sessionlistener) -> QStatus;
         }
@@ -3716,7 +3716,7 @@ pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busattachment_start<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_start(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -3730,7 +3730,7 @@ pub unsafe fn alljoyn_busattachment_start<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_busattachment_stop<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_stop(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -3744,7 +3744,7 @@ pub unsafe fn alljoyn_busattachment_stop<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_busattachment_unbindsessionport<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionport: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unbindsessionport(bus: alljoyn_busattachment, sessionport: u16) -> QStatus;
         }
@@ -3758,7 +3758,7 @@ pub unsafe fn alljoyn_busattachment_unbindsessionport<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_aboutlistener>>(bus: Param0, aboutlistener: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
@@ -3772,7 +3772,7 @@ pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::window
 pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment);
         }
@@ -3786,7 +3786,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::wi
 pub unsafe fn alljoyn_busattachment_unregisterallhandlers<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisterallhandlers(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -3800,7 +3800,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallhandlers<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_applicationstatelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisterapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener) -> QStatus;
         }
@@ -3814,7 +3814,7 @@ pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<'a, Param
 pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_buslistener>>(bus: Param0, listener: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
@@ -3828,7 +3828,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows:
 pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, object: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, object: alljoyn_busobject);
         }
@@ -3843,7 +3843,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3858,7 +3858,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::window
 pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3873,7 +3873,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: 
 pub unsafe fn alljoyn_busattachment_whoimplements_interface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, implementsinterface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_whoimplements_interface(bus: alljoyn_busattachment, implementsinterface: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -3887,7 +3887,7 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interface<'a, Param0: ::window
 pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
         }
@@ -3949,7 +3949,7 @@ impl ::core::default::Default for alljoyn_buslistener_callbacks {
 pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_buslistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_buslistener;
         }
@@ -3963,7 +3963,7 @@ pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_c
 pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_buslistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener);
         }
@@ -3991,7 +3991,7 @@ pub type alljoyn_busobject = isize;
 pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_addinterface(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
         }
@@ -4005,7 +4005,7 @@ pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_busobject_addinterface_announced<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_addinterface_announced(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
         }
@@ -4020,7 +4020,7 @@ pub unsafe fn alljoyn_busobject_addinterface_announced<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>>(bus: Param0, member: Param1, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -4035,7 +4035,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus;
         }
@@ -4084,7 +4084,7 @@ impl ::core::default::Default for alljoyn_busobject_callbacks {
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message) -> QStatus;
         }
@@ -4098,7 +4098,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, serialnumber: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_busobject, serialnumber: u32) -> QStatus;
         }
@@ -4113,7 +4113,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<'a, Param0: ::wi
 pub unsafe fn alljoyn_busobject_create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(path: Param0, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_create(path: super::super::Foundation::PSTR, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject;
         }
@@ -4127,7 +4127,7 @@ pub unsafe fn alljoyn_busobject_create<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_destroy(bus: alljoyn_busobject);
         }
@@ -4142,7 +4142,7 @@ pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, ifcname: Param1, propnames: *const *const i8, numprops: usize, id: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propnames: *const *const i8, numprops: usize, id: u32);
         }
@@ -4157,7 +4157,7 @@ pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, ifcname: Param1, propname: Param2, val: Param3, id: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg, id: u32);
         }
@@ -4171,7 +4171,7 @@ pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0, interfaces: *const *const i8, numinterfaces: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: *const *const i8, numinterfaces: usize) -> usize;
         }
@@ -4185,7 +4185,7 @@ pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<'a, Param0: ::windows
 pub unsafe fn alljoyn_busobject_getbusattachment<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_getbusattachment(bus: alljoyn_busobject) -> alljoyn_busattachment;
         }
@@ -4200,7 +4200,7 @@ pub unsafe fn alljoyn_busobject_getbusattachment<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busobject_getname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, buffer: Param1, buffersz: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_getname(bus: alljoyn_busobject, buffer: super::super::Foundation::PSTR, buffersz: usize) -> usize;
         }
@@ -4215,7 +4215,7 @@ pub unsafe fn alljoyn_busobject_getname<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_busobject_getpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_getpath(bus: alljoyn_busobject) -> super::super::Foundation::PSTR;
         }
@@ -4229,7 +4229,7 @@ pub unsafe fn alljoyn_busobject_getpath<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_busobject_issecure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_issecure(bus: alljoyn_busobject) -> i32;
         }
@@ -4276,7 +4276,7 @@ impl ::core::default::Default for alljoyn_busobject_methodentry {
 pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, msg: Param1, args: Param2, numargs: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_methodreply_args(bus: alljoyn_busobject, msg: alljoyn_message, args: alljoyn_msgarg, numargs: usize) -> QStatus;
         }
@@ -4291,7 +4291,7 @@ pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_busobject_methodreply_err<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, msg: Param1, error: Param2, errormessage: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_methodreply_err(bus: alljoyn_busobject, msg: alljoyn_message, error: super::super::Foundation::PSTR, errormessage: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4305,7 +4305,7 @@ pub unsafe fn alljoyn_busobject_methodreply_err<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busobject_methodreply_status<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1, status: QStatus) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_methodreply_status(bus: alljoyn_busobject, msg: alljoyn_message, status: QStatus) -> QStatus;
         }
@@ -4327,7 +4327,7 @@ pub type alljoyn_busobject_prop_set_ptr = ::core::option::Option<unsafe extern "
 pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1, isannounced: alljoyn_about_announceflag) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_setannounceflag(bus: alljoyn_busobject, iface: alljoyn_interfacedescription, isannounced: alljoyn_about_announceflag) -> QStatus;
         }
@@ -4342,7 +4342,7 @@ pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param8: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, destination: Param1, sessionid: u32, signal: Param3, args: Param4, numargs: usize, timetolive: u16, flags: u8, msg: Param8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_busobject_signal(bus: alljoyn_busobject, destination: super::super::Foundation::PSTR, sessionid: u32, signal: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, timetolive: u16, flags: u8, msg: alljoyn_message) -> QStatus;
         }
@@ -4426,7 +4426,7 @@ pub type alljoyn_credentials = isize;
 pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_clear(cred: alljoyn_credentials);
         }
@@ -4440,7 +4440,7 @@ pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_create() -> alljoyn_credentials;
         }
@@ -4454,7 +4454,7 @@ pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
 pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_destroy(cred: alljoyn_credentials);
         }
@@ -4469,7 +4469,7 @@ pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_credentials_getcertchain<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getcertchain(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
         }
@@ -4483,7 +4483,7 @@ pub unsafe fn alljoyn_credentials_getcertchain<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_credentials_getexpiration<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getexpiration(cred: alljoyn_credentials) -> u32;
         }
@@ -4498,7 +4498,7 @@ pub unsafe fn alljoyn_credentials_getexpiration<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_getlogonentry<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getlogonentry(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
         }
@@ -4513,7 +4513,7 @@ pub unsafe fn alljoyn_credentials_getlogonentry<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_getpassword<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getpassword(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
         }
@@ -4528,7 +4528,7 @@ pub unsafe fn alljoyn_credentials_getpassword<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_credentials_getprivateKey<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getprivateKey(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
         }
@@ -4543,7 +4543,7 @@ pub unsafe fn alljoyn_credentials_getprivateKey<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_getusername<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_getusername(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
         }
@@ -4557,7 +4557,7 @@ pub unsafe fn alljoyn_credentials_getusername<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_credentials_isset<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0, creds: u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_isset(cred: alljoyn_credentials, creds: u16) -> i32;
         }
@@ -4572,7 +4572,7 @@ pub unsafe fn alljoyn_credentials_isset<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, certchain: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: super::super::Foundation::PSTR);
         }
@@ -4586,7 +4586,7 @@ pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0, expiration: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
         }
@@ -4601,7 +4601,7 @@ pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, logonentry: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: super::super::Foundation::PSTR);
         }
@@ -4616,7 +4616,7 @@ pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, pwd: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: super::super::Foundation::PSTR);
         }
@@ -4631,7 +4631,7 @@ pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, pk: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: super::super::Foundation::PSTR);
         }
@@ -4646,7 +4646,7 @@ pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, username: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_credentials_setusername(cred: alljoyn_credentials, username: super::super::Foundation::PSTR);
         }
@@ -4661,7 +4661,7 @@ pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR;
         }
@@ -4675,7 +4675,7 @@ pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
 pub unsafe fn alljoyn_getnumericversion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_getnumericversion() -> u32;
         }
@@ -4690,7 +4690,7 @@ pub unsafe fn alljoyn_getnumericversion() -> u32 {
 pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_getversion() -> super::super::Foundation::PSTR;
         }
@@ -4704,7 +4704,7 @@ pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
 pub unsafe fn alljoyn_init() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_init() -> QStatus;
         }
@@ -4719,7 +4719,7 @@ pub type alljoyn_interfacedescription = isize;
 pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription);
         }
@@ -4734,7 +4734,7 @@ pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_interfacedescription_addannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, value: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addannotation(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4749,7 +4749,7 @@ pub unsafe fn alljoyn_interfacedescription_addannotation<'a, Param0: ::windows::
 pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, name: Param3, value: Param4) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addargannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4764,7 +4764,7 @@ pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::window
 pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, r#type: alljoyn_messagetype, name: Param2, inputsig: Param3, outsig: Param4, argnames: Param5, annotation: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addmember(iface: alljoyn_interfacedescription, r#type: alljoyn_messagetype, name: super::super::Foundation::PSTR, inputsig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8) -> QStatus;
         }
@@ -4779,7 +4779,7 @@ pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, name: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addmemberannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4794,7 +4794,7 @@ pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, Param0: ::win
 pub unsafe fn alljoyn_interfacedescription_addmethod<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, inputsig: Param2, outsig: Param3, argnames: Param4, annotation: u8, accessperms: Param6) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addmethod(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, inputsig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8, accessperms: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4809,7 +4809,7 @@ pub unsafe fn alljoyn_interfacedescription_addmethod<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_addproperty<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, signature: Param2, access: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, signature: super::super::Foundation::PSTR, access: u8) -> QStatus;
         }
@@ -4824,7 +4824,7 @@ pub unsafe fn alljoyn_interfacedescription_addproperty<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, name: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addpropertyannotation(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4839,7 +4839,7 @@ pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, Param0: ::w
 pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, sig: Param2, argnames: Param3, annotation: u8, accessperms: Param5) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_addsignal(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, sig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8, accessperms: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -4853,7 +4853,7 @@ pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_eql<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_eql(one: alljoyn_interfacedescription, other: alljoyn_interfacedescription) -> i32;
         }
@@ -4868,7 +4868,7 @@ pub unsafe fn alljoyn_interfacedescription_eql<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_interfacedescription_getannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotation(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -4883,7 +4883,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotation<'a, Param0: ::windows::
 pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
@@ -4897,7 +4897,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::wi
 pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotationscount(iface: alljoyn_interfacedescription) -> usize;
         }
@@ -4912,7 +4912,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, Param0: ::win
 pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, arg: Param2, description: Param3, maxlanguagelength: usize, languagetag: Param5) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, arg: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
         }
@@ -4927,7 +4927,7 @@ pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Para
 pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1, maxlanguagelength: usize, languagetag: Param3) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionforlanguage(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
         }
@@ -4941,7 +4941,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<'a, Param0:
 pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, languages: *const *const i8, size: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: *const *const i8, size: usize) -> usize;
         }
@@ -4956,7 +4956,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<'a, Param0: :
 pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, languages: Param1, languagessize: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionlanguages2(iface: alljoyn_interfacedescription, languages: super::super::Foundation::PSTR, languagessize: usize) -> usize;
         }
@@ -4971,7 +4971,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, Param0: 
 pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> alljoyn_interfacedescription_translation_callback_ptr {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription) -> alljoyn_interfacedescription_translation_callback_ptr;
         }
@@ -4986,7 +4986,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a,
 pub unsafe fn alljoyn_interfacedescription_getmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmember(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
         }
@@ -5001,7 +5001,7 @@ pub unsafe fn alljoyn_interfacedescription_getmember<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, name: Param2, value: Param3, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -5016,7 +5016,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, Param0: ::win
 pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, name: Param3, value: Param4, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberargannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -5031,7 +5031,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::
 pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2, maxlanguagelength: usize, languagetag: Param4) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
         }
@@ -5046,7 +5046,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<'a, P
 pub unsafe fn alljoyn_interfacedescription_getmembers<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmembers(iface: alljoyn_interfacedescription, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize;
         }
@@ -5061,7 +5061,7 @@ pub unsafe fn alljoyn_interfacedescription_getmembers<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_interfacedescription_getmethod<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getmethod(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
         }
@@ -5076,7 +5076,7 @@ pub unsafe fn alljoyn_interfacedescription_getmethod<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_getname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription) -> super::super::Foundation::PSTR;
         }
@@ -5091,7 +5091,7 @@ pub unsafe fn alljoyn_interfacedescription_getname<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_interfacedescription_getproperties<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getproperties(iface: alljoyn_interfacedescription, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize;
         }
@@ -5106,7 +5106,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperties<'a, Param0: ::windows::
 pub unsafe fn alljoyn_interfacedescription_getproperty<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, property: *mut alljoyn_interfacedescription_property) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, property: *mut alljoyn_interfacedescription_property) -> i32;
         }
@@ -5121,7 +5121,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperty<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, name: Param2, value: Param3, str_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getpropertyannotation(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, str_size: *mut usize) -> i32;
         }
@@ -5136,7 +5136,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<'a, Param0: ::w
 pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, description: Param2, maxlanguagelength: usize, languagetag: Param4) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
         }
@@ -5150,7 +5150,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<'a,
 pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> alljoyn_interfacedescription_securitypolicy {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getsecuritypolicy(iface: alljoyn_interfacedescription) -> alljoyn_interfacedescription_securitypolicy;
         }
@@ -5165,7 +5165,7 @@ pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<'a, Param0: ::windo
 pub unsafe fn alljoyn_interfacedescription_getsignal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_getsignal(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
         }
@@ -5179,7 +5179,7 @@ pub unsafe fn alljoyn_interfacedescription_getsignal<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_hasdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_hasdescription(iface: alljoyn_interfacedescription) -> i32;
         }
@@ -5194,7 +5194,7 @@ pub unsafe fn alljoyn_interfacedescription_hasdescription<'a, Param0: ::windows:
 pub unsafe fn alljoyn_interfacedescription_hasmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, insig: Param2, outsig: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_hasmember(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, insig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR) -> i32;
         }
@@ -5208,7 +5208,7 @@ pub unsafe fn alljoyn_interfacedescription_hasmember<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_interfacedescription_hasproperties<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_hasproperties(iface: alljoyn_interfacedescription) -> i32;
         }
@@ -5223,7 +5223,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperties<'a, Param0: ::windows::
 pub unsafe fn alljoyn_interfacedescription_hasproperty<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_hasproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR) -> i32;
         }
@@ -5238,7 +5238,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperty<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_interfacedescription_introspect<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, str: Param1, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_introspect(iface: alljoyn_interfacedescription, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
         }
@@ -5252,7 +5252,7 @@ pub unsafe fn alljoyn_interfacedescription_introspect<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_interfacedescription_issecure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_issecure(iface: alljoyn_interfacedescription) -> i32;
         }
@@ -5305,7 +5305,7 @@ impl ::core::default::Default for alljoyn_interfacedescription_member {
 pub unsafe fn alljoyn_interfacedescription_member_eql<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_eql(one: alljoyn_interfacedescription_member, other: alljoyn_interfacedescription_member) -> i32;
         }
@@ -5320,7 +5320,7 @@ pub unsafe fn alljoyn_interfacedescription_member_eql<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_interfacedescription_member_getannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotation(member: alljoyn_interfacedescription_member, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -5335,7 +5335,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotation<'a, Param0: ::wi
 pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
@@ -5350,7 +5350,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param
 pub unsafe fn alljoyn_interfacedescription_member_getannotationscount<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>>(member: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationscount(member: alljoyn_interfacedescription_member) -> usize;
         }
@@ -5365,7 +5365,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationscount<'a, Param0
 pub unsafe fn alljoyn_interfacedescription_member_getargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, argname: Param1, name: Param2, value: Param3, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotation(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -5380,7 +5380,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotation<'a, Param0: :
 pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, argname: Param1, index: usize, name: Param3, name_size: *mut usize, value: Param5, value_size: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
@@ -5395,7 +5395,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Pa
 pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, argname: Param1) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationscount(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR) -> usize;
         }
@@ -5445,7 +5445,7 @@ impl ::core::default::Default for alljoyn_interfacedescription_property {
 pub unsafe fn alljoyn_interfacedescription_property_eql<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_property>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_property>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_property_eql(one: alljoyn_interfacedescription_property, other: alljoyn_interfacedescription_property) -> i32;
         }
@@ -5460,7 +5460,7 @@ pub unsafe fn alljoyn_interfacedescription_property_eql<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_interfacedescription_property_getannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_property>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(property: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotation(property: alljoyn_interfacedescription_property, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
         }
@@ -5475,7 +5475,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotation<'a, Param0: ::
 pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_property>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(property: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
@@ -5490,7 +5490,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Par
 pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_property>>(property: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationscount(property: alljoyn_interfacedescription_property) -> usize;
         }
@@ -5513,7 +5513,7 @@ pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = 2i3
 pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, description: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setargdescription(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5528,7 +5528,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windo
 pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, arg: Param2, description: Param3, languagetag: Param4) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, arg: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5543,7 +5543,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Para
 pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR);
         }
@@ -5558,7 +5558,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows:
 pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1, languagetag: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionforlanguage(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5573,7 +5573,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<'a, Param0:
 pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, language: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: super::super::Foundation::PSTR);
         }
@@ -5588,7 +5588,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::
 pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, translationcallback: alljoyn_interfacedescription_translation_callback_ptr) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: ::windows::core::RawPtr);
         }
@@ -5603,7 +5603,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
 pub unsafe fn alljoyn_interfacedescription_setmemberdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setmemberdescription(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5618,7 +5618,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescription<'a, Param0: ::wi
 pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2, languagetag: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5633,7 +5633,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<'a, P
 pub unsafe fn alljoyn_interfacedescription_setpropertydescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, description: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setpropertydescription(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5648,7 +5648,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescription<'a, Param0: ::
 pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, description: Param2, languagetag: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5695,7 +5695,7 @@ impl ::core::default::Default for alljoyn_keystorelistener_callbacks {
 pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener;
         }
@@ -5709,7 +5709,7 @@ pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystore
 pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_keystorelistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener);
         }
@@ -5724,7 +5724,7 @@ pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_keystorelistener_getkeys<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_keystorelistener>, Param1: ::windows::core::IntoParam<'a, alljoyn_keystore>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(listener: Param0, keystore: Param1, sink: Param2, sink_sz: *mut usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_keystorelistener_getkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, sink: super::super::Foundation::PSTR, sink_sz: *mut usize) -> QStatus;
         }
@@ -5741,7 +5741,7 @@ pub type alljoyn_keystorelistener_loadrequest_ptr = ::core::option::Option<unsaf
 pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_keystorelistener>, Param1: ::windows::core::IntoParam<'a, alljoyn_keystore>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(listener: Param0, keystore: Param1, source: Param2, password: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_keystorelistener_putkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, source: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -5787,7 +5787,7 @@ impl ::core::default::Default for alljoyn_keystorelistener_with_synchronization_
 pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener;
         }
@@ -5828,7 +5828,7 @@ pub type alljoyn_message = isize;
 pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_message {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_create(bus: alljoyn_busattachment) -> alljoyn_message;
         }
@@ -5843,7 +5843,7 @@ pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn alljoyn_message_description<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_description(msg: alljoyn_message, str: super::super::Foundation::PSTR, buf: usize) -> usize;
         }
@@ -5857,7 +5857,7 @@ pub unsafe fn alljoyn_message_description<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_destroy(msg: alljoyn_message);
         }
@@ -5871,7 +5871,7 @@ pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_message_eql<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_eql(one: alljoyn_message, other: alljoyn_message) -> i32;
         }
@@ -5885,7 +5885,7 @@ pub unsafe fn alljoyn_message_eql<'a, Param0: ::windows::core::IntoParam<'a, all
 pub unsafe fn alljoyn_message_getarg<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0, argn: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getarg(msg: alljoyn_message, argn: usize) -> alljoyn_msgarg;
         }
@@ -5899,7 +5899,7 @@ pub unsafe fn alljoyn_message_getarg<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0, numargs: *mut usize, args: *mut alljoyn_msgarg) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getargs(msg: alljoyn_message, numargs: *mut usize, args: *mut alljoyn_msgarg);
         }
@@ -5914,7 +5914,7 @@ pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_message_getauthmechanism<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getauthmechanism(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -5928,7 +5928,7 @@ pub unsafe fn alljoyn_message_getauthmechanism<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_message_getcallserial<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getcallserial(msg: alljoyn_message) -> u32;
         }
@@ -5942,7 +5942,7 @@ pub unsafe fn alljoyn_message_getcallserial<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_message_getcompressiontoken<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getcompressiontoken(msg: alljoyn_message) -> u32;
         }
@@ -5957,7 +5957,7 @@ pub unsafe fn alljoyn_message_getcompressiontoken<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_message_getdestination<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getdestination(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -5972,7 +5972,7 @@ pub unsafe fn alljoyn_message_getdestination<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_message_geterrorname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, errormessage: Param1, errormessage_size: *mut usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_geterrorname(msg: alljoyn_message, errormessage: super::super::Foundation::PSTR, errormessage_size: *mut usize) -> super::super::Foundation::PSTR;
         }
@@ -5986,7 +5986,7 @@ pub unsafe fn alljoyn_message_geterrorname<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_getflags<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getflags(msg: alljoyn_message) -> u8;
         }
@@ -6001,7 +6001,7 @@ pub unsafe fn alljoyn_message_getflags<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_message_getinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getinterface(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6016,7 +6016,7 @@ pub unsafe fn alljoyn_message_getinterface<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_getmembername<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getmembername(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6031,7 +6031,7 @@ pub unsafe fn alljoyn_message_getmembername<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_message_getobjectpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getobjectpath(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6046,7 +6046,7 @@ pub unsafe fn alljoyn_message_getobjectpath<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_message_getreceiveendpointname<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getreceiveendpointname(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6060,7 +6060,7 @@ pub unsafe fn alljoyn_message_getreceiveendpointname<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_message_getreplyserial<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getreplyserial(msg: alljoyn_message) -> u32;
         }
@@ -6075,7 +6075,7 @@ pub unsafe fn alljoyn_message_getreplyserial<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_message_getsender<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getsender(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6089,7 +6089,7 @@ pub unsafe fn alljoyn_message_getsender<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_message_getsessionid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getsessionid(msg: alljoyn_message) -> u32;
         }
@@ -6104,7 +6104,7 @@ pub unsafe fn alljoyn_message_getsessionid<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_getsignature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_getsignature(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -6118,7 +6118,7 @@ pub unsafe fn alljoyn_message_getsignature<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_gettimestamp<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_gettimestamp(msg: alljoyn_message) -> u32;
         }
@@ -6132,7 +6132,7 @@ pub unsafe fn alljoyn_message_gettimestamp<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_gettype<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> alljoyn_messagetype {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_gettype(msg: alljoyn_message) -> alljoyn_messagetype;
         }
@@ -6146,7 +6146,7 @@ pub unsafe fn alljoyn_message_gettype<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_message_isbroadcastsignal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_isbroadcastsignal(msg: alljoyn_message) -> i32;
         }
@@ -6160,7 +6160,7 @@ pub unsafe fn alljoyn_message_isbroadcastsignal<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_message_isencrypted<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_isencrypted(msg: alljoyn_message) -> i32;
         }
@@ -6174,7 +6174,7 @@ pub unsafe fn alljoyn_message_isencrypted<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_message_isexpired<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0, tillexpirems: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_isexpired(msg: alljoyn_message, tillexpirems: *mut u32) -> i32;
         }
@@ -6188,7 +6188,7 @@ pub unsafe fn alljoyn_message_isexpired<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_message_isglobalbroadcast<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_isglobalbroadcast(msg: alljoyn_message) -> i32;
         }
@@ -6202,7 +6202,7 @@ pub unsafe fn alljoyn_message_isglobalbroadcast<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_message_issessionless<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_issessionless(msg: alljoyn_message) -> i32;
         }
@@ -6216,7 +6216,7 @@ pub unsafe fn alljoyn_message_issessionless<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_message_isunreliable<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_isunreliable(msg: alljoyn_message) -> i32;
         }
@@ -6231,7 +6231,7 @@ pub unsafe fn alljoyn_message_isunreliable<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_message_parseargs<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_parseargs(msg: alljoyn_message, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6245,7 +6245,7 @@ pub unsafe fn alljoyn_message_parseargs<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_message_setendianess(endian: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_setendianess(endian: i8);
         }
@@ -6260,7 +6260,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
 pub unsafe fn alljoyn_message_tostring<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_message>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_message_tostring(msg: alljoyn_message, str: super::super::Foundation::PSTR, buf: usize) -> usize;
         }
@@ -6295,7 +6295,7 @@ pub type alljoyn_msgarg = isize;
 pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg;
         }
@@ -6309,7 +6309,7 @@ pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
 pub unsafe fn alljoyn_msgarg_array_element<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
         }
@@ -6324,7 +6324,7 @@ pub unsafe fn alljoyn_msgarg_array_element<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_msgarg_array_get<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: usize, signature: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_get(args: alljoyn_msgarg, numargs: usize, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6339,7 +6339,7 @@ pub unsafe fn alljoyn_msgarg_array_get<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_array_set<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: *mut usize, signature: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_set(args: alljoyn_msgarg, numargs: *mut usize, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6354,7 +6354,7 @@ pub unsafe fn alljoyn_msgarg_array_set<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_array_set_offset<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, argoffset: usize, numargs: *mut usize, signature: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_set_offset(args: alljoyn_msgarg, argoffset: usize, numargs: *mut usize, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6369,7 +6369,7 @@ pub unsafe fn alljoyn_msgarg_array_set_offset<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_array_signature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(values: Param0, numvalues: usize, str: Param2, buf: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_signature(values: alljoyn_msgarg, numvalues: usize, str: super::super::Foundation::PSTR, buf: usize) -> usize;
         }
@@ -6384,7 +6384,7 @@ pub unsafe fn alljoyn_msgarg_array_signature<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_array_tostring<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: usize, str: Param2, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_array_tostring(args: alljoyn_msgarg, numargs: usize, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
         }
@@ -6398,7 +6398,7 @@ pub unsafe fn alljoyn_msgarg_array_tostring<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_clear(arg: alljoyn_msgarg);
         }
@@ -6412,7 +6412,7 @@ pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::core::IntoParam<'a, al
 pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(destination: Param0, source: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg);
         }
@@ -6426,7 +6426,7 @@ pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::core::IntoParam<'a, al
 pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(source: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_copy(source: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -6440,7 +6440,7 @@ pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::core::IntoParam<'a, all
 pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_create() -> alljoyn_msgarg;
         }
@@ -6455,7 +6455,7 @@ pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
 pub unsafe fn alljoyn_msgarg_create_and_set<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(signature: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_create_and_set(signature: super::super::Foundation::PSTR) -> alljoyn_msgarg;
         }
@@ -6469,7 +6469,7 @@ pub unsafe fn alljoyn_msgarg_create_and_set<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_destroy(arg: alljoyn_msgarg);
         }
@@ -6483,7 +6483,7 @@ pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn alljoyn_msgarg_equal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(lhv: Param0, rhv: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_equal(lhv: alljoyn_msgarg, rhv: alljoyn_msgarg) -> i32;
         }
@@ -6498,7 +6498,7 @@ pub unsafe fn alljoyn_msgarg_equal<'a, Param0: ::windows::core::IntoParam<'a, al
 pub unsafe fn alljoyn_msgarg_get<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6512,7 +6512,7 @@ pub unsafe fn alljoyn_msgarg_get<'a, Param0: ::windows::core::IntoParam<'a, allj
 pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize, element: *mut alljoyn_msgarg) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg);
         }
@@ -6527,7 +6527,7 @@ pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_msgarg_get_array_elementsignature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: usize) -> super::super::Foundation::PSTR;
         }
@@ -6541,7 +6541,7 @@ pub unsafe fn alljoyn_msgarg_get_array_elementsignature<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_msgarg_get_array_numberofelements<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_array_numberofelements(arg: alljoyn_msgarg) -> usize;
         }
@@ -6555,7 +6555,7 @@ pub unsafe fn alljoyn_msgarg_get_array_numberofelements<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_msgarg_get_bool<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, b: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_bool(arg: alljoyn_msgarg, b: *mut i32) -> QStatus;
         }
@@ -6569,7 +6569,7 @@ pub unsafe fn alljoyn_msgarg_get_bool<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_msgarg_get_bool_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ab: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_bool_array(arg: alljoyn_msgarg, length: *mut usize, ab: *mut i32) -> QStatus;
         }
@@ -6583,7 +6583,7 @@ pub unsafe fn alljoyn_msgarg_get_bool_array<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_get_double<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, d: *mut f64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_double(arg: alljoyn_msgarg, d: *mut f64) -> QStatus;
         }
@@ -6597,7 +6597,7 @@ pub unsafe fn alljoyn_msgarg_get_double<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_get_double_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ad: *mut f64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_double_array(arg: alljoyn_msgarg, length: *mut usize, ad: *mut f64) -> QStatus;
         }
@@ -6611,7 +6611,7 @@ pub unsafe fn alljoyn_msgarg_get_double_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_get_int16<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, n: *mut i16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int16(arg: alljoyn_msgarg, n: *mut i16) -> QStatus;
         }
@@ -6625,7 +6625,7 @@ pub unsafe fn alljoyn_msgarg_get_int16<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_get_int16_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, an: *mut i16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int16_array(arg: alljoyn_msgarg, length: *mut usize, an: *mut i16) -> QStatus;
         }
@@ -6639,7 +6639,7 @@ pub unsafe fn alljoyn_msgarg_get_int16_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_get_int32<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, i: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int32(arg: alljoyn_msgarg, i: *mut i32) -> QStatus;
         }
@@ -6653,7 +6653,7 @@ pub unsafe fn alljoyn_msgarg_get_int32<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_get_int32_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ai: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int32_array(arg: alljoyn_msgarg, length: *mut usize, ai: *mut i32) -> QStatus;
         }
@@ -6667,7 +6667,7 @@ pub unsafe fn alljoyn_msgarg_get_int32_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_get_int64<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, x: *mut i64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int64(arg: alljoyn_msgarg, x: *mut i64) -> QStatus;
         }
@@ -6681,7 +6681,7 @@ pub unsafe fn alljoyn_msgarg_get_int64<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_get_int64_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ax: *mut i64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_int64_array(arg: alljoyn_msgarg, length: *mut usize, ax: *mut i64) -> QStatus;
         }
@@ -6695,7 +6695,7 @@ pub unsafe fn alljoyn_msgarg_get_int64_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_get_objectpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, o: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_objectpath(arg: alljoyn_msgarg, o: *mut *mut i8) -> QStatus;
         }
@@ -6709,7 +6709,7 @@ pub unsafe fn alljoyn_msgarg_get_objectpath<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_get_signature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, g: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_signature(arg: alljoyn_msgarg, g: *mut *mut i8) -> QStatus;
         }
@@ -6723,7 +6723,7 @@ pub unsafe fn alljoyn_msgarg_get_signature<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_msgarg_get_string<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, s: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_string(arg: alljoyn_msgarg, s: *mut *mut i8) -> QStatus;
         }
@@ -6737,7 +6737,7 @@ pub unsafe fn alljoyn_msgarg_get_string<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_get_uint16<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, q: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint16(arg: alljoyn_msgarg, q: *mut u16) -> QStatus;
         }
@@ -6751,7 +6751,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_get_uint16_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, aq: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint16_array(arg: alljoyn_msgarg, length: *mut usize, aq: *mut u16) -> QStatus;
         }
@@ -6765,7 +6765,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_get_uint32<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, u: *mut u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint32(arg: alljoyn_msgarg, u: *mut u32) -> QStatus;
         }
@@ -6779,7 +6779,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_get_uint32_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, au: *mut u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint32_array(arg: alljoyn_msgarg, length: *mut usize, au: *mut u32) -> QStatus;
         }
@@ -6793,7 +6793,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_get_uint64<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, t: *mut u64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint64(arg: alljoyn_msgarg, t: *mut u64) -> QStatus;
         }
@@ -6807,7 +6807,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_get_uint64_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, at: *mut u64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint64_array(arg: alljoyn_msgarg, length: *mut usize, at: *mut u64) -> QStatus;
         }
@@ -6821,7 +6821,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_get_uint8<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, y: *mut u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint8(arg: alljoyn_msgarg, y: *mut u8) -> QStatus;
         }
@@ -6835,7 +6835,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_get_uint8_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ay: *mut u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_uint8_array(arg: alljoyn_msgarg, length: *mut usize, ay: *mut u8) -> QStatus;
         }
@@ -6849,7 +6849,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_get_variant<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, v: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_variant(arg: alljoyn_msgarg, v: alljoyn_msgarg) -> QStatus;
         }
@@ -6864,7 +6864,7 @@ pub unsafe fn alljoyn_msgarg_get_variant<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn alljoyn_msgarg_get_variant_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_get_variant_array(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus;
         }
@@ -6879,7 +6879,7 @@ pub unsafe fn alljoyn_msgarg_get_variant_array<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_msgarg_getdictelement<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, elemsig: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_getdictelement(arg: alljoyn_msgarg, elemsig: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6893,7 +6893,7 @@ pub unsafe fn alljoyn_msgarg_getdictelement<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_getkey<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_getkey(arg: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -6907,7 +6907,7 @@ pub unsafe fn alljoyn_msgarg_getkey<'a, Param0: ::windows::core::IntoParam<'a, a
 pub unsafe fn alljoyn_msgarg_getmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
         }
@@ -6921,7 +6921,7 @@ pub unsafe fn alljoyn_msgarg_getmember<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_getnummembers<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_getnummembers(arg: alljoyn_msgarg) -> usize;
         }
@@ -6935,7 +6935,7 @@ pub unsafe fn alljoyn_msgarg_getnummembers<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_msgarg_gettype<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_typeid {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_gettype(arg: alljoyn_msgarg) -> alljoyn_typeid;
         }
@@ -6949,7 +6949,7 @@ pub unsafe fn alljoyn_msgarg_gettype<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn alljoyn_msgarg_getvalue<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_getvalue(arg: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -6964,7 +6964,7 @@ pub unsafe fn alljoyn_msgarg_getvalue<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_msgarg_hassignature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_hassignature(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> i32;
         }
@@ -6979,7 +6979,7 @@ pub unsafe fn alljoyn_msgarg_hassignature<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_msgarg_set<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -6994,7 +6994,7 @@ pub unsafe fn alljoyn_msgarg_set<'a, Param0: ::windows::core::IntoParam<'a, allj
 pub unsafe fn alljoyn_msgarg_set_and_stabilize<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_and_stabilize(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -7008,7 +7008,7 @@ pub unsafe fn alljoyn_msgarg_set_and_stabilize<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_msgarg_set_bool<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, b: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: i32) -> QStatus;
         }
@@ -7022,7 +7022,7 @@ pub unsafe fn alljoyn_msgarg_set_bool<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_msgarg_set_bool_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ab: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_bool_array(arg: alljoyn_msgarg, length: usize, ab: *mut i32) -> QStatus;
         }
@@ -7036,7 +7036,7 @@ pub unsafe fn alljoyn_msgarg_set_bool_array<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_set_double<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, d: f64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: f64) -> QStatus;
         }
@@ -7050,7 +7050,7 @@ pub unsafe fn alljoyn_msgarg_set_double<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_set_double_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ad: *mut f64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_double_array(arg: alljoyn_msgarg, length: usize, ad: *mut f64) -> QStatus;
         }
@@ -7064,7 +7064,7 @@ pub unsafe fn alljoyn_msgarg_set_double_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_set_int16<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, n: i16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: i16) -> QStatus;
         }
@@ -7078,7 +7078,7 @@ pub unsafe fn alljoyn_msgarg_set_int16<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_set_int16_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, an: *mut i16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int16_array(arg: alljoyn_msgarg, length: usize, an: *mut i16) -> QStatus;
         }
@@ -7092,7 +7092,7 @@ pub unsafe fn alljoyn_msgarg_set_int16_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_set_int32<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, i: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: i32) -> QStatus;
         }
@@ -7106,7 +7106,7 @@ pub unsafe fn alljoyn_msgarg_set_int32<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_set_int32_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ai: *mut i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int32_array(arg: alljoyn_msgarg, length: usize, ai: *mut i32) -> QStatus;
         }
@@ -7120,7 +7120,7 @@ pub unsafe fn alljoyn_msgarg_set_int32_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_set_int64<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, x: i64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: i64) -> QStatus;
         }
@@ -7134,7 +7134,7 @@ pub unsafe fn alljoyn_msgarg_set_int64<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_set_int64_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ax: *mut i64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_int64_array(arg: alljoyn_msgarg, length: usize, ax: *mut i64) -> QStatus;
         }
@@ -7149,7 +7149,7 @@ pub unsafe fn alljoyn_msgarg_set_int64_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_set_objectpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, o: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_objectpath(arg: alljoyn_msgarg, o: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -7163,7 +7163,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_msgarg_set_objectpath_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ao: *const *const i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: usize, ao: *const *const i8) -> QStatus;
         }
@@ -7178,7 +7178,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath_array<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_msgarg_set_signature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, g: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_signature(arg: alljoyn_msgarg, g: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -7192,7 +7192,7 @@ pub unsafe fn alljoyn_msgarg_set_signature<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn alljoyn_msgarg_set_signature_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ag: *const *const i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: usize, ag: *const *const i8) -> QStatus;
         }
@@ -7207,7 +7207,7 @@ pub unsafe fn alljoyn_msgarg_set_signature_array<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_msgarg_set_string<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, s: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_string(arg: alljoyn_msgarg, s: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -7221,7 +7221,7 @@ pub unsafe fn alljoyn_msgarg_set_string<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_set_string_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, r#as: *const *const i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: usize, r#as: *const *const i8) -> QStatus;
         }
@@ -7235,7 +7235,7 @@ pub unsafe fn alljoyn_msgarg_set_string_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_set_uint16<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, q: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: u16) -> QStatus;
         }
@@ -7249,7 +7249,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_set_uint16_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, aq: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint16_array(arg: alljoyn_msgarg, length: usize, aq: *mut u16) -> QStatus;
         }
@@ -7263,7 +7263,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_set_uint32<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, u: u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: u32) -> QStatus;
         }
@@ -7277,7 +7277,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_set_uint32_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, au: *mut u32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint32_array(arg: alljoyn_msgarg, length: usize, au: *mut u32) -> QStatus;
         }
@@ -7291,7 +7291,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_set_uint64<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, t: u64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: u64) -> QStatus;
         }
@@ -7305,7 +7305,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_msgarg_set_uint64_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, at: *mut u64) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint64_array(arg: alljoyn_msgarg, length: usize, at: *mut u64) -> QStatus;
         }
@@ -7319,7 +7319,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64_array<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_msgarg_set_uint8<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, y: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: u8) -> QStatus;
         }
@@ -7333,7 +7333,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_set_uint8_array<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ay: *mut u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_set_uint8_array(arg: alljoyn_msgarg, length: usize, ay: *mut u8) -> QStatus;
         }
@@ -7347,7 +7347,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8_array<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_msgarg_setdictentry<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, key: Param1, value: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_setdictentry(arg: alljoyn_msgarg, key: alljoyn_msgarg, value: alljoyn_msgarg) -> QStatus;
         }
@@ -7361,7 +7361,7 @@ pub unsafe fn alljoyn_msgarg_setdictentry<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_msgarg_setstruct<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, struct_members: Param1, num_members: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_setstruct(arg: alljoyn_msgarg, struct_members: alljoyn_msgarg, num_members: usize) -> QStatus;
         }
@@ -7376,7 +7376,7 @@ pub unsafe fn alljoyn_msgarg_setstruct<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_signature<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_signature(arg: alljoyn_msgarg, str: super::super::Foundation::PSTR, buf: usize) -> usize;
         }
@@ -7390,7 +7390,7 @@ pub unsafe fn alljoyn_msgarg_signature<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_stabilize(arg: alljoyn_msgarg);
         }
@@ -7405,7 +7405,7 @@ pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, str: Param1, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_msgarg_tostring(arg: alljoyn_msgarg, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
         }
@@ -7420,7 +7420,7 @@ pub type alljoyn_observer = isize;
 pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer;
         }
@@ -7434,7 +7434,7 @@ pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>>(observer: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_destroy(observer: alljoyn_observer);
         }
@@ -7449,7 +7449,7 @@ pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn alljoyn_observer_get<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(observer: Param0, uniquebusname: Param1, objectpath: Param2) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_get(observer: alljoyn_observer, uniquebusname: super::super::Foundation::PSTR, objectpath: super::super::Foundation::PSTR) -> alljoyn_proxybusobject_ref;
         }
@@ -7463,7 +7463,7 @@ pub unsafe fn alljoyn_observer_get<'a, Param0: ::windows::core::IntoParam<'a, al
 pub unsafe fn alljoyn_observer_getfirst<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>>(observer: Param0) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_getfirst(observer: alljoyn_observer) -> alljoyn_proxybusobject_ref;
         }
@@ -7477,7 +7477,7 @@ pub unsafe fn alljoyn_observer_getfirst<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn alljoyn_observer_getnext<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>, Param1: ::windows::core::IntoParam<'a, alljoyn_proxybusobject_ref>>(observer: Param0, proxyref: Param1) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_getnext(observer: alljoyn_observer, proxyref: alljoyn_proxybusobject_ref) -> alljoyn_proxybusobject_ref;
         }
@@ -7495,7 +7495,7 @@ pub type alljoyn_observer_object_lost_ptr = ::core::option::Option<unsafe extern
 pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>, Param1: ::windows::core::IntoParam<'a, alljoyn_observerlistener>>(observer: Param0, listener: Param1, triggeronexisting: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: i32);
         }
@@ -7509,7 +7509,7 @@ pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>>(observer: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer);
         }
@@ -7523,7 +7523,7 @@ pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>, Param1: ::windows::core::IntoParam<'a, alljoyn_observerlistener>>(observer: Param0, listener: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener);
         }
@@ -7564,7 +7564,7 @@ impl ::core::default::Default for alljoyn_observerlistener_callback {
 pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener;
         }
@@ -7578,7 +7578,7 @@ pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerl
 pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observerlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener);
         }
@@ -7593,7 +7593,7 @@ pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(authmechanism: Param0, password: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_passwordmanager_setcredentials(authmechanism: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -7636,7 +7636,7 @@ impl ::core::default::Default for alljoyn_permissionconfigurationlistener_callba
 pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener;
         }
@@ -7650,7 +7650,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const a
 pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener);
         }
@@ -7673,7 +7673,7 @@ pub type alljoyn_permissionconfigurator = isize;
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8);
         }
@@ -7687,7 +7687,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificat
 pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid);
         }
@@ -7701,7 +7701,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid
 pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray);
         }
@@ -7715,7 +7715,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certific
 pub unsafe fn alljoyn_permissionconfigurator_claim<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
@@ -7729,7 +7729,7 @@ pub unsafe fn alljoyn_permissionconfigurator_claim<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_permissionconfigurator_endmanagement<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_endmanagement(configurator: alljoyn_permissionconfigurator) -> QStatus;
         }
@@ -7743,7 +7743,7 @@ pub unsafe fn alljoyn_permissionconfigurator_endmanagement<'a, Param0: ::windows
 pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, state: *mut alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getapplicationstate(configurator: alljoyn_permissionconfigurator, state: *mut alljoyn_applicationstate) -> QStatus;
         }
@@ -7757,7 +7757,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<'a, Param0: ::w
 pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, claimcapabilities: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: *mut u16) -> QStatus;
         }
@@ -7771,7 +7771,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<'a, Param0: ::
 pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, additionalinfo: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: *mut u16) -> QStatus;
         }
@@ -7785,7 +7785,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<
 pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16;
         }
@@ -7799,7 +7799,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u1
 pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getdefaultpolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut *mut i8) -> QStatus;
         }
@@ -7813,7 +7813,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<'a, Param0: ::wind
 pub unsafe fn alljoyn_permissionconfigurator_getidentity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, identitycertificatechain: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: *mut *mut i8) -> QStatus;
         }
@@ -7827,7 +7827,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentity<'a, Param0: ::windows::
 pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, certificateid: *mut alljoyn_certificateid) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getidentitycertificateid(configurator: alljoyn_permissionconfigurator, certificateid: *mut alljoyn_certificateid) -> QStatus;
         }
@@ -7841,7 +7841,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<'a, Param0
 pub unsafe fn alljoyn_permissionconfigurator_getmanifests<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifestarray: *mut alljoyn_manifestarray) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmanifests(configurator: alljoyn_permissionconfigurator, manifestarray: *mut alljoyn_manifestarray) -> QStatus;
         }
@@ -7855,7 +7855,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifests<'a, Param0: ::windows:
 pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifesttemplatexml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmanifesttemplate(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: *mut *mut i8) -> QStatus;
         }
@@ -7869,7 +7869,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<'a, Param0: ::w
 pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, certificateids: *mut alljoyn_certificateidarray) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmembershipsummaries(configurator: alljoyn_permissionconfigurator, certificateids: *mut alljoyn_certificateidarray) -> QStatus;
         }
@@ -7883,7 +7883,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<'a, Param0: 
 pub unsafe fn alljoyn_permissionconfigurator_getpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getpolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut *mut i8) -> QStatus;
         }
@@ -7897,7 +7897,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpolicy<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_permissionconfigurator_getpublickey<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, publickey: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getpublickey(configurator: alljoyn_permissionconfigurator, publickey: *mut *mut i8) -> QStatus;
         }
@@ -7911,7 +7911,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpublickey<'a, Param0: ::windows:
 pub unsafe fn alljoyn_permissionconfigurator_installmanifests<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_installmanifests(configurator: alljoyn_permissionconfigurator, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus;
         }
@@ -7925,7 +7925,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmanifests<'a, Param0: ::wind
 pub unsafe fn alljoyn_permissionconfigurator_installmembership<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, membershipcertificatechain: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_installmembership(configurator: alljoyn_permissionconfigurator, membershipcertificatechain: *mut i8) -> QStatus;
         }
@@ -7939,7 +7939,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmembership<'a, Param0: ::win
 pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray);
         }
@@ -7953,7 +7953,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray
 pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
@@ -7967,7 +7967,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifestte
 pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8);
         }
@@ -7981,7 +7981,7 @@ pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) 
 pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8);
         }
@@ -7995,7 +7995,7 @@ pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i
 pub unsafe fn alljoyn_permissionconfigurator_removemembership<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus;
         }
@@ -8009,7 +8009,7 @@ pub unsafe fn alljoyn_permissionconfigurator_removemembership<'a, Param0: ::wind
 pub unsafe fn alljoyn_permissionconfigurator_reset<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_reset(configurator: alljoyn_permissionconfigurator) -> QStatus;
         }
@@ -8023,7 +8023,7 @@ pub unsafe fn alljoyn_permissionconfigurator_reset<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_resetpolicy(configurator: alljoyn_permissionconfigurator) -> QStatus;
         }
@@ -8037,7 +8037,7 @@ pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<'a, Param0: ::windows::
 pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, state: alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setapplicationstate(configurator: alljoyn_permissionconfigurator, state: alljoyn_applicationstate) -> QStatus;
         }
@@ -8051,7 +8051,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<'a, Param0: ::w
 pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, claimcapabilities: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: u16) -> QStatus;
         }
@@ -8065,7 +8065,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<'a, Param0: ::
 pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, additionalinfo: u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: u16) -> QStatus;
         }
@@ -8079,7 +8079,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<
 pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifesttemplatexml: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: *mut i8) -> QStatus;
         }
@@ -8093,7 +8093,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<'a, Para
 pub unsafe fn alljoyn_permissionconfigurator_startmanagement<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_startmanagement(configurator: alljoyn_permissionconfigurator) -> QStatus;
         }
@@ -8107,7 +8107,7 @@ pub unsafe fn alljoyn_permissionconfigurator_startmanagement<'a, Param0: ::windo
 pub unsafe fn alljoyn_permissionconfigurator_updateidentity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_updateidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
@@ -8121,7 +8121,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updateidentity<'a, Param0: ::window
 pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_permissionconfigurator_updatepolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut i8) -> QStatus;
         }
@@ -8170,7 +8170,7 @@ impl ::core::default::Default for alljoyn_pinglistener_callback {
 pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener;
         }
@@ -8184,7 +8184,7 @@ pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_
 pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_pinglistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener);
         }
@@ -8199,7 +8199,7 @@ pub type alljoyn_proxybusobject = isize;
 pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, child: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_addchild(proxyobj: alljoyn_proxybusobject, child: alljoyn_proxybusobject) -> QStatus;
         }
@@ -8213,7 +8213,7 @@ pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_proxybusobject_addinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(proxyobj: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_addinterface(proxyobj: alljoyn_proxybusobject, iface: alljoyn_interfacedescription) -> QStatus;
         }
@@ -8228,7 +8228,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, name: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_addinterface_by_name(proxyobj: alljoyn_proxybusobject, name: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -8242,7 +8242,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<'a, Param0: ::windows:
 pub unsafe fn alljoyn_proxybusobject_copy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(source: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_copy(source: alljoyn_proxybusobject) -> alljoyn_proxybusobject;
         }
@@ -8257,7 +8257,7 @@ pub unsafe fn alljoyn_proxybusobject_copy<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_proxybusobject_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, service: Param1, path: Param2, sessionid: u32) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_create(bus: alljoyn_busattachment, service: super::super::Foundation::PSTR, path: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_proxybusobject;
         }
@@ -8272,7 +8272,7 @@ pub unsafe fn alljoyn_proxybusobject_create<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn alljoyn_proxybusobject_create_secure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, service: Param1, path: Param2, sessionid: u32) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_create_secure(bus: alljoyn_busattachment, service: super::super::Foundation::PSTR, path: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_proxybusobject;
         }
@@ -8286,7 +8286,7 @@ pub unsafe fn alljoyn_proxybusobject_create_secure<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject);
         }
@@ -8300,7 +8300,7 @@ pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject);
         }
@@ -8315,7 +8315,7 @@ pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows
 pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, values: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getallproperties(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, values: alljoyn_msgarg) -> QStatus;
         }
@@ -8330,7 +8330,7 @@ pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -8345,7 +8345,7 @@ pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows
 pub unsafe fn alljoyn_proxybusobject_getchild<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, path: Param1) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getchild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> alljoyn_proxybusobject;
         }
@@ -8359,7 +8359,7 @@ pub unsafe fn alljoyn_proxybusobject_getchild<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_proxybusobject_getchildren<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize;
         }
@@ -8374,7 +8374,7 @@ pub unsafe fn alljoyn_proxybusobject_getchildren<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_proxybusobject_getinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1) -> alljoyn_interfacedescription {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getinterface(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR) -> alljoyn_interfacedescription;
         }
@@ -8388,7 +8388,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterface<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_proxybusobject_getinterfaces<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
         }
@@ -8403,7 +8403,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterfaces<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_proxybusobject_getpath<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
         }
@@ -8418,7 +8418,7 @@ pub unsafe fn alljoyn_proxybusobject_getpath<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_proxybusobject_getproperty<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
         }
@@ -8433,7 +8433,7 @@ pub unsafe fn alljoyn_proxybusobject_getproperty<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, property: Param2, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -8448,7 +8448,7 @@ pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_proxybusobject_getservicename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
         }
@@ -8462,7 +8462,7 @@ pub unsafe fn alljoyn_proxybusobject_getservicename<'a, Param0: ::windows::core:
 pub unsafe fn alljoyn_proxybusobject_getsessionid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject) -> u32;
         }
@@ -8477,7 +8477,7 @@ pub unsafe fn alljoyn_proxybusobject_getsessionid<'a, Param0: ::windows::core::I
 pub unsafe fn alljoyn_proxybusobject_getuniquename<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
         }
@@ -8492,7 +8492,7 @@ pub unsafe fn alljoyn_proxybusobject_getuniquename<'a, Param0: ::windows::core::
 pub unsafe fn alljoyn_proxybusobject_implementsinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_implementsinterface(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR) -> i32;
         }
@@ -8506,7 +8506,7 @@ pub unsafe fn alljoyn_proxybusobject_implementsinterface<'a, Param0: ::windows::
 pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_introspectremoteobject(proxyobj: alljoyn_proxybusobject) -> QStatus;
         }
@@ -8520,7 +8520,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, Param0: ::window
 pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -8534,7 +8534,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::w
 pub unsafe fn alljoyn_proxybusobject_issecure<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject) -> i32;
         }
@@ -8548,7 +8548,7 @@ pub unsafe fn alljoyn_proxybusobject_issecure<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_proxybusobject_isvalid<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject) -> i32;
         }
@@ -8574,7 +8574,7 @@ pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = ::core::option::Opt
 pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param5: ::windows::core::IntoParam<'a, alljoyn_message>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, args: Param3, numargs: usize, replymsg: Param5, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
         }
@@ -8589,7 +8589,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_proxybusobject_methodcall_member<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param4: ::windows::core::IntoParam<'a, alljoyn_message>>(proxyobj: Param0, method: Param1, args: Param2, numargs: usize, replymsg: Param4, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
         }
@@ -8604,7 +8604,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, args: Param2, numargs: usize, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_member_noreply(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
         }
@@ -8619,7 +8619,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<'a, Param0: ::win
 pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, args: Param3, numargs: usize, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
         }
@@ -8634,7 +8634,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, Param0: ::windows::c
 pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: Param4, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, replyfunc: ::windows::core::RawPtr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
         }
@@ -8649,7 +8649,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: Param3, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: ::windows::core::RawPtr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
         }
@@ -8664,7 +8664,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::window
 pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, xml: Param1, identifier: Param2) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_parsexml(proxyobj: alljoyn_proxybusobject, xml: super::super::Foundation::PSTR, identifier: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -8679,7 +8679,7 @@ pub type alljoyn_proxybusobject_ref = isize;
 pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxy: Param0) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_create(proxy: alljoyn_proxybusobject) -> alljoyn_proxybusobject_ref;
         }
@@ -8693,7 +8693,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_decref(r#ref: alljoyn_proxybusobject_ref);
         }
@@ -8707,7 +8707,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_proxybusobject_ref_get<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_get(r#ref: alljoyn_proxybusobject_ref) -> alljoyn_proxybusobject;
         }
@@ -8721,7 +8721,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_get<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
         }
@@ -8736,7 +8736,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, properties: *const *const i8, numproperties: usize, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -8751,7 +8751,7 @@ pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param
 pub unsafe fn alljoyn_proxybusobject_removechild<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, path: Param1) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_removechild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> QStatus;
         }
@@ -8765,7 +8765,7 @@ pub unsafe fn alljoyn_proxybusobject_removechild<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_proxybusobject_secureconnection<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, forceauth: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
         }
@@ -8779,7 +8779,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnection<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, forceauth: i32) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_secureconnectionasync(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
         }
@@ -8794,7 +8794,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<'a, Param0: ::windows
 pub unsafe fn alljoyn_proxybusobject_setproperty<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_setproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
         }
@@ -8809,7 +8809,7 @@ pub unsafe fn alljoyn_proxybusobject_setproperty<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
@@ -8824,7 +8824,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: ::windows::core::RawPtr) -> QStatus;
         }
@@ -8838,7 +8838,7 @@ pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Par
 pub unsafe fn alljoyn_routerinit() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_routerinit() -> QStatus;
         }
@@ -8852,7 +8852,7 @@ pub unsafe fn alljoyn_routerinit() -> QStatus {
 pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus;
         }
@@ -8866,7 +8866,7 @@ pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
 pub unsafe fn alljoyn_routershutdown() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_routershutdown() -> QStatus;
         }
@@ -8881,7 +8881,7 @@ pub type alljoyn_securityapplicationproxy = isize;
 pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
@@ -8895,7 +8895,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus;
         }
@@ -8909,7 +8909,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedman
 pub unsafe fn alljoyn_securityapplicationproxy_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_create(bus: alljoyn_busattachment, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy;
         }
@@ -8923,7 +8923,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_create<'a, Param0: ::windows::cor
 pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy);
         }
@@ -8937,7 +8937,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::co
 pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8);
         }
@@ -8951,7 +8951,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
 pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8);
         }
@@ -8965,7 +8965,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey
 pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_endmanagement(proxy: alljoyn_securityapplicationproxy) -> QStatus;
         }
@@ -8979,7 +8979,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<'a, Param0: ::windo
 pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, applicationstate: *mut alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getapplicationstate(proxy: alljoyn_securityapplicationproxy, applicationstate: *mut alljoyn_applicationstate) -> QStatus;
         }
@@ -8993,7 +8993,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<'a, Param0: :
 pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, capabilities: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getclaimcapabilities(proxy: alljoyn_securityapplicationproxy, capabilities: *mut u16) -> QStatus;
         }
@@ -9007,7 +9007,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<'a, Param0: 
 pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, additionalinfo: *mut u16) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy: alljoyn_securityapplicationproxy, additionalinfo: *mut u16) -> QStatus;
         }
@@ -9021,7 +9021,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinf
 pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getdefaultpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut *mut i8) -> QStatus;
         }
@@ -9035,7 +9035,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<'a, Param0: ::wi
 pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, eccpublickey: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_geteccpublickey(proxy: alljoyn_securityapplicationproxy, eccpublickey: *mut *mut i8) -> QStatus;
         }
@@ -9049,7 +9049,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<'a, Param0: ::win
 pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, manifesttemplatexml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getmanifesttemplate(proxy: alljoyn_securityapplicationproxy, manifesttemplatexml: *mut *mut i8) -> QStatus;
         }
@@ -9063,7 +9063,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<'a, Param0: :
 pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16;
         }
@@ -9077,7 +9077,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionpor
 pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut *mut i8) -> QStatus;
         }
@@ -9091,7 +9091,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<'a, Param0: ::windows::
 pub unsafe fn alljoyn_securityapplicationproxy_installmembership<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, membershipcertificatechain: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_installmembership(proxy: alljoyn_securityapplicationproxy, membershipcertificatechain: *mut i8) -> QStatus;
         }
@@ -9105,7 +9105,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_installmembership<'a, Param0: ::w
 pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8);
         }
@@ -9119,7 +9119,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxm
 pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
@@ -9133,7 +9133,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifest
 pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8);
         }
@@ -9147,7 +9147,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8
 pub unsafe fn alljoyn_securityapplicationproxy_reset<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_reset(proxy: alljoyn_securityapplicationproxy) -> QStatus;
         }
@@ -9161,7 +9161,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_reset<'a, Param0: ::windows::core
 pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_resetpolicy(proxy: alljoyn_securityapplicationproxy) -> QStatus;
         }
@@ -9175,7 +9175,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<'a, Param0: ::windows
 pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus;
         }
@@ -9189,7 +9189,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmani
 pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus;
         }
@@ -9203,7 +9203,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml:
 pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_startmanagement(proxy: alljoyn_securityapplicationproxy) -> QStatus;
         }
@@ -9217,7 +9217,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<'a, Param0: ::win
 pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_updateidentity(proxy: alljoyn_securityapplicationproxy, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
@@ -9231,7 +9231,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<'a, Param0: ::wind
 pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_updatepolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut i8) -> QStatus;
         }
@@ -9281,7 +9281,7 @@ impl ::core::default::Default for alljoyn_sessionlistener_callbacks {
 pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener;
         }
@@ -9295,7 +9295,7 @@ pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionli
 pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener);
         }
@@ -9332,7 +9332,7 @@ pub type alljoyn_sessionopts = isize;
 pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_cmp(one: alljoyn_sessionopts, other: alljoyn_sessionopts) -> i32;
         }
@@ -9346,7 +9346,7 @@ pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximity: u8, transports: u16) -> alljoyn_sessionopts {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximity: u8, transports: u16) -> alljoyn_sessionopts;
         }
@@ -9360,7 +9360,7 @@ pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximi
 pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts);
         }
@@ -9374,7 +9374,7 @@ pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn alljoyn_sessionopts_get_multipoint<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_get_multipoint(opts: alljoyn_sessionopts) -> i32;
         }
@@ -9388,7 +9388,7 @@ pub unsafe fn alljoyn_sessionopts_get_multipoint<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_sessionopts_get_proximity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_get_proximity(opts: alljoyn_sessionopts) -> u8;
         }
@@ -9402,7 +9402,7 @@ pub unsafe fn alljoyn_sessionopts_get_proximity<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_sessionopts_get_traffic<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_get_traffic(opts: alljoyn_sessionopts) -> u8;
         }
@@ -9416,7 +9416,7 @@ pub unsafe fn alljoyn_sessionopts_get_traffic<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_sessionopts_get_transports<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_get_transports(opts: alljoyn_sessionopts) -> u16;
         }
@@ -9430,7 +9430,7 @@ pub unsafe fn alljoyn_sessionopts_get_transports<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_sessionopts_iscompatible<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_iscompatible(one: alljoyn_sessionopts, other: alljoyn_sessionopts) -> i32;
         }
@@ -9444,7 +9444,7 @@ pub unsafe fn alljoyn_sessionopts_iscompatible<'a, Param0: ::windows::core::Into
 pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, ismultipoint: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
         }
@@ -9458,7 +9458,7 @@ pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::core::In
 pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, proximity: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
         }
@@ -9472,7 +9472,7 @@ pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::core::Int
 pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, traffic: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
         }
@@ -9486,7 +9486,7 @@ pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::core::IntoP
 pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, transports: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
         }
@@ -9538,7 +9538,7 @@ impl ::core::default::Default for alljoyn_sessionportlistener_callbacks {
 pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener;
         }
@@ -9552,7 +9552,7 @@ pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessi
 pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionportlistener>>(listener: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener);
         }
@@ -9569,7 +9569,7 @@ pub type alljoyn_sessionportlistener_sessionjoined_ptr = ::core::option::Option<
 pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_shutdown() -> QStatus;
         }
@@ -9649,7 +9649,7 @@ pub const ALLJOYN_WILDCARD: alljoyn_typeid = 42i32;
 pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_unity_deferred_callbacks_process() -> i32;
         }
@@ -9663,7 +9663,7 @@ pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
 pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msajapi", kind = "raw-dylib")]
         extern "system" {
             fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
         }

@@ -13,7 +13,7 @@ pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1i32;
 pub unsafe fn DRMAcquireAdvisories<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlicensestorage: u32, wszlicense: Param1, wszurl: Param2, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAcquireAdvisories(hlicensestorage: u32, wszlicense: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -28,7 +28,7 @@ pub unsafe fn DRMAcquireAdvisories<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, ctemplates: u32, pwsztemplateids: *const super::super::Foundation::PWSTR, wszurl: Param5, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAcquireIssuanceLicenseTemplate(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, ctemplates: u32, pwsztemplateids: *const super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -43,7 +43,7 @@ pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, Param5: ::windows::core::Int
 pub unsafe fn DRMAcquireLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: u32, uflags: u32, wszgroupidentitycredential: Param2, wszrequestedrights: Param3, wszcustomdata: Param4, wszurl: Param5, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAcquireLicense(hsession: u32, uflags: u32, wszgroupidentitycredential: super::super::Foundation::PWSTR, wszrequestedrights: super::super::Foundation::PWSTR, wszcustomdata: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -58,7 +58,7 @@ pub unsafe fn DRMAcquireLicense<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn DRMActivate<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hclient: u32, uflags: u32, ulangid: u32, pactservinfo: *mut DRM_ACTSERV_INFO, pvcontext: *mut ::core::ffi::c_void, hparentwnd: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMActivate(hclient: u32, uflags: u32, ulangid: u32, pactservinfo: *mut DRM_ACTSERV_INFO, pvcontext: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -73,7 +73,7 @@ pub unsafe fn DRMActivate<'a, Param5: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DRMAddLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlicensestorage: u32, uflags: u32, wszlicense: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAddLicense(hlicensestorage: u32, uflags: u32, wszlicense: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -87,7 +87,7 @@ pub unsafe fn DRMAddLicense<'a, Param2: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32) -> ::windows::core::HRESULT;
         }
@@ -102,7 +102,7 @@ pub unsafe fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32
 pub unsafe fn DRMAttest<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henablingprincipal: u32, wszdata: Param1, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMAttest(henablingprincipal: u32, wszdata: super::super::Foundation::PWSTR, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -167,7 +167,7 @@ pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::core::HRESULT;
         }
@@ -181,7 +181,7 @@ pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::core::Resul
 pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::core::HRESULT;
         }
@@ -195,7 +195,7 @@ pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::core::Resul
 pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::core::HRESULT;
         }
@@ -209,7 +209,7 @@ pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::core::Result<()
 pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCloseHandle(handle: u32) -> ::windows::core::HRESULT;
         }
@@ -223,7 +223,7 @@ pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::core::Result<()> {
 pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMClosePubHandle(hpub: u32) -> ::windows::core::HRESULT;
         }
@@ -237,7 +237,7 @@ pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::core::Result<()> {
 pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCloseQueryHandle(hquery: u32) -> ::windows::core::HRESULT;
         }
@@ -251,7 +251,7 @@ pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::core::Result<()> {
 pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCloseSession(hsession: u32) -> ::windows::core::HRESULT;
         }
@@ -266,7 +266,7 @@ pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::core::Result<()> {
 pub unsafe fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const super::super::Foundation::PWSTR, pcchain: *mut u32, wszchain: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const super::super::Foundation::PWSTR, pcchain: *mut u32, wszchain: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -281,7 +281,7 @@ pub unsafe fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates
 pub unsafe fn DRMCreateBoundLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, pparams: *mut DRMBOUNDLICENSEPARAMS, wszlicensechain: Param2, phboundlicense: *mut u32, pherrorlog: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateBoundLicense(henv: u32, pparams: *mut DRMBOUNDLICENSEPARAMS, wszlicensechain: super::super::Foundation::PWSTR, phboundlicense: *mut u32, pherrorlog: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -296,7 +296,7 @@ pub unsafe fn DRMCreateBoundLicense<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn DRMCreateClientSession<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pfncallback: DRMCALLBACK, ucallbackversion: u32, wszgroupidprovidertype: Param2, wszgroupid: Param3, phclient: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateClientSession(pfncallback: ::windows::core::RawPtr, ucallbackversion: u32, wszgroupidprovidertype: super::super::Foundation::PWSTR, wszgroupid: super::super::Foundation::PWSTR, phclient: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -311,7 +311,7 @@ pub unsafe fn DRMCreateClientSession<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn DRMCreateEnablingBitsDecryptor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hboundlicense: u32, wszright: Param1, hauxlib: u32, wszauxplug: Param3, phdecryptor: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateEnablingBitsDecryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phdecryptor: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -326,7 +326,7 @@ pub unsafe fn DRMCreateEnablingBitsDecryptor<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn DRMCreateEnablingBitsEncryptor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hboundlicense: u32, wszright: Param1, hauxlib: u32, wszauxplug: Param3, phencryptor: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateEnablingBitsEncryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phencryptor: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -341,7 +341,7 @@ pub unsafe fn DRMCreateEnablingBitsEncryptor<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn DRMCreateEnablingPrincipal<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hlibrary: u32, wszobject: Param2, pidprincipal: *mut DRMID, wszcredentials: Param4, phenablingprincipal: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateEnablingPrincipal(henv: u32, hlibrary: u32, wszobject: super::super::Foundation::PWSTR, pidprincipal: *mut DRMID, wszcredentials: super::super::Foundation::PWSTR, phenablingprincipal: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -356,7 +356,7 @@ pub unsafe fn DRMCreateEnablingPrincipal<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn DRMCreateIssuanceLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: Param2, wszreferralinfourl: Param3, howner: u32, wszissuancelicense: Param5, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateIssuanceLicense(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: super::super::Foundation::PWSTR, wszreferralinfourl: super::super::Foundation::PWSTR, howner: u32, wszissuancelicense: super::super::Foundation::PWSTR, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -371,7 +371,7 @@ pub unsafe fn DRMCreateIssuanceLicense<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn DRMCreateLicenseStorageSession<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hdefaultlibrary: u32, hclient: u32, uflags: u32, wszissuancelicense: Param4, phlicensestorage: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateLicenseStorageSession(henv: u32, hdefaultlibrary: u32, hclient: u32, uflags: u32, wszissuancelicense: super::super::Foundation::PWSTR, phlicensestorage: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -386,7 +386,7 @@ pub unsafe fn DRMCreateLicenseStorageSession<'a, Param4: ::windows::core::IntoPa
 pub unsafe fn DRMCreateRight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszrightname: Param0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const super::super::Foundation::PWSTR, pwszextendedinfovalue: *const super::super::Foundation::PWSTR, phright: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateRight(wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const super::super::Foundation::PWSTR, pwszextendedinfovalue: *const super::super::Foundation::PWSTR, phright: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -401,7 +401,7 @@ pub unsafe fn DRMCreateRight<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DRMCreateUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszusername: Param0, wszuserid: Param1, wszuseridtype: Param2, phuser: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMCreateUser(wszusername: super::super::Foundation::PWSTR, wszuserid: super::super::Foundation::PWSTR, wszuseridtype: super::super::Foundation::PWSTR, phuser: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -416,7 +416,7 @@ pub unsafe fn DRMCreateUser<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DRMDecode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszalgid: Param0, wszencodedstring: Param1, pudecodeddatalen: *mut u32, pbdecodeddata: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDecode(wszalgid: super::super::Foundation::PWSTR, wszencodedstring: super::super::Foundation::PWSTR, pudecodeddatalen: *mut u32, pbdecodeddata: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -431,7 +431,7 @@ pub unsafe fn DRMDecode<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn DRMDeconstructCertificateChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszchain: Param0, iwhich: u32, pccert: *mut u32, wszcert: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDeconstructCertificateChain(wszchain: super::super::Foundation::PWSTR, iwhich: u32, pccert: *mut u32, wszcert: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -445,7 +445,7 @@ pub unsafe fn DRMDeconstructCertificateChain<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -460,7 +460,7 @@ pub unsafe fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32,
 pub unsafe fn DRMDeleteLicense<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: u32, wszlicenseid: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDeleteLicense(hsession: u32, wszlicenseid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -474,7 +474,7 @@ pub unsafe fn DRMDeleteLicense<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -488,7 +488,7 @@ pub unsafe fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> :
 pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -502,7 +502,7 @@ pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::c
 pub unsafe fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -516,7 +516,7 @@ pub unsafe fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::window
 pub unsafe fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -547,7 +547,7 @@ pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 pub unsafe fn DRMEncode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszalgid: Param0, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMEncode(wszalgid: super::super::Foundation::PWSTR, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -561,7 +561,7 @@ pub unsafe fn DRMEncode<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -576,7 +576,7 @@ pub unsafe fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32,
 pub unsafe fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsharedflag: *mut super::super::Foundation::BOOL, pucertificatedatalen: *mut u32, wszcertificatedata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsharedflag: *mut super::super::Foundation::BOOL, pucertificatedatalen: *mut u32, wszcertificatedata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -597,7 +597,7 @@ pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = 1i32;
 pub unsafe fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -612,7 +612,7 @@ pub unsafe fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, 
 pub unsafe fn DRMGetBoundLicenseAttribute<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattribute: Param1, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetBoundLicenseAttribute(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -627,7 +627,7 @@ pub unsafe fn DRMGetBoundLicenseAttribute<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn DRMGetBoundLicenseAttributeCount<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattribute: Param1, pcattributes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetBoundLicenseAttributeCount(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -642,7 +642,7 @@ pub unsafe fn DRMGetBoundLicenseAttributeCount<'a, Param1: ::windows::core::Into
 pub unsafe fn DRMGetBoundLicenseObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, iwhich: u32, phsubobject: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetBoundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iwhich: u32, phsubobject: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -657,7 +657,7 @@ pub unsafe fn DRMGetBoundLicenseObject<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn DRMGetBoundLicenseObjectCount<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, pcsubobjects: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetBoundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -672,7 +672,7 @@ pub unsafe fn DRMGetBoundLicenseObjectCount<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn DRMGetCertificateChainCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszchain: Param0, pccertcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetCertificateChainCount(wszchain: super::super::Foundation::PWSTR, pccertcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -686,7 +686,7 @@ pub unsafe fn DRMGetCertificateChainCount<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO) -> ::windows::core::HRESULT;
         }
@@ -701,7 +701,7 @@ pub unsafe fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION
 pub unsafe fn DRMGetEnvironmentInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(handle: u32, wszattribute: Param1, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetEnvironmentInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -716,7 +716,7 @@ pub unsafe fn DRMGetEnvironmentInfo<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn DRMGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(handle: u32, wszattribute: Param1, peencoding: *const DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *const DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -730,7 +730,7 @@ pub unsafe fn DRMGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -745,7 +745,7 @@ pub unsafe fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::w
 pub unsafe fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -760,7 +760,7 @@ pub unsafe fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut
 pub unsafe fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -775,7 +775,7 @@ pub unsafe fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelic
 pub unsafe fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32, wszcontentid: super::super::Foundation::PWSTR, pucontentidtypelength: *mut u32, wszcontentidtype: super::super::Foundation::PWSTR, puskuidlength: *mut u32, wszskuid: super::super::Foundation::PWSTR, puskuidtypelength: *mut u32, wszskuidtype: super::super::Foundation::PWSTR, pucontenttypelength: *mut u32, wszcontenttype: super::super::Foundation::PWSTR, pucontentnamelength: *mut u32, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32, wszcontentid: super::super::Foundation::PWSTR, pucontentidtypelength: *mut u32, wszcontentidtype: super::super::Foundation::PWSTR, puskuidlength: *mut u32, wszskuid: super::super::Foundation::PWSTR, puskuidtypelength: *mut u32, wszskuidtype: super::super::Foundation::PWSTR, pucontenttypelength: *mut u32, wszcontenttype: super::super::Foundation::PWSTR, pucontentnamelength: *mut u32, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -805,7 +805,7 @@ pub unsafe fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32,
 pub unsafe fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -820,7 +820,7 @@ pub unsafe fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulci
 pub unsafe fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *mut u32, wszownerlicense: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *mut u32, wszownerlicense: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -835,7 +835,7 @@ pub unsafe fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *m
 pub unsafe fn DRMGetProcAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlibrary: u32, wszprocname: Param1, ppfnprocaddress: *mut super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetProcAddress(hlibrary: u32, wszprocname: super::super::Foundation::PWSTR, ppfnprocaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -850,7 +850,7 @@ pub unsafe fn DRMGetProcAddress<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -865,7 +865,7 @@ pub unsafe fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32,
 pub unsafe fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfonamelength: *mut u32, wszextendedinfoname: super::super::Foundation::PWSTR, puextendedinfovaluelength: *mut u32, wszextendedinfovalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfonamelength: *mut u32, wszextendedinfoname: super::super::Foundation::PWSTR, puextendedinfovaluelength: *mut u32, wszextendedinfovalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -880,7 +880,7 @@ pub unsafe fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfona
 pub unsafe fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
         }
@@ -895,7 +895,7 @@ pub unsafe fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszright
 pub unsafe fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: super::super::Foundation::PWSTR, pupathlen: *mut u32, wszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: super::super::Foundation::PWSTR, pupathlen: *mut u32, wszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -910,7 +910,7 @@ pub unsafe fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: 
 pub unsafe fn DRMGetServiceLocation<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hclient: u32, uservicetype: u32, uservicelocation: u32, wszissuancelicense: Param3, puserviceurllength: *mut u32, wszserviceurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetServiceLocation(hclient: u32, uservicetype: u32, uservicelocation: u32, wszissuancelicense: super::super::Foundation::PWSTR, puserviceurllength: *mut u32, wszserviceurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -925,7 +925,7 @@ pub unsafe fn DRMGetServiceLocation<'a, Param3: ::windows::core::IntoParam<'a, s
 pub unsafe fn DRMGetSignedIssuanceLicense<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: Param5, wszclientlicensorcertificate: Param6, pfncallback: DRMCALLBACK, wszurl: Param8, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetSignedIssuanceLicense(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, wszclientlicensorcertificate: super::super::Foundation::PWSTR, pfncallback: ::windows::core::RawPtr, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -940,7 +940,7 @@ pub unsafe fn DRMGetSignedIssuanceLicense<'a, Param5: ::windows::core::IntoParam
 pub unsafe fn DRMGetSignedIssuanceLicenseEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: Param5, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: DRMCALLBACK, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetSignedIssuanceLicenseEx(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -955,7 +955,7 @@ pub unsafe fn DRMGetSignedIssuanceLicenseEx<'a, Param5: ::windows::core::IntoPar
 pub unsafe fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
         }
@@ -970,7 +970,7 @@ pub unsafe fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mu
 pub unsafe fn DRMGetUnboundLicenseAttribute<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattributetype: Param1, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUnboundLicenseAttribute(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -985,7 +985,7 @@ pub unsafe fn DRMGetUnboundLicenseAttribute<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn DRMGetUnboundLicenseAttributeCount<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattributetype: Param1, pcattributes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUnboundLicenseAttributeCount(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1000,7 +1000,7 @@ pub unsafe fn DRMGetUnboundLicenseAttributeCount<'a, Param1: ::windows::core::In
 pub unsafe fn DRMGetUnboundLicenseObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, iindex: u32, phsubquery: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUnboundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iindex: u32, phsubquery: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1015,7 +1015,7 @@ pub unsafe fn DRMGetUnboundLicenseObject<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn DRMGetUnboundLicenseObjectCount<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, pcsubobjects: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUnboundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1030,7 +1030,7 @@ pub unsafe fn DRMGetUnboundLicenseObjectCount<'a, Param1: ::windows::core::IntoP
 pub unsafe fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE, pfexclusion: *mut super::super::Foundation::BOOL, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puminversionlength: *mut u32, wszminversion: super::super::Foundation::PWSTR, pumaxversionlength: *mut u32, wszmaxversion: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR, pudigestalgorithmlength: *mut u32, wszdigestalgorithm: super::super::Foundation::PWSTR, pcbdigest: *mut u32, pbdigest: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE, pfexclusion: *mut super::super::Foundation::BOOL, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puminversionlength: *mut u32, wszminversion: super::super::Foundation::PWSTR, pumaxversionlength: *mut u32, wszmaxversion: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR, pudigestalgorithmlength: *mut u32, wszdigestalgorithm: super::super::Foundation::PWSTR, pcbdigest: *mut u32, pbdigest: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -1063,7 +1063,7 @@ pub unsafe fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolic
 pub unsafe fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1077,7 +1077,7 @@ pub unsafe fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername
 pub unsafe fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1091,7 +1091,7 @@ pub unsafe fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, p
 pub unsafe fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1146,7 +1146,7 @@ pub const DRMIDVERSION: u32 = 0u32;
 pub unsafe fn DRMInitEnvironment<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: Param2, wszmanifestcredentials: Param3, wszmachinecredentials: Param4, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: super::super::Foundation::PWSTR, wszmanifestcredentials: super::super::Foundation::PWSTR, wszmachinecredentials: super::super::Foundation::PWSTR, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1161,7 +1161,7 @@ pub unsafe fn DRMInitEnvironment<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_ACTSERV_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_ACTSERV_INFO) -> ::windows::core::HRESULT;
         }
@@ -1176,7 +1176,7 @@ pub unsafe fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_A
 pub unsafe fn DRMIsWindowProtected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMIsWindowProtected(hwnd: super::super::Foundation::HWND, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1193,7 +1193,7 @@ pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 pub unsafe fn DRMLoadLibrary<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: Param2, wszcredentials: Param3, phlibrary: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMLoadLibrary(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: super::super::Foundation::PWSTR, wszcredentials: super::super::Foundation::PWSTR, phlibrary: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1210,7 +1210,7 @@ pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 pub unsafe fn DRMParseUnboundLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszcertificate: Param0, phqueryroot: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMParseUnboundLicense(wszcertificate: super::super::Foundation::PWSTR, phqueryroot: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1227,7 +1227,7 @@ pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
 pub unsafe fn DRMRegisterContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fregister: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMRegisterContent(fregister: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1242,7 +1242,7 @@ pub unsafe fn DRMRegisterContent<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DRMRegisterProtectedWindow<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(henv: u32, hwnd: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMRegisterProtectedWindow(henv: u32, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -1257,7 +1257,7 @@ pub unsafe fn DRMRegisterProtectedWindow<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn DRMRegisterRevocationList<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, wszrevocationlist: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMRegisterRevocationList(henv: u32, wszrevocationlist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1271,7 +1271,7 @@ pub unsafe fn DRMRegisterRevocationList<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn DRMRepair() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMRepair() -> ::windows::core::HRESULT;
         }
@@ -1296,7 +1296,7 @@ pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = 1i32;
 pub unsafe fn DRMSetApplicationSpecificData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, wszname: Param2, wszvalue: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetApplicationSpecificData(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1310,7 +1310,7 @@ pub unsafe fn DRMSetApplicationSpecificData<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::core::HRESULT;
         }
@@ -1324,7 +1324,7 @@ pub unsafe fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut
 pub unsafe fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows::core::HRESULT;
         }
@@ -1339,7 +1339,7 @@ pub unsafe fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows
 pub unsafe fn DRMSetMetaData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, wszcontentid: Param1, wszcontentidtype: Param2, wszskuid: Param3, wszskuidtype: Param4, wszcontenttype: Param5, wszcontentname: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetMetaData(hissuancelicense: u32, wszcontentid: super::super::Foundation::PWSTR, wszcontentidtype: super::super::Foundation::PWSTR, wszskuid: super::super::Foundation::PWSTR, wszskuidtype: super::super::Foundation::PWSTR, wszcontenttype: super::super::Foundation::PWSTR, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1354,7 +1354,7 @@ pub unsafe fn DRMSetMetaData<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DRMSetNameAndDescription<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, lcid: u32, wszname: Param3, wszdescription: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetNameAndDescription(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, lcid: u32, wszname: super::super::Foundation::PWSTR, wszdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1369,7 +1369,7 @@ pub unsafe fn DRMSetNameAndDescription<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn DRMSetRevocationPoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, wszid: Param2, wszidtype: Param3, wszurl: Param4, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: Param6, wszpublickey: Param7) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetRevocationPoint(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszid: super::super::Foundation::PWSTR, wszidtype: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1396,7 +1396,7 @@ pub unsafe fn DRMSetUsagePolicy<'a, Param2: ::windows::core::IntoParam<'a, super
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMSetUsagePolicy(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: super::super::Foundation::BOOL, fexclusion: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszminversion: super::super::Foundation::PWSTR, wszmaxversion: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR, wszdigestalgorithm: super::super::Foundation::PWSTR, pbdigest: *mut u8, cbdigest: u32) -> ::windows::core::HRESULT;
         }
@@ -1417,7 +1417,7 @@ pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = 1i32;
 pub unsafe fn DRMVerify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszdata: Param0, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msdrm", kind = "raw-dylib")]
         extern "system" {
             fn DRMVerify(wszdata: super::super::Foundation::PWSTR, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

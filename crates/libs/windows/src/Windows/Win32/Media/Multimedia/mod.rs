@@ -233,7 +233,7 @@ pub const AUXM_INIT_EX: u32 = 104u32;
 pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: super::super::Foundation::PSTR, cbfilter: i32, fsaving: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIBuildFilterA(lpszfilter: super::super::Foundation::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -248,7 +248,7 @@ pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::core::IntoParam<'a, super::
 pub unsafe fn AVIBuildFilterW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIBuildFilterW(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -305,7 +305,7 @@ impl ::core::default::Default for AVICOMPRESSOPTIONS {
 pub unsafe fn AVIClearClipboard() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIClearClipboard() -> ::windows::core::HRESULT;
         }
@@ -424,7 +424,7 @@ pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileAddRef(pfile: ::windows::core::RawPtr) -> u32;
         }
@@ -439,7 +439,7 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>
 pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileCreateStreamA(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOA) -> ::windows::core::HRESULT;
         }
@@ -454,7 +454,7 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::core::IntoParam<'a, IA
 pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileCreateStreamW(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT;
         }
@@ -468,7 +468,7 @@ pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::core::IntoParam<'a, IA
 pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileEndRecord(pfile: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -482,7 +482,7 @@ pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::core::IntoParam<'a, IAVIFi
 pub unsafe fn AVIFileExit() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileExit();
         }
@@ -496,7 +496,7 @@ pub unsafe fn AVIFileExit() {
 pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileGetStream(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT;
         }
@@ -511,7 +511,7 @@ pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::core::IntoParam<'a, IAVIFi
 pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileInfoA(pfile: ::windows::core::RawPtr, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
         }
@@ -525,7 +525,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>
 pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileInfoW(pfile: ::windows::core::RawPtr, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
         }
@@ -539,7 +539,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>
 pub unsafe fn AVIFileInit() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileInit();
         }
@@ -554,7 +554,7 @@ pub unsafe fn AVIFileInit() {
 pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileOpenA(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -569,7 +569,7 @@ pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileOpenW(ppfile: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -583,7 +583,7 @@ pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn AVIFileReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileReadData(pfile: ::windows::core::RawPtr, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -597,7 +597,7 @@ pub unsafe fn AVIFileReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFil
 pub unsafe fn AVIFileRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileRelease(pfile: ::windows::core::RawPtr) -> u32;
         }
@@ -611,7 +611,7 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile
 pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIFileWriteData(pfile: ::windows::core::RawPtr, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
         }
@@ -627,7 +627,7 @@ pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIGetFromClipboard(lppf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -646,7 +646,7 @@ pub const AVIIF_TWOCC: i32 = 2i32;
 pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::core::RawPtr, ppssource: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -660,7 +660,7 @@ pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, nstreams: i32, papstreams: *const ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIMakeFileFromStreams(ppfile: *mut ::windows::core::RawPtr, nstreams: i32, papstreams: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -675,7 +675,7 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFil
 pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(cfformat: u32, hglobal: Param1) -> ::windows::core::Result<IAVIStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -690,7 +690,7 @@ pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pf: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIPutFileOnClipboard(pf: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -812,7 +812,7 @@ pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
@@ -827,7 +827,7 @@ pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
@@ -841,7 +841,7 @@ pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
@@ -856,7 +856,7 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
 pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
@@ -871,7 +871,7 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
@@ -886,7 +886,7 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
@@ -900,7 +900,7 @@ pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamAddRef(pavi: ::windows::core::RawPtr) -> u32;
         }
@@ -914,7 +914,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
 pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamBeginStreaming(pavi: ::windows::core::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT;
         }
@@ -928,7 +928,7 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamCreate(ppavi: *mut ::windows::core::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -942,7 +942,7 @@ pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lp
 pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamEndStreaming(pavi: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -956,7 +956,7 @@ pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lflags: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamFindSample(pavi: ::windows::core::RawPtr, lpos: i32, lflags: i32) -> i32;
         }
@@ -970,7 +970,7 @@ pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::core::IntoParam<'a, IAV
 pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::core::IntoParam<'a, IGetFrame>>(pg: Param0, lpos: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamGetFrame(pg: ::windows::core::RawPtr, lpos: i32) -> *mut ::core::ffi::c_void;
         }
@@ -984,7 +984,7 @@ pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::core::IntoParam<'a, IGetF
 pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::core::IntoParam<'a, IGetFrame>>(pg: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamGetFrameClose(pg: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -999,7 +999,7 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamGetFrameOpen(pavi: ::windows::core::RawPtr, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
         }
@@ -1014,7 +1014,7 @@ pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamInfoA(pavi: ::windows::core::RawPtr, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
         }
@@ -1029,7 +1029,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
 pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamInfoW(pavi: ::windows::core::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
         }
@@ -1043,7 +1043,7 @@ pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
 pub unsafe fn AVIStreamLength<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamLength(pavi: ::windows::core::RawPtr) -> i32;
         }
@@ -1058,7 +1058,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
 pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1073,7 +1073,7 @@ pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::core::RawPtr, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1087,7 +1087,7 @@ pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn AVIStreamRead<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamRead(pavi: ::windows::core::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -1101,7 +1101,7 @@ pub unsafe fn AVIStreamRead<'a, Param0: ::windows::core::IntoParam<'a, IAVIStrea
 pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamReadData(pavi: ::windows::core::RawPtr, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -1115,7 +1115,7 @@ pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIS
 pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamReadFormat(pavi: ::windows::core::RawPtr, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -1129,7 +1129,7 @@ pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::core::IntoParam<'a, IAV
 pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamRelease(pavi: ::windows::core::RawPtr) -> u32;
         }
@@ -1143,7 +1143,7 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVISt
 pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lsample: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamSampleToTime(pavi: ::windows::core::RawPtr, lsample: i32) -> i32;
         }
@@ -1157,7 +1157,7 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamSetFormat(pavi: ::windows::core::RawPtr, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
         }
@@ -1171,7 +1171,7 @@ pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVI
 pub unsafe fn AVIStreamStart<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamStart(pavi: ::windows::core::RawPtr) -> i32;
         }
@@ -1185,7 +1185,7 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
 pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, ltime: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamTimeToSample(pavi: ::windows::core::RawPtr, ltime: i32) -> i32;
         }
@@ -1199,7 +1199,7 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamWrite(pavi: ::windows::core::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -1213,7 +1213,7 @@ pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
 pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn AVIStreamWriteData(pavi: ::windows::core::RawPtr, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
         }
@@ -1716,7 +1716,7 @@ impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
 pub unsafe fn CloseDriver<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, lparam1: Param1, lparam2: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
@@ -1730,7 +1730,7 @@ pub unsafe fn CloseDriver<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Par
 pub unsafe fn CreateEditableStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppseditable: *mut ::core::option::Option<IAVIStream>, pssource: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn CreateEditableStream(ppseditable: *mut ::windows::core::RawPtr, pssource: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2377,7 +2377,7 @@ pub const DV_VM_OPEN: u32 = 976u32;
 pub unsafe fn DefDriverProc<'a, Param1: ::windows::core::IntoParam<'a, HDRVR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(dwdriveridentifier: usize, hdrvr: Param1, umsg: u32, lparam1: Param3, lparam2: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
@@ -2392,7 +2392,7 @@ pub unsafe fn DefDriverProc<'a, Param1: ::windows::core::IntoParam<'a, HDRVR>, P
 pub unsafe fn DrawDibBegin<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2407,7 +2407,7 @@ pub unsafe fn DrawDibBegin<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
         }
@@ -2422,7 +2422,7 @@ pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *co
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -2437,7 +2437,7 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn DrawDibDraw<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2452,7 +2452,7 @@ pub unsafe fn DrawDibDraw<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -2467,7 +2467,7 @@ pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -2482,7 +2482,7 @@ pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gd
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
         }
@@ -2496,7 +2496,7 @@ pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPAL
 pub unsafe fn DrawDibOpen() -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibOpen() -> isize;
         }
@@ -2511,7 +2511,7 @@ pub unsafe fn DrawDibOpen() -> isize {
 pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
         }
@@ -2526,7 +2526,7 @@ pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BI
 pub unsafe fn DrawDibRealize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdd: isize, hdc: Param1, fbackground: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: super::super::Foundation::BOOL) -> u32;
         }
@@ -2541,7 +2541,7 @@ pub unsafe fn DrawDibRealize<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DrawDibSetPalette<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdd: isize, hpal: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibSetPalette(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
         }
@@ -2556,7 +2556,7 @@ pub unsafe fn DrawDibSetPalette<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
         }
@@ -2571,7 +2571,7 @@ pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::B
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -2586,7 +2586,7 @@ pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
         }
@@ -2601,7 +2601,7 @@ pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::supe
 pub unsafe fn DriverCallback<'a, Param2: ::windows::core::IntoParam<'a, HDRVR>>(dwcallback: usize, dwflags: u32, hdevice: Param2, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
         }
@@ -2616,7 +2616,7 @@ pub unsafe fn DriverCallback<'a, Param2: ::windows::core::IntoParam<'a, HDRVR>>(
 pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
@@ -2695,7 +2695,7 @@ impl ::core::default::Default for EXBMINFOHEADER {
 pub unsafe fn EditStreamClone<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::core::Result<IAVIStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamClone(pavi: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2710,7 +2710,7 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
 pub unsafe fn EditStreamCopy<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamCopy(pavi: ::windows::core::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2724,7 +2724,7 @@ pub unsafe fn EditStreamCopy<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
 pub unsafe fn EditStreamCut<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamCut(pavi: ::windows::core::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2738,7 +2738,7 @@ pub unsafe fn EditStreamCut<'a, Param0: ::windows::core::IntoParam<'a, IAVIStrea
 pub unsafe fn EditStreamPaste<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param3: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plpos: *mut i32, pllength: *mut i32, pstream: Param3, lstart: i32, lend: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamPaste(pavi: ::windows::core::RawPtr, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT;
         }
@@ -2753,7 +2753,7 @@ pub unsafe fn EditStreamPaste<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
 pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamSetInfoA(pavi: ::windows::core::RawPtr, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
         }
@@ -2768,7 +2768,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVI
 pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamSetInfoW(pavi: ::windows::core::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
         }
@@ -2783,7 +2783,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVI
 pub unsafe fn EditStreamSetNameA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamSetNameA(pavi: ::windows::core::RawPtr, lpszname: super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
         }
@@ -2798,7 +2798,7 @@ pub unsafe fn EditStreamSetNameA<'a, Param0: ::windows::core::IntoParam<'a, IAVI
 pub unsafe fn EditStreamSetNameW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avifil32", kind = "raw-dylib")]
         extern "system" {
             fn EditStreamSetNameW(pavi: ::windows::core::RawPtr, lpszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2978,7 +2978,7 @@ impl ::core::default::Default for GSM610WAVEFORMAT {
 pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
@@ -2993,7 +2993,7 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
@@ -3008,7 +3008,7 @@ pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
 pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
@@ -3023,7 +3023,7 @@ pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
 pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
@@ -3038,7 +3038,7 @@ pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
 pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
@@ -3619,7 +3619,7 @@ pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 pub unsafe fn ICClose<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
         }
@@ -3634,7 +3634,7 @@ pub unsafe fn ICClose<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Para
 pub unsafe fn ICCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
         }
@@ -3649,7 +3649,7 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: P
 pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -3664,7 +3664,7 @@ pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICCompressorFree(pc: *const COMPVARS);
         }
@@ -3911,7 +3911,7 @@ pub const ICDRAW_UPDATING: i32 = 64i32;
 pub unsafe fn ICDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
         }
@@ -3925,7 +3925,7 @@ pub unsafe fn ICDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic:
 pub unsafe fn ICDraw<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
         }
@@ -3940,7 +3940,7 @@ pub unsafe fn ICDraw<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param
 pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hic: Param0, dwflags: u32, hpal: Param2, hwnd: Param3, hdc: Param4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
         }
@@ -4010,7 +4010,7 @@ pub const ICERR_UNSUPPORTED: i32 = -1i32;
 pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
         }
@@ -4025,7 +4025,7 @@ pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::core::IntoParam<'a, HIC>
 pub unsafe fn ICGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
         }
@@ -4083,7 +4083,7 @@ pub const ICINSTALL_UNICODE: u32 = 32768u32;
 pub unsafe fn ICImageCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
         }
@@ -4098,7 +4098,7 @@ pub unsafe fn ICImageCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(h
 pub unsafe fn ICImageDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
         }
@@ -4113,7 +4113,7 @@ pub unsafe fn ICImageDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
         }
@@ -4128,7 +4128,7 @@ pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> su
 pub unsafe fn ICInstall<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fcctype: u32, fcchandler: u32, lparam: Param2, szdesc: Param3, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: super::super::Foundation::PSTR, wflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -4143,7 +4143,7 @@ pub unsafe fn ICInstall<'a, Param2: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
         }
@@ -4345,7 +4345,7 @@ impl ::core::default::Default for ICOPEN {
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
         }
@@ -4360,7 +4360,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
 pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::windows::core::RawPtr) -> HIC;
         }
@@ -4416,7 +4416,7 @@ pub const ICQUALITY_LOW: u32 = 0u32;
 pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -4475,7 +4475,7 @@ pub const ICSTATUS_YIELD: u32 = 4u32;
 pub unsafe fn ICSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
         }
@@ -4490,7 +4490,7 @@ pub unsafe fn ICSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic
 pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
         }
@@ -4505,7 +4505,7 @@ pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *con
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
         }
@@ -4520,7 +4520,7 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
 pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
         }
@@ -5773,7 +5773,7 @@ pub const MCIWND_START: i32 = -1i32;
 pub unsafe fn MCIWndCreateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
         }
@@ -5788,7 +5788,7 @@ pub unsafe fn MCIWndCreateA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn MCIWndCreateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
         }
@@ -5803,7 +5803,7 @@ pub unsafe fn MCIWndCreateW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
         }
@@ -15769,7 +15769,7 @@ impl ::core::default::Default for OLISBCWAVEFORMAT {
 pub unsafe fn OpenDriver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(szdrivername: Param0, szsectionname: Param1, lparam2: Param2) -> HDRVR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn OpenDriver(szdrivername: super::super::Foundation::PWSTR, szsectionname: super::super::Foundation::PWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
         }
@@ -15900,7 +15900,7 @@ impl ::core::default::Default for SONARCWAVEFORMAT {
 pub unsafe fn SendDriverMessage<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, message: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
@@ -16179,7 +16179,7 @@ pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
 pub unsafe fn VideoForWindowsVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msvfw32", kind = "raw-dylib")]
         extern "system" {
             fn VideoForWindowsVersion() -> u32;
         }
@@ -17128,7 +17128,7 @@ pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32
 pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avicap32", kind = "raw-dylib")]
         extern "system" {
             fn capCreateCaptureWindowA(lpszwindowname: super::super::Foundation::PSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
@@ -17143,7 +17143,7 @@ pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn capCreateCaptureWindowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avicap32", kind = "raw-dylib")]
         extern "system" {
             fn capCreateCaptureWindowW(lpszwindowname: super::super::Foundation::PWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
@@ -17158,7 +17158,7 @@ pub unsafe fn capCreateCaptureWindowW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avicap32", kind = "raw-dylib")]
         extern "system" {
             fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
@@ -17173,7 +17173,7 @@ pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "avicap32", kind = "raw-dylib")]
         extern "system" {
             fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
@@ -17188,7 +17188,7 @@ pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
         }
@@ -17202,7 +17202,7 @@ pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u3
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
         }
@@ -17216,7 +17216,7 @@ pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u3
 pub unsafe fn joyGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetNumDevs() -> u32;
         }
@@ -17230,7 +17230,7 @@ pub unsafe fn joyGetNumDevs() -> u32 {
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
         }
@@ -17244,7 +17244,7 @@ pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
         }
@@ -17258,7 +17258,7 @@ pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
         }
@@ -17272,7 +17272,7 @@ pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joyReleaseCapture(ujoyid: u32) -> u32;
         }
@@ -17287,7 +17287,7 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
 pub unsafe fn joySetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, ujoyid: u32, uperiod: u32, fchanged: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
         }
@@ -17301,7 +17301,7 @@ pub unsafe fn joySetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
         }
@@ -17316,7 +17316,7 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
 pub unsafe fn mciDriverNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hwndcallback: Param0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
         }
@@ -17330,7 +17330,7 @@ pub unsafe fn mciDriverNotify<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciDriverYield(wdeviceid: u32) -> u32;
         }
@@ -17345,7 +17345,7 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
         }
@@ -17359,7 +17359,7 @@ pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::B
 pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
         }
@@ -17374,7 +17374,7 @@ pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
 pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetDeviceIDA(pszdevice: super::super::Foundation::PSTR) -> u32;
         }
@@ -17389,7 +17389,7 @@ pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: super::super::Foundation::PSTR) -> u32;
         }
@@ -17404,7 +17404,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: super::super::Foundation::PWSTR) -> u32;
         }
@@ -17419,7 +17419,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetDeviceIDW(pszdevice: super::super::Foundation::PWSTR) -> u32;
         }
@@ -17433,7 +17433,7 @@ pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetDriverData(wdeviceid: u32) -> usize;
         }
@@ -17448,7 +17448,7 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
@@ -17463,7 +17463,7 @@ pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation:
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
@@ -17477,7 +17477,7 @@ pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation:
 pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
         }
@@ -17492,7 +17492,7 @@ pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC
 pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpresname: Param1, wtype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: super::super::Foundation::PWSTR, wtype: u32) -> u32;
         }
@@ -17506,7 +17506,7 @@ pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -17520,7 +17520,7 @@ pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
 pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -17535,7 +17535,7 @@ pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
 pub unsafe fn mciSendStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSendStringA(lpstrcommand: super::super::Foundation::PSTR, lpstrreturnstring: super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
@@ -17550,7 +17550,7 @@ pub unsafe fn mciSendStringA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn mciSendStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSendStringW(lpstrcommand: super::super::Foundation::PWSTR, lpstrreturnstring: super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
@@ -17565,7 +17565,7 @@ pub unsafe fn mciSendStringW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
         }
@@ -17580,7 +17580,7 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::F
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mciSetYieldProc(mciid: u32, fpyieldproc: ::windows::core::RawPtr, dwyielddata: u32) -> super::super::Foundation::BOOL;
         }
@@ -17595,7 +17595,7 @@ pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u
 pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: ::windows::core::RawPtr, wflags: u32) -> u32;
         }
@@ -17609,7 +17609,7 @@ pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Pa
 pub unsafe fn mmGetCurrentTask() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmGetCurrentTask() -> u32;
         }
@@ -17623,7 +17623,7 @@ pub unsafe fn mmGetCurrentTask() -> u32 {
 pub unsafe fn mmTaskBlock(h: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmTaskBlock(h: u32);
         }
@@ -17638,7 +17638,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
 pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmTaskCreate(lpfn: ::windows::core::RawPtr, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
         }
@@ -17653,7 +17653,7 @@ pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundat
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
         }
@@ -17667,7 +17667,7 @@ pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn mmTaskYield() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmTaskYield();
         }
@@ -17682,7 +17682,7 @@ pub unsafe fn mmTaskYield() {
 pub unsafe fn mmioAdvance<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
         }
@@ -17696,7 +17696,7 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 pub unsafe fn mmioAscend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
         }
@@ -17710,7 +17710,7 @@ pub unsafe fn mmioAscend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmi
 pub unsafe fn mmioClose<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, fuclose: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
         }
@@ -17724,7 +17724,7 @@ pub unsafe fn mmioClose<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio
 pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
         }
@@ -17738,7 +17738,7 @@ pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>
 pub unsafe fn mmioDescend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
         }
@@ -17752,7 +17752,7 @@ pub unsafe fn mmioDescend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 pub unsafe fn mmioFlush<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, fuflush: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
         }
@@ -17767,7 +17767,7 @@ pub unsafe fn mmioFlush<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio
 pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
         }
@@ -17782,7 +17782,7 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
@@ -17797,7 +17797,7 @@ pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
 pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
@@ -17812,7 +17812,7 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
 pub unsafe fn mmioOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
@@ -17827,7 +17827,7 @@ pub unsafe fn mmioOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn mmioOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
@@ -17841,7 +17841,7 @@ pub unsafe fn mmioOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn mmioRead<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pch: *mut i8, cch: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
         }
@@ -17856,7 +17856,7 @@ pub unsafe fn mmioRead<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio:
 pub unsafe fn mmioRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
@@ -17871,7 +17871,7 @@ pub unsafe fn mmioRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn mmioRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
@@ -17885,7 +17885,7 @@ pub unsafe fn mmioRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn mmioSeek<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
         }
@@ -17900,7 +17900,7 @@ pub unsafe fn mmioSeek<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio:
 pub unsafe fn mmioSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hmmio: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
@@ -17915,7 +17915,7 @@ pub unsafe fn mmioSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>,
 pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pchbuffer: super::super::Foundation::PSTR, cchbuffer: i32, fubuffer: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: super::super::Foundation::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
         }
@@ -17930,7 +17930,7 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(h
 pub unsafe fn mmioSetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
         }
@@ -17945,7 +17945,7 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 pub unsafe fn mmioStringToFOURCCA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sz: Param0, uflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioStringToFOURCCA(sz: super::super::Foundation::PSTR, uflags: u32) -> u32;
         }
@@ -17960,7 +17960,7 @@ pub unsafe fn mmioStringToFOURCCA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sz: Param0, uflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioStringToFOURCCW(sz: super::super::Foundation::PWSTR, uflags: u32) -> u32;
         }
@@ -17975,7 +17975,7 @@ pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn mmioWrite<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmmio: Param0, pch: Param1, cch: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winmm", kind = "raw-dylib")]
         extern "system" {
             fn mmioWrite(hmmio: HMMIO, pch: super::super::Foundation::PSTR, cch: i32) -> i32;
         }
@@ -18028,7 +18028,7 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
 pub unsafe fn sndOpenSound<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(eventname: Param0, appname: Param1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "api-ms-win-mm-misc-l1-1-1", kind = "raw-dylib")]
         extern "system" {
             fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }

@@ -2673,7 +2673,7 @@ pub const DWRITE_WORD_WRAPPING_CHARACTER: DWRITE_WORD_WRAPPING = 4i32;
 pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwrite", kind = "raw-dylib")]
         extern "system" {
             fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

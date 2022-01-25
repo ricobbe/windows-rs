@@ -105,7 +105,7 @@ pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system"
 pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(pdevice: Param0) -> ::windows::core::Result<IPdfRendererNative> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "windows.data.pdf", kind = "raw-dylib")]
         extern "system" {
             fn PdfCreateRenderer(pdevice: ::windows::core::RawPtr, pprenderer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

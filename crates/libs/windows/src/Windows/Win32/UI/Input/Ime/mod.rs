@@ -4851,7 +4851,7 @@ pub const ISC_SHOWUIGUIDELINE: u32 = 1073741824u32;
 pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmAssociateContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Globalization::HIMC;
         }
@@ -4866,7 +4866,7 @@ pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC, param2: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -4881,7 +4881,7 @@ pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmConfigureIMEA(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
@@ -4896,7 +4896,7 @@ pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmConfigureIMEW(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
@@ -4911,7 +4911,7 @@ pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmCreateContext() -> super::super::super::Globalization::HIMC;
         }
@@ -4926,7 +4926,7 @@ pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
 pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC;
         }
@@ -4941,7 +4941,7 @@ pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::
 pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: u32, param1: Param1, param2: i32, param3: i32) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Foundation::HWND, param2: i32, param3: i32) -> super::super::super::Foundation::HWND;
         }
@@ -4956,7 +4956,7 @@ pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDestroyContext(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
         }
@@ -4971,7 +4971,7 @@ pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDestroyIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Globalization::HIMCC;
         }
@@ -4986,7 +4986,7 @@ pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
         }
@@ -5001,7 +5001,7 @@ pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5016,7 +5016,7 @@ pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOO
 pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL;
         }
@@ -5031,7 +5031,7 @@ pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5046,7 +5046,7 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
 pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: IMCENUMPROC, lparam: Param2) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmEnumInputContext(idthread: u32, lpfn: ::windows::core::RawPtr, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
         }
@@ -5061,7 +5061,7 @@ pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCA, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: ::windows::core::RawPtr, lpszreading: super::super::super::Foundation::PSTR, param3: u32, lpszregister: super::super::super::Foundation::PSTR, param5: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5076,7 +5076,7 @@ pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCW, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: ::windows::core::RawPtr, lpszreading: super::super::super::Foundation::PWSTR, param3: u32, lpszregister: super::super::super::Foundation::PWSTR, param5: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5091,7 +5091,7 @@ pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImmEscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
         }
@@ -5106,7 +5106,7 @@ pub unsafe fn ImmEscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn ImmEscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
         }
@@ -5121,7 +5121,7 @@ pub unsafe fn ImmEscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGenerateMessage(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
         }
@@ -5136,7 +5136,7 @@ pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCandidateListA(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
         }
@@ -5151,7 +5151,7 @@ pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCandidateListCountA(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
         }
@@ -5166,7 +5166,7 @@ pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCandidateListCountW(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
         }
@@ -5181,7 +5181,7 @@ pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCandidateListW(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
         }
@@ -5196,7 +5196,7 @@ pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCandidateWindow(param0: super::super::super::Globalization::HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
         }
@@ -5211,7 +5211,7 @@ pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
         }
@@ -5226,7 +5226,7 @@ pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
         }
@@ -5241,7 +5241,7 @@ pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
         }
@@ -5256,7 +5256,7 @@ pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
         }
@@ -5271,7 +5271,7 @@ pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
         }
@@ -5286,7 +5286,7 @@ pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ImmGetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetContext(param0: super::super::super::Foundation::HWND) -> super::super::super::Globalization::HIMC;
         }
@@ -5301,7 +5301,7 @@ pub unsafe fn ImmGetContext<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetConversionListA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
         }
@@ -5316,7 +5316,7 @@ pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
         }
@@ -5331,7 +5331,7 @@ pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5346,7 +5346,7 @@ pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
@@ -5361,7 +5361,7 @@ pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
         }
@@ -5376,7 +5376,7 @@ pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
         }
@@ -5391,7 +5391,7 @@ pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetGuideLineA(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32;
         }
@@ -5406,7 +5406,7 @@ pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetGuideLineW(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32;
         }
@@ -5421,7 +5421,7 @@ pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL;
         }
@@ -5436,7 +5436,7 @@ pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u3
 pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetIMCCLockCount(param0: super::super::super::Globalization::HIMCC) -> u32;
         }
@@ -5451,7 +5451,7 @@ pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetIMCCSize(param0: super::super::super::Globalization::HIMCC) -> u32;
         }
@@ -5466,7 +5466,7 @@ pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetIMCLockCount(param0: super::super::super::Globalization::HIMC) -> u32;
         }
@@ -5481,7 +5481,7 @@ pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
         }
@@ -5496,7 +5496,7 @@ pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
         }
@@ -5511,7 +5511,7 @@ pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetImeMenuItemsA(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32;
         }
@@ -5526,7 +5526,7 @@ pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetImeMenuItemsW(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32;
         }
@@ -5541,7 +5541,7 @@ pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetOpenStatus(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
         }
@@ -5556,7 +5556,7 @@ pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmGetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, param1: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetProperty(param0: super::super::TextServices::HKL, param1: u32) -> u32;
         }
@@ -5571,7 +5571,7 @@ pub unsafe fn ImmGetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
         }
@@ -5586,7 +5586,7 @@ pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
         }
@@ -5601,7 +5601,7 @@ pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
         }
@@ -5616,7 +5616,7 @@ pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmGetVirtualKey(param0: super::super::super::Foundation::HWND) -> u32;
         }
@@ -5631,7 +5631,7 @@ pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmInstallIMEA(lpszimefilename: super::super::super::Foundation::PSTR, lpszlayouttext: super::super::super::Foundation::PSTR) -> super::super::TextServices::HKL;
         }
@@ -5646,7 +5646,7 @@ pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmInstallIMEW(lpszimefilename: super::super::super::Foundation::PWSTR, lpszlayouttext: super::super::super::Foundation::PWSTR) -> super::super::TextServices::HKL;
         }
@@ -5661,7 +5661,7 @@ pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImmIsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmIsIME(param0: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
         }
@@ -5676,7 +5676,7 @@ pub unsafe fn ImmIsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
         }
@@ -5691,7 +5691,7 @@ pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
         }
@@ -5706,7 +5706,7 @@ pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ImmLockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> *mut INPUTCONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmLockIMC(param0: super::super::super::Globalization::HIMC) -> *mut INPUTCONTEXT;
         }
@@ -5721,7 +5721,7 @@ pub unsafe fn ImmLockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmLockIMCC(param0: super::super::super::Globalization::HIMCC) -> *mut ::core::ffi::c_void;
         }
@@ -5736,7 +5736,7 @@ pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmNotifyIME(param0: super::super::super::Globalization::HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5751,7 +5751,7 @@ pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0, param1: u32) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmReSizeIMCC(param0: super::super::super::Globalization::HIMCC, param1: u32) -> super::super::super::Globalization::HIMCC;
         }
@@ -5766,7 +5766,7 @@ pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmRegisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
         }
@@ -5781,7 +5781,7 @@ pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmRegisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }
@@ -5796,7 +5796,7 @@ pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
         }
@@ -5811,7 +5811,7 @@ pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmRequestMessageA(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
         }
@@ -5826,7 +5826,7 @@ pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmRequestMessageW(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
         }
@@ -5841,7 +5841,7 @@ pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCandidateWindow(param0: super::super::super::Globalization::HIMC, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
         }
@@ -5856,7 +5856,7 @@ pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
         }
@@ -5871,7 +5871,7 @@ pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
         }
@@ -5886,7 +5886,7 @@ pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5901,7 +5901,7 @@ pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5916,7 +5916,7 @@ pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
         }
@@ -5931,7 +5931,7 @@ pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -5946,7 +5946,7 @@ pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: u32, param1: u32, param2: u32, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
         }
@@ -5961,7 +5961,7 @@ pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetOpenStatus(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -5976,7 +5976,7 @@ pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
         }
@@ -5991,7 +5991,7 @@ pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL;
         }
@@ -6006,7 +6006,7 @@ pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -6021,7 +6021,7 @@ pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmUnlockIMC(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
         }
@@ -6036,7 +6036,7 @@ pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmUnlockIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Foundation::BOOL;
         }
@@ -6051,7 +6051,7 @@ pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmUnregisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszunregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
         }
@@ -6066,7 +6066,7 @@ pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ImmUnregisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "imm32", kind = "raw-dylib")]
         extern "system" {
             fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }

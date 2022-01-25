@@ -29,7 +29,7 @@ pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 pub unsafe fn PTCloseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>>(hprovider: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTCloseProvider(hprovider: super::super::super::Storage::Xps::HPTPROVIDER) -> ::windows::core::HRESULT;
         }
@@ -44,7 +44,7 @@ pub unsafe fn PTCloseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn PTConvertDevModeToPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTConvertDevModeToPrintTicket(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -59,7 +59,7 @@ pub unsafe fn PTConvertDevModeToPrintTicket<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PTConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTConvertPrintTicketToDevMode(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: ::windows::core::RawPtr, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -74,7 +74,7 @@ pub unsafe fn PTConvertPrintTicketToDevMode<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pcapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTGetPrintCapabilities(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: ::windows::core::RawPtr, pcapabilities: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -89,7 +89,7 @@ pub unsafe fn PTGetPrintCapabilities<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pprintticket: Param1, pdevicecapabilities: Param2, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTGetPrintDeviceCapabilities(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: ::windows::core::RawPtr, pdevicecapabilities: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -104,7 +104,7 @@ pub unsafe fn PTGetPrintDeviceCapabilities<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pszlocalename: Param1, pprintticket: Param2, pdeviceresources: Param3, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTGetPrintDeviceResources(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pszlocalename: super::super::super::Foundation::PWSTR, pprintticket: ::windows::core::RawPtr, pdeviceresources: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -119,7 +119,7 @@ pub unsafe fn PTGetPrintDeviceResources<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(hprovider: Param0, pbaseticket: Param1, pdeltaticket: Param2, scope: EPrintTicketScope, presultticket: Param4, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTMergeAndValidatePrintTicket(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pbaseticket: ::windows::core::RawPtr, pdeltaticket: ::windows::core::RawPtr, scope: EPrintTicketScope, presultticket: ::windows::core::RawPtr, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -134,7 +134,7 @@ pub unsafe fn PTMergeAndValidatePrintTicket<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PTOpenProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszprintername: Param0, dwversion: u32) -> ::windows::core::Result<super::super::super::Storage::Xps::HPTPROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTOpenProvider(pszprintername: super::super::super::Foundation::PWSTR, dwversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER) -> ::windows::core::HRESULT;
         }
@@ -150,7 +150,7 @@ pub unsafe fn PTOpenProvider<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn PTOpenProviderEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszprintername: Param0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER, pusedversion: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTOpenProviderEx(pszprintername: super::super::super::Foundation::PWSTR, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut super::super::super::Storage::Xps::HPTPROVIDER, pusedversion: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -165,7 +165,7 @@ pub unsafe fn PTOpenProviderEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PTQuerySchemaVersionSupport<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszprintername: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTQuerySchemaVersionSupport(pszprintername: super::super::super::Foundation::PWSTR, pmaxversion: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -180,7 +180,7 @@ pub unsafe fn PTQuerySchemaVersionSupport<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "prntvpt", kind = "raw-dylib")]
         extern "system" {
             fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

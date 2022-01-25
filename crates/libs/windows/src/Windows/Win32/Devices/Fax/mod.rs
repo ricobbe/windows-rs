@@ -6,7 +6,7 @@ pub const CLSID_Sti: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "fxsutility", kind = "raw-dylib")]
         extern "system" {
             fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL;
         }
@@ -1852,7 +1852,7 @@ pub const FS_USER_ABORT: u32 = 538968064u32;
 pub unsafe fn FaxAbort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxAbort(faxhandle: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
         }
@@ -1867,7 +1867,7 @@ pub unsafe fn FaxAbort<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn FaxAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, accessmask: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxAccessCheck(faxhandle: super::super::Foundation::HANDLE, accessmask: u32) -> super::super::Foundation::BOOL;
         }
@@ -1892,7 +1892,7 @@ pub const FaxActivityLogging: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn FaxClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxClose(faxhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1907,7 +1907,7 @@ pub unsafe fn FaxClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn FaxCompleteJobParamsA(jobparams: *mut *mut FAX_JOB_PARAMA, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxCompleteJobParamsA(jobparams: *mut *mut FAX_JOB_PARAMA, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -1922,7 +1922,7 @@ pub unsafe fn FaxCompleteJobParamsA(jobparams: *mut *mut FAX_JOB_PARAMA, coverpa
 pub unsafe fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -1938,7 +1938,7 @@ pub const FaxConfiguration: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn FaxConnectFaxServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(machinename: Param0, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxConnectFaxServerA(machinename: super::super::Foundation::PSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1953,7 +1953,7 @@ pub unsafe fn FaxConnectFaxServerA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FaxConnectFaxServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxConnectFaxServerW(machinename: super::super::Foundation::PWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1974,7 +1974,7 @@ pub const FaxDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub unsafe fn FaxEnableRoutingMethodA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(faxporthandle: Param0, routingguid: Param1, enabled: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnableRoutingMethodA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1989,7 +1989,7 @@ pub unsafe fn FaxEnableRoutingMethodA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FaxEnableRoutingMethodW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(faxporthandle: Param0, routingguid: Param1, enabled: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnableRoutingMethodW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -2004,7 +2004,7 @@ pub unsafe fn FaxEnableRoutingMethodW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FaxEnumGlobalRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumGlobalRoutingInfoA(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2019,7 +2019,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn FaxEnumGlobalRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOW, methodsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumGlobalRoutingInfoW(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOW, methodsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2034,7 +2034,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn FaxEnumJobsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobentry: *mut *mut FAX_JOB_ENTRYA, jobsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumJobsA(faxhandle: super::super::Foundation::HANDLE, jobentry: *mut *mut FAX_JOB_ENTRYA, jobsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2049,7 +2049,7 @@ pub unsafe fn FaxEnumJobsA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FaxEnumJobsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobentry: *mut *mut FAX_JOB_ENTRYW, jobsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumJobsW(faxhandle: super::super::Foundation::HANDLE, jobentry: *mut *mut FAX_JOB_ENTRYW, jobsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2064,7 +2064,7 @@ pub unsafe fn FaxEnumJobsW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FaxEnumPortsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, portinfo: *mut *mut FAX_PORT_INFOA, portsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumPortsA(faxhandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOA, portsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2079,7 +2079,7 @@ pub unsafe fn FaxEnumPortsA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn FaxEnumPortsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, portinfo: *mut *mut FAX_PORT_INFOW, portsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumPortsW(faxhandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOW, portsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2094,7 +2094,7 @@ pub unsafe fn FaxEnumPortsW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn FaxEnumRoutingMethodsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, routingmethod: *mut *mut FAX_ROUTING_METHODA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumRoutingMethodsA(faxporthandle: super::super::Foundation::HANDLE, routingmethod: *mut *mut FAX_ROUTING_METHODA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2109,7 +2109,7 @@ pub unsafe fn FaxEnumRoutingMethodsA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FaxEnumRoutingMethodsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, routingmethod: *mut *mut FAX_ROUTING_METHODW, methodsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxEnumRoutingMethodsW(faxporthandle: super::super::Foundation::HANDLE, routingmethod: *mut *mut FAX_ROUTING_METHODW, methodsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2125,7 +2125,7 @@ pub const FaxFolders: ::windows::core::GUID = ::windows::core::GUID::from_u128(0
 pub unsafe fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void);
         }
@@ -2140,7 +2140,7 @@ pub unsafe fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void) {
 pub unsafe fn FaxGetConfigurationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, faxconfig: *mut *mut FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetConfigurationA(faxhandle: super::super::Foundation::HANDLE, faxconfig: *mut *mut FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL;
         }
@@ -2155,7 +2155,7 @@ pub unsafe fn FaxGetConfigurationA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FaxGetConfigurationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, faxconfig: *mut *mut FAX_CONFIGURATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetConfigurationW(faxhandle: super::super::Foundation::HANDLE, faxconfig: *mut *mut FAX_CONFIGURATIONW) -> super::super::Foundation::BOOL;
         }
@@ -2170,7 +2170,7 @@ pub unsafe fn FaxGetConfigurationW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FaxGetDeviceStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, devicestatus: *mut *mut FAX_DEVICE_STATUSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetDeviceStatusA(faxporthandle: super::super::Foundation::HANDLE, devicestatus: *mut *mut FAX_DEVICE_STATUSA) -> super::super::Foundation::BOOL;
         }
@@ -2185,7 +2185,7 @@ pub unsafe fn FaxGetDeviceStatusA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FaxGetDeviceStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, devicestatus: *mut *mut FAX_DEVICE_STATUSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetDeviceStatusW(faxporthandle: super::super::Foundation::HANDLE, devicestatus: *mut *mut FAX_DEVICE_STATUSW) -> super::super::Foundation::BOOL;
         }
@@ -2200,7 +2200,7 @@ pub unsafe fn FaxGetDeviceStatusW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FaxGetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetJobA(faxhandle: super::super::Foundation::HANDLE, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYA) -> super::super::Foundation::BOOL;
         }
@@ -2215,7 +2215,7 @@ pub unsafe fn FaxGetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FaxGetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetJobW(faxhandle: super::super::Foundation::HANDLE, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYW) -> super::super::Foundation::BOOL;
         }
@@ -2230,7 +2230,7 @@ pub unsafe fn FaxGetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FaxGetLoggingCategoriesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, categories: *mut *mut FAX_LOG_CATEGORYA, numbercategories: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetLoggingCategoriesA(faxhandle: super::super::Foundation::HANDLE, categories: *mut *mut FAX_LOG_CATEGORYA, numbercategories: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2245,7 +2245,7 @@ pub unsafe fn FaxGetLoggingCategoriesA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxGetLoggingCategoriesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, categories: *mut *mut FAX_LOG_CATEGORYW, numbercategories: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetLoggingCategoriesW(faxhandle: super::super::Foundation::HANDLE, categories: *mut *mut FAX_LOG_CATEGORYW, numbercategories: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2260,7 +2260,7 @@ pub unsafe fn FaxGetLoggingCategoriesW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxGetPageData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32, buffer: *mut *mut u8, buffersize: *mut u32, imagewidth: *mut u32, imageheight: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetPageData(faxhandle: super::super::Foundation::HANDLE, jobid: u32, buffer: *mut *mut u8, buffersize: *mut u32, imagewidth: *mut u32, imageheight: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2275,7 +2275,7 @@ pub unsafe fn FaxGetPageData<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FaxGetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, portinfo: *mut *mut FAX_PORT_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetPortA(faxporthandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -2290,7 +2290,7 @@ pub unsafe fn FaxGetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FaxGetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, portinfo: *mut *mut FAX_PORT_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetPortW(faxporthandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -2305,7 +2305,7 @@ pub unsafe fn FaxGetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FaxGetRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxporthandle: Param0, routingguid: Param1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2320,7 +2320,7 @@ pub unsafe fn FaxGetRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FaxGetRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxporthandle: Param0, routingguid: Param1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxGetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2346,7 +2346,7 @@ pub const FaxIncomingQueue: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn FaxInitializeEventQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(faxhandle: Param0, completionport: Param1, completionkey: usize, hwnd: Param3, messagestart: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxInitializeEventQueue(faxhandle: super::super::Foundation::HANDLE, completionport: super::super::Foundation::HANDLE, completionkey: usize, hwnd: super::super::Foundation::HWND, messagestart: u32) -> super::super::Foundation::BOOL;
         }
@@ -2363,7 +2363,7 @@ pub const FaxLoggingOptions: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn FaxOpenPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, deviceid: u32, flags: u32, faxporthandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxOpenPort(faxhandle: super::super::Foundation::HANDLE, deviceid: u32, flags: u32, faxporthandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2389,7 +2389,7 @@ pub const FaxOutgoingQueue: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn FaxPrintCoverPageA(faxcontextinfo: *const FAX_CONTEXT_INFOA, coverpageinfo: *const FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxPrintCoverPageA(faxcontextinfo: *const FAX_CONTEXT_INFOA, coverpageinfo: *const FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -2404,7 +2404,7 @@ pub unsafe fn FaxPrintCoverPageA(faxcontextinfo: *const FAX_CONTEXT_INFOA, cover
 pub unsafe fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -2422,7 +2422,7 @@ pub const FaxRecipients: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub unsafe fn FaxRegisterRoutingExtensionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxhandle: Param0, extensionname: Param1, friendlyname: Param2, imagename: Param3, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxRegisterRoutingExtensionW(faxhandle: super::super::Foundation::HANDLE, extensionname: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2437,7 +2437,7 @@ pub unsafe fn FaxRegisterRoutingExtensionW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn FaxRegisterServiceProviderW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceprovider: Param0, friendlyname: Param1, imagename: Param2, tspname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxRegisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, tspname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -2454,7 +2454,7 @@ pub const FaxSecurity2: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub unsafe fn FaxSendDocumentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxhandle: Param0, filename: Param1, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSendDocumentA(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2469,7 +2469,7 @@ pub unsafe fn FaxSendDocumentA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn FaxSendDocumentForBroadcastA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSendDocumentForBroadcastA(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, faxjobid: *mut u32, faxrecipientcallback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2484,7 +2484,7 @@ pub unsafe fn FaxSendDocumentForBroadcastA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn FaxSendDocumentForBroadcastW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxhandle: Param0, filename: Param1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSendDocumentForBroadcastW(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, faxjobid: *mut u32, faxrecipientcallback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2499,7 +2499,7 @@ pub unsafe fn FaxSendDocumentForBroadcastW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn FaxSendDocumentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxhandle: Param0, filename: Param1, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSendDocumentW(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2516,7 +2516,7 @@ pub const FaxServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub unsafe fn FaxSetConfigurationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, faxconfig: *const FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetConfigurationA(faxhandle: super::super::Foundation::HANDLE, faxconfig: *const FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL;
         }
@@ -2531,7 +2531,7 @@ pub unsafe fn FaxSetConfigurationA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FaxSetConfigurationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, faxconfig: *const FAX_CONFIGURATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetConfigurationW(faxhandle: super::super::Foundation::HANDLE, faxconfig: *const FAX_CONFIGURATIONW) -> super::super::Foundation::BOOL;
         }
@@ -2546,7 +2546,7 @@ pub unsafe fn FaxSetConfigurationW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FaxSetGlobalRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, routinginfo: *const FAX_GLOBAL_ROUTING_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetGlobalRoutingInfoA(faxhandle: super::super::Foundation::HANDLE, routinginfo: *const FAX_GLOBAL_ROUTING_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -2561,7 +2561,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxSetGlobalRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, routinginfo: *const FAX_GLOBAL_ROUTING_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetGlobalRoutingInfoW(faxhandle: super::super::Foundation::HANDLE, routinginfo: *const FAX_GLOBAL_ROUTING_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -2576,7 +2576,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxSetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetJobA(faxhandle: super::super::Foundation::HANDLE, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYA) -> super::super::Foundation::BOOL;
         }
@@ -2591,7 +2591,7 @@ pub unsafe fn FaxSetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FaxSetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetJobW(faxhandle: super::super::Foundation::HANDLE, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYW) -> super::super::Foundation::BOOL;
         }
@@ -2606,7 +2606,7 @@ pub unsafe fn FaxSetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FaxSetLoggingCategoriesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, categories: *const FAX_LOG_CATEGORYA, numbercategories: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetLoggingCategoriesA(faxhandle: super::super::Foundation::HANDLE, categories: *const FAX_LOG_CATEGORYA, numbercategories: u32) -> super::super::Foundation::BOOL;
         }
@@ -2621,7 +2621,7 @@ pub unsafe fn FaxSetLoggingCategoriesA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxSetLoggingCategoriesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxhandle: Param0, categories: *const FAX_LOG_CATEGORYW, numbercategories: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetLoggingCategoriesW(faxhandle: super::super::Foundation::HANDLE, categories: *const FAX_LOG_CATEGORYW, numbercategories: u32) -> super::super::Foundation::BOOL;
         }
@@ -2636,7 +2636,7 @@ pub unsafe fn FaxSetLoggingCategoriesW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FaxSetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, portinfo: *const FAX_PORT_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetPortA(faxporthandle: super::super::Foundation::HANDLE, portinfo: *const FAX_PORT_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -2651,7 +2651,7 @@ pub unsafe fn FaxSetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FaxSetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(faxporthandle: Param0, portinfo: *const FAX_PORT_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetPortW(faxporthandle: super::super::Foundation::HANDLE, portinfo: *const FAX_PORT_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -2666,7 +2666,7 @@ pub unsafe fn FaxSetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FaxSetRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(faxporthandle: Param0, routingguid: Param1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
         }
@@ -2681,7 +2681,7 @@ pub unsafe fn FaxSetRoutingInfoA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FaxSetRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(faxporthandle: Param0, routingguid: Param1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxSetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
         }
@@ -2696,7 +2696,7 @@ pub unsafe fn FaxSetRoutingInfoW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FaxStartPrintJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(printername: Param0, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxStartPrintJobA(printername: super::super::Foundation::PSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL;
         }
@@ -2711,7 +2711,7 @@ pub unsafe fn FaxStartPrintJobA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn FaxStartPrintJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(printername: Param0, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxStartPrintJobW(printername: super::super::Foundation::PWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL;
         }
@@ -2726,7 +2726,7 @@ pub unsafe fn FaxStartPrintJobW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn FaxUnregisterServiceProviderW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceprovider: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winfax", kind = "raw-dylib")]
         extern "system" {
             fn FaxUnregisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -14329,7 +14329,7 @@ pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 pub unsafe fn SendToFaxRecipient<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sndmode: SendToMode, lpfilename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "fxsutility", kind = "raw-dylib")]
         extern "system" {
             fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -14348,7 +14348,7 @@ pub const SEND_TO_FAX_RECIPIENT_ATTACHMENT: SendToMode = 0i32;
 pub unsafe fn StiCreateInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(hinst: Param0, dwver: u32, ppsti: *mut ::core::option::Option<IStillImageW>, punkouter: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sti", kind = "raw-dylib")]
         extern "system" {
             fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

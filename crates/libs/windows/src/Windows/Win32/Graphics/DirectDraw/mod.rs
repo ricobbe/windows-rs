@@ -12241,7 +12241,7 @@ pub const DX_OK: u32 = 0u32;
 pub unsafe fn DirectDrawCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut ::core::option::Option<IDirectDraw>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawCreate(lpguid: *mut ::windows::core::GUID, lplpdd: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12255,7 +12255,7 @@ pub unsafe fn DirectDrawCreate<'a, Param2: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn DirectDrawCreateClipper<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwflags: u32, lplpddclipper: *mut ::core::option::Option<IDirectDrawClipper>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12269,7 +12269,7 @@ pub unsafe fn DirectDrawCreateClipper<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn DirectDrawCreateEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawCreateEx(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12284,7 +12284,7 @@ pub unsafe fn DirectDrawCreateEx<'a, Param3: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawEnumerateA(lpcallback: ::windows::core::RawPtr, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12299,7 +12299,7 @@ pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mu
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawEnumerateExA(lpcallback: ::windows::core::RawPtr, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -12314,7 +12314,7 @@ pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext:
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawEnumerateExW(lpcallback: ::windows::core::RawPtr, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -12329,7 +12329,7 @@ pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext:
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ddraw", kind = "raw-dylib")]
         extern "system" {
             fn DirectDrawEnumerateW(lpcallback: ::windows::core::RawPtr, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

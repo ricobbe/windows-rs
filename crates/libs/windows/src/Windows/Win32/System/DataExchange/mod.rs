@@ -9,7 +9,7 @@ pub const APPCMD_MASK: i32 = 4080i32;
 pub unsafe fn AddAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
         }
@@ -24,7 +24,7 @@ pub unsafe fn AddAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn AddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
         }
@@ -39,7 +39,7 @@ pub unsafe fn AddAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddClipboardFormatListener<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -230,7 +230,7 @@ pub const CP_WINUNICODE: i32 = 1200i32;
 pub unsafe fn ChangeClipboardChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndremove: Param0, hwndnewnext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn ChangeClipboardChain(hwndremove: super::super::Foundation::HWND, hwndnewnext: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -245,7 +245,7 @@ pub unsafe fn ChangeClipboardChain<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CloseClipboard() -> super::super::Foundation::BOOL;
         }
@@ -259,7 +259,7 @@ pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
 pub unsafe fn CountClipboardFormats() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn CountClipboardFormats() -> i32;
         }
@@ -618,7 +618,7 @@ pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::core::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, idtransaction: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> super::super::Foundation::BOOL;
         }
@@ -632,7 +632,7 @@ pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::core::IntoParam<'a, H
 pub unsafe fn DdeAccessData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, pcbdatasize: *mut u32) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: *mut u32) -> *mut u8;
         }
@@ -646,7 +646,7 @@ pub unsafe fn DdeAccessData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>
 pub unsafe fn DdeAddData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
         }
@@ -660,7 +660,7 @@ pub unsafe fn DdeAddData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(h
 pub unsafe fn DdeClientTransaction<'a, Param2: ::windows::core::IntoParam<'a, HCONV>, Param3: ::windows::core::IntoParam<'a, HSZ>>(pdata: *const u8, cbdata: u32, hconv: Param2, hszitem: Param3, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
         }
@@ -674,7 +674,7 @@ pub unsafe fn DdeClientTransaction<'a, Param2: ::windows::core::IntoParam<'a, HC
 pub unsafe fn DdeCmpStringHandles<'a, Param0: ::windows::core::IntoParam<'a, HSZ>, Param1: ::windows::core::IntoParam<'a, HSZ>>(hsz1: Param0, hsz2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32;
         }
@@ -689,7 +689,7 @@ pub unsafe fn DdeCmpStringHandles<'a, Param0: ::windows::core::IntoParam<'a, HSZ
 pub unsafe fn DdeConnect<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Param2: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hszservice: Param1, hsztopic: Param2, pcc: *const CONVCONTEXT) -> HCONV {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *const CONVCONTEXT) -> HCONV;
         }
@@ -704,7 +704,7 @@ pub unsafe fn DdeConnect<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Param2
 pub unsafe fn DdeConnectList<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Param2: ::windows::core::IntoParam<'a, HSZ>, Param3: ::windows::core::IntoParam<'a, HCONVLIST>>(idinst: u32, hszservice: Param1, hsztopic: Param2, hconvlist: Param3, pcc: *const CONVCONTEXT) -> HCONVLIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
         }
@@ -718,7 +718,7 @@ pub unsafe fn DdeConnectList<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Pa
 pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: Param4, wfmt: u32, afcmd: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
         }
@@ -733,7 +733,7 @@ pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::core::IntoParam<'a, HSZ
 pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeCreateStringHandleA(idinst: u32, psz: super::super::Foundation::PSTR, icodepage: i32) -> HSZ;
         }
@@ -748,7 +748,7 @@ pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeCreateStringHandleW(idinst: u32, psz: super::super::Foundation::PWSTR, icodepage: i32) -> HSZ;
         }
@@ -763,7 +763,7 @@ pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn DdeDisconnect<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeDisconnect(hconv: HCONV) -> super::super::Foundation::BOOL;
         }
@@ -778,7 +778,7 @@ pub unsafe fn DdeDisconnect<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(h
 pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::core::IntoParam<'a, HCONVLIST>>(hconvlist: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeDisconnectList(hconvlist: HCONVLIST) -> super::super::Foundation::BOOL;
         }
@@ -793,7 +793,7 @@ pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::core::IntoParam<'a, HCONV
 pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::core::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL;
         }
@@ -808,7 +808,7 @@ pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::core::IntoParam<'a, HCONV
 pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeFreeDataHandle(hdata: HDDEDATA) -> super::super::Foundation::BOOL;
         }
@@ -823,7 +823,7 @@ pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::core::IntoParam<'a, HDDED
 pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
         }
@@ -837,7 +837,7 @@ pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::core::IntoParam<'a, HSZ
 pub unsafe fn DdeGetData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
         }
@@ -851,7 +851,7 @@ pub unsafe fn DdeGetData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(h
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeGetLastError(idinst: u32) -> u32;
         }
@@ -866,7 +866,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
 pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeImpersonateClient(hconv: HCONV) -> super::super::Foundation::BOOL;
         }
@@ -880,7 +880,7 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::core::IntoParam<'a, HC
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::windows::core::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
@@ -894,7 +894,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::windows::core::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
@@ -909,7 +909,7 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
 pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
         }
@@ -923,7 +923,7 @@ pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::core::IntoParam<'a, HSZ
 pub unsafe fn DdeNameService<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Param2: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz1: Param1, hsz2: Param2, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
         }
@@ -938,7 +938,7 @@ pub unsafe fn DdeNameService<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Pa
 pub unsafe fn DdePostAdvise<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Param2: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsztopic: Param1, hszitem: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> super::super::Foundation::BOOL;
         }
@@ -953,7 +953,7 @@ pub unsafe fn DdePostAdvise<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Par
 pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hconv: Param0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32;
         }
@@ -967,7 +967,7 @@ pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::core::IntoParam<'a, HCONV>
 pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::core::IntoParam<'a, HCONVLIST>, Param1: ::windows::core::IntoParam<'a, HCONV>>(hconvlist: Param0, hconvprev: Param1) -> HCONV {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCONV;
         }
@@ -982,7 +982,7 @@ pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::core::IntoParam<'a, HCON
 pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32;
         }
@@ -997,7 +997,7 @@ pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(i
 pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32;
         }
@@ -1011,7 +1011,7 @@ pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(i
 pub unsafe fn DdeReconnect<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hconv: Param0) -> HCONV {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeReconnect(hconv: HCONV) -> HCONV;
         }
@@ -1026,7 +1026,7 @@ pub unsafe fn DdeReconnect<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hc
 pub unsafe fn DdeSetQualityOfService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeSetQualityOfService(hwndclient: super::super::Foundation::HWND, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL;
         }
@@ -1041,7 +1041,7 @@ pub unsafe fn DdeSetQualityOfService<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::core::IntoParam<'a, HCONV>>(hconv: Param0, id: u32, huser: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> super::super::Foundation::BOOL;
         }
@@ -1056,7 +1056,7 @@ pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::core::IntoParam<'a, HCONV>
 pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeUnaccessData(hdata: HDDEDATA) -> super::super::Foundation::BOOL;
         }
@@ -1071,7 +1071,7 @@ pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDAT
 pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL;
         }
@@ -1085,7 +1085,7 @@ pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn DeleteAtom(natom: u16) -> u16;
         }
@@ -1100,7 +1100,7 @@ pub unsafe fn DeleteAtom(natom: u16) -> u16 {
 pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EmptyClipboard() -> super::super::Foundation::BOOL;
         }
@@ -1114,7 +1114,7 @@ pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
 pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn EnumClipboardFormats(format: u32) -> u32;
         }
@@ -1129,7 +1129,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
 pub unsafe fn FindAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
         }
@@ -1144,7 +1144,7 @@ pub unsafe fn FindAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn FindAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn FindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
         }
@@ -1159,7 +1159,7 @@ pub unsafe fn FindAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn FreeDDElParam<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -1174,7 +1174,7 @@ pub unsafe fn FreeDDElParam<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
         }
@@ -1189,7 +1189,7 @@ pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR,
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
         }
@@ -1204,7 +1204,7 @@ pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR
 pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE;
         }
@@ -1219,7 +1219,7 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE
 pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32;
         }
@@ -1234,7 +1234,7 @@ pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super:
 pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
         }
@@ -1249,7 +1249,7 @@ pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super:
 pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardOwner() -> super::super::Foundation::HWND;
         }
@@ -1263,7 +1263,7 @@ pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
 pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardSequenceNumber() -> u32;
         }
@@ -1278,7 +1278,7 @@ pub unsafe fn GetClipboardSequenceNumber() -> u32 {
 pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetClipboardViewer() -> super::super::Foundation::HWND;
         }
@@ -1293,7 +1293,7 @@ pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
 pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetOpenClipboardWindow() -> super::super::Foundation::HWND;
         }
@@ -1307,7 +1307,7 @@ pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
 pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32;
         }
@@ -1322,7 +1322,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cform
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1337,7 +1337,7 @@ pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, p
 pub unsafe fn GlobalAddAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalAddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
         }
@@ -1352,7 +1352,7 @@ pub unsafe fn GlobalAddAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GlobalAddAtomExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
         }
@@ -1367,7 +1367,7 @@ pub unsafe fn GlobalAddAtomExA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GlobalAddAtomExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
         }
@@ -1382,7 +1382,7 @@ pub unsafe fn GlobalAddAtomExW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GlobalAddAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalAddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
         }
@@ -1396,7 +1396,7 @@ pub unsafe fn GlobalAddAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalDeleteAtom(natom: u16) -> u16;
         }
@@ -1411,7 +1411,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
 pub unsafe fn GlobalFindAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalFindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
         }
@@ -1426,7 +1426,7 @@ pub unsafe fn GlobalFindAtomA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalFindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
         }
@@ -1441,7 +1441,7 @@ pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
         }
@@ -1456,7 +1456,7 @@ pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation:
 pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
         }
@@ -1503,7 +1503,7 @@ impl ::core::default::Default for HSZPAIR {
 pub unsafe fn ImpersonateDdeClientWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, hwndserver: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -1518,7 +1518,7 @@ pub unsafe fn ImpersonateDdeClientWindow<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "kernel32", kind = "raw-dylib")]
         extern "system" {
             fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
         }
@@ -1533,7 +1533,7 @@ pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
         }
@@ -1873,7 +1873,7 @@ pub const MSGF_DDEMGR: u32 = 32769u32;
 pub unsafe fn OpenClipboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewowner: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn OpenClipboard(hwndnewowner: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -1890,7 +1890,7 @@ pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u
 pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
         }
@@ -1907,7 +1907,7 @@ pub const QID_SYNC: u32 = 4294967295u32;
 pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn RegisterClipboardFormatA(lpszformat: super::super::Foundation::PSTR) -> u32;
         }
@@ -1922,7 +1922,7 @@ pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn RegisterClipboardFormatW(lpszformat: super::super::Foundation::PWSTR) -> u32;
         }
@@ -1937,7 +1937,7 @@ pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RemoveClipboardFormatListener<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -1952,7 +1952,7 @@ pub unsafe fn RemoveClipboardFormatListener<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lparam: Param0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
         }
@@ -1967,7 +1967,7 @@ pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetClipboardData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(uformat: u32, hmem: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
@@ -1982,7 +1982,7 @@ pub unsafe fn SetClipboardData<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewviewer: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
@@ -1997,7 +1997,7 @@ pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(nsize: u32, lpmeta16data: *const u8, hdcref: Param2, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "gdi32", kind = "raw-dylib")]
         extern "system" {
             fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
         }
@@ -2014,7 +2014,7 @@ pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 pub unsafe fn UnpackDDElParam<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
         }

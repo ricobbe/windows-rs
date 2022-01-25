@@ -12,7 +12,7 @@ pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
         }
@@ -27,7 +27,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: super::super::Foundation::BOOL, forced: *mut super::super::Foundation::BOOL) -> i32;
         }
@@ -41,7 +41,7 @@ pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>,
 pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBClose(hcomdb: HCOMDB) -> i32;
         }
@@ -55,7 +55,7 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hco
 pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
         }
@@ -69,7 +69,7 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBOpen(phcomdb: *mut isize) -> i32;
         }
@@ -83,7 +83,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
 pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
         }
@@ -97,7 +97,7 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB
 pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "msports", kind = "raw-dylib")]
         extern "system" {
             fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
         }

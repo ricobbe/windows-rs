@@ -645,7 +645,7 @@ pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 pub unsafe fn CredDeleteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredDeleteA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -660,7 +660,7 @@ pub unsafe fn CredDeleteA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn CredDeleteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredDeleteW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -675,7 +675,7 @@ pub unsafe fn CredDeleteW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn CredEnumerateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredEnumerateA(filter: super::super::Foundation::PSTR, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
@@ -690,7 +690,7 @@ pub unsafe fn CredEnumerateA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CredEnumerateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredEnumerateW(filter: super::super::Foundation::PWSTR, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
@@ -705,7 +705,7 @@ pub unsafe fn CredEnumerateW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredFindBestCredentialA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
@@ -720,7 +720,7 @@ pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredFindBestCredentialW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
@@ -734,7 +734,7 @@ pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CredFree(buffer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredFree(buffer: *const ::core::ffi::c_void);
         }
@@ -749,7 +749,7 @@ pub unsafe fn CredFree(buffer: *const ::core::ffi::c_void) {
 pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -764,7 +764,7 @@ pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut
 pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredGetTargetInfoA(targetname: super::super::Foundation::PSTR, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL;
         }
@@ -779,7 +779,7 @@ pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredGetTargetInfoW(targetname: super::super::Foundation::PWSTR, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL;
         }
@@ -794,7 +794,7 @@ pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredIsMarshaledCredentialA(marshaledcredential: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -809,7 +809,7 @@ pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredIsMarshaledCredentialW(marshaledcredential: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -824,7 +824,7 @@ pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredIsProtectedA(pszprotectedcredentials: super::super::Foundation::PSTR, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -839,7 +839,7 @@ pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredIsProtectedW(pszprotectedcredentials: super::super::Foundation::PWSTR, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -854,7 +854,7 @@ pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -869,7 +869,7 @@ pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *c
 pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -884,7 +884,7 @@ pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *c
 pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PSTR, pszpassword: super::super::Foundation::PSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -899,7 +899,7 @@ pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -914,7 +914,7 @@ pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn CredProtectA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredProtectA(fasself: super::super::Foundation::BOOL, pszcredentials: super::super::Foundation::PSTR, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -929,7 +929,7 @@ pub unsafe fn CredProtectA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CredProtectW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredProtectW(fasself: super::super::Foundation::BOOL, pszcredentials: super::super::Foundation::PWSTR, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -944,7 +944,7 @@ pub unsafe fn CredProtectW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CredReadA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredReadA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
@@ -959,7 +959,7 @@ pub unsafe fn CredReadA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
@@ -974,7 +974,7 @@ pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_IN
 pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
@@ -989,7 +989,7 @@ pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_IN
 pub unsafe fn CredReadW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredReadW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
@@ -1004,7 +1004,7 @@ pub unsafe fn CredReadW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn CredRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredRenameA(oldtargetname: super::super::Foundation::PSTR, newtargetname: super::super::Foundation::PSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1019,7 +1019,7 @@ pub unsafe fn CredRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn CredRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredRenameW(oldtargetname: super::super::Foundation::PWSTR, newtargetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1034,7 +1034,7 @@ pub unsafe fn CredRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(psztargetname: Param0, pcontext: *mut SecHandle, dwautherror: u32, username: Param3, uluserbuffersize: u32, pszpassword: Param5, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsA(psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
@@ -1049,7 +1049,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::In
 pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psztargetname: Param0, pcontext: *mut SecHandle, dwautherror: u32, username: Param3, uluserbuffersize: u32, pszpassword: Param5, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsW(psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PWSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
@@ -1064,7 +1064,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::In
 pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIConfirmCredentialsA(psztargetname: super::super::Foundation::PSTR, bconfirm: super::super::Foundation::BOOL) -> u32;
         }
@@ -1079,7 +1079,7 @@ pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIConfirmCredentialsW(psztargetname: super::super::Foundation::PWSTR, bconfirm: super::super::Foundation::BOOL) -> u32;
         }
@@ -1094,7 +1094,7 @@ pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(username: Param0, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIParseUserNameA(username: super::super::Foundation::PSTR, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32;
         }
@@ -1109,7 +1109,7 @@ pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(username: Param0, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIParseUserNameW(username: super::super::Foundation::PWSTR, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32;
         }
@@ -1124,7 +1124,7 @@ pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(puiinfo: *const CREDUI_INFOA, psztargetname: Param1, pcontext: *mut SecHandle, dwautherror: u32, pszusername: Param4, ulusernamebuffersize: u32, pszpassword: Param6, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIPromptForCredentialsA(puiinfo: *const CREDUI_INFOA, psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
@@ -1139,7 +1139,7 @@ pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(puiinfo: *const CREDUI_INFOW, psztargetname: Param1, pcontext: *mut SecHandle, dwautherror: u32, pszusername: Param4, ulusernamebuffersize: u32, pszpassword: Param6, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIPromptForCredentialsW(puiinfo: *const CREDUI_INFOW, psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PWSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
@@ -1154,7 +1154,7 @@ pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
@@ -1169,7 +1169,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, d
 pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
@@ -1184,7 +1184,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, d
 pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrealm: Param0, ppszusername: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIReadSSOCredW(pszrealm: super::super::Foundation::PWSTR, ppszusername: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -1199,7 +1199,7 @@ pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszrealm: Param0, pszusername: Param1, pszpassword: Param2, bpersist: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUIStoreSSOCredW(pszrealm: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, bpersist: super::super::Foundation::BOOL) -> u32;
         }
@@ -1214,7 +1214,7 @@ pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1229,7 +1229,7 @@ pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuf
 pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1244,7 +1244,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuf
 pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredUnmarshalCredentialA(marshaledcredential: super::super::Foundation::PSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1259,7 +1259,7 @@ pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredUnmarshalCredentialW(marshaledcredential: super::super::Foundation::PWSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1274,7 +1274,7 @@ pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CredUnprotectA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredUnprotectA(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1289,7 +1289,7 @@ pub unsafe fn CredUnprotectA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CredUnprotectW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredUnprotectW(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PWSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1304,7 +1304,7 @@ pub unsafe fn CredUnprotectW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1319,7 +1319,7 @@ pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::s
 pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1334,7 +1334,7 @@ pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_I
 pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1349,7 +1349,7 @@ pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_I
 pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1367,7 +1367,7 @@ pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::core::GUID = ::windows:
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "scarddlg", kind = "raw-dylib")]
         extern "system" {
             fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
         }
@@ -1382,7 +1382,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
 pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "scarddlg", kind = "raw-dylib")]
         extern "system" {
             fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
         }
@@ -1396,7 +1396,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
 pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "keycredmgr", kind = "raw-dylib")]
         extern "system" {
             fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
         }
@@ -1410,7 +1410,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
 pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "keycredmgr", kind = "raw-dylib")]
         extern "system" {
             fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::core::HRESULT;
         }
@@ -1426,7 +1426,7 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*m
 pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "keycredmgr", kind = "raw-dylib")]
         extern "system" {
             fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::core::HRESULT;
         }
@@ -1492,7 +1492,7 @@ pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = 2i32
 pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "keycredmgr", kind = "raw-dylib")]
         extern "system" {
             fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::core::HRESULT;
         }
@@ -2368,7 +2368,7 @@ pub const SC_DLG_NO_UI: u32 = 2u32;
 pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE;
         }
@@ -2383,7 +2383,7 @@ pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
 pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardAddReaderToGroupA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
@@ -2398,7 +2398,7 @@ pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardAddReaderToGroupW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2412,7 +2412,7 @@ pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardAudit(hcontext: usize, dwevent: u32) -> i32;
         }
@@ -2426,7 +2426,7 @@ pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
 pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardBeginTransaction(hcard: usize) -> i32;
         }
@@ -2440,7 +2440,7 @@ pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
 pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardCancel(hcontext: usize) -> i32;
         }
@@ -2455,7 +2455,7 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
 pub unsafe fn SCardConnectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardConnectA(hcontext: usize, szreader: super::super::Foundation::PSTR, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32;
         }
@@ -2470,7 +2470,7 @@ pub unsafe fn SCardConnectA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn SCardConnectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardConnectW(hcontext: usize, szreader: super::super::Foundation::PWSTR, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32;
         }
@@ -2484,7 +2484,7 @@ pub unsafe fn SCardConnectW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32;
         }
@@ -2498,7 +2498,7 @@ pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const 
 pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32;
         }
@@ -2512,7 +2512,7 @@ pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
 pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "scarddlg", kind = "raw-dylib")]
         extern "system" {
             fn SCardDlgExtendedError() -> i32;
         }
@@ -2526,7 +2526,7 @@ pub unsafe fn SCardDlgExtendedError() -> i32 {
 pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32;
         }
@@ -2540,7 +2540,7 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
 pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::core::ffi::c_void, pvreserved2: *const ::core::ffi::c_void, phcontext: *mut usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::core::ffi::c_void, pvreserved2: *const ::core::ffi::c_void, phcontext: *mut usize) -> i32;
         }
@@ -2555,7 +2555,7 @@ pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::
 pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR) -> i32;
         }
@@ -2570,7 +2570,7 @@ pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2585,7 +2585,7 @@ pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetReaderA(hcontext: usize, szreadername: super::super::Foundation::PSTR) -> i32;
         }
@@ -2600,7 +2600,7 @@ pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetReaderGroupA(hcontext: usize, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
@@ -2615,7 +2615,7 @@ pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetReaderGroupW(hcontext: usize, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2630,7 +2630,7 @@ pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardForgetReaderW(hcontext: usize, szreadername: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2644,7 +2644,7 @@ pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardFreeMemory(hcontext: usize, pvmem: *const ::core::ffi::c_void) -> i32;
         }
@@ -2658,7 +2658,7 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::core::ffi::c_void
 pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32;
         }
@@ -2673,7 +2673,7 @@ pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbat
 pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetCardTypeProviderNameA(hcontext: usize, szcardname: super::super::Foundation::PSTR, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32;
         }
@@ -2688,7 +2688,7 @@ pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetCardTypeProviderNameW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32;
         }
@@ -2703,7 +2703,7 @@ pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetDeviceTypeIdA(hcontext: usize, szreadername: super::super::Foundation::PSTR, pdwdevicetypeid: *mut u32) -> i32;
         }
@@ -2718,7 +2718,7 @@ pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetDeviceTypeIdW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, pdwdevicetypeid: *mut u32) -> i32;
         }
@@ -2733,7 +2733,7 @@ pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetProviderIdA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidproviderid: *mut ::windows::core::GUID) -> i32;
         }
@@ -2748,7 +2748,7 @@ pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetProviderIdW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidproviderid: *mut ::windows::core::GUID) -> i32;
         }
@@ -2763,7 +2763,7 @@ pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetReaderDeviceInstanceIdA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32;
         }
@@ -2778,7 +2778,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::core::IntoP
 pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetReaderDeviceInstanceIdW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32;
         }
@@ -2793,7 +2793,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::core::IntoP
 pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetReaderIconA(hcontext: usize, szreadername: super::super::Foundation::PSTR, pbicon: *mut u8, pcbicon: *mut u32) -> i32;
         }
@@ -2808,7 +2808,7 @@ pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetReaderIconW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, pbicon: *mut u8, pcbicon: *mut u32) -> i32;
         }
@@ -2823,7 +2823,7 @@ pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
@@ -2838,7 +2838,7 @@ pub unsafe fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreadersta
 pub unsafe fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
@@ -2852,7 +2852,7 @@ pub unsafe fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreadersta
 pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32;
         }
@@ -2867,7 +2867,7 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
 pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
@@ -2882,7 +2882,7 @@ pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
@@ -2897,7 +2897,7 @@ pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceReaderA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szdevicename: super::super::Foundation::PSTR) -> i32;
         }
@@ -2912,7 +2912,7 @@ pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceReaderGroupA(hcontext: usize, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
@@ -2927,7 +2927,7 @@ pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceReaderGroupW(hcontext: usize, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2942,7 +2942,7 @@ pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIntroduceReaderW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szdevicename: super::super::Foundation::PWSTR) -> i32;
         }
@@ -2956,7 +2956,7 @@ pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardIsValidContext(hcontext: usize) -> i32;
         }
@@ -2971,7 +2971,7 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
         }
@@ -2986,7 +2986,7 @@ pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterface
 pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
         }
@@ -3001,7 +3001,7 @@ pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterface
 pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListInterfacesA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
@@ -3016,7 +3016,7 @@ pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListInterfacesW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidinterfaces: *mut ::windows::core::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
@@ -3031,7 +3031,7 @@ pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, pcchgroups: *mut u32) -> i32;
         }
@@ -3046,7 +3046,7 @@ pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::F
 pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, pcchgroups: *mut u32) -> i32;
         }
@@ -3061,7 +3061,7 @@ pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::F
 pub unsafe fn SCardListReadersA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReadersA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32;
         }
@@ -3076,7 +3076,7 @@ pub unsafe fn SCardListReadersA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SCardListReadersW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReadersW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32;
         }
@@ -3091,7 +3091,7 @@ pub unsafe fn SCardListReadersW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReadersWithDeviceInstanceIdA(hcontext: usize, szdeviceinstanceid: super::super::Foundation::PSTR, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32;
         }
@@ -3106,7 +3106,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::core:
 pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardListReadersWithDeviceInstanceIdW(hcontext: usize, szdeviceinstanceid: super::super::Foundation::PWSTR, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32;
         }
@@ -3121,7 +3121,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::core:
 pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardLocateCardsA(hcontext: usize, mszcards: super::super::Foundation::PSTR, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
@@ -3136,7 +3136,7 @@ pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
@@ -3151,7 +3151,7 @@ pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_A
 pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
@@ -3166,7 +3166,7 @@ pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_A
 pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardLocateCardsW(hcontext: usize, mszcards: super::super::Foundation::PWSTR, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
@@ -3181,7 +3181,7 @@ pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardReadCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
@@ -3196,7 +3196,7 @@ pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardReadCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
@@ -3210,7 +3210,7 @@ pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32;
         }
@@ -3224,7 +3224,7 @@ pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocol
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardReleaseContext(hcontext: usize) -> i32;
         }
@@ -3238,7 +3238,7 @@ pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
 pub unsafe fn SCardReleaseStartedEvent() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardReleaseStartedEvent();
         }
@@ -3253,7 +3253,7 @@ pub unsafe fn SCardReleaseStartedEvent() {
 pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardRemoveReaderFromGroupA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
@@ -3268,7 +3268,7 @@ pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardRemoveReaderFromGroupW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -3282,7 +3282,7 @@ pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cbattrlen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cbattrlen: u32) -> i32;
         }
@@ -3297,7 +3297,7 @@ pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cba
 pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardSetCardTypeProviderNameA(hcontext: usize, szcardname: super::super::Foundation::PSTR, dwproviderid: u32, szprovider: super::super::Foundation::PSTR) -> i32;
         }
@@ -3312,7 +3312,7 @@ pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardSetCardTypeProviderNameW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR) -> i32;
         }
@@ -3326,7 +3326,7 @@ pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
@@ -3341,7 +3341,7 @@ pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32
 pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundation::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundation::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
@@ -3356,7 +3356,7 @@ pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundatio
 pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
@@ -3370,7 +3370,7 @@ pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundatio
 pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32;
         }
@@ -3385,7 +3385,7 @@ pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, p
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "scarddlg", kind = "raw-dylib")]
         extern "system" {
             fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
         }
@@ -3400,7 +3400,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "scarddlg", kind = "raw-dylib")]
         extern "system" {
             fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
         }
@@ -3415,7 +3415,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
 pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
         }
@@ -3430,7 +3430,7 @@ pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winscard", kind = "raw-dylib")]
         extern "system" {
             fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
         }

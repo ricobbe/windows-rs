@@ -112,7 +112,7 @@ impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
 pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -126,7 +126,7 @@ pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::window
 pub unsafe fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -140,7 +140,7 @@ pub unsafe fn HcnCloseGuestNetworkService(guestnetworkservice: *const ::core::ff
 pub unsafe fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -154,7 +154,7 @@ pub unsafe fn HcnCloseLoadBalancer(loadbalancer: *const ::core::ffi::c_void) -> 
 pub unsafe fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -168,7 +168,7 @@ pub unsafe fn HcnCloseNamespace(namespace: *const ::core::ffi::c_void) -> ::wind
 pub unsafe fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -183,7 +183,7 @@ pub unsafe fn HcnCloseNetwork(network: *const ::core::ffi::c_void) -> ::windows:
 pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, id: *const ::windows::core::GUID, settings: Param2, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCreateEndpoint(network: *const ::core::ffi::c_void, id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -198,7 +198,7 @@ pub unsafe fn HcnCreateEndpoint<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCreateGuestNetworkService(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, guestnetworkservice: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -213,7 +213,7 @@ pub unsafe fn HcnCreateGuestNetworkService<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCreateLoadBalancer(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -228,7 +228,7 @@ pub unsafe fn HcnCreateLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCreateNamespace(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -243,7 +243,7 @@ pub unsafe fn HcnCreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(id: *const ::windows::core::GUID, settings: Param1, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnCreateNetwork(id: *const ::windows::core::GUID, settings: super::super::Foundation::PWSTR, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -258,7 +258,7 @@ pub unsafe fn HcnCreateNetwork<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnDeleteEndpoint(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -274,7 +274,7 @@ pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID) -> ::windows::
 pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -290,7 +290,7 @@ pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID) -> 
 pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -306,7 +306,7 @@ pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID) -> ::windo
 pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnDeleteNamespace(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -322,7 +322,7 @@ pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID) -> ::windows:
 pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnDeleteNetwork(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -338,7 +338,7 @@ pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID) -> ::windows::c
 pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnEnumerateEndpoints(query: super::super::Foundation::PWSTR, endpoints: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -352,7 +352,7 @@ pub unsafe fn HcnEnumerateEndpoints<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::HRESULT;
         }
@@ -367,7 +367,7 @@ pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, po
 pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnEnumerateLoadBalancers(query: super::super::Foundation::PWSTR, loadbalancer: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -382,7 +382,7 @@ pub unsafe fn HcnEnumerateLoadBalancers<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnEnumerateNamespaces(query: super::super::Foundation::PWSTR, namespaces: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -397,7 +397,7 @@ pub unsafe fn HcnEnumerateNamespaces<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn HcnEnumerateNetworks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(query: Param0, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnEnumerateNetworks(query: super::super::Foundation::PWSTR, networks: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -411,7 +411,7 @@ pub unsafe fn HcnEnumerateNetworks<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY);
         }
@@ -426,7 +426,7 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RAN
 pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnModifyEndpoint(endpoint: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -442,7 +442,7 @@ pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(guestnetworkservice: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnModifyGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -458,7 +458,7 @@ pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnModifyLoadBalancer(loadbalancer: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -474,7 +474,7 @@ pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnModifyNamespace(namespace: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -490,7 +490,7 @@ pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, settings: Param1) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnModifyNetwork(network: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -506,7 +506,7 @@ pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HcnOpenEndpoint(id: *const ::windows::core::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnOpenEndpoint(id: *const ::windows::core::GUID, endpoint: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -521,7 +521,7 @@ pub unsafe fn HcnOpenEndpoint(id: *const ::windows::core::GUID, endpoint: *mut *
 pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::core::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnOpenLoadBalancer(id: *const ::windows::core::GUID, loadbalancer: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -536,7 +536,7 @@ pub unsafe fn HcnOpenLoadBalancer(id: *const ::windows::core::GUID, loadbalancer
 pub unsafe fn HcnOpenNamespace(id: *const ::windows::core::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnOpenNamespace(id: *const ::windows::core::GUID, namespace: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -551,7 +551,7 @@ pub unsafe fn HcnOpenNamespace(id: *const ::windows::core::GUID, namespace: *mut
 pub unsafe fn HcnOpenNetwork(id: *const ::windows::core::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnOpenNetwork(id: *const ::windows::core::GUID, network: *mut *mut ::core::ffi::c_void, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -566,7 +566,7 @@ pub unsafe fn HcnOpenNetwork(id: *const ::windows::core::GUID, network: *mut *mu
 pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(endpoint: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnQueryEndpointProperties(endpoint: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -581,7 +581,7 @@ pub unsafe fn HcnQueryEndpointProperties<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(loadbalancer: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnQueryLoadBalancerProperties(loadbalancer: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -596,7 +596,7 @@ pub unsafe fn HcnQueryLoadBalancerProperties<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespace: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnQueryNamespaceProperties(namespace: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -611,7 +611,7 @@ pub unsafe fn HcnQueryNamespaceProperties<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(network: *const ::core::ffi::c_void, query: Param1, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnQueryNetworkProperties(network: *const ::core::ffi::c_void, query: super::super::Foundation::PWSTR, properties: *mut super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -626,7 +626,7 @@ pub unsafe fn HcnQueryNetworkProperties<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: HCN_NOTIFICATION_CALLBACK, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -641,7 +641,7 @@ pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const
 pub unsafe fn HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnRegisterServiceCallback(callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -656,7 +656,7 @@ pub unsafe fn HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, co
 pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(portreservationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -671,7 +671,7 @@ pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<'a, Param0: ::w
 pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -687,7 +687,7 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::co
 pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const ::core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -701,7 +701,7 @@ pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const
 pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -715,7 +715,7 @@ pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(callbackhandle: *const ::
 pub unsafe fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "computenetwork", kind = "raw-dylib")]
         extern "system" {
             fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

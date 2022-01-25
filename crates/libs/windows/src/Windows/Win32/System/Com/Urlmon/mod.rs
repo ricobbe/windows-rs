@@ -512,7 +512,7 @@ pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindCtx>>(rclassid: *const ::windows::core::GUID, szcode: Param1, dwfileversionms: u32, dwfileversionls: u32, sztype: Param4, pbindctx: Param5, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoGetClassObjectFromURL(rclassid: *const ::windows::core::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: ::windows::core::RawPtr, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -526,7 +526,7 @@ pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pbaseuri: Param0, prelativeuri: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCombineIUri(pbaseuri: ::windows::core::RawPtr, prelativeuri: ::windows::core::RawPtr, dwcombineflags: u32, ppcombineduri: *mut ::windows::core::RawPtr, dwreserved: usize) -> ::windows::core::HRESULT;
         }
@@ -541,7 +541,7 @@ pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCombineUrl(pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -556,7 +556,7 @@ pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCombineUrlEx(pbaseuri: ::windows::core::RawPtr, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut ::windows::core::RawPtr, dwreserved: usize) -> ::windows::core::HRESULT;
         }
@@ -571,7 +571,7 @@ pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCompareUrl(pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -585,7 +585,7 @@ pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCreateSecurityManager(psp: ::windows::core::RawPtr, ppsm: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -599,7 +599,7 @@ pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetCreateZoneManager(psp: ::windows::core::RawPtr, ppzm: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -614,7 +614,7 @@ pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetGetProtocolFlags(pwzurl: super::super::super::Foundation::PWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -629,7 +629,7 @@ pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetGetSecurityUrl(pwszurl: super::super::super::Foundation::PWSTR, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -643,7 +643,7 @@ pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(puri: Param0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetGetSecurityUrlEx(puri: ::windows::core::RawPtr, ppsecuri: *mut ::windows::core::RawPtr, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::HRESULT;
         }
@@ -657,7 +657,7 @@ pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::core::option::Option<IInternetSession>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -671,7 +671,7 @@ pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut 
 pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -685,7 +685,7 @@ pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwfl
 pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::core::IntoParam<'a, super::IUri>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManagerEx2>>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: ::windows::core::RawPtr, psecmgr: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -700,7 +700,7 @@ pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::core::Int
 pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -715,7 +715,7 @@ pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::core::Into
 pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -730,7 +730,7 @@ pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::cor
 pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetParseIUri(piuri: ::windows::core::RawPtr, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT;
         }
@@ -745,7 +745,7 @@ pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetParseUrl(pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -760,7 +760,7 @@ pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetQueryInfo(pwzurl: super::super::super::Foundation::PWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -775,7 +775,7 @@ pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -789,7 +789,7 @@ pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -803,7 +803,7 @@ pub unsafe fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecuri
 pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -818,7 +818,7 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcomp
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::Result<super::BINDINFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows::core::HRESULT;
         }
@@ -834,7 +834,7 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
         }
@@ -849,7 +849,7 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::
 pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param2: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(reserved: u32, pbscb: Param1, pefetc: Param2) -> ::windows::core::Result<super::IBindCtx> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateAsyncBindCtx(reserved: u32, pbscb: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr, ppbc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -864,7 +864,7 @@ pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param2: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param3: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, dwoptions: u32, pbscb: Param2, penum: Param3, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateAsyncBindCtxEx(pbc: ::windows::core::RawPtr, dwoptions: u32, pbscb: ::windows::core::RawPtr, penum: ::windows::core::RawPtr, ppbc: *mut ::windows::core::RawPtr, reserved: u32) -> ::windows::core::HRESULT;
         }
@@ -878,7 +878,7 @@ pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC) -> ::windows::core::Result<super::IEnumFORMATETC> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -894,7 +894,7 @@ pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMA
 pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::core::Result<super::IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateURLMoniker(pmkctx: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -910,7 +910,7 @@ pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateURLMonikerEx(pmkctx: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -924,7 +924,7 @@ pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreateURLMonikerEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pmkctx: Param0, puri: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn CreateURLMonikerEx2(pmkctx: ::windows::core::RawPtr, puri: ::windows::core::RawPtr, ppmk: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -995,7 +995,7 @@ pub const FMFD_URLASFILENAME: u32 = 1u32;
 pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -1010,7 +1010,7 @@ pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn FindMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(rgsztypes: Param0) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn FindMediaType(rgsztypes: super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -1026,7 +1026,7 @@ pub unsafe fn FindMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn FindMediaTypeClass(pbc: ::windows::core::RawPtr, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
@@ -1041,7 +1041,7 @@ pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FindMimeFromData<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn FindMimeFromData(pbc: ::windows::core::RawPtr, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -1072,7 +1072,7 @@ pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn GetClassFileOrMime(pbc: ::windows::core::RawPtr, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1088,7 +1088,7 @@ pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetClassURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szurl: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn GetClassURL(szurl: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1104,7 +1104,7 @@ pub unsafe fn GetClassURL<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::core::Result<super::super::super::Foundation::PSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
         }
@@ -1120,7 +1120,7 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> :
 pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0) -> ::windows::core::Result<SOFTDISTINFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn GetSoftwareUpdateInfo(szdistunit: super::super::super::Foundation::PWSTR, psdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT;
         }
@@ -1171,7 +1171,7 @@ impl ::core::default::Default for HIT_LOGGING_INFO {
 pub unsafe fn HlinkGoBack<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkGoBack(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1185,7 +1185,7 @@ pub unsafe fn HlinkGoBack<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
 pub unsafe fn HlinkGoForward<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkGoForward(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1199,7 +1199,7 @@ pub unsafe fn HlinkGoForward<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::IMoniker>>(punk: Param0, pmktarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkNavigateMoniker(punk: *mut ::core::ffi::c_void, pmktarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1214,7 +1214,7 @@ pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkNavigateString(punk: *mut ::core::ffi::c_void, sztarget: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1229,7 +1229,7 @@ pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pmktarget: Param0, szlocation: Param1, sztargetframename: Param2, punk: Param3, pbc: Param4, param5: Param5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkSimpleNavigateToMoniker(pmktarget: ::windows::core::RawPtr, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -1244,7 +1244,7 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn HlinkSimpleNavigateToString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(sztarget: Param0, szlocation: Param1, sztargetframename: Param2, punk: Param3, pbc: Param4, param5: Param5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, param5: ::windows::core::RawPtr, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -1621,7 +1621,7 @@ pub struct IDataFilterVtbl(
 pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR;
         }
@@ -1635,7 +1635,7 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation
 pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5168,7 +5168,7 @@ pub struct IZoneIdentifier2Vtbl(
 pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>>(pmk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IsAsyncMoniker(pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5183,7 +5183,7 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::I
 pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IsLoggingEnabledA(pszurl: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
         }
@@ -5198,7 +5198,7 @@ pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IsLoggingEnabledW(pwszurl: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }
@@ -5213,7 +5213,7 @@ pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn IsValidURL<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn IsValidURL(pbc: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -5266,7 +5266,7 @@ pub const MUTZ_RESERVED: u32 = 512u32;
 pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn MkParseDisplayNameEx(pbc: ::windows::core::RawPtr, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5287,7 +5287,7 @@ pub const OIBDG_DATAONLY: OIBDG_FLAGS = 4096i32;
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5594,7 +5594,7 @@ impl ::core::default::Default for REMSECURITY_ATTRIBUTES {
 pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RegisterBindStatusCallback(pbc: ::windows::core::RawPtr, pbscb: ::windows::core::RawPtr, ppbscbprev: *mut ::windows::core::RawPtr, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -5608,7 +5608,7 @@ pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RegisterFormatEnumerator(pbc: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr, reserved: u32) -> ::windows::core::HRESULT;
         }
@@ -5623,7 +5623,7 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RegisterMediaTypeClass(pbc: ::windows::core::RawPtr, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
@@ -5638,7 +5638,7 @@ pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -5653,7 +5653,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::su
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
         }
@@ -5752,7 +5752,7 @@ impl ::core::default::Default for RemFORMATETC {
 pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RevokeBindStatusCallback(pbc: ::windows::core::RawPtr, pbscb: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5766,7 +5766,7 @@ pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RevokeFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn RevokeFormatEnumerator(pbc: ::windows::core::RawPtr, pefetc: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5869,7 +5869,7 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
         }
@@ -5884,7 +5884,7 @@ pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn SetSoftwareUpdateAdvertisementState(szdistunit: super::super::super::Foundation::PWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
         }
@@ -6211,7 +6211,7 @@ pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
 pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLDownloadToCacheFileA(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6226,7 +6226,7 @@ pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLDownloadToCacheFileW(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6241,7 +6241,7 @@ pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLDownloadToFileA(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6256,7 +6256,7 @@ pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLDownloadToFileW(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6287,7 +6287,7 @@ pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
 pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenBlockingStreamA(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PSTR, param2: *mut ::windows::core::RawPtr, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6302,7 +6302,7 @@ pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenBlockingStreamW(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PWSTR, param2: *mut ::windows::core::RawPtr, param3: u32, param4: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6317,7 +6317,7 @@ pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenPullStreamA(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6332,7 +6332,7 @@ pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenPullStreamW(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6347,7 +6347,7 @@ pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenStreamA(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6362,7 +6362,7 @@ pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn URLOpenStreamW(param0: *mut ::core::ffi::c_void, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6528,7 +6528,7 @@ pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -6542,7 +6542,7 @@ pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_
 pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -6559,7 +6559,7 @@ pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "urlmon", kind = "raw-dylib")]
         extern "system" {
             fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
         }

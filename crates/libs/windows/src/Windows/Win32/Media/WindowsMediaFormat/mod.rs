@@ -13036,7 +13036,7 @@ pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = 2i32;
 pub unsafe fn WMCreateBackupRestorer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcallback: Param0) -> ::windows::core::Result<IWMLicenseBackup> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateBackupRestorer(pcallback: *mut ::core::ffi::c_void, ppbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13051,7 +13051,7 @@ pub unsafe fn WMCreateBackupRestorer<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateEditor(ppeditor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13066,7 +13066,7 @@ pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateIndexer(ppindexer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13081,7 +13081,7 @@ pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateProfileManager(ppprofilemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13096,7 +13096,7 @@ pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileMana
 pub unsafe fn WMCreateReader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkcert: Param0, dwrights: u32) -> ::windows::core::Result<IWMReader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13111,7 +13111,7 @@ pub unsafe fn WMCreateReader<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub unsafe fn WMCreateSyncReader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkcert: Param0, dwrights: u32) -> ::windows::core::Result<IWMSyncReader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateSyncReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppsyncreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13126,7 +13126,7 @@ pub unsafe fn WMCreateSyncReader<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn WMCreateWriter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkcert: Param0) -> ::windows::core::Result<IWMWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateWriter(punkcert: *mut ::core::ffi::c_void, ppwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13141,7 +13141,7 @@ pub unsafe fn WMCreateWriter<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateWriterFileSink(ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13156,7 +13156,7 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileS
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateWriterNetworkSink(ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13171,7 +13171,7 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNe
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMCreateWriterPushSink(ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13223,7 +13223,7 @@ pub const WMFORMAT_WebStream: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn WMIsContentProtected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszfilename: Param0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wmvcore", kind = "raw-dylib")]
         extern "system" {
             fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }

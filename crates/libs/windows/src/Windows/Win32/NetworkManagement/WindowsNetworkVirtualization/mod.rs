@@ -370,7 +370,7 @@ impl ::core::default::Default for WNV_REDIRECT_PARAM {
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wnvapi", kind = "raw-dylib")]
         extern "system" {
             fn WnvOpen() -> super::super::Foundation::HANDLE;
         }
@@ -385,7 +385,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
 pub unsafe fn WnvRequestNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(wnvhandle: Param0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wnvapi", kind = "raw-dylib")]
         extern "system" {
             fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32;
         }

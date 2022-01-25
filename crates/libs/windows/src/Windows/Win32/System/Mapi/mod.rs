@@ -41,7 +41,7 @@ pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhse
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "mapi32", kind = "raw-dylib")]
         extern "system" {
             fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
         }

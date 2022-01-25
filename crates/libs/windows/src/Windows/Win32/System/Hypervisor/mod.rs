@@ -4,7 +4,7 @@
 pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows::core::HRESULT;
         }
@@ -19,7 +19,7 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_vo
 pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ApplyPendingSavedStateFileReplayLog(vmrsfile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -34,7 +34,7 @@ pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::core::I
 pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -87,7 +87,7 @@ pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn
 pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, fieldname: Param3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: super::super::Foundation::PSTR, fieldname: super::super::Foundation::PWSTR, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -101,7 +101,7 @@ pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::core::IntoP
 pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> ::windows::core::HRESULT;
         }
@@ -115,7 +115,7 @@ pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::
 pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::HRESULT;
         }
@@ -130,7 +130,7 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void
 pub unsafe fn ForceNestedHostMode<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: Param2, oldmode: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ForceNestedHostMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: super::super::Foundation::BOOL, oldmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -144,7 +144,7 @@ pub unsafe fn ForceNestedHostMode<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> ::windows::core::HRESULT;
         }
@@ -301,7 +301,7 @@ pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::co
 pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -315,7 +315,7 @@ pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ff
 pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::HRESULT;
         }
@@ -329,7 +329,7 @@ pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, 
 pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevels: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -343,7 +343,7 @@ pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::
 pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevels: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -357,7 +357,7 @@ pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::c
 pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevel: u8, guestosinfo: *mut GUEST_OS_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevel: u8, guestosinfo: *mut GUEST_OS_INFO) -> ::windows::core::HRESULT;
         }
@@ -371,7 +371,7 @@ pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, v
 pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -385,7 +385,7 @@ pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::
 pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -399,7 +399,7 @@ pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ff
 pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -414,7 +414,7 @@ pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
 pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -428,7 +428,7 @@ pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::f
 pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: *mut PAGING_MODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: *mut PAGING_MODE) -> ::windows::core::HRESULT;
         }
@@ -442,7 +442,7 @@ pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vp
 pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, registerid: u32, registervalue: *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, registerid: u32, registervalue: *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows::core::HRESULT;
         }
@@ -457,7 +457,7 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void,
 pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, typefieldinfomap: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: super::super::Foundation::PSTR, typefieldinfomap: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -472,7 +472,7 @@ pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -487,7 +487,7 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
 pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, size: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: super::super::Foundation::PSTR, size: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -501,7 +501,7 @@ pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -515,7 +515,7 @@ pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcou
 pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, rawsavedmemoryoffset: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, rawsavedmemoryoffset: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -529,7 +529,7 @@ pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle:
 pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -735,7 +735,7 @@ pub const HV_PROTOCOL_RAW: u32 = 1u32;
 pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows::core::GUID, deviceinstanceid: *const ::windows::core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: *const ::core::ffi::c_void, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows::core::GUID, deviceinstanceid: *const ::windows::core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: *const ::core::ffi::c_void, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -750,7 +750,7 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_vo
 pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: Param3, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvCreateGuestMemoryAperture(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: super::super::Foundation::BOOL, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -765,7 +765,7 @@ pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::core::IntoPara
 pub unsafe fn HdvCreateSectionBackedMmioRange<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: Param5, sectionoffsetinpages: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvCreateSectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: super::super::Foundation::HANDLE, sectionoffsetinpages: u64) -> ::windows::core::HRESULT;
         }
@@ -779,7 +779,7 @@ pub unsafe fn HdvCreateSectionBackedMmioRange<'a, Param5: ::windows::core::IntoP
 pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, msiaddress: u64, msidata: u32) -> ::windows::core::HRESULT;
         }
@@ -793,7 +793,7 @@ pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, ms
 pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_void, mappedaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_void, mappedaddress: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -807,7 +807,7 @@ pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_voi
 pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64) -> ::windows::core::HRESULT;
         }
@@ -822,7 +822,7 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_
 pub unsafe fn HdvInitializeDeviceHost<'a, Param0: ::windows::core::IntoParam<'a, super::HostComputeSystem::HCS_SYSTEM>>(computesystem: Param0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvInitializeDeviceHost(computesystem: super::HostComputeSystem::HCS_SYSTEM, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -836,7 +836,7 @@ pub unsafe fn HdvInitializeDeviceHost<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -851,7 +851,7 @@ pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphy
 pub unsafe fn HdvRegisterDoorbell<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvRegisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -865,7 +865,7 @@ pub unsafe fn HdvRegisterDoorbell<'a, Param5: ::windows::core::IntoParam<'a, sup
 pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -879,7 +879,7 @@ pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void
 pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64) -> ::windows::core::HRESULT;
         }
@@ -893,7 +893,7 @@ pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barin
 pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmdevicehost", kind = "raw-dylib")]
         extern "system" {
             fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> ::windows::core::HRESULT;
         }
@@ -910,7 +910,7 @@ pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -925,7 +925,7 @@ pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vp
 pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -940,7 +940,7 @@ pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::co
 pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -955,7 +955,7 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core:
 pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LoadSavedStateFile(vmrsfile: super::super::Foundation::PWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -970,7 +970,7 @@ pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(binfile: Param0, vsvfile: Param1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LoadSavedStateFiles(binfile: super::super::Foundation::PWSTR, vsvfile: super::super::Foundation::PWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -985,7 +985,7 @@ pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, modulename: Param2, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PSTR, modulename: super::super::Foundation::PSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::HRESULT;
         }
@@ -1000,7 +1000,7 @@ pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, imagetimestamp: u32, modulename: Param3, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PSTR, imagetimestamp: u32, modulename: super::super::Foundation::PSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::HRESULT;
         }
@@ -1015,7 +1015,7 @@ pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: Param1, force: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: super::super::Foundation::PWSTR, force: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1030,7 +1030,7 @@ pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn LocateSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmname: Param0, snapshotname: Param1, binpath: *mut super::super::Foundation::PWSTR, vsvpath: *mut super::super::Foundation::PWSTR, vmrspath: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn LocateSavedStateFiles(vmname: super::super::Foundation::PWSTR, snapshotname: super::super::Foundation::PWSTR, binpath: *mut super::super::Foundation::PWSTR, vsvpath: *mut super::super::Foundation::PWSTR, vmrspath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1411,7 +1411,7 @@ pub const ARM64_RegisterMax: REGISTER_ID = 158i32;
 pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1425,7 +1425,7 @@ pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi:
 pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1440,7 +1440,7 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::
 pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: super::super::Foundation::PSTR, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
         }
@@ -1454,7 +1454,7 @@ pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1468,7 +1468,7 @@ pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c
 pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1483,7 +1483,7 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::cor
 pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: super::super::Foundation::PSTR, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1526,7 +1526,7 @@ impl ::core::default::Default for SOCKADDR_HV {
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::windows::core::RawPtr, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::HRESULT;
         }
@@ -1540,7 +1540,7 @@ pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c
 pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows::core::HRESULT;
         }
@@ -1555,7 +1555,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
 pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
         extern "system" {
             fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6502,7 +6502,7 @@ impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
 pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(migrationhandle: Param0) -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundation::HANDLE, partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6517,7 +6517,7 @@ pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -6532,7 +6532,7 @@ pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
 pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32, vpciresource: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6547,7 +6547,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, 
 pub unsafe fn WHvCancelPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6561,7 +6561,7 @@ pub unsafe fn WHvCancelPartitionMigration<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvCancelRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCancelRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32, flags: u32) -> ::windows::core::HRESULT;
         }
@@ -6575,7 +6575,7 @@ pub unsafe fn WHvCancelRunVirtualProcessor<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WHvCompletePartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6590,7 +6590,7 @@ pub unsafe fn WHvCompletePartitionMigration<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WHvCreateNotificationPort<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: Param2, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreateNotificationPort(partition: WHV_PARTITION_HANDLE, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: super::super::Foundation::HANDLE, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6604,7 +6604,7 @@ pub unsafe fn WHvCreateNotificationPort<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreatePartition(partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6620,7 +6620,7 @@ pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HAND
 pub unsafe fn WHvCreateTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreateTrigger(partition: WHV_PARTITION_HANDLE, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6634,7 +6634,7 @@ pub unsafe fn WHvCreateTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
 pub unsafe fn WHvCreateVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreateVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32, flags: u32) -> ::windows::core::HRESULT;
         }
@@ -6648,7 +6648,7 @@ pub unsafe fn WHvCreateVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: u32, properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: u32) -> ::windows::core::HRESULT;
         }
@@ -6663,7 +6663,7 @@ pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvCreateVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, logicaldeviceid: u64, vpciresource: Param2, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, vpciresource: super::super::Foundation::HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6677,7 +6677,7 @@ pub unsafe fn WHvCreateVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV
 pub unsafe fn WHvDeleteNotificationPort<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, porthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvDeleteNotificationPort(partition: WHV_PARTITION_HANDLE, porthandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6691,7 +6691,7 @@ pub unsafe fn WHvDeleteNotificationPort<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvDeletePartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvDeletePartition(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6705,7 +6705,7 @@ pub unsafe fn WHvDeletePartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_
 pub unsafe fn WHvDeleteTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvDeleteTrigger(partition: WHV_PARTITION_HANDLE, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6719,7 +6719,7 @@ pub unsafe fn WHvDeleteTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
 pub unsafe fn WHvDeleteVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvDeleteVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32) -> ::windows::core::HRESULT;
         }
@@ -6733,7 +6733,7 @@ pub unsafe fn WHvDeleteVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvDeleteVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvDeleteVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64) -> ::windows::core::HRESULT;
         }
@@ -6747,7 +6747,7 @@ pub unsafe fn WHvDeleteVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV
 pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvemulation", kind = "raw-dylib")]
         extern "system" {
             fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6761,7 +6761,7 @@ pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS
 pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvemulation", kind = "raw-dylib")]
         extern "system" {
             fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6775,7 +6775,7 @@ pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -
 pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvemulation", kind = "raw-dylib")]
         extern "system" {
             fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
         }
@@ -6790,7 +6790,7 @@ pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, co
 pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvemulation", kind = "raw-dylib")]
         extern "system" {
             fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
         }
@@ -6805,7 +6805,7 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, 
 pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6819,7 +6819,7 @@ pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybu
 pub unsafe fn WHvGetInterruptTargetVpSet<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetInterruptTargetVpSet(partition: WHV_PARTITION_HANDLE, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6833,7 +6833,7 @@ pub unsafe fn WHvGetInterruptTargetVpSet<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvGetPartitionCounters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetPartitionCounters(partition: WHV_PARTITION_HANDLE, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6847,7 +6847,7 @@ pub unsafe fn WHvGetPartitionCounters<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WHvGetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6861,7 +6861,7 @@ pub unsafe fn WHvGetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WHvGetVirtualProcessorCounters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorCounters(partition: WHV_PARTITION_HANDLE, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6875,7 +6875,7 @@ pub unsafe fn WHvGetVirtualProcessorCounters<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, eax: u32, ecx: u32) -> ::windows::core::Result<WHV_CPUID_OUTPUT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE, vpindex: u32, eax: u32, ecx: u32, cpuidoutput: *mut WHV_CPUID_OUTPUT) -> ::windows::core::HRESULT;
         }
@@ -6890,7 +6890,7 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, Param0: ::windows::core::Int
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6904,7 +6904,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<'a, Param0: ::windo
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6918,7 +6918,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
 pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
         }
@@ -6932,7 +6932,7 @@ pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoP
 pub unsafe fn WHvGetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6946,7 +6946,7 @@ pub unsafe fn WHvGetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvGetVirtualProcessorXsaveState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6960,7 +6960,7 @@ pub unsafe fn WHvGetVirtualProcessorXsaveState<'a, Param0: ::windows::core::Into
 pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6974,7 +6974,7 @@ pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, Param0: ::windows::core::IntoP
 pub unsafe fn WHvGetVpciDeviceNotification<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -6988,7 +6988,7 @@ pub unsafe fn WHvGetVpciDeviceNotification<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WHvGetVpciDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvGetVpciDeviceProperty(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7002,7 +7002,7 @@ pub unsafe fn WHvGetVpciDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WHvMapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvMapGpaRange(partition: WHV_PARTITION_HANDLE, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -7017,7 +7017,7 @@ pub unsafe fn WHvMapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PART
 pub unsafe fn WHvMapGpaRange2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, process: Param1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvMapGpaRange2(partition: WHV_PARTITION_HANDLE, process: super::super::Foundation::HANDLE, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -7031,7 +7031,7 @@ pub unsafe fn WHvMapGpaRange2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
 pub unsafe fn WHvMapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvMapVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7045,7 +7045,7 @@ pub unsafe fn WHvMapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvMapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvMapVpciDeviceMmioRanges(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::HRESULT;
         }
@@ -7059,7 +7059,7 @@ pub unsafe fn WHvMapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvPostVirtualProcessorSynicMessage<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvPostVirtualProcessorSynicMessage(partition: WHV_PARTITION_HANDLE, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7073,7 +7073,7 @@ pub unsafe fn WHvPostVirtualProcessorSynicMessage<'a, Param0: ::windows::core::I
 pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7087,7 +7087,7 @@ pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvReadGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param3: ::windows::core::IntoParam<'a, WHV_ACCESS_GPA_CONTROLS>>(partition: Param0, vpindex: u32, guestaddress: u64, controls: Param3, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvReadGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7101,7 +7101,7 @@ pub unsafe fn WHvReadGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
 pub unsafe fn WHvReadVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvReadVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7116,7 +7116,7 @@ pub unsafe fn WHvReadVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvRegisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7130,7 +7130,7 @@ pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, Param0: ::windows::core::Int
 pub unsafe fn WHvRequestInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvRequestInterrupt(partition: WHV_PARTITION_HANDLE, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::HRESULT;
         }
@@ -7144,7 +7144,7 @@ pub unsafe fn WHvRequestInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV
 pub unsafe fn WHvRequestVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvRequestVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::HRESULT;
         }
@@ -7158,7 +7158,7 @@ pub unsafe fn WHvRequestVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WHvResetPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvResetPartition(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7172,7 +7172,7 @@ pub unsafe fn WHvResetPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
 pub unsafe fn WHvResumePartitionTime<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvResumePartitionTime(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7186,7 +7186,7 @@ pub unsafe fn WHvResumePartitionTime<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WHvRetargetVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvRetargetVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::HRESULT;
         }
@@ -7200,7 +7200,7 @@ pub unsafe fn WHvRetargetVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WHvRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7214,7 +7214,7 @@ pub unsafe fn WHvRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WHvSetNotificationPortProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetNotificationPortProperty(partition: WHV_PARTITION_HANDLE, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::HRESULT;
         }
@@ -7228,7 +7228,7 @@ pub unsafe fn WHvSetNotificationPortProperty<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WHvSetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7242,7 +7242,7 @@ pub unsafe fn WHvSetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::HRESULT;
         }
@@ -7256,7 +7256,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<'a, Param0: ::windo
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::HRESULT;
         }
@@ -7270,7 +7270,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
 pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
         }
@@ -7284,7 +7284,7 @@ pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoP
 pub unsafe fn WHvSetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7298,7 +7298,7 @@ pub unsafe fn WHvSetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7313,7 +7313,7 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::core::Into
 pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::HRESULT;
         }
@@ -7327,7 +7327,7 @@ pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvSetupPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSetupPartition(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7342,7 +7342,7 @@ pub unsafe fn WHvSetupPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
 pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::core::IntoParam<'a, WHV_SYNIC_EVENT_PARAMETERS>>(partition: Param0, synicevent: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -7358,7 +7358,7 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::core::I
 pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE, migrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7373,7 +7373,7 @@ pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvSuspendPartitionTime<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvSuspendPartitionTime(partition: WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7387,7 +7387,7 @@ pub unsafe fn WHvSuspendPartitionTime<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WHvTranslateGva<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvTranslateGva(partition: WHV_PARTITION_HANDLE, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -7401,7 +7401,7 @@ pub unsafe fn WHvTranslateGva<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
 pub unsafe fn WHvUnmapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvUnmapGpaRange(partition: WHV_PARTITION_HANDLE, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::HRESULT;
         }
@@ -7415,7 +7415,7 @@ pub unsafe fn WHvUnmapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
 pub unsafe fn WHvUnmapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvUnmapVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32) -> ::windows::core::HRESULT;
         }
@@ -7429,7 +7429,7 @@ pub unsafe fn WHvUnmapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WHvUnmapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvUnmapVpciDeviceMmioRanges(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64) -> ::windows::core::HRESULT;
         }
@@ -7443,7 +7443,7 @@ pub unsafe fn WHvUnmapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WHvUnregisterPartitionDoorbellEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvUnregisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::HRESULT;
         }
@@ -7457,7 +7457,7 @@ pub unsafe fn WHvUnregisterPartitionDoorbellEvent<'a, Param0: ::windows::core::I
 pub unsafe fn WHvUpdateTriggerParameters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvUpdateTriggerParameters(partition: WHV_PARTITION_HANDLE, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7471,7 +7471,7 @@ pub unsafe fn WHvUpdateTriggerParameters<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WHvWriteGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param3: ::windows::core::IntoParam<'a, WHV_ACCESS_GPA_CONTROLS>>(partition: Param0, vpindex: u32, guestaddress: u64, controls: Param3, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvWriteGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::HRESULT;
         }
@@ -7485,7 +7485,7 @@ pub unsafe fn WHvWriteGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
 pub unsafe fn WHvWriteVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "winhvplatform", kind = "raw-dylib")]
         extern "system" {
             fn WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

@@ -5071,7 +5071,7 @@ impl ::core::default::Default for DWORD_DWORD {
 pub unsafe fn DhcpAddFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddFilterV4(serveripaddress: super::super::Foundation::PWSTR, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: super::super::Foundation::BOOL) -> u32;
         }
@@ -5086,7 +5086,7 @@ pub unsafe fn DhcpAddFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpAddSecurityGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pserver: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddSecurityGroup(pserver: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5101,7 +5101,7 @@ pub unsafe fn DhcpAddSecurityGroup<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpAddServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5116,7 +5116,7 @@ pub unsafe fn DhcpAddServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newser
 pub unsafe fn DhcpAddSubnetElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddSubnetElement(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32;
         }
@@ -5131,7 +5131,7 @@ pub unsafe fn DhcpAddSubnetElement<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpAddSubnetElementV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddSubnetElementV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
         }
@@ -5146,7 +5146,7 @@ pub unsafe fn DhcpAddSubnetElementV4<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpAddSubnetElementV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddSubnetElementV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
         }
@@ -5161,7 +5161,7 @@ pub unsafe fn DhcpAddSubnetElementV5<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpAddSubnetElementV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAddSubnetElementV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
         }
@@ -5176,7 +5176,7 @@ pub unsafe fn DhcpAddSubnetElementV6<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpAuditLogGetParams<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, auditlogdir: *mut super::super::Foundation::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAuditLogGetParams(serveripaddress: super::super::Foundation::PWSTR, flags: u32, auditlogdir: *mut super::super::Foundation::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32;
         }
@@ -5191,7 +5191,7 @@ pub unsafe fn DhcpAuditLogGetParams<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpAuditLogSetParams<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, auditlogdir: Param2, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpAuditLogSetParams(serveripaddress: super::super::Foundation::PWSTR, flags: u32, auditlogdir: super::super::Foundation::PWSTR, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32;
         }
@@ -5205,7 +5205,7 @@ pub unsafe fn DhcpAuditLogSetParams<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpCApiCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCApiCleanup();
         }
@@ -5219,7 +5219,7 @@ pub unsafe fn DhcpCApiCleanup() {
 pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCApiInitialize(version: *mut u32) -> u32;
         }
@@ -5234,7 +5234,7 @@ pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
 pub unsafe fn DhcpCreateClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
         }
@@ -5249,7 +5249,7 @@ pub unsafe fn DhcpCreateClass<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpCreateClassV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
         }
@@ -5264,7 +5264,7 @@ pub unsafe fn DhcpCreateClassV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpCreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
         }
@@ -5279,7 +5279,7 @@ pub unsafe fn DhcpCreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpCreateClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
         }
@@ -5294,7 +5294,7 @@ pub unsafe fn DhcpCreateClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpCreateClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
         }
@@ -5309,7 +5309,7 @@ pub unsafe fn DhcpCreateClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpCreateOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateOption(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
         }
@@ -5324,7 +5324,7 @@ pub unsafe fn DhcpCreateOption<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpCreateOptionV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateOptionV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
@@ -5339,7 +5339,7 @@ pub unsafe fn DhcpCreateOptionV5<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpCreateOptionV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateOptionV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
@@ -5354,7 +5354,7 @@ pub unsafe fn DhcpCreateOptionV6<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpCreateSubnet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateSubnet(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
         }
@@ -5369,7 +5369,7 @@ pub unsafe fn DhcpCreateSubnet<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpCreateSubnetV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateSubnetV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
@@ -5384,7 +5384,7 @@ pub unsafe fn DhcpCreateSubnetV6<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpCreateSubnetVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpCreateSubnetVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
         }
@@ -5398,7 +5398,7 @@ pub unsafe fn DhcpCreateSubnetVQ<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5413,7 +5413,7 @@ pub unsafe fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::
 pub unsafe fn DhcpDeleteClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classname: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5428,7 +5428,7 @@ pub unsafe fn DhcpDeleteClass<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpDeleteClassV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classname: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5443,7 +5443,7 @@ pub unsafe fn DhcpDeleteClassV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpDeleteClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_SEARCH_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_SEARCH_INFO) -> u32;
         }
@@ -5458,7 +5458,7 @@ pub unsafe fn DhcpDeleteClientInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpDeleteClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32;
         }
@@ -5473,7 +5473,7 @@ pub unsafe fn DhcpDeleteClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpDeleteFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteFilterV4(serveripaddress: super::super::Foundation::PWSTR, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32;
         }
@@ -5488,7 +5488,7 @@ pub unsafe fn DhcpDeleteFilterV4<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpDeleteServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5503,7 +5503,7 @@ pub unsafe fn DhcpDeleteServer(flags: u32, idinfo: *mut ::core::ffi::c_void, new
 pub unsafe fn DhcpDeleteSubnet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteSubnet(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -5518,7 +5518,7 @@ pub unsafe fn DhcpDeleteSubnet<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpDeleteSubnetV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteSubnetV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -5533,7 +5533,7 @@ pub unsafe fn DhcpDeleteSubnetV6<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpDeleteSuperScopeV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, superscopename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDeleteSuperScopeV4(serveripaddress: super::super::Foundation::PWSTR, superscopename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5547,7 +5547,7 @@ pub unsafe fn DhcpDeleteSuperScopeV4<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpDsCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDsCleanup();
         }
@@ -5561,7 +5561,7 @@ pub unsafe fn DhcpDsCleanup() {
 pub unsafe fn DhcpDsInit() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpDsInit() -> u32;
         }
@@ -5576,7 +5576,7 @@ pub unsafe fn DhcpDsInit() -> u32 {
 pub unsafe fn DhcpEnumClasses<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumClasses(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32;
         }
@@ -5591,7 +5591,7 @@ pub unsafe fn DhcpEnumClasses<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpEnumClassesV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumClassesV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32;
         }
@@ -5606,7 +5606,7 @@ pub unsafe fn DhcpEnumClassesV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpEnumFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumFilterV4(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5621,7 +5621,7 @@ pub unsafe fn DhcpEnumFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpEnumOptionValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptionValues(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5636,7 +5636,7 @@ pub unsafe fn DhcpEnumOptionValues<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpEnumOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptionValuesV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5651,7 +5651,7 @@ pub unsafe fn DhcpEnumOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpEnumOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptionValuesV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5666,7 +5666,7 @@ pub unsafe fn DhcpEnumOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpEnumOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptions(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5681,7 +5681,7 @@ pub unsafe fn DhcpEnumOptions<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpEnumOptionsV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptionsV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5696,7 +5696,7 @@ pub unsafe fn DhcpEnumOptionsV5<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpEnumOptionsV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumOptionsV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
@@ -5711,7 +5711,7 @@ pub unsafe fn DhcpEnumOptionsV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpEnumServers(flags: u32, idinfo: *mut ::core::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumServers(flags: u32, idinfo: *mut ::core::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
         }
@@ -5726,7 +5726,7 @@ pub unsafe fn DhcpEnumServers(flags: u32, idinfo: *mut ::core::ffi::c_void, serv
 pub unsafe fn DhcpEnumSubnetClients<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClients(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5741,7 +5741,7 @@ pub unsafe fn DhcpEnumSubnetClients<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5756,7 +5756,7 @@ pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<'a, Param0: ::windows::core:
 pub unsafe fn DhcpEnumSubnetClientsV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClientsV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5771,7 +5771,7 @@ pub unsafe fn DhcpEnumSubnetClientsV4<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpEnumSubnetClientsV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClientsV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5786,7 +5786,7 @@ pub unsafe fn DhcpEnumSubnetClientsV5<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpEnumSubnetClientsV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClientsV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5801,7 +5801,7 @@ pub unsafe fn DhcpEnumSubnetClientsV6<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpEnumSubnetClientsVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetClientsVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -5816,7 +5816,7 @@ pub unsafe fn DhcpEnumSubnetClientsVQ<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpEnumSubnetElements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetElements(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5831,7 +5831,7 @@ pub unsafe fn DhcpEnumSubnetElements<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpEnumSubnetElementsV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetElementsV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5846,7 +5846,7 @@ pub unsafe fn DhcpEnumSubnetElementsV4<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpEnumSubnetElementsV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetElementsV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5861,7 +5861,7 @@ pub unsafe fn DhcpEnumSubnetElementsV5<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpEnumSubnetElementsV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetElementsV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5876,7 +5876,7 @@ pub unsafe fn DhcpEnumSubnetElementsV6<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpEnumSubnets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnets(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5891,7 +5891,7 @@ pub unsafe fn DhcpEnumSubnets<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpEnumSubnetsV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpEnumSubnetsV6(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -5906,7 +5906,7 @@ pub unsafe fn DhcpEnumSubnetsV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpGetAllOptionValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetAllOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
         }
@@ -5921,7 +5921,7 @@ pub unsafe fn DhcpGetAllOptionValues<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpGetAllOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetAllOptionValuesV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
         }
@@ -5936,7 +5936,7 @@ pub unsafe fn DhcpGetAllOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpGetAllOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetAllOptions(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
         }
@@ -5951,7 +5951,7 @@ pub unsafe fn DhcpGetAllOptions<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpGetAllOptionsV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetAllOptionsV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
         }
@@ -5966,7 +5966,7 @@ pub unsafe fn DhcpGetAllOptionsV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetClassInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClassInfo(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32;
         }
@@ -5981,7 +5981,7 @@ pub unsafe fn DhcpGetClassInfo<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32;
         }
@@ -5996,7 +5996,7 @@ pub unsafe fn DhcpGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpGetClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32;
         }
@@ -6011,7 +6011,7 @@ pub unsafe fn DhcpGetClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32;
         }
@@ -6026,7 +6026,7 @@ pub unsafe fn DhcpGetClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32;
         }
@@ -6041,7 +6041,7 @@ pub unsafe fn DhcpGetClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetClientOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetClientOptions(serveripaddress: super::super::Foundation::PWSTR, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32;
         }
@@ -6056,7 +6056,7 @@ pub unsafe fn DhcpGetClientOptions<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpGetFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetFilterV4(serveripaddress: super::super::Foundation::PWSTR, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
         }
@@ -6071,7 +6071,7 @@ pub unsafe fn DhcpGetFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpGetMibInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetMibInfo(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32;
         }
@@ -6086,7 +6086,7 @@ pub unsafe fn DhcpGetMibInfo<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DhcpGetMibInfoV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetMibInfoV5(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32;
         }
@@ -6101,7 +6101,7 @@ pub unsafe fn DhcpGetMibInfoV5<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpGetMibInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetMibInfoV6(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32;
         }
@@ -6116,7 +6116,7 @@ pub unsafe fn DhcpGetMibInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpGetOptionInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionInfo(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
@@ -6131,7 +6131,7 @@ pub unsafe fn DhcpGetOptionInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpGetOptionInfoV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionInfoV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
@@ -6146,7 +6146,7 @@ pub unsafe fn DhcpGetOptionInfoV5<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetOptionInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
@@ -6161,7 +6161,7 @@ pub unsafe fn DhcpGetOptionInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
@@ -6176,7 +6176,7 @@ pub unsafe fn DhcpGetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpGetOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
@@ -6191,7 +6191,7 @@ pub unsafe fn DhcpGetOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpGetOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
@@ -6206,7 +6206,7 @@ pub unsafe fn DhcpGetOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpGetOriginalSubnetMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sadaptername: Param0, dwsubnetmask: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetOriginalSubnetMask(sadaptername: super::super::Foundation::PWSTR, dwsubnetmask: *mut u32) -> u32;
         }
@@ -6221,7 +6221,7 @@ pub unsafe fn DhcpGetOriginalSubnetMask<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpGetServerBindingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetServerBindingInfo(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
         }
@@ -6236,7 +6236,7 @@ pub unsafe fn DhcpGetServerBindingInfo<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpGetServerBindingInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetServerBindingInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
         }
@@ -6251,7 +6251,7 @@ pub unsafe fn DhcpGetServerBindingInfoV6<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DhcpGetServerSpecificStrings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetServerSpecificStrings(serveripaddress: super::super::Foundation::PWSTR, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32;
         }
@@ -6266,7 +6266,7 @@ pub unsafe fn DhcpGetServerSpecificStrings<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DhcpGetSubnetDelayOffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetSubnetDelayOffer(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32;
         }
@@ -6281,7 +6281,7 @@ pub unsafe fn DhcpGetSubnetDelayOffer<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpGetSubnetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetSubnetInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32;
         }
@@ -6296,7 +6296,7 @@ pub unsafe fn DhcpGetSubnetInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpGetSubnetInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetSubnetInfoV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
@@ -6311,7 +6311,7 @@ pub unsafe fn DhcpGetSubnetInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetSubnetInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetSubnetInfoVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32;
         }
@@ -6326,7 +6326,7 @@ pub unsafe fn DhcpGetSubnetInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpGetSuperScopeInfoV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetSuperScopeInfoV4(serveripaddress: super::super::Foundation::PWSTR, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32;
         }
@@ -6340,7 +6340,7 @@ pub unsafe fn DhcpGetSuperScopeInfoV4<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -6355,7 +6355,7 @@ pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::core::ffi:
 pub unsafe fn DhcpGetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, majorversion: *mut u32, minorversion: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpGetVersion(serveripaddress: super::super::Foundation::PWSTR, majorversion: *mut u32, minorversion: *mut u32) -> u32;
         }
@@ -6370,7 +6370,7 @@ pub unsafe fn DhcpGetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: Param5, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprAddV4PolicyCondition(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: super::super::Foundation::PWSTR, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32;
         }
@@ -6385,7 +6385,7 @@ pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, Param5: ::windows::core::IntoPara
 pub unsafe fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32;
         }
@@ -6400,7 +6400,7 @@ pub unsafe fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32,
 pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32;
         }
@@ -6415,7 +6415,7 @@ pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const D
 pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(policyname: Param0, fglobalpolicy: Param1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: Param5, enabled: Param6, policy: *mut *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprCreateV4Policy(policyname: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY) -> u32;
         }
@@ -6430,7 +6430,7 @@ pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpHlprCreateV4PolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(policyname: Param0, fglobalpolicy: Param1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: Param5, enabled: Param6, policy: *mut *mut DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprCreateV4PolicyEx(policyname: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY_EX) -> u32;
         }
@@ -6445,7 +6445,7 @@ pub unsafe fn DhcpHlprCreateV4PolicyEx<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY;
         }
@@ -6460,7 +6460,7 @@ pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARR
 pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY);
         }
@@ -6475,7 +6475,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
 pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY);
         }
@@ -6490,7 +6490,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY);
         }
@@ -6505,7 +6505,7 @@ pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY);
         }
@@ -6520,7 +6520,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX);
         }
@@ -6535,7 +6535,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY);
         }
@@ -6550,7 +6550,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARR
 pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
         }
@@ -6565,7 +6565,7 @@ pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::s
 pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32;
         }
@@ -6580,7 +6580,7 @@ pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
 pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
         }
@@ -6595,7 +6595,7 @@ pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super
 pub unsafe fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32;
         }
@@ -6610,7 +6610,7 @@ pub unsafe fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHC
 pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32;
         }
@@ -6625,7 +6625,7 @@ pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
 pub unsafe fn DhcpModifyClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpModifyClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
         }
@@ -6640,7 +6640,7 @@ pub unsafe fn DhcpModifyClass<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpModifyClassV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpModifyClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
         }
@@ -6655,7 +6655,7 @@ pub unsafe fn DhcpModifyClassV6<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpRegisterParamChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: Param2, classid: *mut DHCPCAPI_CLASSID, params: Param4, handle: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32;
         }
@@ -6669,7 +6669,7 @@ pub unsafe fn DhcpRegisterParamChange<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveDNSRegistrations() -> u32;
         }
@@ -6684,7 +6684,7 @@ pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
 pub unsafe fn DhcpRemoveOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOption(serveripaddress: super::super::Foundation::PWSTR, optionid: u32) -> u32;
         }
@@ -6699,7 +6699,7 @@ pub unsafe fn DhcpRemoveOption<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpRemoveOptionV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOptionV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -6714,7 +6714,7 @@ pub unsafe fn DhcpRemoveOptionV5<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpRemoveOptionV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOptionV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -6729,7 +6729,7 @@ pub unsafe fn DhcpRemoveOptionV6<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpRemoveOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32;
         }
@@ -6744,7 +6744,7 @@ pub unsafe fn DhcpRemoveOptionValue<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpRemoveOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
         }
@@ -6759,7 +6759,7 @@ pub unsafe fn DhcpRemoveOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpRemoveOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32;
         }
@@ -6774,7 +6774,7 @@ pub unsafe fn DhcpRemoveOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpRemoveSubnetElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveSubnetElement(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -6789,7 +6789,7 @@ pub unsafe fn DhcpRemoveSubnetElement<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpRemoveSubnetElementV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveSubnetElementV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -6804,7 +6804,7 @@ pub unsafe fn DhcpRemoveSubnetElementV4<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpRemoveSubnetElementV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveSubnetElementV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -6819,7 +6819,7 @@ pub unsafe fn DhcpRemoveSubnetElementV5<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpRemoveSubnetElementV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRemoveSubnetElementV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
@@ -6834,7 +6834,7 @@ pub unsafe fn DhcpRemoveSubnetElementV6<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpRequestParams<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param5: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: Param2, classid: *mut DHCPCAPI_CLASSID, sendparams: Param4, recdparams: Param5, buffer: *mut u8, psize: *mut u32, requestidstr: Param8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: super::super::Foundation::PWSTR) -> u32;
         }
@@ -6848,7 +6848,7 @@ pub unsafe fn DhcpRequestParams<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void);
         }
@@ -6863,7 +6863,7 @@ pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void) {
 pub unsafe fn DhcpScanDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpScanDatabase(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32;
         }
@@ -6878,7 +6878,7 @@ pub unsafe fn DhcpScanDatabase<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
         }
@@ -6893,7 +6893,7 @@ pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_I
 pub unsafe fn DhcpServerBackupDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, path: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerBackupDatabase(serveripaddress: super::super::Foundation::PWSTR, path: super::super::Foundation::PWSTR) -> u32;
         }
@@ -6908,7 +6908,7 @@ pub unsafe fn DhcpServerBackupDatabase<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpServerGetConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerGetConfig(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32;
         }
@@ -6923,7 +6923,7 @@ pub unsafe fn DhcpServerGetConfig<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpServerGetConfigV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerGetConfigV4(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
         }
@@ -6938,7 +6938,7 @@ pub unsafe fn DhcpServerGetConfigV4<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerGetConfigV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerGetConfigV6(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
         }
@@ -6953,7 +6953,7 @@ pub unsafe fn DhcpServerGetConfigV6<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerGetConfigVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerGetConfigVQ(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
         }
@@ -6968,7 +6968,7 @@ pub unsafe fn DhcpServerGetConfigVQ<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerQueryAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerQueryAttribute(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32;
         }
@@ -6983,7 +6983,7 @@ pub unsafe fn DhcpServerQueryAttribute<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpServerQueryAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerQueryAttributes(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32;
         }
@@ -6998,7 +6998,7 @@ pub unsafe fn DhcpServerQueryAttributes<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, unamesize: u32, uname: super::super::Foundation::PWSTR, domainsize: u32, domain: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerQueryDnsRegCredentials(serveripaddress: super::super::Foundation::PWSTR, unamesize: u32, uname: super::super::Foundation::PWSTR, domainsize: u32, domain: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7013,7 +7013,7 @@ pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::core::Into
 pub unsafe fn DhcpServerRedoAuthorization<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerRedoAuthorization(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32) -> u32;
         }
@@ -7028,7 +7028,7 @@ pub unsafe fn DhcpServerRedoAuthorization<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DhcpServerRestoreDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, path: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerRestoreDatabase(serveripaddress: super::super::Foundation::PWSTR, path: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7043,7 +7043,7 @@ pub unsafe fn DhcpServerRestoreDatabase<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpServerSetConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetConfig(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32;
         }
@@ -7058,7 +7058,7 @@ pub unsafe fn DhcpServerSetConfig<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpServerSetConfigV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetConfigV4(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
         }
@@ -7073,7 +7073,7 @@ pub unsafe fn DhcpServerSetConfigV4<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerSetConfigV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetConfigV6(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
         }
@@ -7088,7 +7088,7 @@ pub unsafe fn DhcpServerSetConfigV6<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerSetConfigVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetConfigVQ(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
         }
@@ -7103,7 +7103,7 @@ pub unsafe fn DhcpServerSetConfigVQ<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpServerSetDnsRegCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, uname: Param1, domain: Param2, passwd: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetDnsRegCredentials(serveripaddress: super::super::Foundation::PWSTR, uname: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7118,7 +7118,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentials<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn DhcpServerSetDnsRegCredentialsV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, uname: Param1, domain: Param2, passwd: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpServerSetDnsRegCredentialsV5(serveripaddress: super::super::Foundation::PWSTR, uname: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7133,7 +7133,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentialsV5<'a, Param0: ::windows::core::Into
 pub unsafe fn DhcpSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
         }
@@ -7148,7 +7148,7 @@ pub unsafe fn DhcpSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpSetClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
         }
@@ -7163,7 +7163,7 @@ pub unsafe fn DhcpSetClientInfoV4<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
         }
@@ -7178,7 +7178,7 @@ pub unsafe fn DhcpSetClientInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
         }
@@ -7193,7 +7193,7 @@ pub unsafe fn DhcpSetClientInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetFilterV4(serveripaddress: super::super::Foundation::PWSTR, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32;
         }
@@ -7208,7 +7208,7 @@ pub unsafe fn DhcpSetFilterV4<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpSetOptionInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionInfo(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
         }
@@ -7223,7 +7223,7 @@ pub unsafe fn DhcpSetOptionInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpSetOptionInfoV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionInfoV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
@@ -7238,7 +7238,7 @@ pub unsafe fn DhcpSetOptionInfoV5<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetOptionInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
@@ -7253,7 +7253,7 @@ pub unsafe fn DhcpSetOptionInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32;
         }
@@ -7268,7 +7268,7 @@ pub unsafe fn DhcpSetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpSetOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
@@ -7283,7 +7283,7 @@ pub unsafe fn DhcpSetOptionValueV5<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpSetOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
@@ -7298,7 +7298,7 @@ pub unsafe fn DhcpSetOptionValueV6<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpSetOptionValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionValues(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
@@ -7313,7 +7313,7 @@ pub unsafe fn DhcpSetOptionValues<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetOptionValuesV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
@@ -7328,7 +7328,7 @@ pub unsafe fn DhcpSetOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpSetServerBindingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetServerBindingInfo(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
         }
@@ -7343,7 +7343,7 @@ pub unsafe fn DhcpSetServerBindingInfo<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpSetServerBindingInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetServerBindingInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
         }
@@ -7358,7 +7358,7 @@ pub unsafe fn DhcpSetServerBindingInfoV6<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DhcpSetSubnetDelayOffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetSubnetDelayOffer(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32;
         }
@@ -7373,7 +7373,7 @@ pub unsafe fn DhcpSetSubnetDelayOffer<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpSetSubnetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetSubnetInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
         }
@@ -7388,7 +7388,7 @@ pub unsafe fn DhcpSetSubnetInfo<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpSetSubnetInfoV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetSubnetInfoV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
@@ -7403,7 +7403,7 @@ pub unsafe fn DhcpSetSubnetInfoV6<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetSubnetInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetSubnetInfoVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
         }
@@ -7418,7 +7418,7 @@ pub unsafe fn DhcpSetSubnetInfoVQ<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetSuperScopeV4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, subnetaddress: u32, superscopename: Param2, changeexisting: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetSuperScopeV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, superscopename: super::super::Foundation::PWSTR, changeexisting: super::super::Foundation::BOOL) -> u32;
         }
@@ -7432,7 +7432,7 @@ pub unsafe fn DhcpSetSuperScopeV4<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -7447,7 +7447,7 @@ pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_voi
 pub unsafe fn DhcpUndoRequestParams<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: Param2, requestidstr: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc", kind = "raw-dylib")]
         extern "system" {
             fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, requestidstr: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7462,7 +7462,7 @@ pub unsafe fn DhcpUndoRequestParams<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpV4AddPolicyRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, policyname: Param2, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4AddPolicyRange(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, range: *const DHCP_IP_RANGE) -> u32;
         }
@@ -7477,7 +7477,7 @@ pub unsafe fn DhcpV4AddPolicyRange<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpV4CreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4CreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32;
         }
@@ -7492,7 +7492,7 @@ pub unsafe fn DhcpV4CreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpV4CreateClientInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4CreateClientInfoEx(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32;
         }
@@ -7507,7 +7507,7 @@ pub unsafe fn DhcpV4CreateClientInfoEx<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpV4CreatePolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, ppolicy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4CreatePolicy(serveripaddress: super::super::Foundation::PWSTR, ppolicy: *const DHCP_POLICY) -> u32;
         }
@@ -7522,7 +7522,7 @@ pub unsafe fn DhcpV4CreatePolicy<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpV4CreatePolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, policyex: *const DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4CreatePolicyEx(serveripaddress: super::super::Foundation::PWSTR, policyex: *const DHCP_POLICY_EX) -> u32;
         }
@@ -7537,7 +7537,7 @@ pub unsafe fn DhcpV4CreatePolicyEx<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpV4DeletePolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, policyname: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4DeletePolicy(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7552,7 +7552,7 @@ pub unsafe fn DhcpV4DeletePolicy<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpV4EnumPolicies<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: Param3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4EnumPolicies(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -7567,7 +7567,7 @@ pub unsafe fn DhcpV4EnumPolicies<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DhcpV4EnumPoliciesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: Param3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4EnumPoliciesEx(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -7582,7 +7582,7 @@ pub unsafe fn DhcpV4EnumPoliciesEx<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpV4EnumSubnetClients<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4EnumSubnetClients(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -7597,7 +7597,7 @@ pub unsafe fn DhcpV4EnumSubnetClients<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpV4EnumSubnetClientsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4EnumSubnetClientsEx(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
@@ -7612,7 +7612,7 @@ pub unsafe fn DhcpV4EnumSubnetClientsEx<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DhcpV4EnumSubnetReservations<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4EnumSubnetReservations(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
@@ -7627,7 +7627,7 @@ pub unsafe fn DhcpV4EnumSubnetReservations<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DhcpV4FailoverAddScopeToRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverAddScopeToRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7642,7 +7642,7 @@ pub unsafe fn DhcpV4FailoverAddScopeToRelationship<'a, Param0: ::windows::core::
 pub unsafe fn DhcpV4FailoverCreateRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverCreateRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7657,7 +7657,7 @@ pub unsafe fn DhcpV4FailoverCreateRelationship<'a, Param0: ::windows::core::Into
 pub unsafe fn DhcpV4FailoverDeleteRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationshipname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverDeleteRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationshipname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7672,7 +7672,7 @@ pub unsafe fn DhcpV4FailoverDeleteRelationship<'a, Param0: ::windows::core::Into
 pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7687,7 +7687,7 @@ pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<'a, Param0: ::windows::c
 pub unsafe fn DhcpV4FailoverEnumRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverEnumRelationship(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32;
         }
@@ -7702,7 +7702,7 @@ pub unsafe fn DhcpV4FailoverEnumRelationship<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn DhcpV4FailoverGetAddressStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, pstatus: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetAddressStatus(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, pstatus: *mut u32) -> u32;
         }
@@ -7717,7 +7717,7 @@ pub unsafe fn DhcpV4FailoverGetAddressStatus<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn DhcpV4FailoverGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32;
         }
@@ -7732,7 +7732,7 @@ pub unsafe fn DhcpV4FailoverGetClientInfo<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DhcpV4FailoverGetRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationshipname: Param1, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationshipname: super::super::Foundation::PWSTR, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7747,7 +7747,7 @@ pub unsafe fn DhcpV4FailoverGetRelationship<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DhcpV4FailoverGetScopeRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetScopeRelationship(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7762,7 +7762,7 @@ pub unsafe fn DhcpV4FailoverGetScopeRelationship<'a, Param0: ::windows::core::In
 pub unsafe fn DhcpV4FailoverGetScopeStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetScopeStatistics(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32;
         }
@@ -7777,7 +7777,7 @@ pub unsafe fn DhcpV4FailoverGetScopeStatistics<'a, Param0: ::windows::core::Into
 pub unsafe fn DhcpV4FailoverGetSystemTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverGetSystemTime(serveripaddress: super::super::Foundation::PWSTR, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32;
         }
@@ -7792,7 +7792,7 @@ pub unsafe fn DhcpV4FailoverGetSystemTime<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DhcpV4FailoverSetRelationship<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverSetRelationship(serveripaddress: super::super::Foundation::PWSTR, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
@@ -7807,7 +7807,7 @@ pub unsafe fn DhcpV4FailoverSetRelationship<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, pfailrelname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4FailoverTriggerAddrAllocation(serveripaddress: super::super::Foundation::PWSTR, pfailrelname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7822,7 +7822,7 @@ pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<'a, Param0: ::windows::core::I
 pub unsafe fn DhcpV4GetAllOptionValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetAllOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32;
         }
@@ -7837,7 +7837,7 @@ pub unsafe fn DhcpV4GetAllOptionValues<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DhcpV4GetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32;
         }
@@ -7852,7 +7852,7 @@ pub unsafe fn DhcpV4GetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DhcpV4GetClientInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetClientInfoEx(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32;
         }
@@ -7867,7 +7867,7 @@ pub unsafe fn DhcpV4GetClientInfoEx<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpV4GetFreeIPAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetFreeIPAddress(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32;
         }
@@ -7882,7 +7882,7 @@ pub unsafe fn DhcpV4GetFreeIPAddress<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpV4GetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
@@ -7897,7 +7897,7 @@ pub unsafe fn DhcpV4GetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpV4GetPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, policyname: Param3, policy: *mut *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetPolicy(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *mut *mut DHCP_POLICY) -> u32;
         }
@@ -7912,7 +7912,7 @@ pub unsafe fn DhcpV4GetPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpV4GetPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalpolicy: Param1, subnetaddress: u32, policyname: Param3, policy: *mut *mut DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4GetPolicyEx(serveripaddress: super::super::Foundation::PWSTR, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *mut *mut DHCP_POLICY_EX) -> u32;
         }
@@ -7927,7 +7927,7 @@ pub unsafe fn DhcpV4GetPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpV4QueryPolicyEnforcement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4QueryPolicyEnforcement(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -7942,7 +7942,7 @@ pub unsafe fn DhcpV4QueryPolicyEnforcement<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DhcpV4RemoveOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4RemoveOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
         }
@@ -7957,7 +7957,7 @@ pub unsafe fn DhcpV4RemoveOptionValue<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpV4RemovePolicyRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, policyname: Param2, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4RemovePolicyRange(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, range: *const DHCP_IP_RANGE) -> u32;
         }
@@ -7972,7 +7972,7 @@ pub unsafe fn DhcpV4RemovePolicyRange<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DhcpV4SetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4SetOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
@@ -7987,7 +7987,7 @@ pub unsafe fn DhcpV4SetOptionValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DhcpV4SetOptionValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, policyname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4SetOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
@@ -8002,7 +8002,7 @@ pub unsafe fn DhcpV4SetOptionValues<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DhcpV4SetPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldsmodified: u32, fglobalpolicy: Param2, subnetaddress: u32, policyname: Param4, policy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4SetPolicy(serveripaddress: super::super::Foundation::PWSTR, fieldsmodified: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *const DHCP_POLICY) -> u32;
         }
@@ -8017,7 +8017,7 @@ pub unsafe fn DhcpV4SetPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DhcpV4SetPolicyEnforcement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, enable: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4SetPolicyEnforcement(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enable: super::super::Foundation::BOOL) -> u32;
         }
@@ -8032,7 +8032,7 @@ pub unsafe fn DhcpV4SetPolicyEnforcement<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DhcpV4SetPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldsmodified: u32, globalpolicy: Param2, subnetaddress: u32, policyname: Param4, policy: *const DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV4SetPolicyEx(serveripaddress: super::super::Foundation::PWSTR, fieldsmodified: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *const DHCP_POLICY_EX) -> u32;
         }
@@ -8047,7 +8047,7 @@ pub unsafe fn DhcpV4SetPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DhcpV6CreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV6CreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
         }
@@ -8062,7 +8062,7 @@ pub unsafe fn DhcpV6CreateClientInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpV6GetFreeIPAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>, Param2: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>, Param3: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, scopeid: Param1, startip: Param2, endip: Param3, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV6GetFreeIPAddress(serveripaddress: super::super::Foundation::PWSTR, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32;
         }
@@ -8077,7 +8077,7 @@ pub unsafe fn DhcpV6GetFreeIPAddress<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DhcpV6GetStatelessStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV6GetStatelessStatistics(serveripaddress: super::super::Foundation::PWSTR, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32;
         }
@@ -8092,7 +8092,7 @@ pub unsafe fn DhcpV6GetStatelessStatistics<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DhcpV6GetStatelessStoreParams<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, fserverlevel: Param1, subnetaddress: Param2, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV6GetStatelessStoreParams(serveripaddress: super::super::Foundation::PWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32;
         }
@@ -8107,7 +8107,7 @@ pub unsafe fn DhcpV6GetStatelessStoreParams<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DhcpV6SetStatelessStoreParams<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, fserverlevel: Param1, subnetaddress: Param2, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpsapi", kind = "raw-dylib")]
         extern "system" {
             fn DhcpV6SetStatelessStoreParams(serveripaddress: super::super::Foundation::PWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32;
         }
@@ -8121,7 +8121,7 @@ pub unsafe fn DhcpV6SetStatelessStoreParams<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn Dhcpv6CApiCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6CApiCleanup();
         }
@@ -8135,7 +8135,7 @@ pub unsafe fn Dhcpv6CApiCleanup() {
 pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6CApiInitialize(version: *mut u32);
         }
@@ -8150,7 +8150,7 @@ pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
 pub unsafe fn Dhcpv6ReleasePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6ReleasePrefix(adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
         }
@@ -8165,7 +8165,7 @@ pub unsafe fn Dhcpv6ReleasePrefix<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn Dhcpv6RenewPrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6RenewPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32;
         }
@@ -8180,7 +8180,7 @@ pub unsafe fn Dhcpv6RenewPrefix<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn Dhcpv6RequestParams<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, DHCPV6CAPI_PARAMS_ARRAY>>(forcenewinform: Param0, reserved: *mut ::core::ffi::c_void, adaptername: Param2, classid: *mut DHCPV6CAPI_CLASSID, recdparams: Param4, buffer: *mut u8, psize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6RequestParams(forcenewinform: super::super::Foundation::BOOL, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32;
         }
@@ -8195,7 +8195,7 @@ pub unsafe fn Dhcpv6RequestParams<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn Dhcpv6RequestPrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dhcpcsvc6", kind = "raw-dylib")]
         extern "system" {
             fn Dhcpv6RequestPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
         }

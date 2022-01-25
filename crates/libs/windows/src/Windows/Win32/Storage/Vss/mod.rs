@@ -4,7 +4,7 @@
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::core::Result<IVssExpressWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "vssapi", kind = "raw-dylib")]
         extern "system" {
             fn CreateVssExpressWriterInternal(ppwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

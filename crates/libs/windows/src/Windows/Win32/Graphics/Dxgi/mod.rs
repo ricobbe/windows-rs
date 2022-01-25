@@ -6,7 +6,7 @@ pub mod Common;
 pub unsafe fn CreateDXGIFactory<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dxgi", kind = "raw-dylib")]
         extern "system" {
             fn CreateDXGIFactory(riid: *const ::windows::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -21,7 +21,7 @@ pub unsafe fn CreateDXGIFactory<T: ::windows::core::Interface>() -> ::windows::c
 pub unsafe fn CreateDXGIFactory1<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dxgi", kind = "raw-dylib")]
         extern "system" {
             fn CreateDXGIFactory1(riid: *const ::windows::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -36,7 +36,7 @@ pub unsafe fn CreateDXGIFactory1<T: ::windows::core::Interface>() -> ::windows::
 pub unsafe fn CreateDXGIFactory2<T: ::windows::core::Interface>(flags: u32) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dxgi", kind = "raw-dylib")]
         extern "system" {
             fn CreateDXGIFactory2(flags: u32, riid: *const ::windows::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -51,7 +51,7 @@ pub unsafe fn CreateDXGIFactory2<T: ::windows::core::Interface>(flags: u32) -> :
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dxgi", kind = "raw-dylib")]
         extern "system" {
             fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::HRESULT;
         }
@@ -65,7 +65,7 @@ pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> 
 pub unsafe fn DXGIGetDebugInterface1<T: ::windows::core::Interface>(flags: u32) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dxgi", kind = "raw-dylib")]
         extern "system" {
             fn DXGIGetDebugInterface1(flags: u32, riid: *const ::windows::core::GUID, pdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

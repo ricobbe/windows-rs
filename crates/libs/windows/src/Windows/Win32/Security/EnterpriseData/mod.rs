@@ -387,7 +387,7 @@ pub struct IProtectionPolicyManagerInterop3Vtbl(
 pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, identity: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "efswrt", kind = "raw-dylib")]
         extern "system" {
             fn ProtectFileToEnterpriseIdentity(fileorfolderpath: super::super::Foundation::PWSTR, identity: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -414,7 +414,7 @@ pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = 1i32;
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::HRESULT;
         }
@@ -429,7 +429,7 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
 pub unsafe fn SrpCreateThreadNetworkContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpCreateThreadNetworkContext(enterpriseid: super::super::Foundation::PWSTR, threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::HRESULT;
         }
@@ -444,7 +444,7 @@ pub unsafe fn SrpCreateThreadNetworkContext<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::HRESULT;
         }
@@ -459,7 +459,7 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::Resul
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -475,7 +475,7 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpEnablePermissiveModeFileEncryption(enterpriseid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -490,7 +490,7 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::windows::core:
 pub unsafe fn SrpGetEnterpriseIds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, numberofbytes: *mut u32, enterpriseids: *mut super::super::Foundation::PWSTR, enterpriseidcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: *mut u32, enterpriseids: *mut super::super::Foundation::PWSTR, enterpriseidcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -505,7 +505,7 @@ pub unsafe fn SrpGetEnterpriseIds<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SrpGetEnterprisePolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0) -> ::windows::core::Result<ENTERPRISE_DATA_POLICIES> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE, policyflags: *mut ENTERPRISE_DATA_POLICIES) -> ::windows::core::HRESULT;
         }
@@ -520,7 +520,7 @@ pub unsafe fn SrpGetEnterprisePolicy<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::HRESULT;
         }
@@ -534,7 +534,7 @@ pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTI
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
         }
@@ -549,7 +549,7 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 pub unsafe fn SrpIsTokenService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, istokenservice: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
         }
@@ -564,7 +564,7 @@ pub unsafe fn SrpIsTokenService<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(tokenhandle: Param0, enterpriseid: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "srpapi", kind = "raw-dylib")]
         extern "system" {
             fn SrpSetTokenEnterpriseId(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -579,7 +579,7 @@ pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UnprotectFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "efswrt", kind = "raw-dylib")]
         extern "system" {
             fn UnprotectFile(fileorfolderpath: super::super::Foundation::PWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::HRESULT;
         }

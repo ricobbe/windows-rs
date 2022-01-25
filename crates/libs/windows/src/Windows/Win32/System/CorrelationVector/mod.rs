@@ -48,7 +48,7 @@ pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
@@ -63,7 +63,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
@@ -78,7 +78,7 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32;
         }
@@ -93,7 +93,7 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ntdll", kind = "raw-dylib")]
         extern "system" {
             fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
         }

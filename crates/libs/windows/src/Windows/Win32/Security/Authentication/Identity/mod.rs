@@ -202,7 +202,7 @@ pub const AUTH_REQ_VALIDATE_CLIENT: u32 = 128u32;
 pub unsafe fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -217,7 +217,7 @@ pub unsafe fn AcceptSecurityContext(phcredential: *const super::super::Credentia
 pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AcquireCredentialsHandleA(pszprincipal: super::super::super::Foundation::PSTR, pszpackage: super::super::super::Foundation::PSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32;
         }
@@ -232,7 +232,7 @@ pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AcquireCredentialsHandleW(pszprincipal: super::super::super::Foundation::PWSTR, pszpackage: super::super::super::Foundation::PWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32;
         }
@@ -247,7 +247,7 @@ pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AddCredentialsA(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: super::super::super::Foundation::PSTR, pszpackage: super::super::super::Foundation::PSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32;
         }
@@ -262,7 +262,7 @@ pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AddCredentialsW(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: super::super::super::Foundation::PWSTR, pszpackage: super::super::super::Foundation::PWSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32;
         }
@@ -277,7 +277,7 @@ pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn AddSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszpackagename: Param0, poptions: *const SECURITY_PACKAGE_OPTIONS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AddSecurityPackageA(pszpackagename: super::super::super::Foundation::PSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> i32;
         }
@@ -292,7 +292,7 @@ pub unsafe fn AddSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AddSecurityPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpackagename: Param0, poptions: *const SECURITY_PACKAGE_OPTIONS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn AddSecurityPackageW(pszpackagename: super::super::super::Foundation::PWSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> i32;
         }
@@ -307,7 +307,7 @@ pub unsafe fn AddSecurityPackageW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> i32;
         }
@@ -322,7 +322,7 @@ pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::Sec
 pub unsafe fn AuditComputeEffectivePolicyBySid<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditComputeEffectivePolicyBySid(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -337,7 +337,7 @@ pub unsafe fn AuditComputeEffectivePolicyBySid<'a, Param0: ::windows::core::Into
 pub unsafe fn AuditComputeEffectivePolicyByToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(htokenhandle: Param0, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -352,7 +352,7 @@ pub unsafe fn AuditComputeEffectivePolicyByToken<'a, Param0: ::windows::core::In
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -367,7 +367,7 @@ pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windo
 pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -382,7 +382,7 @@ pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDI
 pub unsafe fn AuditEnumerateSubCategories<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pauditcategoryguid: *const ::windows::core::GUID, bretrieveallsubcategories: Param1, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditEnumerateSubCategories(pauditcategoryguid: *const ::windows::core::GUID, bretrieveallsubcategories: super::super::super::Foundation::BOOLEAN, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -396,7 +396,7 @@ pub unsafe fn AuditEnumerateSubCategories<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditFree(buffer: *const ::core::ffi::c_void);
         }
@@ -411,7 +411,7 @@ pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
 pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -426,7 +426,7 @@ pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDI
 pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -441,7 +441,7 @@ pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const :
 pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -456,7 +456,7 @@ pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::cor
 pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -471,7 +471,7 @@ pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::cor
 pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -486,7 +486,7 @@ pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::window
 pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -501,7 +501,7 @@ pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::window
 pub unsafe fn AuditQueryGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(objecttypename: Param0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditQueryGlobalSaclA(objecttypename: super::super::super::Foundation::PSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -516,7 +516,7 @@ pub unsafe fn AuditQueryGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AuditQueryGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(objecttypename: Param0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditQueryGlobalSaclW(objecttypename: super::super::super::Foundation::PWSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -531,7 +531,7 @@ pub unsafe fn AuditQueryGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AuditQueryPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditQueryPerUserPolicy(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -546,7 +546,7 @@ pub unsafe fn AuditQueryPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -561,7 +561,7 @@ pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor:
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -576,7 +576,7 @@ pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::
 pub unsafe fn AuditSetGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(objecttypename: Param0, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditSetGlobalSaclA(objecttypename: super::super::super::Foundation::PSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -591,7 +591,7 @@ pub unsafe fn AuditSetGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AuditSetGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(objecttypename: Param0, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditSetGlobalSaclW(objecttypename: super::super::super::Foundation::PWSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -606,7 +606,7 @@ pub unsafe fn AuditSetGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AuditSetPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditSetPerUserPolicy(psid: super::super::super::Foundation::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -621,7 +621,7 @@ pub unsafe fn AuditSetPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *const super::super::SECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *const super::super::SECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -636,7 +636,7 @@ pub unsafe fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: *c
 pub unsafe fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -873,7 +873,7 @@ pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 pub unsafe fn ChangeAccountPasswordA<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: Param5, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32;
         }
@@ -888,7 +888,7 @@ pub unsafe fn ChangeAccountPasswordA<'a, Param5: ::windows::core::IntoParam<'a, 
 pub unsafe fn ChangeAccountPasswordW<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: Param5, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32;
         }
@@ -903,7 +903,7 @@ pub unsafe fn ChangeAccountPasswordW<'a, Param5: ::windows::core::IntoParam<'a, 
 pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> i32;
         }
@@ -921,7 +921,7 @@ pub type CredFreeCredentialsFn = ::core::option::Option<unsafe extern "system" f
 pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -942,7 +942,7 @@ pub type CredReadFn = ::core::option::Option<unsafe extern "system" fn(logonid: 
 pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -1016,7 +1016,7 @@ pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
         }
@@ -1031,7 +1031,7 @@ pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHan
 pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32;
         }
@@ -1046,7 +1046,7 @@ pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials:
 pub unsafe fn DeleteSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszpackagename: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn DeleteSecurityPackageA(pszpackagename: super::super::super::Foundation::PSTR) -> i32;
         }
@@ -1061,7 +1061,7 @@ pub unsafe fn DeleteSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DeleteSecurityPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpackagename: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn DeleteSecurityPackageW(pszpackagename: super::super::super::Foundation::PWSTR) -> i32;
         }
@@ -1157,7 +1157,7 @@ pub const E_RM_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESUL
 pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> i32;
         }
@@ -1171,7 +1171,7 @@ pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHan
 pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> i32;
         }
@@ -1185,7 +1185,7 @@ pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *m
 pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> i32;
         }
@@ -1200,7 +1200,7 @@ pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *m
 pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -1221,7 +1221,7 @@ pub type FREE_CREDENTIALS_HANDLE_FN = ::core::option::Option<unsafe extern "syst
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -1236,7 +1236,7 @@ pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> i3
 pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> i32;
         }
@@ -1251,7 +1251,7 @@ pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentia
 pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -1266,7 +1266,7 @@ pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuf
 pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -1281,7 +1281,7 @@ pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuf
 pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -1296,7 +1296,7 @@ pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: sup
 pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -1506,7 +1506,7 @@ pub const ISSP_MODE: u32 = 1u32;
 pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32;
         }
@@ -1521,7 +1521,7 @@ pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credent
 pub unsafe fn ImportSecurityContextA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszpackage: Param0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ImportSecurityContextA(pszpackage: super::super::super::Foundation::PSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> i32;
         }
@@ -1536,7 +1536,7 @@ pub unsafe fn ImportSecurityContextA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImportSecurityContextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpackage: Param0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn ImportSecurityContextW(pszpackage: super::super::super::Foundation::PWSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> i32;
         }
@@ -1551,7 +1551,7 @@ pub unsafe fn ImportSecurityContextW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA;
         }
@@ -1566,7 +1566,7 @@ pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
 pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW;
         }
@@ -1581,7 +1581,7 @@ pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
 pub unsafe fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -1596,7 +1596,7 @@ pub unsafe fn InitializeSecurityContextA(phcredential: *const super::super::Cred
 pub unsafe fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -5343,7 +5343,7 @@ impl ::core::default::Default for LSA_TRUST_INFORMATION {
 pub unsafe fn LsaAddAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaAddAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5358,7 +5358,7 @@ pub unsafe fn LsaAddAccountRights<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn LsaCallAuthenticationPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaCallAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5373,7 +5373,7 @@ pub unsafe fn LsaCallAuthenticationPackage<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5388,7 +5388,7 @@ pub unsafe fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> ::windows::c
 pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5403,7 +5403,7 @@ pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundatio
 pub unsafe fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5418,7 +5418,7 @@ pub unsafe fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void,
 pub unsafe fn LsaDeleteTrustedDomain<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaDeleteTrustedDomain(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5433,7 +5433,7 @@ pub unsafe fn LsaDeleteTrustedDomain<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn LsaDeregisterLogonProcess<'a, Param0: ::windows::core::IntoParam<'a, LsaHandle>>(lsahandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaDeregisterLogonProcess(lsahandle: LsaHandle) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5448,7 +5448,7 @@ pub unsafe fn LsaDeregisterLogonProcess<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn LsaEnumerateAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaEnumerateAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5463,7 +5463,7 @@ pub unsafe fn LsaEnumerateAccountRights<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: *const super::super::super::Foundation::UNICODE_STRING, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: *const super::super::super::Foundation::UNICODE_STRING, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5478,7 +5478,7 @@ pub unsafe fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi
 pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5493,7 +5493,7 @@ pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessio
 pub unsafe fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5508,7 +5508,7 @@ pub unsafe fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_voi
 pub unsafe fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5523,7 +5523,7 @@ pub unsafe fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_v
 pub unsafe fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5538,7 +5538,7 @@ pub unsafe fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> ::windows::co
 pub unsafe fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5553,7 +5553,7 @@ pub unsafe fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> ::windo
 pub unsafe fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Foundation::UNICODE_STRING, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Foundation::UNICODE_STRING, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5568,7 +5568,7 @@ pub unsafe fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Founda
 pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5584,7 +5584,7 @@ pub type LsaHandle = isize;
 pub unsafe fn LsaLogonUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLogonUser(lsahandle: super::super::super::Foundation::HANDLE, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5615,7 +5615,7 @@ pub unsafe fn LsaLogonUser<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn LsaLookupAuthenticationPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLookupAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5630,7 +5630,7 @@ pub unsafe fn LsaLookupAuthenticationPackage<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5645,7 +5645,7 @@ pub unsafe fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u3
 pub unsafe fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5660,7 +5660,7 @@ pub unsafe fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u
 pub unsafe fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5675,7 +5675,7 @@ pub unsafe fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32
 pub unsafe fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5690,7 +5690,7 @@ pub unsafe fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupopt
 pub unsafe fn LsaNtStatusToWinError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::NTSTATUS>>(status: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaNtStatusToWinError(status: super::super::super::Foundation::NTSTATUS) -> u32;
         }
@@ -5705,7 +5705,7 @@ pub unsafe fn LsaNtStatusToWinError<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::UNICODE_STRING, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::UNICODE_STRING, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5720,7 +5720,7 @@ pub unsafe fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::
 pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5735,7 +5735,7 @@ pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_voi
 pub unsafe fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID, capidcount: u32, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID, capidcount: u32, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5750,7 +5750,7 @@ pub unsafe fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID,
 pub unsafe fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5765,7 +5765,7 @@ pub unsafe fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::
 pub unsafe fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5780,7 +5780,7 @@ pub unsafe fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c
 pub unsafe fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5795,7 +5795,7 @@ pub unsafe fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void
 pub unsafe fn LsaQueryTrustedDomainInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryTrustedDomainInfo(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5810,7 +5810,7 @@ pub unsafe fn LsaQueryTrustedDomainInfo<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5825,7 +5825,7 @@ pub unsafe fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::
 pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5840,7 +5840,7 @@ pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::sup
 pub unsafe fn LsaRegisterPolicyChangeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5855,7 +5855,7 @@ pub unsafe fn LsaRegisterPolicyChangeNotification<'a, Param1: ::windows::core::I
 pub unsafe fn LsaRemoveAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, allrights: Param2, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaRemoveAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, allrights: super::super::super::Foundation::BOOLEAN, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5870,7 +5870,7 @@ pub unsafe fn LsaRemoveAccountRights<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5885,7 +5885,7 @@ pub unsafe fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, k
 pub unsafe fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE_STRING, capdncount: u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE_STRING, capdncount: u32, flags: u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5900,7 +5900,7 @@ pub unsafe fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE
 pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5915,7 +5915,7 @@ pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_
 pub unsafe fn LsaSetForestTrustInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: Param3, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: super::super::super::Foundation::BOOLEAN, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5930,7 +5930,7 @@ pub unsafe fn LsaSetForestTrustInformation<'a, Param3: ::windows::core::IntoPara
 pub unsafe fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5945,7 +5945,7 @@ pub unsafe fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, 
 pub unsafe fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5960,7 +5960,7 @@ pub unsafe fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_
 pub unsafe fn LsaSetTrustedDomainInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaSetTrustedDomainInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5975,7 +5975,7 @@ pub unsafe fn LsaSetTrustedDomainInformation<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *const super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *const super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -5990,7 +5990,7 @@ pub unsafe fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyn
 pub unsafe fn LsaUnregisterPolicyChangeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -6994,7 +6994,7 @@ pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 0u32;
 pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> i32;
         }
@@ -8587,7 +8587,7 @@ pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = ::core::option::Option<unsafe extern
 pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -8602,7 +8602,7 @@ pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credential
 pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -8617,7 +8617,7 @@ pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credenti
 pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -8632,7 +8632,7 @@ pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credenti
 pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -8647,7 +8647,7 @@ pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credential
 pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -8662,7 +8662,7 @@ pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Cre
 pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -8677,7 +8677,7 @@ pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::C
 pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -8692,7 +8692,7 @@ pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::C
 pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> i32;
         }
@@ -8707,7 +8707,7 @@ pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Cre
 pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -8722,7 +8722,7 @@ pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credenti
 pub unsafe fn QuerySecurityPackageInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszpackagename: Param0, pppackageinfo: *mut *mut SecPkgInfoA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QuerySecurityPackageInfoA(pszpackagename: super::super::super::Foundation::PSTR, pppackageinfo: *mut *mut SecPkgInfoA) -> i32;
         }
@@ -8737,7 +8737,7 @@ pub unsafe fn QuerySecurityPackageInfoA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn QuerySecurityPackageInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpackagename: Param0, pppackageinfo: *mut *mut SecPkgInfoW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn QuerySecurityPackageInfoW(pszpackagename: super::super::super::Foundation::PWSTR, pppackageinfo: *mut *mut SecPkgInfoW) -> i32;
         }
@@ -8769,7 +8769,7 @@ pub const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2u32;
 pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> i32;
         }
@@ -12257,7 +12257,7 @@ pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
 pub unsafe fn SLAcquireGenuineTicket<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: Param2, pwszserverurl: Param3, pwszclienttoken: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slcext", kind = "raw-dylib")]
         extern "system" {
             fn SLAcquireGenuineTicket(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: super::super::super::Foundation::PWSTR, pwszserverurl: super::super::super::Foundation::PWSTR, pwszclienttoken: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12272,7 +12272,7 @@ pub unsafe fn SLAcquireGenuineTicket<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn SLActivateProduct<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: *const ::core::ffi::c_void, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver: Param5, wproxyport: u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slcext", kind = "raw-dylib")]
         extern "system" {
             fn SLActivateProduct(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: *const ::core::ffi::c_void, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver: super::super::super::Foundation::PWSTR, wproxyport: u16) -> ::windows::core::HRESULT;
         }
@@ -12286,7 +12286,7 @@ pub unsafe fn SLActivateProduct<'a, Param5: ::windows::core::IntoParam<'a, super
 pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12301,7 +12301,7 @@ pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Resu
 pub unsafe fn SLConsumeRight<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: Param3, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLConsumeRight(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: super::super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12330,7 +12330,7 @@ pub const SL_DATA_SUM: SLDATATYPE = 100u32;
 pub unsafe fn SLDepositOfflineConfirmationId<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: Param2, pwszconfirmationid: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLDepositOfflineConfirmationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: super::super::super::Foundation::PWSTR, pwszconfirmationid: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12345,7 +12345,7 @@ pub unsafe fn SLDepositOfflineConfirmationId<'a, Param2: ::windows::core::IntoPa
 pub unsafe fn SLDepositOfflineConfirmationIdEx<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid: Param3, pwszconfirmationid: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLDepositOfflineConfirmationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid: super::super::super::Foundation::PWSTR, pwszconfirmationid: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12360,7 +12360,7 @@ pub unsafe fn SLDepositOfflineConfirmationIdEx<'a, Param3: ::windows::core::Into
 pub unsafe fn SLFireEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLFireEvent(hslc: *const ::core::ffi::c_void, pwszeventid: super::super::super::Foundation::PWSTR, papplicationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12375,7 +12375,7 @@ pub unsafe fn SLFireEvent<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, ppwszinstallationid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12391,7 +12391,7 @@ pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, 
 pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12407,7 +12407,7 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void
 pub unsafe fn SLGetApplicationInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetApplicationInformation(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12422,7 +12422,7 @@ pub unsafe fn SLGetApplicationInformation<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn SLGetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pqueryid: *const ::windows::core::GUID, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12436,7 +12436,7 @@ pub unsafe fn SLGetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12450,7 +12450,7 @@ pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, ppro
 pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12464,7 +12464,7 @@ pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *co
 pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12480,7 +12480,7 @@ pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob
 pub unsafe fn SLGetLicenseInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetLicenseInformation(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12495,7 +12495,7 @@ pub unsafe fn SLGetLicenseInformation<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn SLGetLicensingStatusInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: Param3, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetLicensingStatusInformation(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: super::super::super::Foundation::PWSTR, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::HRESULT;
         }
@@ -12510,7 +12510,7 @@ pub unsafe fn SLGetLicensingStatusInformation<'a, Param3: ::windows::core::IntoP
 pub unsafe fn SLGetPKeyId<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: Param1, pwszpkeystring: Param2, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetPKeyId(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: super::super::super::Foundation::PWSTR, pwszpkeystring: super::super::super::Foundation::PWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12526,7 +12526,7 @@ pub unsafe fn SLGetPKeyId<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SLGetPKeyInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetPKeyInformation(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12541,7 +12541,7 @@ pub unsafe fn SLGetPKeyInformation<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn SLGetPolicyInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetPolicyInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12556,7 +12556,7 @@ pub unsafe fn SLGetPolicyInformation<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SLGetPolicyInformationDWORD<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetPolicyInformationDWORD(hslc: *const ::core::ffi::c_void, pwszvaluename: super::super::super::Foundation::PWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -12572,7 +12572,7 @@ pub unsafe fn SLGetPolicyInformationDWORD<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SLGetProductSkuInformation<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetProductSkuInformation(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12587,7 +12587,7 @@ pub unsafe fn SLGetProductSkuInformation<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn SLGetReferralInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: Param3) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slcext", kind = "raw-dylib")]
         extern "system" {
             fn SLGetReferralInformation(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, ppwszvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -12602,7 +12602,7 @@ pub unsafe fn SLGetReferralInformation<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: *const ::windows::core::GUID, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: *const ::windows::core::GUID, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12617,7 +12617,7 @@ pub unsafe fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLID
 pub unsafe fn SLGetServerStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszserverurl: Param0, pwszacquisitiontype: Param1, pwszproxyserver: Param2, wproxyport: u16) -> ::windows::core::Result<::windows::core::HRESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slcext", kind = "raw-dylib")]
         extern "system" {
             fn SLGetServerStatus(pwszserverurl: super::super::super::Foundation::PWSTR, pwszacquisitiontype: super::super::super::Foundation::PWSTR, pwszproxyserver: super::super::super::Foundation::PWSTR, wproxyport: u16, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT;
         }
@@ -12633,7 +12633,7 @@ pub unsafe fn SLGetServerStatus<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SLGetServiceInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetServiceInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12648,7 +12648,7 @@ pub unsafe fn SLGetServiceInformation<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SLGetWindowsInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszvaluename: Param0, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetWindowsInformation(pwszvaluename: super::super::super::Foundation::PWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -12663,7 +12663,7 @@ pub unsafe fn SLGetWindowsInformation<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SLGetWindowsInformationDWORD<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszvaluename: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLGetWindowsInformationDWORD(pwszvaluename: super::super::super::Foundation::PWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -12698,7 +12698,7 @@ pub const SL_ID_LAST: SLIDTYPE = 8i32;
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12714,7 +12714,7 @@ pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: 
 pub unsafe fn SLInstallProofOfPurchase<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: Param1, pwszpkeystring: Param2, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLInstallProofOfPurchase(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: super::super::super::Foundation::PWSTR, pwszpkeystring: super::super::super::Foundation::PWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12729,7 +12729,7 @@ pub unsafe fn SLInstallProofOfPurchase<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slwga", kind = "raw-dylib")]
         extern "system" {
             fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows::core::HRESULT;
         }
@@ -12755,7 +12755,7 @@ pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = 4i32;
 pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12770,7 +12770,7 @@ pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::R
 pub unsafe fn SLQueryLicenseValueFromApp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(valuename: Param0, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "api-ms-win-core-slapi-l1-1-0", kind = "raw-dylib")]
         extern "system" {
             fn SLQueryLicenseValueFromApp(valuename: super::super::super::Foundation::PWSTR, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -12797,7 +12797,7 @@ pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = 4i32;
 pub unsafe fn SLRegisterEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID, hevent: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLRegisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: super::super::super::Foundation::PWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -12811,7 +12811,7 @@ pub unsafe fn SLRegisterEvent<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12826,7 +12826,7 @@ pub unsafe fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproducts
 pub unsafe fn SLSetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pqueryid: *const ::windows::core::GUID, pwszvaluename: Param1, edatatype: SLDATATYPE, cbvalue: u32, pbvalue: *const u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLSetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: super::super::super::Foundation::PWSTR, edatatype: SLDATATYPE, cbvalue: u32, pbvalue: *const u8) -> ::windows::core::HRESULT;
         }
@@ -12840,7 +12840,7 @@ pub unsafe fn SLSetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12854,7 +12854,7 @@ pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefilei
 pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -12869,7 +12869,7 @@ pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkey
 pub unsafe fn SLUnregisterEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID, hevent: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "slc", kind = "raw-dylib")]
         extern "system" {
             fn SLUnregisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: super::super::super::Foundation::PWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -14052,7 +14052,7 @@ pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 pub unsafe fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -14067,7 +14067,7 @@ pub unsafe fn SaslAcceptSecurityContext(phcredential: *const super::super::Crede
 pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut super::super::super::Foundation::PSTR, profilecount: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslEnumerateProfilesA(profilelist: *mut super::super::super::Foundation::PSTR, profilecount: *mut u32) -> i32;
         }
@@ -14082,7 +14082,7 @@ pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut super::super::super::Foun
 pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut super::super::super::Foundation::PWSTR, profilecount: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslEnumerateProfilesW(profilelist: *mut super::super::super::Foundation::PWSTR, profilecount: *mut u32) -> i32;
         }
@@ -14097,7 +14097,7 @@ pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut super::super::super::Foun
 pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: *mut u32) -> i32;
         }
@@ -14112,7 +14112,7 @@ pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentia
 pub unsafe fn SaslGetProfilePackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(profilename: Param0, packageinfo: *mut *mut SecPkgInfoA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslGetProfilePackageA(profilename: super::super::super::Foundation::PSTR, packageinfo: *mut *mut SecPkgInfoA) -> i32;
         }
@@ -14127,7 +14127,7 @@ pub unsafe fn SaslGetProfilePackageA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SaslGetProfilePackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(profilename: Param0, packageinfo: *mut *mut SecPkgInfoW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslGetProfilePackageW(profilename: super::super::super::Foundation::PWSTR, packageinfo: *mut *mut SecPkgInfoW) -> i32;
         }
@@ -14141,7 +14141,7 @@ pub unsafe fn SaslGetProfilePackageW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslIdentifyPackageA(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoA) -> i32;
         }
@@ -14155,7 +14155,7 @@ pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc, packageinfo: *m
 pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoW) -> i32;
         }
@@ -14170,7 +14170,7 @@ pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *m
 pub unsafe fn SaslInitializeSecurityContextA<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: super::super::super::Foundation::PSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -14185,7 +14185,7 @@ pub unsafe fn SaslInitializeSecurityContextA<'a, Param2: ::windows::core::IntoPa
 pub unsafe fn SaslInitializeSecurityContextW<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: super::super::super::Foundation::PWSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
@@ -14200,7 +14200,7 @@ pub unsafe fn SaslInitializeSecurityContextW<'a, Param2: ::windows::core::IntoPa
 pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> i32;
         }
@@ -16553,7 +16553,7 @@ impl ::core::default::Default for SecurityFunctionTableW {
 pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -16568,7 +16568,7 @@ pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials:
 pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -16583,7 +16583,7 @@ pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials:
 pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -16598,7 +16598,7 @@ pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Crede
 pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> i32;
         }
@@ -16748,7 +16748,7 @@ pub type SpVerifySignatureFn = ::core::option::Option<unsafe extern "system" fn(
 pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL;
         }
@@ -16763,7 +16763,7 @@ pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dw
 pub unsafe fn SslEmptyCacheA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psztargetname: Param0, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslEmptyCacheA(psztargetname: super::super::super::Foundation::PSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -16778,7 +16778,7 @@ pub unsafe fn SslEmptyCacheA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SslEmptyCacheW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(psztargetname: Param0, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslEmptyCacheW(psztargetname: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -16793,7 +16793,7 @@ pub unsafe fn SslEmptyCacheW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslFreeCertificate(pcertificate: *mut X509Certificate);
         }
@@ -16807,7 +16807,7 @@ pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
 pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32);
         }
@@ -16821,7 +16821,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
 pub unsafe fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32;
         }
@@ -16837,7 +16837,7 @@ pub type SslGetExtensionsFn = ::core::option::Option<unsafe extern "system" fn(c
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslGetMaximumKeySize(reserved: u32) -> u32;
         }
@@ -16851,7 +16851,7 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
 pub unsafe fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "schannel", kind = "raw-dylib")]
         extern "system" {
             fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32;
         }
@@ -16868,7 +16868,7 @@ pub type SslGetServerIdentityFn = ::core::option::Option<unsafe extern "system" 
 pub unsafe fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> i32;
         }
@@ -16882,7 +16882,7 @@ pub unsafe fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_voi
 pub unsafe fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -16896,7 +16896,7 @@ pub unsafe fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdat
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> i32;
         }
@@ -16910,7 +16910,7 @@ pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_voi
 pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> i32;
         }
@@ -16925,7 +16925,7 @@ pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::
 pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut super::super::super::Foundation::PWSTR, ppszdomainname: *mut super::super::super::Foundation::PWSTR, ppszpackedcredentialsstring: *mut super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut super::super::super::Foundation::PWSTR, ppszdomainname: *mut super::super::super::Foundation::PWSTR, ppszpackedcredentialsstring: *mut super::super::super::Foundation::PWSTR) -> i32;
         }
@@ -16940,7 +16940,7 @@ pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi:
 pub unsafe fn SspiEncodeStringsAsAuthIdentity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszusername: Param0, pszdomainname: Param1, pszpackedcredentialsstring: Param2, ppauthidentity: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiEncodeStringsAsAuthIdentity(pszusername: super::super::super::Foundation::PWSTR, pszdomainname: super::super::super::Foundation::PWSTR, pszpackedcredentialsstring: super::super::super::Foundation::PWSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -16954,7 +16954,7 @@ pub unsafe fn SspiEncodeStringsAsAuthIdentity<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> i32;
         }
@@ -16968,7 +16968,7 @@ pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> i32
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "sspicli", kind = "raw-dylib")]
         extern "system" {
             fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> i32;
         }
@@ -16983,7 +16983,7 @@ pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi
 pub unsafe fn SspiExcludePackage<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(authidentity: *const ::core::ffi::c_void, pszpackagename: Param1, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiExcludePackage(authidentity: *const ::core::ffi::c_void, pszpackagename: super::super::super::Foundation::PWSTR, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -16997,7 +16997,7 @@ pub unsafe fn SspiExcludePackage<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void);
         }
@@ -17012,7 +17012,7 @@ pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void) {
 pub unsafe fn SspiGetTargetHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(psztargetname: Param0, pszhostname: *mut super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiGetTargetHostName(psztargetname: super::super::super::Foundation::PWSTR, pszhostname: *mut super::super::super::Foundation::PWSTR) -> i32;
         }
@@ -17027,7 +17027,7 @@ pub unsafe fn SspiGetTargetHostName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -17042,7 +17042,7 @@ pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi:
 pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -17056,7 +17056,7 @@ pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super
 pub unsafe fn SspiLocalFree(databuffer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiLocalFree(databuffer: *const ::core::ffi::c_void);
         }
@@ -17070,7 +17070,7 @@ pub unsafe fn SspiLocalFree(databuffer: *const ::core::ffi::c_void) {
 pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> i32;
         }
@@ -17085,7 +17085,7 @@ pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, 
 pub unsafe fn SspiPrepareForCredRead<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(authidentity: *const ::core::ffi::c_void, psztargetname: Param1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiPrepareForCredRead(authidentity: *const ::core::ffi::c_void, psztargetname: super::super::super::Foundation::PWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut super::super::super::Foundation::PWSTR) -> i32;
         }
@@ -17100,7 +17100,7 @@ pub unsafe fn SspiPrepareForCredRead<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SspiPrepareForCredWrite<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(authidentity: *const ::core::ffi::c_void, psztargetname: Param1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut super::super::super::Foundation::PWSTR, ppszcredmanusername: *mut super::super::super::Foundation::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiPrepareForCredWrite(authidentity: *const ::core::ffi::c_void, psztargetname: super::super::super::Foundation::PWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut super::super::super::Foundation::PWSTR, ppszcredmanusername: *mut super::super::super::Foundation::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> i32;
         }
@@ -17115,7 +17115,7 @@ pub unsafe fn SspiPrepareForCredWrite<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SspiPromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psztargetname: Param0, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: Param3, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn SspiPromptForCredentialsA(psztargetname: super::super::super::Foundation::PSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: super::super::super::Foundation::PSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
         }
@@ -17130,7 +17130,7 @@ pub unsafe fn SspiPromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SspiPromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(psztargetname: Param0, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: Param3, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "credui", kind = "raw-dylib")]
         extern "system" {
             fn SspiPromptForCredentialsW(psztargetname: super::super::super::Foundation::PWSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: super::super::super::Foundation::PWSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
         }
@@ -17145,7 +17145,7 @@ pub unsafe fn SspiPromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SspiUnmarshalAuthIdentity<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(authidentitylength: u32, authidentitybytearray: Param1, ppauthidentity: *mut *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiUnmarshalAuthIdentity(authidentitylength: u32, authidentitybytearray: super::super::super::Foundation::PSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> i32;
         }
@@ -17159,7 +17159,7 @@ pub unsafe fn SspiUnmarshalAuthIdentity<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> i32;
         }
@@ -17173,7 +17173,7 @@ pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> 
 pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void);
         }
@@ -17188,7 +17188,7 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void) {
 pub unsafe fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -17203,7 +17203,7 @@ pub unsafe fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombu
 pub unsafe fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -17218,7 +17218,7 @@ pub unsafe fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u3
 pub unsafe fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "advapi32", kind = "raw-dylib")]
         extern "system" {
             fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -17859,7 +17859,7 @@ pub const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128u32;
 pub unsafe fn TokenBindingDeleteAllBindings() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingDeleteAllBindings() -> i32;
         }
@@ -17874,7 +17874,7 @@ pub unsafe fn TokenBindingDeleteAllBindings() -> i32 {
 pub unsafe fn TokenBindingDeleteBinding<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(targeturl: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingDeleteBinding(targeturl: super::super::super::Foundation::PWSTR) -> i32;
         }
@@ -17889,7 +17889,7 @@ pub unsafe fn TokenBindingDeleteBinding<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn TokenBindingGenerateBinding<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: Param1, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: super::super::super::Foundation::PWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32;
         }
@@ -17903,7 +17903,7 @@ pub unsafe fn TokenBindingGenerateBinding<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32;
         }
@@ -17918,7 +17918,7 @@ pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, 
 pub unsafe fn TokenBindingGenerateIDForUri<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: Param1, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGenerateIDForUri(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: super::super::super::Foundation::PWSTR, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32;
         }
@@ -17932,7 +17932,7 @@ pub unsafe fn TokenBindingGenerateIDForUri<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32;
         }
@@ -17946,7 +17946,7 @@ pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::f
 pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> i32;
         }
@@ -17960,7 +17960,7 @@ pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, mino
 pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32;
         }
@@ -17974,7 +17974,7 @@ pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY
 pub unsafe fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32;
         }
@@ -17988,7 +17988,7 @@ pub unsafe fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY
 pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, resultlist: *mut *mut TOKENBINDING_RESULT_LIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "tokenbinding", kind = "raw-dylib")]
         extern "system" {
             fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, resultlist: *mut *mut TOKENBINDING_RESULT_LIST) -> i32;
         }
@@ -18003,7 +18003,7 @@ pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi:
 pub unsafe fn TranslateNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(lpaccountname: Param0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn TranslateNameA(lpaccountname: super::super::super::Foundation::PSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: super::super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -18018,7 +18018,7 @@ pub unsafe fn TranslateNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn TranslateNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpaccountname: Param0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn TranslateNameW(lpaccountname: super::super::super::Foundation::PWSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: super::super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -18182,7 +18182,7 @@ pub type VERIFY_SIGNATURE_FN = ::core::option::Option<unsafe extern "system" fn(
 pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "secur32", kind = "raw-dylib")]
         extern "system" {
             fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
         }

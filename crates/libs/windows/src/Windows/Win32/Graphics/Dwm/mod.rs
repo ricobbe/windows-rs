@@ -348,7 +348,7 @@ pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = 3i32;
 pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -363,7 +363,7 @@ pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
         }
@@ -378,7 +378,7 @@ pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -393,7 +393,7 @@ pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::HRESULT;
         }
@@ -407,7 +407,7 @@ pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::HRESULT;
         }
@@ -422,7 +422,7 @@ pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::
 pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenablemmcss: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -437,7 +437,7 @@ pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::HRESULT;
         }
@@ -451,7 +451,7 @@ pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmFlush() -> ::windows::core::HRESULT;
         }
@@ -466,7 +466,7 @@ pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
 pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -481,7 +481,7 @@ pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: 
 pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<DWM_TIMING_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::HRESULT;
         }
@@ -496,7 +496,7 @@ pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -511,7 +511,7 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result
 pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
         }
@@ -527,7 +527,7 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core:
 pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -542,7 +542,7 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundat
 pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(appwindow: Param0) -> ::windows::core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::core::HRESULT;
         }
@@ -558,7 +558,7 @@ pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
         }
@@ -573,7 +573,7 @@ pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -588,7 +588,7 @@ pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -604,7 +604,7 @@ pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super:
 pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, crefreshes: i32, frelative: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -619,7 +619,7 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::Into
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
         }
@@ -635,7 +635,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core:
 pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddestination: Param0, hwndsource: Param1) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::core::HRESULT;
         }
@@ -651,7 +651,7 @@ pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
@@ -666,7 +666,7 @@ pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *
 pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crefreshes: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::core::HRESULT;
         }
@@ -681,7 +681,7 @@ pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::HRESULT;
         }
@@ -696,7 +696,7 @@ pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, dwsitflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::core::HRESULT;
         }
@@ -711,7 +711,7 @@ pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
         }
@@ -726,7 +726,7 @@ pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
         }
@@ -740,7 +740,7 @@ pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
         }
@@ -755,7 +755,7 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
 pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(dwpointerid: u32, fenable: Param1, pttether: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
@@ -770,7 +770,7 @@ pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
         }
@@ -784,7 +784,7 @@ pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::HRESULT;
         }
@@ -799,7 +799,7 @@ pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Re
 pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dwmapi", kind = "raw-dylib")]
         extern "system" {
             fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::HRESULT;
         }

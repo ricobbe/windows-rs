@@ -234,7 +234,7 @@ impl ::core::default::Default for AUTO_PROXY_SCRIPT_BUFFER {
 pub unsafe fn AppCacheCheckManifest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmasterurl: Param0, pwszmanifesturl: Param1, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheCheckManifest(pwszmasterurl: super::super::Foundation::PWSTR, pwszmanifesturl: super::super::Foundation::PWSTR, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -248,7 +248,7 @@ pub unsafe fn AppCacheCheckManifest<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void);
         }
@@ -263,7 +263,7 @@ pub unsafe fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void) {
 pub unsafe fn AppCacheCreateAndCommitFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::core::ffi::c_void, pwszsourcefilepath: Param1, pwszurl: Param2, pbresponseheaders: *const u8, dwresponseheaderssize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheCreateAndCommitFile(happcache: *const ::core::ffi::c_void, pwszsourcefilepath: super::super::Foundation::PWSTR, pwszurl: super::super::Foundation::PWSTR, pbresponseheaders: *const u8, dwresponseheaderssize: u32) -> u32;
         }
@@ -278,7 +278,7 @@ pub unsafe fn AppCacheCreateAndCommitFile<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn AppCacheDeleteGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmanifesturl: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheDeleteGroup(pwszmanifesturl: super::super::Foundation::PWSTR) -> u32;
         }
@@ -293,7 +293,7 @@ pub unsafe fn AppCacheDeleteGroup<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AppCacheDeleteIEGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmanifesturl: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheDeleteIEGroup(pwszmanifesturl: super::super::Foundation::PWSTR) -> u32;
         }
@@ -307,7 +307,7 @@ pub unsafe fn AppCacheDeleteIEGroup<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AppCacheDuplicateHandle(happcache: *const ::core::ffi::c_void, phduplicatedappcache: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheDuplicateHandle(happcache: *const ::core::ffi::c_void, phduplicatedappcache: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -321,7 +321,7 @@ pub unsafe fn AppCacheDuplicateHandle(happcache: *const ::core::ffi::c_void, phd
 pub unsafe fn AppCacheFinalize(happcache: *const ::core::ffi::c_void, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pestate: *mut APP_CACHE_FINALIZE_STATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheFinalize(happcache: *const ::core::ffi::c_void, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pestate: *mut APP_CACHE_FINALIZE_STATE) -> u32;
         }
@@ -336,7 +336,7 @@ pub unsafe fn AppCacheFinalize(happcache: *const ::core::ffi::c_void, pbmanifest
 pub unsafe fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST);
         }
@@ -351,7 +351,7 @@ pub unsafe fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LI
 pub unsafe fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST);
         }
@@ -366,7 +366,7 @@ pub unsafe fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIS
 pub unsafe fn AppCacheFreeIESpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ftcutoff: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheFreeIESpace(ftcutoff: super::super::Foundation::FILETIME) -> u32;
         }
@@ -381,7 +381,7 @@ pub unsafe fn AppCacheFreeIESpace<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AppCacheFreeSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ftcutoff: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheFreeSpace(ftcutoff: super::super::Foundation::FILETIME) -> u32;
         }
@@ -396,7 +396,7 @@ pub unsafe fn AppCacheFreeSpace<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AppCacheGetDownloadList(happcache: *const ::core::ffi::c_void, pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetDownloadList(happcache: *const ::core::ffi::c_void, pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) -> u32;
         }
@@ -411,7 +411,7 @@ pub unsafe fn AppCacheGetDownloadList(happcache: *const ::core::ffi::c_void, pdo
 pub unsafe fn AppCacheGetFallbackUrl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::core::ffi::c_void, pwszurl: Param1, ppwszfallbackurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetFallbackUrl(happcache: *const ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, ppwszfallbackurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -426,7 +426,7 @@ pub unsafe fn AppCacheGetFallbackUrl<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn AppCacheGetGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32;
         }
@@ -441,7 +441,7 @@ pub unsafe fn AppCacheGetGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST
 pub unsafe fn AppCacheGetIEGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetIEGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32;
         }
@@ -456,7 +456,7 @@ pub unsafe fn AppCacheGetIEGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LI
 pub unsafe fn AppCacheGetInfo(happcache: *const ::core::ffi::c_void, pappcacheinfo: *mut APP_CACHE_GROUP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetInfo(happcache: *const ::core::ffi::c_void, pappcacheinfo: *mut APP_CACHE_GROUP_INFO) -> u32;
         }
@@ -471,7 +471,7 @@ pub unsafe fn AppCacheGetInfo(happcache: *const ::core::ffi::c_void, pappcachein
 pub unsafe fn AppCacheGetManifestUrl(happcache: *const ::core::ffi::c_void, ppwszmanifesturl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheGetManifestUrl(happcache: *const ::core::ffi::c_void, ppwszmanifesturl: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -486,7 +486,7 @@ pub unsafe fn AppCacheGetManifestUrl(happcache: *const ::core::ffi::c_void, ppws
 pub unsafe fn AppCacheLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurl: Param0, dwflags: u32, phappcache: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn AppCacheLookup(pwszurl: super::super::Foundation::PWSTR, dwflags: u32, phappcache: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -802,7 +802,7 @@ pub const COOKIE_STATE_UB: u32 = 5u32;
 pub unsafe fn CommitUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpszlocalfilename: Param1, expiretime: Param2, lastmodifiedtime: Param3, cacheentrytype: u32, lpheaderinfo: *const u8, cchheaderinfo: u32, lpszfileextension: Param7, lpszoriginalurl: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CommitUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR, lpszlocalfilename: super::super::Foundation::PSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpheaderinfo: *const u8, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PSTR, lpszoriginalurl: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -817,7 +817,7 @@ pub unsafe fn CommitUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CommitUrlCacheEntryBinaryBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pwszurlname: Param0, dwtype: u32, ftexpiretime: Param2, ftmodifiedtime: Param3, pbblob: *const u8, cbblob: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CommitUrlCacheEntryBinaryBlob(pwszurlname: super::super::Foundation::PWSTR, dwtype: u32, ftexpiretime: super::super::Foundation::FILETIME, ftmodifiedtime: super::super::Foundation::FILETIME, pbblob: *const u8, cbblob: u32) -> u32;
         }
@@ -842,7 +842,7 @@ pub unsafe fn CommitUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, su
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CommitUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR, lpszlocalfilename: super::super::Foundation::PWSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpszheaderinfo: super::super::Foundation::PWSTR, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszoriginalurl: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -890,7 +890,7 @@ impl ::core::default::Default for CookieDecision {
 pub unsafe fn CreateMD5SSOHash<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszchallengeinfo: Param0, pwszrealm: Param1, pwsztarget: Param2, pbhexhash: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateMD5SSOHash(pszchallengeinfo: super::super::Foundation::PWSTR, pwszrealm: super::super::Foundation::PWSTR, pwsztarget: super::super::Foundation::PWSTR, pbhexhash: *mut u8) -> super::super::Foundation::BOOL;
         }
@@ -905,7 +905,7 @@ pub unsafe fn CreateMD5SSOHash<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CreateUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, lpcacheprefix: Param1, lpszcachepath: Param2, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheContainerA(name: super::super::Foundation::PSTR, lpcacheprefix: super::super::Foundation::PSTR, lpszcachepath: super::super::Foundation::PSTR, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -920,7 +920,7 @@ pub unsafe fn CreateUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CreateUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, lpcacheprefix: Param1, lpszcachepath: Param2, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheContainerW(name: super::super::Foundation::PWSTR, lpcacheprefix: super::super::Foundation::PWSTR, lpszcachepath: super::super::Foundation::PWSTR, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -935,7 +935,7 @@ pub unsafe fn CreateUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PSTR, lpszfilename: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -950,7 +950,7 @@ pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32, fpreserveincomingfilename: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheEntryExW(lpszurlname: super::super::Foundation::PWSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, dwreserved: u32, fpreserveincomingfilename: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -965,7 +965,7 @@ pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -979,7 +979,7 @@ pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CreateUrlCacheGroup(dwflags: u32, lpreserved: *mut ::core::ffi::c_void) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn CreateUrlCacheGroup(dwflags: u32, lpreserved: *mut ::core::ffi::c_void) -> i64;
         }
@@ -1018,7 +1018,7 @@ pub const DUO_PROTOCOL_MASK: u32 = 1u32;
 pub unsafe fn DeleteIE3Cache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, lpszcmd: Param2, ncmdshow: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteIE3Cache(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmd: super::super::Foundation::PSTR, ncmdshow: i32) -> u32;
         }
@@ -1033,7 +1033,7 @@ pub unsafe fn DeleteIE3Cache<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DeleteUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheContainerA(name: super::super::Foundation::PSTR, dwoptions: u32) -> super::super::Foundation::BOOL;
         }
@@ -1048,7 +1048,7 @@ pub unsafe fn DeleteUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DeleteUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheContainerW(name: super::super::Foundation::PWSTR, dwoptions: u32) -> super::super::Foundation::BOOL;
         }
@@ -1063,7 +1063,7 @@ pub unsafe fn DeleteUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DeleteUrlCacheEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheEntry(lpszurlname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1078,7 +1078,7 @@ pub unsafe fn DeleteUrlCacheEntry<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DeleteUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1093,7 +1093,7 @@ pub unsafe fn DeleteUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeleteUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1108,7 +1108,7 @@ pub unsafe fn DeleteUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeleteUrlCacheGroup(groupid: i64, dwflags: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteUrlCacheGroup(groupid: i64, dwflags: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1123,7 +1123,7 @@ pub unsafe fn DeleteUrlCacheGroup(groupid: i64, dwflags: u32, lpreserved: *mut :
 pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> super::super::Foundation::BOOL;
         }
@@ -1138,7 +1138,7 @@ pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> super::su
 pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: super::super::Foundation::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DetectAutoProxyUrl(pszautoproxyurl: super::super::Foundation::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -1153,7 +1153,7 @@ pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: super::super::Foundation::PSTR
 pub unsafe fn DoConnectoidsExist() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn DoConnectoidsExist() -> super::super::Foundation::BOOL;
         }
@@ -1404,7 +1404,7 @@ pub const ERROR_INTERNET_UNRECOGNIZED_SCHEME: u32 = 12006u32;
 pub unsafe fn ExportCookieFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szfilename: Param0, fappend: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ExportCookieFileA(szfilename: super::super::Foundation::PSTR, fappend: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1419,7 +1419,7 @@ pub unsafe fn ExportCookieFileA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ExportCookieFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szfilename: Param0, fappend: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ExportCookieFileW(szfilename: super::super::Foundation::PWSTR, fappend: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1474,7 +1474,7 @@ pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = 2u32;
 pub unsafe fn FindCloseUrlCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindCloseUrlCache(henumhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1489,7 +1489,7 @@ pub unsafe fn FindCloseUrlCache<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn FindFirstUrlCacheContainerA(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheContainerA(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE;
         }
@@ -1504,7 +1504,7 @@ pub unsafe fn FindFirstUrlCacheContainerA(pdwmodified: *mut u32, lpcontainerinfo
 pub unsafe fn FindFirstUrlCacheContainerW(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheContainerW(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE;
         }
@@ -1519,7 +1519,7 @@ pub unsafe fn FindFirstUrlCacheContainerW(pdwmodified: *mut u32, lpcontainerinfo
 pub unsafe fn FindFirstUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlsearchpattern: Param0, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheEntryA(lpszurlsearchpattern: super::super::Foundation::PSTR, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE;
         }
@@ -1534,7 +1534,7 @@ pub unsafe fn FindFirstUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FindFirstUrlCacheEntryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -1549,7 +1549,7 @@ pub unsafe fn FindFirstUrlCacheEntryExA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn FindFirstUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern: super::super::Foundation::PWSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -1564,7 +1564,7 @@ pub unsafe fn FindFirstUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn FindFirstUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlsearchpattern: Param0, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheEntryW(lpszurlsearchpattern: super::super::Foundation::PWSTR, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE;
         }
@@ -1579,7 +1579,7 @@ pub unsafe fn FindFirstUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: *mut ::core::ffi::c_void, dwsearchcondition: u32, lpgroupid: *mut i64, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: *mut ::core::ffi::c_void, dwsearchcondition: u32, lpgroupid: *mut i64, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -1594,7 +1594,7 @@ pub unsafe fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondit
 pub unsafe fn FindNextUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheContainerA(henumhandle: super::super::Foundation::HANDLE, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1609,7 +1609,7 @@ pub unsafe fn FindNextUrlCacheContainerA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn FindNextUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheContainerW(henumhandle: super::super::Foundation::HANDLE, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1624,7 +1624,7 @@ pub unsafe fn FindNextUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn FindNextUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheEntryA(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1639,7 +1639,7 @@ pub unsafe fn FindNextUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FindNextUrlCacheEntryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheEntryExA(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1654,7 +1654,7 @@ pub unsafe fn FindNextUrlCacheEntryExA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FindNextUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheEntryExW(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1669,7 +1669,7 @@ pub unsafe fn FindNextUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FindNextUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheEntryW(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1684,7 +1684,7 @@ pub unsafe fn FindNextUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FindNextUrlCacheGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfind: Param0, lpgroupid: *mut i64, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindNextUrlCacheGroup(hfind: super::super::Foundation::HANDLE, lpgroupid: *mut i64, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1699,7 +1699,7 @@ pub unsafe fn FindNextUrlCacheGroup<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn FindP3PPolicySymbol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszsymbol: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FindP3PPolicySymbol(pszsymbol: super::super::Foundation::PSTR) -> i32;
         }
@@ -1714,7 +1714,7 @@ pub unsafe fn FindP3PPolicySymbol<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FreeUrlCacheSpaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcachepath: Param0, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FreeUrlCacheSpaceA(lpszcachepath: super::super::Foundation::PSTR, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL;
         }
@@ -1729,7 +1729,7 @@ pub unsafe fn FreeUrlCacheSpaceA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FreeUrlCacheSpaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcachepath: Param0, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FreeUrlCacheSpaceW(lpszcachepath: super::super::Foundation::PWSTR, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL;
         }
@@ -1744,7 +1744,7 @@ pub unsafe fn FreeUrlCacheSpaceW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FtpCommandA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, fexpectresponse: Param1, dwflags: FTP_FLAGS, lpszcommand: Param3, dwcontext: usize, phftpcommand: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpCommandA(hconnect: *const ::core::ffi::c_void, fexpectresponse: super::super::Foundation::BOOL, dwflags: FTP_FLAGS, lpszcommand: super::super::Foundation::PSTR, dwcontext: usize, phftpcommand: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1759,7 +1759,7 @@ pub unsafe fn FtpCommandA<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpCommandW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, fexpectresponse: Param1, dwflags: FTP_FLAGS, lpszcommand: Param3, dwcontext: usize, phftpcommand: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpCommandW(hconnect: *const ::core::ffi::c_void, fexpectresponse: super::super::Foundation::BOOL, dwflags: FTP_FLAGS, lpszcommand: super::super::Foundation::PWSTR, dwcontext: usize, phftpcommand: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1774,7 +1774,7 @@ pub unsafe fn FtpCommandW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpCreateDirectoryA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpCreateDirectoryA(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1789,7 +1789,7 @@ pub unsafe fn FtpCreateDirectoryA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FtpCreateDirectoryW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpCreateDirectoryW(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1804,7 +1804,7 @@ pub unsafe fn FtpCreateDirectoryW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FtpDeleteFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpDeleteFileA(hconnect: *const ::core::ffi::c_void, lpszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1819,7 +1819,7 @@ pub unsafe fn FtpDeleteFileA<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FtpDeleteFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpDeleteFileW(hconnect: *const ::core::ffi::c_void, lpszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1834,7 +1834,7 @@ pub unsafe fn FtpDeleteFileW<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FtpFindFirstFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszsearchfile: Param1, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpFindFirstFileA(hconnect: *const ::core::ffi::c_void, lpszsearchfile: super::super::Foundation::PSTR, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1849,7 +1849,7 @@ pub unsafe fn FtpFindFirstFileA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn FtpFindFirstFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszsearchfile: Param1, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpFindFirstFileW(hconnect: *const ::core::ffi::c_void, lpszsearchfile: super::super::Foundation::PWSTR, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1864,7 +1864,7 @@ pub unsafe fn FtpFindFirstFileW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn FtpGetCurrentDirectoryA(hconnect: *const ::core::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetCurrentDirectoryA(hconnect: *const ::core::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1879,7 +1879,7 @@ pub unsafe fn FtpGetCurrentDirectoryA(hconnect: *const ::core::ffi::c_void, lpsz
 pub unsafe fn FtpGetCurrentDirectoryW(hconnect: *const ::core::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PWSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetCurrentDirectoryW(hconnect: *const ::core::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PWSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1894,7 +1894,7 @@ pub unsafe fn FtpGetCurrentDirectoryW(hconnect: *const ::core::ffi::c_void, lpsz
 pub unsafe fn FtpGetFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconnect: *const ::core::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetFileA(hconnect: *const ::core::ffi::c_void, lpszremotefile: super::super::Foundation::PSTR, lpsznewfile: super::super::Foundation::PSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -1909,7 +1909,7 @@ pub unsafe fn FtpGetFileA<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpGetFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hftpsession: *const ::core::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetFileEx(hftpsession: *const ::core::ffi::c_void, lpszremotefile: super::super::Foundation::PSTR, lpsznewfile: super::super::Foundation::PWSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -1923,7 +1923,7 @@ pub unsafe fn FtpGetFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FtpGetFileSize(hfile: *const ::core::ffi::c_void, lpdwfilesizehigh: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetFileSize(hfile: *const ::core::ffi::c_void, lpdwfilesizehigh: *mut u32) -> u32;
         }
@@ -1938,7 +1938,7 @@ pub unsafe fn FtpGetFileSize(hfile: *const ::core::ffi::c_void, lpdwfilesizehigh
 pub unsafe fn FtpGetFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hconnect: *const ::core::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpGetFileW(hconnect: *const ::core::ffi::c_void, lpszremotefile: super::super::Foundation::PWSTR, lpsznewfile: super::super::Foundation::PWSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -1953,7 +1953,7 @@ pub unsafe fn FtpGetFileW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpOpenFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszfilename: Param1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpOpenFileA(hconnect: *const ::core::ffi::c_void, lpszfilename: super::super::Foundation::PSTR, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1968,7 +1968,7 @@ pub unsafe fn FtpOpenFileA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FtpOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszfilename: Param1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpOpenFileW(hconnect: *const ::core::ffi::c_void, lpszfilename: super::super::Foundation::PWSTR, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1983,7 +1983,7 @@ pub unsafe fn FtpOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FtpPutFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpPutFileA(hconnect: *const ::core::ffi::c_void, lpszlocalfile: super::super::Foundation::PSTR, lpsznewremotefile: super::super::Foundation::PSTR, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -1998,7 +1998,7 @@ pub unsafe fn FtpPutFileA<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpPutFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hftpsession: *const ::core::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpPutFileEx(hftpsession: *const ::core::ffi::c_void, lpszlocalfile: super::super::Foundation::PWSTR, lpsznewremotefile: super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -2013,7 +2013,7 @@ pub unsafe fn FtpPutFileEx<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FtpPutFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpPutFileW(hconnect: *const ::core::ffi::c_void, lpszlocalfile: super::super::Foundation::PWSTR, lpsznewremotefile: super::super::Foundation::PWSTR, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -2028,7 +2028,7 @@ pub unsafe fn FtpPutFileW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FtpRemoveDirectoryA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpRemoveDirectoryA(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2043,7 +2043,7 @@ pub unsafe fn FtpRemoveDirectoryA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FtpRemoveDirectoryW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpRemoveDirectoryW(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -2058,7 +2058,7 @@ pub unsafe fn FtpRemoveDirectoryW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FtpRenameFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszexisting: Param1, lpsznew: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpRenameFileA(hconnect: *const ::core::ffi::c_void, lpszexisting: super::super::Foundation::PSTR, lpsznew: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2073,7 +2073,7 @@ pub unsafe fn FtpRenameFileA<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FtpRenameFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszexisting: Param1, lpsznew: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpRenameFileW(hconnect: *const ::core::ffi::c_void, lpszexisting: super::super::Foundation::PWSTR, lpsznew: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -2088,7 +2088,7 @@ pub unsafe fn FtpRenameFileW<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FtpSetCurrentDirectoryA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpSetCurrentDirectoryA(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2103,7 +2103,7 @@ pub unsafe fn FtpSetCurrentDirectoryA<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn FtpSetCurrentDirectoryW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn FtpSetCurrentDirectoryW(hconnect: *const ::core::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -2833,7 +2833,7 @@ pub const GROUP_OWNER_STORAGE_SIZE: u32 = 4u32;
 pub unsafe fn GetDiskInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pdwclustersize: *mut u32, pdlavail: *mut u64, pdltotal: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetDiskInfoA(pszpath: super::super::Foundation::PSTR, pdwclustersize: *mut u32, pdlavail: *mut u64, pdltotal: *mut u64) -> super::super::Foundation::BOOL;
         }
@@ -2848,7 +2848,7 @@ pub unsafe fn GetDiskInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn GetUrlCacheConfigInfoA(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheConfigInfoA(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL;
         }
@@ -2863,7 +2863,7 @@ pub unsafe fn GetUrlCacheConfigInfoA(lpcacheconfiginfo: *mut INTERNET_CACHE_CONF
 pub unsafe fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL;
         }
@@ -2878,7 +2878,7 @@ pub unsafe fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONF
 pub unsafe fn GetUrlCacheEntryBinaryBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurlname: Param0, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: *mut *mut u8, pcbblob: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheEntryBinaryBlob(pwszurlname: super::super::Foundation::PWSTR, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: *mut *mut u8, pcbblob: *mut u32) -> u32;
         }
@@ -2893,7 +2893,7 @@ pub unsafe fn GetUrlCacheEntryBinaryBlob<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetUrlCacheEntryInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheEntryInfoA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2908,7 +2908,7 @@ pub unsafe fn GetUrlCacheEntryInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetUrlCacheEntryInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpszredirecturl: Param3, lpcbredirecturl: *mut u32, lpreserved: *mut ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheEntryInfoExA(lpszurl: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpszredirecturl: super::super::Foundation::PSTR, lpcbredirecturl: *mut u32, lpreserved: *mut ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2923,7 +2923,7 @@ pub unsafe fn GetUrlCacheEntryInfoExA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn GetUrlCacheEntryInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpszredirecturl: Param3, lpcbredirecturl: *mut u32, lpreserved: *mut ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheEntryInfoExW(lpszurl: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpszredirecturl: super::super::Foundation::PWSTR, lpcbredirecturl: *mut u32, lpreserved: *mut ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2938,7 +2938,7 @@ pub unsafe fn GetUrlCacheEntryInfoExW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn GetUrlCacheEntryInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheEntryInfoW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2953,7 +2953,7 @@ pub unsafe fn GetUrlCacheEntryInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2968,7 +2968,7 @@ pub unsafe fn GetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u
 pub unsafe fn GetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2983,7 +2983,7 @@ pub unsafe fn GetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u
 pub unsafe fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2998,7 +2998,7 @@ pub unsafe fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::sup
 pub unsafe fn GopherCreateLocatorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszhost: Param0, nserverport: u16, lpszdisplaystring: Param2, lpszselectorstring: Param3, dwgophertype: u32, lpszlocator: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherCreateLocatorA(lpszhost: super::super::Foundation::PSTR, nserverport: u16, lpszdisplaystring: super::super::Foundation::PSTR, lpszselectorstring: super::super::Foundation::PSTR, dwgophertype: u32, lpszlocator: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3013,7 +3013,7 @@ pub unsafe fn GopherCreateLocatorA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn GopherCreateLocatorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszhost: Param0, nserverport: u16, lpszdisplaystring: Param2, lpszselectorstring: Param3, dwgophertype: u32, lpszlocator: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherCreateLocatorW(lpszhost: super::super::Foundation::PWSTR, nserverport: u16, lpszdisplaystring: super::super::Foundation::PWSTR, lpszselectorstring: super::super::Foundation::PWSTR, dwgophertype: u32, lpszlocator: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3028,7 +3028,7 @@ pub unsafe fn GopherCreateLocatorW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn GopherFindFirstFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszsearchstring: Param2, lpfinddata: *mut GOPHER_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherFindFirstFileA(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszsearchstring: super::super::Foundation::PSTR, lpfinddata: *mut GOPHER_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3043,7 +3043,7 @@ pub unsafe fn GopherFindFirstFileA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn GopherFindFirstFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszsearchstring: Param2, lpfinddata: *mut GOPHER_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherFindFirstFileW(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszsearchstring: super::super::Foundation::PWSTR, lpfinddata: *mut GOPHER_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3058,7 +3058,7 @@ pub unsafe fn GopherFindFirstFileW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn GopherGetAttributeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherGetAttributeA(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszattributename: super::super::Foundation::PSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::core::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3073,7 +3073,7 @@ pub unsafe fn GopherGetAttributeA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GopherGetAttributeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherGetAttributeW(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszattributename: super::super::Foundation::PWSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::core::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3088,7 +3088,7 @@ pub unsafe fn GopherGetAttributeW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GopherGetLocatorTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlocator: Param0, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherGetLocatorTypeA(lpszlocator: super::super::Foundation::PSTR, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3103,7 +3103,7 @@ pub unsafe fn GopherGetLocatorTypeA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GopherGetLocatorTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszlocator: Param0, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherGetLocatorTypeW(lpszlocator: super::super::Foundation::PWSTR, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3118,7 +3118,7 @@ pub unsafe fn GopherGetLocatorTypeW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GopherOpenFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszview: Param2, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherOpenFileA(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszview: super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3133,7 +3133,7 @@ pub unsafe fn GopherOpenFileA<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GopherOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszview: Param2, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn GopherOpenFileW(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszview: super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3606,7 +3606,7 @@ pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = 3i32;
 pub unsafe fn HttpAddRequestHeadersA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrequest: *const ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpAddRequestHeadersA(hrequest: *const ::core::ffi::c_void, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL;
         }
@@ -3621,7 +3621,7 @@ pub unsafe fn HttpAddRequestHeadersA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn HttpAddRequestHeadersW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *const ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpAddRequestHeadersW(hrequest: *const ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL;
         }
@@ -3636,7 +3636,7 @@ pub unsafe fn HttpAddRequestHeadersW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn HttpCheckDavComplianceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, lpszcompliancetoken: Param1, lpffound: *mut i32, hwnd: Param3, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpCheckDavComplianceA(lpszurl: super::super::Foundation::PSTR, lpszcompliancetoken: super::super::Foundation::PSTR, lpffound: *mut i32, hwnd: super::super::Foundation::HWND, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -3651,7 +3651,7 @@ pub unsafe fn HttpCheckDavComplianceA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn HttpCheckDavComplianceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, lpszcompliancetoken: Param1, lpffound: *mut i32, hwnd: Param3, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpCheckDavComplianceW(lpszurl: super::super::Foundation::PWSTR, lpszcompliancetoken: super::super::Foundation::PWSTR, lpffound: *mut i32, hwnd: super::super::Foundation::HWND, lpvreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -3665,7 +3665,7 @@ pub unsafe fn HttpCheckDavComplianceW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void);
         }
@@ -3679,7 +3679,7 @@ pub unsafe fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c
 pub unsafe fn HttpDuplicateDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void, phduplicateddependencyhandle: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpDuplicateDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void, phduplicateddependencyhandle: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -3694,7 +3694,7 @@ pub unsafe fn HttpDuplicateDependencyHandle(hdependencyhandle: *const ::core::ff
 pub unsafe fn HttpEndRequestA(hrequest: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpEndRequestA(hrequest: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3709,7 +3709,7 @@ pub unsafe fn HttpEndRequestA(hrequest: *const ::core::ffi::c_void, lpbuffersout
 pub unsafe fn HttpEndRequestW(hrequest: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpEndRequestW(hrequest: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3724,7 +3724,7 @@ pub unsafe fn HttpEndRequestW(hrequest: *const ::core::ffi::c_void, lpbuffersout
 pub unsafe fn HttpGetServerCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszusername: *mut super::super::Foundation::PWSTR, ppwszpassword: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpGetServerCredentials(pwszurl: super::super::Foundation::PWSTR, ppwszusername: *mut super::super::Foundation::PWSTR, ppwszpassword: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -3738,7 +3738,7 @@ pub unsafe fn HttpGetServerCredentials<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn HttpIndicatePageLoadComplete(hdependencyhandle: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpIndicatePageLoadComplete(hdependencyhandle: *const ::core::ffi::c_void) -> u32;
         }
@@ -3753,7 +3753,7 @@ pub unsafe fn HttpIndicatePageLoadComplete(hdependencyhandle: *const ::core::ffi
 pub unsafe fn HttpIsHostHstsEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pfishsts: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpIsHostHstsEnabled(pcwszurl: super::super::Foundation::PWSTR, pfishsts: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -3768,7 +3768,7 @@ pub unsafe fn HttpIsHostHstsEnabled<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn HttpOpenDependencyHandle<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrequesthandle: *const ::core::ffi::c_void, fbackground: Param1, phdependencyhandle: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpOpenDependencyHandle(hrequesthandle: *const ::core::ffi::c_void, fbackground: super::super::Foundation::BOOL, phdependencyhandle: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -3783,7 +3783,7 @@ pub unsafe fn HttpOpenDependencyHandle<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszverb: Param1, lpszobjectname: Param2, lpszversion: Param3, lpszreferrer: Param4, lplpszaccepttypes: *const super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpOpenRequestA(hconnect: *const ::core::ffi::c_void, lpszverb: super::super::Foundation::PSTR, lpszobjectname: super::super::Foundation::PSTR, lpszversion: super::super::Foundation::PSTR, lpszreferrer: super::super::Foundation::PSTR, lplpszaccepttypes: *const super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3798,7 +3798,7 @@ pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HttpOpenRequestW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszverb: Param1, lpszobjectname: Param2, lpszversion: Param3, lpszreferrer: Param4, lplpszaccepttypes: *const super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpOpenRequestW(hconnect: *const ::core::ffi::c_void, lpszverb: super::super::Foundation::PWSTR, lpszobjectname: super::super::Foundation::PWSTR, lpszversion: super::super::Foundation::PWSTR, lpszreferrer: super::super::Foundation::PWSTR, lplpszaccepttypes: *const super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3812,7 +3812,7 @@ pub unsafe fn HttpOpenRequestW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HttpPushClose<'a, Param0: ::windows::core::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>>(hwait: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpPushClose(hwait: HTTP_PUSH_WAIT_HANDLE);
         }
@@ -3826,7 +3826,7 @@ pub unsafe fn HttpPushClose<'a, Param0: ::windows::core::IntoParam<'a, HTTP_PUSH
 pub unsafe fn HttpPushEnable(hrequest: *const ::core::ffi::c_void, ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING, phwait: *mut HTTP_PUSH_WAIT_HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpPushEnable(hrequest: *const ::core::ffi::c_void, ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING, phwait: *mut HTTP_PUSH_WAIT_HANDLE) -> u32;
         }
@@ -3841,7 +3841,7 @@ pub unsafe fn HttpPushEnable(hrequest: *const ::core::ffi::c_void, ptransportset
 pub unsafe fn HttpPushWait<'a, Param0: ::windows::core::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>>(hwait: Param0, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpPushWait(hwait: HTTP_PUSH_WAIT_HANDLE, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS) -> u32;
         }
@@ -3856,7 +3856,7 @@ pub unsafe fn HttpPushWait<'a, Param0: ::windows::core::IntoParam<'a, HTTP_PUSH_
 pub unsafe fn HttpQueryInfoA(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpQueryInfoA(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3871,7 +3871,7 @@ pub unsafe fn HttpQueryInfoA(hrequest: *const ::core::ffi::c_void, dwinfolevel: 
 pub unsafe fn HttpQueryInfoW(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpQueryInfoW(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3886,7 +3886,7 @@ pub unsafe fn HttpQueryInfoW(hrequest: *const ::core::ffi::c_void, dwinfolevel: 
 pub unsafe fn HttpSendRequestA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrequest: *const ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpSendRequestA(hrequest: *const ::core::ffi::c_void, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
         }
@@ -3901,7 +3901,7 @@ pub unsafe fn HttpSendRequestA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HttpSendRequestExA(hrequest: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpSendRequestExA(hrequest: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3916,7 +3916,7 @@ pub unsafe fn HttpSendRequestExA(hrequest: *const ::core::ffi::c_void, lpbuffers
 pub unsafe fn HttpSendRequestExW(hrequest: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpSendRequestExW(hrequest: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -3931,7 +3931,7 @@ pub unsafe fn HttpSendRequestExW(hrequest: *const ::core::ffi::c_void, lpbuffers
 pub unsafe fn HttpSendRequestW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *const ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpSendRequestW(hrequest: *const ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
         }
@@ -3946,7 +3946,7 @@ pub unsafe fn HttpSendRequestW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -3960,7 +3960,7 @@ pub unsafe fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatu
 pub unsafe fn HttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3975,7 +3975,7 @@ pub unsafe fn HttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void,
 pub unsafe fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3990,7 +3990,7 @@ pub unsafe fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_vo
 pub unsafe fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -4005,7 +4005,7 @@ pub unsafe fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuf
 pub unsafe fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -4020,7 +4020,7 @@ pub unsafe fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, bufferty
 pub unsafe fn HttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn HttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -6803,7 +6803,7 @@ pub const ISO_REGISTRY: u32 = 2u32;
 pub unsafe fn ImportCookieFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ImportCookieFileA(szfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -6818,7 +6818,7 @@ pub unsafe fn ImportCookieFileA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ImportCookieFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ImportCookieFileW(szfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -6871,7 +6871,7 @@ impl ::core::default::Default for IncomingCookieState {
 pub unsafe fn IncrementUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IncrementUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6886,7 +6886,7 @@ pub unsafe fn IncrementUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> supe
 pub unsafe fn InternalInternetGetCookie<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiedata: super::super::Foundation::PSTR, lpdwdatasize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternalInternetGetCookie(lpszurl: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwdatasize: *mut u32) -> u32;
         }
@@ -6901,7 +6901,7 @@ pub unsafe fn InternalInternetGetCookie<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn InternetAlgIdToStringA(ai: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetAlgIdToStringA(ai: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -6916,7 +6916,7 @@ pub unsafe fn InternetAlgIdToStringA(ai: u32, lpstr: super::super::Foundation::P
 pub unsafe fn InternetAlgIdToStringW(ai: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetAlgIdToStringW(ai: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -6930,7 +6930,7 @@ pub unsafe fn InternetAlgIdToStringW(ai: u32, lpstr: super::super::Foundation::P
 pub unsafe fn InternetAttemptConnect(dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetAttemptConnect(dwreserved: u32) -> u32;
         }
@@ -6945,7 +6945,7 @@ pub unsafe fn InternetAttemptConnect(dwreserved: u32) -> u32 {
 pub unsafe fn InternetAutodial<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwflags: INTERNET_AUTODIAL, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -6960,7 +6960,7 @@ pub unsafe fn InternetAutodial<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetAutodialHangup(dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetAutodialHangup(dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -6975,7 +6975,7 @@ pub unsafe fn InternetAutodialHangup(dwreserved: u32) -> super::super::Foundatio
 pub unsafe fn InternetCanonicalizeUrlA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCanonicalizeUrlA(lpszurl: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -6990,7 +6990,7 @@ pub unsafe fn InternetCanonicalizeUrlA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InternetCanonicalizeUrlW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCanonicalizeUrlW(lpszurl: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7005,7 +7005,7 @@ pub unsafe fn InternetCanonicalizeUrlW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InternetCheckConnectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCheckConnectionA(lpszurl: super::super::Foundation::PSTR, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7020,7 +7020,7 @@ pub unsafe fn InternetCheckConnectionA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InternetCheckConnectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCheckConnectionW(lpszurl: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7035,7 +7035,7 @@ pub unsafe fn InternetCheckConnectionW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InternetClearAllPerSiteCookieDecisions() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetClearAllPerSiteCookieDecisions() -> super::super::Foundation::BOOL;
         }
@@ -7050,7 +7050,7 @@ pub unsafe fn InternetClearAllPerSiteCookieDecisions() -> super::super::Foundati
 pub unsafe fn InternetCloseHandle(hinternet: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCloseHandle(hinternet: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -7065,7 +7065,7 @@ pub unsafe fn InternetCloseHandle(hinternet: *const ::core::ffi::c_void) -> supe
 pub unsafe fn InternetCombineUrlA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszbaseurl: Param0, lpszrelativeurl: Param1, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCombineUrlA(lpszbaseurl: super::super::Foundation::PSTR, lpszrelativeurl: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7080,7 +7080,7 @@ pub unsafe fn InternetCombineUrlA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn InternetCombineUrlW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszbaseurl: Param0, lpszrelativeurl: Param1, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCombineUrlW(lpszbaseurl: super::super::Foundation::PWSTR, lpszrelativeurl: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7095,7 +7095,7 @@ pub unsafe fn InternetCombineUrlW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn InternetConfirmZoneCrossing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConfirmZoneCrossing(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PSTR, szurlnew: super::super::Foundation::PSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
@@ -7110,7 +7110,7 @@ pub unsafe fn InternetConfirmZoneCrossing<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn InternetConfirmZoneCrossingA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConfirmZoneCrossingA(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PSTR, szurlnew: super::super::Foundation::PSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
@@ -7125,7 +7125,7 @@ pub unsafe fn InternetConfirmZoneCrossingA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn InternetConfirmZoneCrossingW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConfirmZoneCrossingW(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PWSTR, szurlnew: super::super::Foundation::PWSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
@@ -7140,7 +7140,7 @@ pub unsafe fn InternetConfirmZoneCrossingW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn InternetConnectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinternet: *const ::core::ffi::c_void, lpszservername: Param1, nserverport: u16, lpszusername: Param3, lpszpassword: Param4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConnectA(hinternet: *const ::core::ffi::c_void, lpszservername: super::super::Foundation::PSTR, nserverport: u16, lpszusername: super::super::Foundation::PSTR, lpszpassword: super::super::Foundation::PSTR, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -7155,7 +7155,7 @@ pub unsafe fn InternetConnectA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetConnectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::core::ffi::c_void, lpszservername: Param1, nserverport: u16, lpszusername: Param3, lpszpassword: Param4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConnectW(hinternet: *const ::core::ffi::c_void, lpszservername: super::super::Foundation::PWSTR, nserverport: u16, lpszusername: super::super::Foundation::PWSTR, lpszpassword: super::super::Foundation::PWSTR, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -7170,7 +7170,7 @@ pub unsafe fn InternetConnectW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetConvertUrlFromWireToWideChar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pcszurl: Param0, cchurl: u32, pcwszbaseurl: Param2, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: Param5, dwcodepageextra: u32, ppwszconvertedurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetConvertUrlFromWireToWideChar(pcszurl: super::super::Foundation::PSTR, cchurl: u32, pcwszbaseurl: super::super::Foundation::PWSTR, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: super::super::Foundation::BOOL, dwcodepageextra: u32, ppwszconvertedurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -7236,7 +7236,7 @@ pub const COOKIE_STATE_MAX: InternetCookieState = 5i32;
 pub unsafe fn InternetCrackUrlA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCrackUrlA(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSA) -> super::super::Foundation::BOOL;
         }
@@ -7251,7 +7251,7 @@ pub unsafe fn InternetCrackUrlA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn InternetCrackUrlW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCrackUrlW(lpszurl: super::super::Foundation::PWSTR, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSW) -> super::super::Foundation::BOOL;
         }
@@ -7266,7 +7266,7 @@ pub unsafe fn InternetCrackUrlW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn InternetCreateUrlA(lpurlcomponents: *const URL_COMPONENTSA, dwflags: u32, lpszurl: super::super::Foundation::PSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCreateUrlA(lpurlcomponents: *const URL_COMPONENTSA, dwflags: u32, lpszurl: super::super::Foundation::PSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7281,7 +7281,7 @@ pub unsafe fn InternetCreateUrlA(lpurlcomponents: *const URL_COMPONENTSA, dwflag
 pub unsafe fn InternetCreateUrlW(lpurlcomponents: *const URL_COMPONENTSW, dwflags: u32, lpszurl: super::super::Foundation::PWSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetCreateUrlW(lpurlcomponents: *const URL_COMPONENTSW, dwflags: u32, lpszurl: super::super::Foundation::PWSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7296,7 +7296,7 @@ pub unsafe fn InternetCreateUrlW(lpurlcomponents: *const URL_COMPONENTSW, dwflag
 pub unsafe fn InternetDial<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut u32, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetDial(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PSTR, dwflags: u32, lpdwconnection: *mut u32, dwreserved: u32) -> u32;
         }
@@ -7311,7 +7311,7 @@ pub unsafe fn InternetDial<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn InternetDialA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetDialA(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PSTR, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32;
         }
@@ -7326,7 +7326,7 @@ pub unsafe fn InternetDialA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn InternetDialW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetDialW(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PWSTR, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32;
         }
@@ -7341,7 +7341,7 @@ pub unsafe fn InternetDialW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn InternetEnumPerSiteCookieDecisionA(pszsitename: super::super::Foundation::PSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetEnumPerSiteCookieDecisionA(pszsitename: super::super::Foundation::PSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL;
         }
@@ -7356,7 +7356,7 @@ pub unsafe fn InternetEnumPerSiteCookieDecisionA(pszsitename: super::super::Foun
 pub unsafe fn InternetEnumPerSiteCookieDecisionW(pszsitename: super::super::Foundation::PWSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetEnumPerSiteCookieDecisionW(pszsitename: super::super::Foundation::PWSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL;
         }
@@ -7371,7 +7371,7 @@ pub unsafe fn InternetEnumPerSiteCookieDecisionW(pszsitename: super::super::Foun
 pub unsafe fn InternetErrorDlg<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, hrequest: *mut ::core::ffi::c_void, dwerror: u32, dwflags: u32, lppvdata: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetErrorDlg(hwnd: super::super::Foundation::HWND, hrequest: *mut ::core::ffi::c_void, dwerror: u32, dwflags: u32, lppvdata: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -7386,7 +7386,7 @@ pub unsafe fn InternetErrorDlg<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetFindNextFileA(hfind: *const ::core::ffi::c_void, lpvfinddata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetFindNextFileA(hfind: *const ::core::ffi::c_void, lpvfinddata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -7401,7 +7401,7 @@ pub unsafe fn InternetFindNextFileA(hfind: *const ::core::ffi::c_void, lpvfindda
 pub unsafe fn InternetFindNextFileW(hfind: *const ::core::ffi::c_void, lpvfinddata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetFindNextFileW(hfind: *const ::core::ffi::c_void, lpvfinddata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -7416,7 +7416,7 @@ pub unsafe fn InternetFindNextFileW(hfind: *const ::core::ffi::c_void, lpvfindda
 pub unsafe fn InternetFortezzaCommand<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwcommand: u32, hwnd: Param1, dwreserved: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetFortezzaCommand(dwcommand: u32, hwnd: super::super::Foundation::HWND, dwreserved: usize) -> super::super::Foundation::BOOL;
         }
@@ -7431,7 +7431,7 @@ pub unsafe fn InternetFortezzaCommand<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount: u32);
         }
@@ -7446,7 +7446,7 @@ pub unsafe fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount
 pub unsafe fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_LIST);
         }
@@ -7461,7 +7461,7 @@ pub unsafe fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_
 pub unsafe fn InternetGetConnectedState(lpdwflags: *mut INTERNET_CONNECTION, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetConnectedState(lpdwflags: *mut INTERNET_CONNECTION, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7476,7 +7476,7 @@ pub unsafe fn InternetGetConnectedState(lpdwflags: *mut INTERNET_CONNECTION, dwr
 pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, dwnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetConnectedStateEx(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, dwnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7491,7 +7491,7 @@ pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut INTERNET_CONNECTION, l
 pub unsafe fn InternetGetConnectedStateExA(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetConnectedStateExA(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7506,7 +7506,7 @@ pub unsafe fn InternetGetConnectedStateExA(lpdwflags: *mut INTERNET_CONNECTION, 
 pub unsafe fn InternetGetConnectedStateExW(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PWSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetConnectedStateExW(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PWSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7521,7 +7521,7 @@ pub unsafe fn InternetGetConnectedStateExW(lpdwflags: *mut INTERNET_CONNECTION, 
 pub unsafe fn InternetGetCookieA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetCookieA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7536,7 +7536,7 @@ pub unsafe fn InternetGetCookieA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn InternetGetCookieEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pcwszcookiename: Param1, dwflags: u32, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetCookieEx2(pcwszurl: super::super::Foundation::PWSTR, pcwszcookiename: super::super::Foundation::PWSTR, dwflags: u32, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: *mut u32) -> u32;
         }
@@ -7551,7 +7551,7 @@ pub unsafe fn InternetGetCookieEx2<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetGetCookieExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetCookieExA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -7566,7 +7566,7 @@ pub unsafe fn InternetGetCookieExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetGetCookieExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetCookieExW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -7581,7 +7581,7 @@ pub unsafe fn InternetGetCookieExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetGetCookieW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetCookieW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7596,7 +7596,7 @@ pub unsafe fn InternetGetCookieW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn InternetGetLastResponseInfoA(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetLastResponseInfoA(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7611,7 +7611,7 @@ pub unsafe fn InternetGetLastResponseInfoA(lpdwerror: *mut u32, lpszbuffer: supe
 pub unsafe fn InternetGetLastResponseInfoW(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetLastResponseInfoW(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7626,7 +7626,7 @@ pub unsafe fn InternetGetLastResponseInfoW(lpdwerror: *mut u32, lpszbuffer: supe
 pub unsafe fn InternetGetPerSiteCookieDecisionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pchhostname: Param0, presult: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, presult: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7641,7 +7641,7 @@ pub unsafe fn InternetGetPerSiteCookieDecisionA<'a, Param0: ::windows::core::Int
 pub unsafe fn InternetGetPerSiteCookieDecisionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pchhostname: Param0, presult: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, presult: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7656,7 +7656,7 @@ pub unsafe fn InternetGetPerSiteCookieDecisionW<'a, Param0: ::windows::core::Int
 pub unsafe fn InternetGetProxyForUrl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::core::ffi::c_void, pcwszurl: Param1, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetProxyForUrl(hinternet: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32;
         }
@@ -7671,7 +7671,7 @@ pub unsafe fn InternetGetProxyForUrl<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn InternetGetSecurityInfoByURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7686,7 +7686,7 @@ pub unsafe fn InternetGetSecurityInfoByURL<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn InternetGetSecurityInfoByURLA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetSecurityInfoByURLA(lpszurl: super::super::Foundation::PSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7701,7 +7701,7 @@ pub unsafe fn InternetGetSecurityInfoByURLA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn InternetGetSecurityInfoByURLW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGetSecurityInfoByURLW(lpszurl: super::super::Foundation::PWSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7716,7 +7716,7 @@ pub unsafe fn InternetGetSecurityInfoByURLW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn InternetGoOnline<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGoOnline(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7731,7 +7731,7 @@ pub unsafe fn InternetGoOnline<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetGoOnlineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGoOnlineA(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7746,7 +7746,7 @@ pub unsafe fn InternetGoOnlineA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn InternetGoOnlineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetGoOnlineW(lpszurl: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -7760,7 +7760,7 @@ pub unsafe fn InternetGoOnlineW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn InternetHangUp(dwconnection: usize, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetHangUp(dwconnection: usize, dwreserved: u32) -> u32;
         }
@@ -7775,7 +7775,7 @@ pub unsafe fn InternetHangUp(dwconnection: usize, dwreserved: u32) -> u32 {
 pub unsafe fn InternetInitializeAutoProxyDll(dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetInitializeAutoProxyDll(dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7790,7 +7790,7 @@ pub unsafe fn InternetInitializeAutoProxyDll(dwreserved: u32) -> super::super::F
 pub unsafe fn InternetLockRequestFile(hinternet: *const ::core::ffi::c_void, lphlockrequestinfo: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetLockRequestFile(hinternet: *const ::core::ffi::c_void, lphlockrequestinfo: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -7805,7 +7805,7 @@ pub unsafe fn InternetLockRequestFile(hinternet: *const ::core::ffi::c_void, lph
 pub unsafe fn InternetOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszagent: Param0, dwaccesstype: u32, lpszproxy: Param2, lpszproxybypass: Param3, dwflags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetOpenA(lpszagent: super::super::Foundation::PSTR, dwaccesstype: u32, lpszproxy: super::super::Foundation::PSTR, lpszproxybypass: super::super::Foundation::PSTR, dwflags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -7820,7 +7820,7 @@ pub unsafe fn InternetOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn InternetOpenUrlA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinternet: *const ::core::ffi::c_void, lpszurl: Param1, lpszheaders: Param2, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetOpenUrlA(hinternet: *const ::core::ffi::c_void, lpszurl: super::super::Foundation::PSTR, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -7835,7 +7835,7 @@ pub unsafe fn InternetOpenUrlA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetOpenUrlW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::core::ffi::c_void, lpszurl: Param1, lpszheaders: Param2, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetOpenUrlW(hinternet: *const ::core::ffi::c_void, lpszurl: super::super::Foundation::PWSTR, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void;
         }
@@ -7850,7 +7850,7 @@ pub unsafe fn InternetOpenUrlW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn InternetOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszagent: Param0, dwaccesstype: u32, lpszproxy: Param2, lpszproxybypass: Param3, dwflags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetOpenW(lpszagent: super::super::Foundation::PWSTR, dwaccesstype: u32, lpszproxy: super::super::Foundation::PWSTR, lpszproxybypass: super::super::Foundation::PWSTR, dwflags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -7865,7 +7865,7 @@ pub unsafe fn InternetOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn InternetQueryDataAvailable(hfile: *const ::core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetQueryDataAvailable(hfile: *const ::core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -7880,7 +7880,7 @@ pub unsafe fn InternetQueryDataAvailable(hfile: *const ::core::ffi::c_void, lpdw
 pub unsafe fn InternetQueryFortezzaStatus(pdwstatus: *mut u32, dwreserved: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetQueryFortezzaStatus(pdwstatus: *mut u32, dwreserved: usize) -> super::super::Foundation::BOOL;
         }
@@ -7895,7 +7895,7 @@ pub unsafe fn InternetQueryFortezzaStatus(pdwstatus: *mut u32, dwreserved: usize
 pub unsafe fn InternetQueryOptionA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetQueryOptionA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7910,7 +7910,7 @@ pub unsafe fn InternetQueryOptionA(hinternet: *const ::core::ffi::c_void, dwopti
 pub unsafe fn InternetQueryOptionW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetQueryOptionW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7925,7 +7925,7 @@ pub unsafe fn InternetQueryOptionW(hinternet: *const ::core::ffi::c_void, dwopti
 pub unsafe fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -7940,7 +7940,7 @@ pub unsafe fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: *mut
 pub unsafe fn InternetReadFileExA(hfile: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetReadFileExA(hfile: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -7955,7 +7955,7 @@ pub unsafe fn InternetReadFileExA(hfile: *const ::core::ffi::c_void, lpbuffersou
 pub unsafe fn InternetReadFileExW(hfile: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetReadFileExW(hfile: *const ::core::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -7970,7 +7970,7 @@ pub unsafe fn InternetReadFileExW(hfile: *const ::core::ffi::c_void, lpbuffersou
 pub unsafe fn InternetSecurityProtocolToStringA(dwprotocol: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSecurityProtocolToStringA(dwprotocol: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -7985,7 +7985,7 @@ pub unsafe fn InternetSecurityProtocolToStringA(dwprotocol: u32, lpstr: super::s
 pub unsafe fn InternetSecurityProtocolToStringW(dwprotocol: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSecurityProtocolToStringW(dwprotocol: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8000,7 +8000,7 @@ pub unsafe fn InternetSecurityProtocolToStringW(dwprotocol: u32, lpstr: super::s
 pub unsafe fn InternetSetCookieA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetCookieA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -8015,7 +8015,7 @@ pub unsafe fn InternetSetCookieA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn InternetSetCookieEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: Param2, dwflags: u32, pdwcookiestate: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetCookieEx2(pcwszurl: super::super::Foundation::PWSTR, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: super::super::Foundation::PWSTR, dwflags: u32, pdwcookiestate: *mut u32) -> u32;
         }
@@ -8030,7 +8030,7 @@ pub unsafe fn InternetSetCookieEx2<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetSetCookieExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, dwflags: u32, dwreserved: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetCookieExA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, dwflags: u32, dwreserved: usize) -> u32;
         }
@@ -8045,7 +8045,7 @@ pub unsafe fn InternetSetCookieExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetSetCookieExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, dwflags: u32, dwreserved: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetCookieExW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize) -> u32;
         }
@@ -8060,7 +8060,7 @@ pub unsafe fn InternetSetCookieExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetSetCookieW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetCookieW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -8075,7 +8075,7 @@ pub unsafe fn InternetSetCookieW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn InternetSetDialState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetDialState(lpszconnectoid: super::super::Foundation::PSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8090,7 +8090,7 @@ pub unsafe fn InternetSetDialState<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn InternetSetDialStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetDialStateA(lpszconnectoid: super::super::Foundation::PSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8105,7 +8105,7 @@ pub unsafe fn InternetSetDialStateA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn InternetSetDialStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetDialStateW(lpszconnectoid: super::super::Foundation::PWSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8119,7 +8119,7 @@ pub unsafe fn InternetSetDialStateW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn InternetSetFilePointer(hfile: *const ::core::ffi::c_void, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: u32, dwcontext: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetFilePointer(hfile: *const ::core::ffi::c_void, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: u32, dwcontext: usize) -> u32;
         }
@@ -8134,7 +8134,7 @@ pub unsafe fn InternetSetFilePointer(hfile: *const ::core::ffi::c_void, ldistanc
 pub unsafe fn InternetSetOptionA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetOptionA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -8149,7 +8149,7 @@ pub unsafe fn InternetSetOptionA(hinternet: *const ::core::ffi::c_void, dwoption
 pub unsafe fn InternetSetOptionExA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetOptionExA(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -8164,7 +8164,7 @@ pub unsafe fn InternetSetOptionExA(hinternet: *const ::core::ffi::c_void, dwopti
 pub unsafe fn InternetSetOptionExW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetOptionExW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -8179,7 +8179,7 @@ pub unsafe fn InternetSetOptionExW(hinternet: *const ::core::ffi::c_void, dwopti
 pub unsafe fn InternetSetOptionW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetOptionW(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -8194,7 +8194,7 @@ pub unsafe fn InternetSetOptionW(hinternet: *const ::core::ffi::c_void, dwoption
 pub unsafe fn InternetSetPerSiteCookieDecisionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pchhostname: Param0, dwdecision: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
         }
@@ -8209,7 +8209,7 @@ pub unsafe fn InternetSetPerSiteCookieDecisionA<'a, Param0: ::windows::core::Int
 pub unsafe fn InternetSetPerSiteCookieDecisionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pchhostname: Param0, dwdecision: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
         }
@@ -8223,7 +8223,7 @@ pub unsafe fn InternetSetPerSiteCookieDecisionW<'a, Param0: ::windows::core::Int
 pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
@@ -8237,7 +8237,7 @@ pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, l
 pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
@@ -8251,7 +8251,7 @@ pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, 
 pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
@@ -8266,7 +8266,7 @@ pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, 
 pub unsafe fn InternetShowSecurityInfoByURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetShowSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -8281,7 +8281,7 @@ pub unsafe fn InternetShowSecurityInfoByURL<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn InternetShowSecurityInfoByURLA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetShowSecurityInfoByURLA(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -8296,7 +8296,7 @@ pub unsafe fn InternetShowSecurityInfoByURLA<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn InternetShowSecurityInfoByURLW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetShowSecurityInfoByURLW(lpszurl: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -8311,7 +8311,7 @@ pub unsafe fn InternetShowSecurityInfoByURLW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn InternetTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
@@ -8326,7 +8326,7 @@ pub unsafe fn InternetTimeFromSystemTime(pst: *const super::super::Foundation::S
 pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
@@ -8341,7 +8341,7 @@ pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::
 pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PWSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PWSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
@@ -8356,7 +8356,7 @@ pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::
 pub unsafe fn InternetTimeToSystemTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeToSystemTime(lpsztime: super::super::Foundation::PSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8371,7 +8371,7 @@ pub unsafe fn InternetTimeToSystemTime<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InternetTimeToSystemTimeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeToSystemTimeA(lpsztime: super::super::Foundation::PSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8386,7 +8386,7 @@ pub unsafe fn InternetTimeToSystemTimeA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn InternetTimeToSystemTimeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetTimeToSystemTimeW(lpsztime: super::super::Foundation::PWSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8401,7 +8401,7 @@ pub unsafe fn InternetTimeToSystemTimeW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn InternetUnlockRequestFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlockrequestinfo: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetUnlockRequestFile(hlockrequestinfo: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -8416,7 +8416,7 @@ pub unsafe fn InternetUnlockRequestFile<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -8431,7 +8431,7 @@ pub unsafe fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: *co
 pub unsafe fn InternetWriteFileExA(hfile: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetWriteFileExA(hfile: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -8446,7 +8446,7 @@ pub unsafe fn InternetWriteFileExA(hfile: *const ::core::ffi::c_void, lpbuffersi
 pub unsafe fn InternetWriteFileExW(hfile: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn InternetWriteFileExW(hfile: *const ::core::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
@@ -8461,7 +8461,7 @@ pub unsafe fn InternetWriteFileExW(hfile: *const ::core::ffi::c_void, lpbuffersi
 pub unsafe fn IsDomainLegalCookieDomainA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pchdomain: Param0, pchfulldomain: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsDomainLegalCookieDomainA(pchdomain: super::super::Foundation::PSTR, pchfulldomain: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -8476,7 +8476,7 @@ pub unsafe fn IsDomainLegalCookieDomainA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn IsDomainLegalCookieDomainW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pchdomain: Param0, pchfulldomain: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsDomainLegalCookieDomainW(pchdomain: super::super::Foundation::PWSTR, pchfulldomain: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -8491,7 +8491,7 @@ pub unsafe fn IsDomainLegalCookieDomainW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn IsHostInProxyBypassList<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(tscheme: INTERNET_SCHEME, lpszhost: Param1, cchhost: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: super::super::Foundation::PSTR, cchhost: u32) -> super::super::Foundation::BOOL;
         }
@@ -8506,7 +8506,7 @@ pub unsafe fn IsHostInProxyBypassList<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn IsProfilesEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsProfilesEnabled() -> super::super::Foundation::BOOL;
         }
@@ -8521,7 +8521,7 @@ pub unsafe fn IsProfilesEnabled() -> super::super::Foundation::BOOL {
 pub unsafe fn IsUrlCacheEntryExpiredA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsUrlCacheEntryExpiredA(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
@@ -8536,7 +8536,7 @@ pub unsafe fn IsUrlCacheEntryExpiredA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn IsUrlCacheEntryExpiredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn IsUrlCacheEntryExpiredW(lpszurlname: super::super::Foundation::PWSTR, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
@@ -8553,7 +8553,7 @@ pub type LPINTERNET_STATUS_CALLBACK = ::core::option::Option<unsafe extern "syst
 pub unsafe fn LoadUrlCacheContent() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn LoadUrlCacheContent() -> super::super::Foundation::BOOL;
         }
@@ -8675,7 +8675,7 @@ pub const PROXY_TYPE_PROXY: u32 = 2u32;
 pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: super::super::Foundation::PSTR, lpdwlistboxentry: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: super::super::Foundation::PSTR, lpdwlistboxentry: *mut u32) -> u32;
         }
@@ -8690,7 +8690,7 @@ pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbce
 pub unsafe fn PerformOperationOverUrlCacheA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn PerformOperationOverUrlCacheA(pszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -8705,7 +8705,7 @@ pub unsafe fn PerformOperationOverUrlCacheA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *mut u32, pszbuffer: super::super::Foundation::PWSTR, pdwbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *mut u32, pszbuffer: super::super::Foundation::PWSTR, pdwbufferlength: *mut u32) -> u32;
         }
@@ -8720,7 +8720,7 @@ pub unsafe fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *
 pub unsafe fn PrivacySetZonePreferenceW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn PrivacySetZonePreferenceW(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8789,7 +8789,7 @@ pub const HttpRequestTimeMax: REQUEST_TIMES = 32i32;
 pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR, pppbstrnetworknames: *mut *mut super::super::Foundation::BSTR, pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR, pppbstrnetworknames: *mut *mut super::super::Foundation::BSTR, pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -8804,7 +8804,7 @@ pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkg
 pub unsafe fn ReadUrlCacheEntryStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, dwlocation: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwlen: *mut u32, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ReadUrlCacheEntryStream(hurlcachestream: super::super::Foundation::HANDLE, dwlocation: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwlen: *mut u32, reserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8819,7 +8819,7 @@ pub unsafe fn ReadUrlCacheEntryStream<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ReadUrlCacheEntryStreamEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, qwlocation: u64, lpbuffer: *mut ::core::ffi::c_void, lpdwlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ReadUrlCacheEntryStreamEx(hurlcachestream: super::super::Foundation::HANDLE, qwlocation: u64, lpbuffer: *mut ::core::ffi::c_void, lpdwlen: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -8834,7 +8834,7 @@ pub unsafe fn ReadUrlCacheEntryStreamEx<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RegisterUrlCacheNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, umsg: u32, gid: i64, dwopsfilter: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RegisterUrlCacheNotification(hwnd: super::super::Foundation::HWND, umsg: u32, gid: i64, dwopsfilter: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8849,7 +8849,7 @@ pub unsafe fn RegisterUrlCacheNotification<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ResumeSuspendedDownload(hrequest: *const ::core::ffi::c_void, dwresultcode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ResumeSuspendedDownload(hrequest: *const ::core::ffi::c_void, dwresultcode: u32) -> super::super::Foundation::BOOL;
         }
@@ -8864,7 +8864,7 @@ pub unsafe fn ResumeSuspendedDownload(hrequest: *const ::core::ffi::c_void, dwre
 pub unsafe fn RetrieveUrlCacheEntryFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RetrieveUrlCacheEntryFileA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8879,7 +8879,7 @@ pub unsafe fn RetrieveUrlCacheEntryFileA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RetrieveUrlCacheEntryFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RetrieveUrlCacheEntryFileW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8894,7 +8894,7 @@ pub unsafe fn RetrieveUrlCacheEntryFileW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RetrieveUrlCacheEntryStreamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, frandomread: Param3, dwreserved: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RetrieveUrlCacheEntryStreamA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, frandomread: super::super::Foundation::BOOL, dwreserved: u32) -> super::super::Foundation::HANDLE;
         }
@@ -8909,7 +8909,7 @@ pub unsafe fn RetrieveUrlCacheEntryStreamA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RetrieveUrlCacheEntryStreamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, frandomread: Param3, dwreserved: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RetrieveUrlCacheEntryStreamW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, frandomread: super::super::Foundation::BOOL, dwreserved: u32) -> super::super::Foundation::HANDLE;
         }
@@ -8924,7 +8924,7 @@ pub unsafe fn RetrieveUrlCacheEntryStreamW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RunOnceUrlCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, lpszcmd: Param2, ncmdshow: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn RunOnceUrlCache(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmd: super::super::Foundation::PSTR, ncmdshow: i32) -> u32;
         }
@@ -8981,7 +8981,7 @@ pub const STICKY_CACHE_ENTRY: u32 = 4u32;
 pub unsafe fn SetUrlCacheConfigInfoA(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheConfigInfoA(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
@@ -8996,7 +8996,7 @@ pub unsafe fn SetUrlCacheConfigInfoA(lpcacheconfiginfo: *const INTERNET_CACHE_CO
 pub unsafe fn SetUrlCacheConfigInfoW(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheConfigInfoW(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
@@ -9011,7 +9011,7 @@ pub unsafe fn SetUrlCacheConfigInfoW(lpcacheconfiginfo: *const INTERNET_CACHE_CO
 pub unsafe fn SetUrlCacheEntryGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheEntryGroup(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9026,7 +9026,7 @@ pub unsafe fn SetUrlCacheEntryGroup<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetUrlCacheEntryGroupA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheEntryGroupA(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9041,7 +9041,7 @@ pub unsafe fn SetUrlCacheEntryGroupA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetUrlCacheEntryGroupW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheEntryGroupW(lpszurlname: super::super::Foundation::PWSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9056,7 +9056,7 @@ pub unsafe fn SetUrlCacheEntryGroupW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetUrlCacheEntryInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheEntryInfoA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
@@ -9071,7 +9071,7 @@ pub unsafe fn SetUrlCacheEntryInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetUrlCacheEntryInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheEntryInfoW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
@@ -9086,7 +9086,7 @@ pub unsafe fn SetUrlCacheEntryInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9101,7 +9101,7 @@ pub unsafe fn SetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u
 pub unsafe fn SetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9116,7 +9116,7 @@ pub unsafe fn SetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u
 pub unsafe fn SetUrlCacheHeaderData(nidx: u32, dwdata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn SetUrlCacheHeaderData(nidx: u32, dwdata: u32) -> super::super::Foundation::BOOL;
         }
@@ -9131,7 +9131,7 @@ pub unsafe fn SetUrlCacheHeaderData(nidx: u32, dwdata: u32) -> super::super::Fou
 pub unsafe fn ShowClientAuthCerts<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ShowClientAuthCerts(hwndparent: super::super::Foundation::HWND) -> u32;
         }
@@ -9146,7 +9146,7 @@ pub unsafe fn ShowClientAuthCerts<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ShowSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, psecurityinfo: *const INTERNET_SECURITY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ShowSecurityInfo(hwndparent: super::super::Foundation::HWND, psecurityinfo: *const INTERNET_SECURITY_INFO) -> u32;
         }
@@ -9161,7 +9161,7 @@ pub unsafe fn ShowSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ShowX509EncodedCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, lpcert: *const u8, cbcert: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn ShowX509EncodedCertificate(hwndparent: super::super::Foundation::HWND, lpcert: *const u8, cbcert: u32) -> u32;
         }
@@ -9332,7 +9332,7 @@ impl ::core::default::Default for URL_COMPONENTSW {
 pub unsafe fn UnlockUrlCacheEntryFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UnlockUrlCacheEntryFile(lpszurlname: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -9347,7 +9347,7 @@ pub unsafe fn UnlockUrlCacheEntryFile<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UnlockUrlCacheEntryFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UnlockUrlCacheEntryFileA(lpszurlname: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -9362,7 +9362,7 @@ pub unsafe fn UnlockUrlCacheEntryFileA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn UnlockUrlCacheEntryFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UnlockUrlCacheEntryFileW(lpszurlname: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -9377,7 +9377,7 @@ pub unsafe fn UnlockUrlCacheEntryFileW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn UnlockUrlCacheEntryStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UnlockUrlCacheEntryStream(hurlcachestream: super::super::Foundation::HANDLE, reserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -9392,7 +9392,7 @@ pub unsafe fn UnlockUrlCacheEntryStream<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn UpdateUrlCacheContentPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sznewpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UpdateUrlCacheContentPath(sznewpath: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -9407,7 +9407,7 @@ pub unsafe fn UpdateUrlCacheContentPath<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn UrlCacheCheckEntriesExist(rgpwszurls: *const super::super::Foundation::PWSTR, centries: u32, rgfexist: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheCheckEntriesExist(rgpwszurls: *const super::super::Foundation::PWSTR, centries: u32, rgfexist: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -9421,7 +9421,7 @@ pub unsafe fn UrlCacheCheckEntriesExist(rgpwszurls: *const super::super::Foundat
 pub unsafe fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void);
         }
@@ -9436,7 +9436,7 @@ pub unsafe fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void) {
 pub unsafe fn UrlCacheContainerSetEntryMaximumAge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprefix: Param0, dwentrymaxage: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheContainerSetEntryMaximumAge(pwszprefix: super::super::Foundation::PWSTR, dwentrymaxage: u32) -> u32;
         }
@@ -9451,7 +9451,7 @@ pub unsafe fn UrlCacheContainerSetEntryMaximumAge<'a, Param0: ::windows::core::I
 pub unsafe fn UrlCacheCreateContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszname: Param0, pwszprefix: Param1, pwszdirectory: Param2, ulllimit: u64, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheCreateContainer(pwszname: super::super::Foundation::PWSTR, pwszprefix: super::super::Foundation::PWSTR, pwszdirectory: super::super::Foundation::PWSTR, ulllimit: u64, dwoptions: u32) -> u32;
         }
@@ -9466,7 +9466,7 @@ pub unsafe fn UrlCacheCreateContainer<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UrlCacheFindFirstEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprefix: Param0, dwflags: u32, dwfilter: u32, groupid: i64, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phfind: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheFindFirstEntry(pwszprefix: super::super::Foundation::PWSTR, dwflags: u32, dwfilter: u32, groupid: i64, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phfind: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -9481,7 +9481,7 @@ pub unsafe fn UrlCacheFindFirstEntry<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn UrlCacheFindNextEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfind: Param0, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheFindNextEntry(hfind: super::super::Foundation::HANDLE, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
         }
@@ -9496,7 +9496,7 @@ pub unsafe fn UrlCacheFindNextEntry<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO);
         }
@@ -9510,7 +9510,7 @@ pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) {
 pub unsafe fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
         }
@@ -9525,7 +9525,7 @@ pub unsafe fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32 
 pub unsafe fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut super::super::Foundation::PWSTR, pcdirectories: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut super::super::Foundation::PWSTR, pcdirectories: *mut u32) -> u32;
         }
@@ -9540,7 +9540,7 @@ pub unsafe fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut super::super:
 pub unsafe fn UrlCacheGetEntryInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::core::ffi::c_void, pcwszurl: Param1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheGetEntryInfo(happcache: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
         }
@@ -9554,7 +9554,7 @@ pub unsafe fn UrlCacheGetEntryInfo<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
         }
@@ -9568,7 +9568,7 @@ pub unsafe fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pull
 pub unsafe fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: *mut u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: *mut u64) -> u32;
         }
@@ -9582,7 +9582,7 @@ pub unsafe fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit:
 pub unsafe fn UrlCacheReadEntryStream(hurlcachestream: *const ::core::ffi::c_void, ulllocation: u64, pbuffer: *mut ::core::ffi::c_void, dwbufferlen: u32, pdwbufferlen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheReadEntryStream(hurlcachestream: *const ::core::ffi::c_void, ulllocation: u64, pbuffer: *mut ::core::ffi::c_void, dwbufferlen: u32, pdwbufferlen: *mut u32) -> u32;
         }
@@ -9596,7 +9596,7 @@ pub unsafe fn UrlCacheReadEntryStream(hurlcachestream: *const ::core::ffi::c_voi
 pub unsafe fn UrlCacheReloadSettings() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheReloadSettings() -> u32;
         }
@@ -9611,7 +9611,7 @@ pub unsafe fn UrlCacheReloadSettings() -> u32 {
 pub unsafe fn UrlCacheRetrieveEntryFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::core::ffi::c_void, pcwszurl: Param1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheRetrieveEntryFile(happcache: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -9626,7 +9626,7 @@ pub unsafe fn UrlCacheRetrieveEntryFile<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn UrlCacheRetrieveEntryStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(happcache: *const ::core::ffi::c_void, pcwszurl: Param1, frandomread: Param2, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheRetrieveEntryStream(happcache: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, frandomread: super::super::Foundation::BOOL, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -9640,7 +9640,7 @@ pub unsafe fn UrlCacheRetrieveEntryStream<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn UrlCacheServer() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheServer() -> u32;
         }
@@ -9654,7 +9654,7 @@ pub unsafe fn UrlCacheServer() -> u32 {
 pub unsafe fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: u64) -> u32;
         }
@@ -9669,7 +9669,7 @@ pub unsafe fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: 
 pub unsafe fn UrlCacheUpdateEntryExtraData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::core::ffi::c_void, pcwszurl: Param1, pbextradata: *const u8, cbextradata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "wininet", kind = "raw-dylib")]
         extern "system" {
             fn UrlCacheUpdateEntryExtraData(happcache: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pbextradata: *const u8, cbextradata: u32) -> u32;
         }

@@ -676,7 +676,7 @@ pub const CWCSTORAGENAME: u32 = 32u32;
 pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: Param5, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn CoGetInstanceFromFile(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: super::super::super::Foundation::PWSTR, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::HRESULT;
         }
@@ -691,7 +691,7 @@ pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::core::IntoParam<'a, :
 pub unsafe fn CoGetInstanceFromIStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, IStorage>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, pstg: Param4, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn CoGetInstanceFromIStorage(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, pstg: ::windows::core::RawPtr, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::HRESULT;
         }
@@ -705,7 +705,7 @@ pub unsafe fn CoGetInstanceFromIStorage<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn CoGetInterfaceAndReleaseStream<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>, T: ::windows::core::Interface>(pstm: Param0) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn CoGetInterfaceAndReleaseStream(pstm: ::windows::core::RawPtr, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -721,7 +721,7 @@ pub unsafe fn CoGetInterfaceAndReleaseStream<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::core::Result<ILockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn CreateILockBytesOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, pplkbyt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -737,7 +737,7 @@ pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::core::Result<super::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn CreateStreamOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -753,7 +753,7 @@ pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -768,7 +768,7 @@ pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: 
 pub unsafe fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -782,7 +782,7 @@ pub unsafe fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> 
 pub unsafe fn GetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn GetConvertStg(pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -796,7 +796,7 @@ pub unsafe fn GetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
 pub unsafe fn GetHGlobalFromILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn GetHGlobalFromILockBytes(plkbyt: ::windows::core::RawPtr, phglobal: *mut isize) -> ::windows::core::HRESULT;
         }
@@ -811,7 +811,7 @@ pub unsafe fn GetHGlobalFromILockBytes<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetHGlobalFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn GetHGlobalFromStream(pstm: ::windows::core::RawPtr, phglobal: *mut isize) -> ::windows::core::HRESULT;
         }
@@ -2026,7 +2026,7 @@ impl ::core::default::Default for OLESTREAMVTBL {
 pub unsafe fn OleConvertIStorageToOLESTREAM<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, lpolestream: *mut OLESTREAM) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn OleConvertIStorageToOLESTREAM(pstg: ::windows::core::RawPtr, lpolestream: *mut OLESTREAM) -> ::windows::core::HRESULT;
         }
@@ -2041,7 +2041,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn OleConvertIStorageToOLESTREAMEx(pstg: ::windows::core::RawPtr, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
         }
@@ -2055,7 +2055,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, Param0: ::windows::core::IntoP
 pub unsafe fn OleConvertOLESTREAMToIStorage<'a, Param1: ::windows::core::IntoParam<'a, IStorage>>(lpolestream: *mut OLESTREAM, pstg: Param1, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn OleConvertOLESTREAMToIStorage(lpolestream: *mut OLESTREAM, pstg: ::windows::core::RawPtr, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::HRESULT;
         }
@@ -2070,7 +2070,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, Param1: ::windows::core::IntoParam<'a, IStorage>>(polestm: *mut OLESTREAM, pstg: Param1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn OleConvertOLESTREAMToIStorageEx(polestm: *mut OLESTREAM, pstg: ::windows::core::RawPtr, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
         }
@@ -2541,7 +2541,7 @@ pub const PRSPEC_INVALID: u32 = 4294967295u32;
 pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(oszname: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn PropStgNameToFmtId(oszname: super::super::super::Foundation::PWSTR, pfmtid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2557,7 +2557,7 @@ pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2572,7 +2572,7 @@ pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Resul
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2586,7 +2586,7 @@ pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVA
 pub unsafe fn ReadClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn ReadClassStg(pstg: ::windows::core::RawPtr, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2601,7 +2601,7 @@ pub unsafe fn ReadClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>
 pub unsafe fn ReadClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn ReadClassStm(pstm: ::windows::core::RawPtr, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2617,7 +2617,7 @@ pub unsafe fn ReadClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::ISt
 pub unsafe fn ReadFmtUserTypeStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, pcf: *mut u16, lplpszusertype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn ReadFmtUserTypeStg(pstg: ::windows::core::RawPtr, pcf: *mut u16, lplpszusertype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2874,7 +2874,7 @@ pub const STGOPTIONS_VERSION: u32 = 1u32;
 pub unsafe fn SetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(pstg: Param0, fconvert: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn SetConvertStg(pstg: ::windows::core::RawPtr, fconvert: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -2889,7 +2889,7 @@ pub unsafe fn SetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
         }
@@ -2904,7 +2904,7 @@ pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE,
 pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: Param5, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
         }
@@ -2919,7 +2919,7 @@ pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::core::IntoParam
 pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2934,7 +2934,7 @@ pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgCreateDocfileOnILockBytes(plkbyt: ::windows::core::RawPtr, grfmode: STGM, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2949,7 +2949,7 @@ pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn StgCreatePropSetStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstorage: Param0, dwreserved: u32) -> ::windows::core::Result<IPropertySetStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgCreatePropSetStg(pstorage: ::windows::core::RawPtr, dwreserved: u32, pppropsetstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2964,7 +2964,7 @@ pub unsafe fn StgCreatePropSetStg<'a, Param0: ::windows::core::IntoParam<'a, ISt
 pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgCreatePropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2980,7 +2980,7 @@ pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2995,7 +2995,7 @@ pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "propsys", kind = "raw-dylib")]
         extern "system" {
             fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3011,7 +3011,7 @@ pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, c
 pub unsafe fn StgGetIFillLockBytesOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::core::Result<IFillLockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgGetIFillLockBytesOnFile(pwcsname: super::super::super::Foundation::PWSTR, ppflb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3026,7 +3026,7 @@ pub unsafe fn StgGetIFillLockBytesOnFile<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(pilb: Param0) -> ::windows::core::Result<IFillLockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgGetIFillLockBytesOnILockBytes(pilb: ::windows::core::RawPtr, ppflb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3042,7 +3042,7 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, Param0: ::windows::core::Into
 pub unsafe fn StgIsStorageFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgIsStorageFile(pwcsname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -3056,7 +3056,7 @@ pub unsafe fn StgIsStorageFile<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StgIsStorageILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgIsStorageILockBytes(plkbyt: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3070,7 +3070,7 @@ pub unsafe fn StgIsStorageILockBytes<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, Param0: ::windows::core::IntoParam<'a, IFillLockBytes>>(pflb: Param0, grfmode: u32, asyncflags: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: ::windows::core::RawPtr, grfmode: u32, asyncflags: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3086,7 +3086,7 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, Param0: ::windows::core::I
 pub unsafe fn StgOpenLayoutDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsdfname: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "dflayout", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenLayoutDocfile(pwcsdfname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3101,7 +3101,7 @@ pub unsafe fn StgOpenLayoutDocfile<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, fmtid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenPropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3117,7 +3117,7 @@ pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::core::IntoParam<'a, ::window
 pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(pwcsname: Param0, pstgpriority: Param1, grfmode: STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: ::windows::core::RawPtr, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3133,7 +3133,7 @@ pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3147,7 +3147,7 @@ pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StgOpenStorageOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>, Param1: ::windows::core::IntoParam<'a, IStorage>>(plkbyt: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgOpenStorageOnILockBytes(plkbyt: ::windows::core::RawPtr, pstgpriority: ::windows::core::RawPtr, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3162,7 +3162,7 @@ pub unsafe fn StgOpenStorageOnILockBytes<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
         }
@@ -3177,7 +3177,7 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, 
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "propsys", kind = "raw-dylib")]
         extern "system" {
             fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -3192,7 +3192,7 @@ pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut
 pub unsafe fn StgSetTimes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszname: Param0, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn StgSetTimes(lpszname: super::super::super::Foundation::PWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -3231,7 +3231,7 @@ impl ::core::default::Default for VERSIONEDSTREAM {
 pub unsafe fn WriteClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn WriteClassStg(pstg: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -3245,7 +3245,7 @@ pub unsafe fn WriteClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
 pub unsafe fn WriteClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn WriteClassStm(pstm: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -3260,7 +3260,7 @@ pub unsafe fn WriteClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IS
 pub unsafe fn WriteFmtUserTypeStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pstg: Param0, cf: u16, lpszusertype: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "ole32", kind = "raw-dylib")]
         extern "system" {
             fn WriteFmtUserTypeStg(pstg: ::windows::core::RawPtr, cf: u16, lpszusertype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

@@ -85,7 +85,7 @@ pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 pub unsafe fn D3DCompile<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, pentrypoint: Param5, ptarget: Param6, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCompile(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -100,7 +100,7 @@ pub unsafe fn D3DCompile<'a, Param2: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, pentrypoint: Param5, ptarget: Param6, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: *const ::core::ffi::c_void, secondarydatasize: usize, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCompile2(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: *const ::core::ffi::c_void, secondarydatasize: usize, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -131,7 +131,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pfilename: Param0, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param2, pentrypoint: Param3, ptarget: Param4, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCompileFromFile(pfilename: super::super::super::Foundation::PWSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -145,7 +145,7 @@ pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -160,7 +160,7 @@ pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADE
 pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCreateBlob(size: usize, ppblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -176,7 +176,7 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::core::Result<super::ID3DB
 pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::core::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCreateFunctionLinkingGraph(uflags: u32, ppfunctionlinkinggraph: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -192,7 +192,7 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::core::Res
 pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3D11::ID3D11Linker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DCreateLinker(pplinker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -207,7 +207,7 @@ pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3
 pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::core::option::Option<super::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::windows::core::RawPtr, ptotalshaders: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -222,7 +222,7 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdata
 pub unsafe fn D3DDisassemble<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DDisassemble(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -238,7 +238,7 @@ pub unsafe fn D3DDisassemble<'a, Param3: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Direct3D10::ID3D10Effect>>(peffect: Param0, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DDisassemble10Effect(peffect: ::windows::core::RawPtr, flags: u32, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -254,7 +254,7 @@ pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DDisassembleRegion(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -268,7 +268,7 @@ pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::core::IntoParam<'a, su
 pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, pppart: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -283,7 +283,7 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
 pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppdebuginfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -298,7 +298,7 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize:
 pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -313,7 +313,7 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_
 pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -328,7 +328,7 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, src
 pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -343,7 +343,7 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, sr
 pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -358,7 +358,7 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void
 pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize) -> ::windows::core::Result<super::super::Direct3D11::ID3D11Module> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize, ppmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -374,7 +374,7 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize:
 pub unsafe fn D3DPreprocess<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DPreprocess(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, ppcodetext: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -389,7 +389,7 @@ pub unsafe fn D3DPreprocess<'a, Param2: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pfilename: Param0) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DReadFileToBlob(pfilename: super::super::super::Foundation::PWSTR, ppcontents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -404,7 +404,7 @@ pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -418,7 +418,7 @@ pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usiz
 pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -432,7 +432,7 @@ pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasiz
 pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize, ppnewshader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -447,7 +447,7 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
 pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32, ppstrippedblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -463,7 +463,7 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, byteco
 pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::core::IntoParam<'a, super::ID3DBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(pblob: Param0, pfilename: Param1, boverwrite: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "d3dcompiler_47", kind = "raw-dylib")]
         extern "system" {
             fn D3DWriteBlobToFile(pblob: ::windows::core::RawPtr, pfilename: super::super::super::Foundation::PWSTR, boverwrite: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }

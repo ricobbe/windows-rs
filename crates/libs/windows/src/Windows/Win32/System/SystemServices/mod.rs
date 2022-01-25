@@ -14443,7 +14443,7 @@ pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = 3i32;
 pub unsafe fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[link(name = "user32", kind = "raw-dylib")]
         extern "system" {
             fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
