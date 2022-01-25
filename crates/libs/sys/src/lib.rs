@@ -2,6 +2,7 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
+#![feature(raw_dylib)]
 #![no_std]
 #![doc(html_no_source)]
 

@@ -85,11 +85,14 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
             if gen.namespace.starts_with("Windows.") {
-                quote! { #[link(name = "windows")] }
+                // used heavily
+                let link = def.impl_map().expect("Function").scope().name().to_lowercase();
+                quote! { #[link(name = #link, kind = "raw-dylib")] }
             } else {
+                // used in a few places; appears to get the DLL name right automatically
                 let link = def.impl_map().expect("Function").scope().name().to_lowercase();
 
-                quote! { #[link(name = #link)] }
+                quote! { #[link(name = #link, kind = "raw-dylib")] }
             }
         }
     };
