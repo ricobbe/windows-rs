@@ -1,23 +1,29 @@
+use std::collections::HashMap;
 use super::*;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
-        let mut tokens = quote! {};
+        // the keys in this HashMap are the libraries from which the various functions
+        // are imported.  The corresponding values are non-empty TokenStreams that contain
+        // the declarations of the functions imported from those libraries.
+        let mut tokens_by_library: HashMap<String, TokenStream> = HashMap::new();
 
         for entry in tree.types.values() {
-            tokens.combine(&gen_function_if(entry, gen));
+            gen_function_if(&mut tokens_by_library, entry, gen);
         }
 
-        if !tokens.is_empty() {
-            quote! {
-                #[link(name = "windows")]
-                extern "system" {
-                    #tokens
+        let mut tokens = quote! {};
+        for (library, lib_tokens) in tokens_by_library {
+            tokens.combine(
+                &quote! {
+                    #[link(name = #library, kind = "raw-dylib")]
+                    extern "system" {
+                        #lib_tokens
+                    }
                 }
-            }
-        } else {
-            quote! {}
+            );
         }
+        tokens
     } else {
         quote! {}
     }
@@ -38,16 +44,14 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_function_if(entry: &TypeEntry, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
+fn gen_function_if(tokens_by_library: &mut HashMap<String, TokenStream>, entry: &TypeEntry, gen: &Gen) {
     for def in &entry.def {
         if let ElementType::MethodDef(def) = def {
-            tokens.combine(&gen_sys_function(def, gen));
+            tokens_by_library.entry(def.impl_map().expect("Function").scope().name().to_lowercase())
+                .or_default()
+                .combine(&gen_sys_function(def, gen));
         }
     }
-
-    tokens
 }
 
 fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
