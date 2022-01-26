@@ -1,5 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "advapi32", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImpersonateNamedPipeClient(hnamedpipe: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+}
+#[link(name = "kernel32", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -49,9 +55,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNamedPipeServerSessionId(pipe: super::super::Foundation::HANDLE, serversessionid: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImpersonateNamedPipeClient(hnamedpipe: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeekNamedPipe(hnamedpipe: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbuffersize: u32, lpbytesread: *mut u32, lptotalbytesavail: *mut u32, lpbytesleftthismessage: *mut u32) -> super::super::Foundation::BOOL;

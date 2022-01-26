@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "dsound", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows_sys::core::GUID, ppdsc: *mut IDirectSoundCapture, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;

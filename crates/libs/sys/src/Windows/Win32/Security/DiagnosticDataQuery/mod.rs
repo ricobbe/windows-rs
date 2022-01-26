@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "diagnosticdataquery", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
     pub fn DdqCancelDiagnosticRecordOperation(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows_sys::core::HRESULT;

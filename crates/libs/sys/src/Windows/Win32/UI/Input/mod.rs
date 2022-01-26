@@ -13,7 +13,7 @@ pub mod Radial;
 pub mod Touch;
 #[cfg(feature = "Win32_UI_Input_XboxController")]
 pub mod XboxController;
-#[link(name = "windows")]
+#[link(name = "user32", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Input', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

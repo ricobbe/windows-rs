@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "wmvcore", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;

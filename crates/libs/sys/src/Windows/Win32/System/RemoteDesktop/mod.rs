@@ -1,9 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "kernel32", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+    pub fn WTSGetActiveConsoleSessionId() -> u32;
+}
+#[link(name = "wtsapi32", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
@@ -69,8 +74,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
-    pub fn WTSGetActiveConsoleSessionId() -> u32;
     #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;

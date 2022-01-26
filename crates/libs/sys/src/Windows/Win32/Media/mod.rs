@@ -25,7 +25,7 @@ pub mod Speech;
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
-#[link(name = "windows")]
+#[link(name = "winmm", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeBeginPeriod(uperiod: u32) -> u32;

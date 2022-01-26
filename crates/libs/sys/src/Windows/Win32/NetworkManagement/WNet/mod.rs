@@ -1,12 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "davclnt", kind = "raw-dylib")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURCEA, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURCEW, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NPAddConnection(lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpusername: super::super::Foundation::PWSTR) -> u32;
@@ -15,13 +9,7 @@ extern "system" {
     pub fn NPAddConnection3(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpusername: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NPAddConnection4(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn NPCancelConnection(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NPCancelConnection2(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NPCloseEnum(henum: super::super::Foundation::HANDLE) -> u32;
@@ -38,15 +26,6 @@ extern "system" {
     pub fn NPGetConnection(lplocalname: super::super::Foundation::PWSTR, lpremotename: super::super::Foundation::PWSTR, lpnbufferlen: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NPGetConnection3(lplocalname: super::super::Foundation::PWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NPGetConnectionPerformance(lpremotename: super::super::Foundation::PWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NPGetPersistentUseOptionsForConnection(lpremotepath: super::super::Foundation::PWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -60,6 +39,15 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32;
+}
+#[link(name = "mpr", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURCEA, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURCEW, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetAddConnection2A(lpnetresource: *const NETRESOURCEA, lppassword: super::super::Foundation::PSTR, lpusername: super::super::Foundation::PSTR, dwflags: u32) -> u32;
@@ -195,6 +183,24 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpuserid: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
+}
+#[link(name = "ntlanman", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NPAddConnection4(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NPCancelConnection2(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NPGetConnection3(lplocalname: super::super::Foundation::PWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NPGetConnectionPerformance(lpremotename: super::super::Foundation::PWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NPGetPersistentUseOptionsForConnection(lpremotepath: super::super::Foundation::PWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]

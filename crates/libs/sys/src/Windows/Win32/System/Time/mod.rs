@@ -1,18 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "advapi32", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
     #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32;
+}
+#[link(name = "kernel32", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn FileTimeToSystemTime(lpfiletime: *const super::super::Foundation::FILETIME, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
-    #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32;

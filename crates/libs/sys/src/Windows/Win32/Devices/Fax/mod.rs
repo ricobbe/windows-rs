@@ -1,9 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "fxsutility", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
+}
+#[link(name = "sti", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+}
+#[link(name = "winfax", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxAbort(faxhandle: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
@@ -171,12 +183,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxUnregisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_Sti: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3005479136, data2: 11880, data3: 4560, data4: [144, 234, 0, 170, 0, 96, 248, 108] };
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_UI_Shell_PropertiesSystem'*"]

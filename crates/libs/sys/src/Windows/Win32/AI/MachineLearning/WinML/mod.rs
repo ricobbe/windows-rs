@@ -1,8 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "windows.ai.machinelearning", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
+}
+#[link(name = "winml", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }

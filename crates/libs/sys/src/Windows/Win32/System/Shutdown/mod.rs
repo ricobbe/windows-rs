@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "advapi32", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10,9 +10,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckForHiberboot(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: super::super::Foundation::BOOLEAN) -> u32;
-    #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitiateShutdownA(lpmachinename: super::super::Foundation::PSTR, lpmessage: super::super::Foundation::PSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
@@ -31,6 +28,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitiateSystemShutdownW(lpmachinename: super::super::Foundation::PWSTR, lpmessage: super::super::Foundation::PWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+}
+#[link(name = "user32", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LockWorkStation() -> super::super::Foundation::BOOL;

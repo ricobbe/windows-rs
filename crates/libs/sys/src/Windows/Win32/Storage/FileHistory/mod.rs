@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "fhsvcctl", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Storage_FileHistory', 'Win32_System_WindowsProgramming'*"]
     #[cfg(feature = "Win32_System_WindowsProgramming")]

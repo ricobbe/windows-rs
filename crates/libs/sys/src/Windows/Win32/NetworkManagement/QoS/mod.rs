@@ -1,5 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "qwave", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -34,6 +34,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
+}
+#[link(name = "traffic", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;

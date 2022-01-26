@@ -1,17 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "comsvcs", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
     pub fn CoCreateActivity(piunknown: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
     pub fn CoEnterServiceDomain(pconfigobject: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
     pub fn CoLeaveServiceDomain(punkstatus: ::windows_sys::core::IUnknown);
-    #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
-    pub fn GetDispenserManager(param0: *mut IDispenserManager) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
     pub fn GetManagedExtensions(dwexts: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
@@ -20,6 +15,17 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
+}
+#[link(name = "mtxdm", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
+    pub fn GetDispenserManager(param0: *mut IDispenserManager) -> ::windows_sys::core::HRESULT;
+}
+#[link(name = "ole32", kind = "raw-dylib")]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4012177033, data2: 5368, data3: 19858, data4: [180, 175, 215, 177, 240, 231, 15, 212] };
 #[repr(C)]

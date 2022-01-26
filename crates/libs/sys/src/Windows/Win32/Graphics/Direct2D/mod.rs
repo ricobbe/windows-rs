@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
-#[link(name = "windows")]
+#[link(name = "d2d1", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]

@@ -1,9 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[link(name = "dinput8", kind = "raw-dylib")]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+}
+#[link(name = "hid", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
@@ -136,6 +139,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
+}
+#[link(name = "winmm", kind = "raw-dylib")]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
     pub fn joyConfigChanged(dwflags: u32) -> u32;
 }
