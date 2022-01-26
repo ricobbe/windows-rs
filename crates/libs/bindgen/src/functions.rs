@@ -1,18 +1,20 @@
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 use super::*;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
-        // the keys in this HashMap are the libraries from which the various functions
+        // the keys in this map are the libraries from which the various functions
         // are imported.  The corresponding values are non-empty TokenStreams that contain
         // the declarations of the functions imported from those libraries.
-        let mut tokens_by_library: HashMap<String, TokenStream> = HashMap::new();
+        let mut tokens_by_library: BTreeMap<String, TokenStream> = BTreeMap::new();
 
         for entry in tree.types.values() {
             gen_function_if(&mut tokens_by_library, entry, gen);
         }
 
         let mut tokens = quote! {};
+        // Because tokens_by_library is a BTreeMap, we're guaranteed to visit entries
+        // in ascending order by key.
         for (library, lib_tokens) in tokens_by_library {
             tokens.combine(
                 &quote! {
@@ -44,7 +46,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_function_if(tokens_by_library: &mut HashMap<String, TokenStream>, entry: &TypeEntry, gen: &Gen) {
+fn gen_function_if(tokens_by_library: &mut BTreeMap<String, TokenStream>, entry: &TypeEntry, gen: &Gen) {
     for def in &entry.def {
         if let ElementType::MethodDef(def) = def {
             tokens_by_library.entry(def.impl_map().expect("Function").scope().name().to_lowercase())
