@@ -18,7 +18,8 @@ pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
         for (library, lib_tokens) in tokens_by_library {
             tokens.combine(
                 &quote! {
-                    #[link(name = #library, kind = "raw-dylib")]
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #library, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
                     extern "system" {
                         #lib_tokens
                     }
@@ -90,15 +91,17 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let link_attr = match def.static_lib() {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
+            let link = def.impl_map().expect("Function").scope().name().to_lowercase();
             if gen.namespace.starts_with("Windows.") {
-                // used heavily
-                let link = def.impl_map().expect("Function").scope().name().to_lowercase();
-                quote! { #[link(name = #link, kind = "raw-dylib")] }
+                quote! {
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #link, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+                }
             } else {
-                // used in a few places; appears to get the DLL name right automatically
-                let link = def.impl_map().expect("Function").scope().name().to_lowercase();
-
-                quote! { #[link(name = #link, kind = "raw-dylib")] }
+                quote! {
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #link, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = #link))]
+                }
             }
         }
     };
@@ -111,6 +114,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
+            // FIXME: do we need to update the reference to `link_attr` because its value is now multiple tokens?
             quote! {
                 #cfg
                 #[inline]
@@ -134,6 +138,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
+            // FIXME: as above
             quote! {
                 #cfg
                 #[inline]
@@ -160,6 +165,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let return_type_tokens = gen_result_sig(&return_sig, gen);
             let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
 
+            // FIXME: as above
             quote! {
                 #cfg
                 #[inline]
@@ -182,6 +188,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
+            // FIXME: as above
             quote! {
                 #cfg
                 #[inline]
@@ -203,6 +210,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
+            // FIXME: as above
             quote! {
                 #cfg
                 #[inline]
@@ -224,6 +232,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
+            // FIXME: as above
             quote! {
                 #cfg
                 #[inline]

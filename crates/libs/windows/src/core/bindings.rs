@@ -1279,7 +1279,8 @@ pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core:
 pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn CloseHandle(hobject: HANDLE) -> BOOL;
         }
@@ -1296,7 +1297,8 @@ pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn GetLastError() -> WIN32_ERROR;
         }
@@ -1452,7 +1454,8 @@ pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(strin: Param0, ui: u32) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "oleaut32"))]
         extern "system" {
             fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
         }
@@ -1465,7 +1468,8 @@ pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR
 pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "oleaut32"))]
         extern "system" {
             fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
@@ -1478,7 +1482,8 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
 pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "oleaut32"))]
         extern "system" {
             fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
         }
@@ -1518,7 +1523,8 @@ impl ::core::default::Default for SECURITY_ATTRIBUTES {
 pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "ole32"))]
         extern "system" {
             fn CoCreateGuid(pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1532,7 +1538,8 @@ pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "ole32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "ole32"))]
         extern "system" {
             fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1545,7 +1552,8 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
 pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "ole32"))]
         extern "system" {
             fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
         }
@@ -1558,7 +1566,8 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "oleaut32"))]
         extern "system" {
             fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1684,7 +1693,8 @@ pub struct IErrorInfoVtbl(
 pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "oleaut32"))]
         extern "system" {
             fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1704,7 +1714,8 @@ pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
         }
@@ -1717,7 +1728,8 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
 pub unsafe fn FreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, HINSTANCE>>(hlibmodule: Param0) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn FreeLibrary(hlibmodule: HINSTANCE) -> BOOL;
         }
@@ -1730,7 +1742,8 @@ pub unsafe fn FreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, HINSTANCE>>
 pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, HINSTANCE>, Param1: ::windows::core::IntoParam<'a, PSTR>>(hmodule: Param0, lpprocname: Param1) -> FARPROC {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn GetProcAddress(hmodule: HINSTANCE, lpprocname: PSTR) -> FARPROC;
         }
@@ -1743,7 +1756,8 @@ pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, HINSTANC
 pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, PSTR>>(lplibfilename: Param0) -> HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn LoadLibraryA(lplibfilename: PSTR) -> HINSTANCE;
         }
@@ -1756,7 +1770,8 @@ pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, PSTR>>(lpl
 pub unsafe fn GetProcessHeap() -> HeapHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn GetProcessHeap() -> HeapHandle;
         }
@@ -1787,7 +1802,8 @@ pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = 512u32;
 pub unsafe fn HeapAlloc<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1800,7 +1816,8 @@ pub unsafe fn HeapAlloc<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(
 pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL;
         }
@@ -1814,7 +1831,8 @@ pub type HeapHandle = isize;
 pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, BOOL>, Param2: ::windows::core::IntoParam<'a, BOOL>, Param3: ::windows::core::IntoParam<'a, PSTR>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn CreateEventA(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: BOOL, binitialstate: BOOL, lpname: PSTR) -> HANDLE;
         }
@@ -1827,7 +1845,8 @@ pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, BOOL>, Par
 pub unsafe fn SetEvent<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hevent: Param0) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn SetEvent(hevent: HANDLE) -> BOOL;
         }
@@ -1840,7 +1859,8 @@ pub unsafe fn SetEvent<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(heven
 pub unsafe fn WaitForSingleObject<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hhandle: Param0, dwmilliseconds: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "kernel32"))]
         extern "system" {
             fn WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: u32) -> u32;
         }

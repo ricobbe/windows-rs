@@ -55,6 +55,7 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.29.0" }
 [features]
 default = []
 deprecated = []
+use_raw_dylib = []
 "#
         .as_bytes(),
     )
