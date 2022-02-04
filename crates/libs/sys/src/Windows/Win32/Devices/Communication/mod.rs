@@ -1,16 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "api-ms-win-core-comm-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-comm-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandattributes: u32) -> super::super::Foundation::HANDLE;
 }
-#[link(name = "api-ms-win-core-comm-l1-1-2", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-comm-l1-1-2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Communication'*"]
     pub fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "clusapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
@@ -579,7 +580,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetGroupDependencyExpression(hgroup: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
 }
-#[link(name = "ntlanman", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -595,7 +597,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetAppInstanceCsvFlags(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
 }
-#[link(name = "resutils", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;

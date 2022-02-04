@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "ondemandconnroutehelper", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17,7 +18,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "wcmapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
     pub fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void);

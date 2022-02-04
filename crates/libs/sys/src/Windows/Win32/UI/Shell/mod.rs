@@ -3,7 +3,8 @@
 pub mod Common;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub mod PropertiesSystem;
-#[link(name = "api-ms-win-core-path-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-path-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -72,7 +73,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PathIsUNCEx(pszpath: super::super::Foundation::PWSTR, ppszserver: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-psm-appnotify-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-psm-appnotify-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -80,7 +82,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn UnregisterAppStateChangeNotification(registration: *mut _APPSTATE_REGISTRATION);
 }
-#[link(name = "api-ms-win-core-psm-appnotify-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-psm-appnotify-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -88,7 +91,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn UnregisterAppConstrainedChangeNotification(registration: *mut _APPCONSTRAIN_REGISTRATION);
 }
-#[link(name = "api-ms-win-shcore-scaling-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_UI_Shell_Common'*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -99,7 +103,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: u32) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Graphics_Gdi', 'Win32_UI_Shell_Common'*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Shell_Common"))]
@@ -110,12 +115,14 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn UnregisterScaleChangeEvent(dwcookie: usize) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "api-ms-win-shcore-scaling-l1-1-2", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32;
 }
-#[link(name = "comctl32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -130,7 +137,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL;
 }
-#[link(name = "hlink", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "hlink", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn HlinkClone(pihl: IHlink, riid: *const ::windows_sys::core::GUID, pihlsiteforclone: IHlinkSite, dwsitedata: u32, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -215,7 +223,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn OleSaveToStreamEx(piunk: ::windows_sys::core::IUnknown, pistm: super::super::System::Com::IStream, fcleardirty: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "ole32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -242,7 +251,8 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8;
 }
-#[link(name = "shdocvw", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "shdocvw", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -251,7 +261,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub fn SoftwareUpdateMessageBox(hwnd: super::super::Foundation::HWND, pszdistunit: super::super::Foundation::PWSTR, dwflags: u32, psdi: *mut super::super::System::Com::Urlmon::SOFTDISTINFO) -> u32;
 }
-#[link(name = "shell32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -924,7 +935,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteCabinetState(pcs: *const CABINETSTATE) -> super::super::Foundation::BOOL;
 }
-#[link(name = "shlwapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "shlwapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn AssocCreate(clsid: ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -1986,7 +1998,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn wvnsprintfW(pszdest: super::super::Foundation::PWSTR, cchdest: i32, pszfmt: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2007,7 +2020,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinHelpW(hwndmain: super::super::Foundation::HWND, lpszhelp: super::super::Foundation::PWSTR, ucommand: u32, dwdata: usize) -> super::super::Foundation::BOOL;
 }
-#[link(name = "userenv", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -6,7 +6,8 @@ pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
         }
@@ -24,7 +25,8 @@ pub type JsBeforeCollectCallback = ::core::option::Option<unsafe extern "system"
 pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -38,7 +40,8 @@ pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_
 pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode;
         }
@@ -52,7 +55,8 @@ pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut
 pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -66,7 +70,8 @@ pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: *c
 pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -80,7 +85,8 @@ pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCo
 pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -94,7 +100,8 @@ pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments:
 pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -108,7 +115,8 @@ pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, boolean
 pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numbervalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numbervalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -122,7 +130,8 @@ pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numberva
 pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -136,7 +145,8 @@ pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: 
 pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -150,7 +160,8 @@ pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringva
 pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -166,7 +177,8 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(runtime: *const ::core::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::windows::core::RawPtr, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -182,7 +194,8 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(runtime: *const ::core::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::windows::core::RawPtr, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -196,7 +209,8 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -210,7 +224,8 @@ pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mu
 pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: ::windows::core::RawPtr, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -224,7 +239,8 @@ pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizec
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateFunction(nativefunction: ::windows::core::RawPtr, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -238,7 +254,8 @@ pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: 
 pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -252,7 +269,8 @@ pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCo
 pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -266,7 +284,8 @@ pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mu
 pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -280,7 +299,8 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
 pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: ::windows::core::RawPtr, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -294,7 +314,8 @@ pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: J
 pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -308,7 +329,8 @@ pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *m
 pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -322,7 +344,8 @@ pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut
 pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -336,7 +359,8 @@ pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut 
 pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
         }
@@ -350,7 +374,8 @@ pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *
 pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -364,7 +389,8 @@ pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index:
 pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -378,7 +404,8 @@ pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *
 pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -392,7 +419,8 @@ pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> 
 pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -406,7 +434,8 @@ pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCo
 pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -420,7 +449,8 @@ pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c
 pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -435,7 +465,8 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
 pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsEnumerateHeap(enumerator: *mut ::windows::core::RawPtr) -> JsErrorCode;
         }
@@ -449,7 +480,8 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
 pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
         }
@@ -525,7 +557,8 @@ pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(d
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -539,7 +572,8 @@ pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -
 pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -553,7 +587,8 @@ pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void)
 pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
         }
@@ -567,7 +602,8 @@ pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *
 pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -581,7 +617,8 @@ pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata
 pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -595,7 +632,8 @@ pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsEr
 pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -609,7 +647,8 @@ pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> 
 pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -623,7 +662,8 @@ pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
 pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -637,7 +677,8 @@ pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErro
 pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -651,7 +692,8 @@ pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, pro
 pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -665,7 +707,8 @@ pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, property
 pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -680,7 +723,8 @@ pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *con
 pub unsafe fn JsGetPropertyIdFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetPropertyIdFromName(name: super::super::Foundation::PWSTR, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -694,7 +738,8 @@ pub unsafe fn JsGetPropertyIdFromName<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode;
         }
@@ -708,7 +753,8 @@ pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, na
 pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -722,7 +768,8 @@ pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject
 pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -736,7 +783,8 @@ pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *m
 pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode;
         }
@@ -750,7 +798,8 @@ pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
 pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode;
         }
@@ -764,7 +813,8 @@ pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memor
 pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode;
         }
@@ -778,7 +828,8 @@ pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length:
 pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -792,7 +843,8 @@ pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErro
 pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -806,7 +858,8 @@ pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void)
 pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode;
         }
@@ -820,7 +873,8 @@ pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsV
 pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsHasException(hasexception: *mut bool) -> JsErrorCode;
         }
@@ -834,7 +888,8 @@ pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
 pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode;
         }
@@ -848,7 +903,8 @@ pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut 
 pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
         }
@@ -862,7 +918,8 @@ pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *c
 pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode;
         }
@@ -876,7 +933,8 @@ pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *con
 pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsIdle(nextidletick: *mut u32) -> JsErrorCode;
         }
@@ -890,7 +948,8 @@ pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -904,7 +963,8 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void)
 pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode;
         }
@@ -918,7 +978,8 @@ pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
 pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode;
         }
@@ -944,7 +1005,8 @@ pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(cal
 pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode;
         }
@@ -959,7 +1021,8 @@ pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *
 pub unsafe fn JsParseScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsParseScript(script: super::super::Foundation::PWSTR, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -974,7 +1037,8 @@ pub unsafe fn JsParseScript<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsParseSerializedScript(script: super::super::Foundation::PWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -989,7 +1053,8 @@ pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn JsPointerToString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(stringvalue: Param0, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsPointerToString(stringvalue: super::super::Foundation::PWSTR, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1003,7 +1068,8 @@ pub unsafe fn JsPointerToString<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1017,7 +1083,8 @@ pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorC
 pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
         }
@@ -1032,7 +1099,8 @@ pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> J
 pub unsafe fn JsRunScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsRunScript(script: super::super::Foundation::PWSTR, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1047,7 +1115,8 @@ pub unsafe fn JsRunScript<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsRunSerializedScript(script: super::super::Foundation::PWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1084,7 +1153,8 @@ pub const JsRuntimeVersionEdge: JsRuntimeVersion = -1i32;
 pub unsafe fn JsSerializeScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSerializeScript(script: super::super::Foundation::PWSTR, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode;
         }
@@ -1098,7 +1168,8 @@ pub unsafe fn JsSerializeScript<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1112,7 +1183,8 @@ pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErro
 pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1126,7 +1198,8 @@ pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCo
 pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1140,7 +1213,8 @@ pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata
 pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1154,7 +1228,8 @@ pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *c
 pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode;
         }
@@ -1168,7 +1243,8 @@ pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *con
 pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode;
         }
@@ -1182,7 +1258,8 @@ pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: ::windows::core::RawPtr) -> JsErrorCode;
         }
@@ -1196,7 +1273,8 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_v
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: ::windows::core::RawPtr) -> JsErrorCode;
         }
@@ -1210,7 +1288,8 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::
 pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode;
         }
@@ -1226,7 +1305,8 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(debugapplication: Param0) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStartDebugging(debugapplication: ::windows::core::RawPtr) -> JsErrorCode;
         }
@@ -1242,7 +1322,8 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(debugapplication: Param0) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStartDebugging(debugapplication: ::windows::core::RawPtr) -> JsErrorCode;
         }
@@ -1257,7 +1338,8 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn JsStartProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>>(callback: Param0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStartProfiling(callback: ::windows::core::RawPtr, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
         }
@@ -1271,7 +1353,8 @@ pub unsafe fn JsStartProfiling<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode;
         }
@@ -1285,7 +1368,8 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
 pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
         }
@@ -1299,7 +1383,8 @@ pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *cons
 pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode;
         }
@@ -1316,7 +1401,8 @@ pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system"
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
         }
@@ -1351,7 +1437,8 @@ pub const JsArray: JsValueType = 8i32;
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "chakra", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }

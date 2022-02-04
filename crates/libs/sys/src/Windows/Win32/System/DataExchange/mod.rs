@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "gdi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -57,7 +59,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

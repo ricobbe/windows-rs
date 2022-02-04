@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "imgutil", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "imgutil", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -26,7 +27,8 @@ extern "system" {
     #[cfg(feature = "Win32_System_Com")]
     pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "msrating", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msrating", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -83,7 +85,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RatingSetupUIW(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "shdocvw", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "shdocvw", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

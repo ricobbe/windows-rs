@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "mprapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
@@ -307,7 +308,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
 }
-#[link(name = "rasapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
@@ -542,7 +544,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RasValidateEntryNameW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
 }
-#[link(name = "rasdlg", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -563,7 +566,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
 }
-#[link(name = "rtm", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

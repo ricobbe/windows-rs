@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "davclnt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WebDav', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16,7 +17,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
-#[link(name = "netapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WebDav', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

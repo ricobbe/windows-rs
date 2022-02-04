@@ -471,7 +471,8 @@ pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 pub unsafe fn FilterAttach<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterAttach(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -486,7 +487,8 @@ pub unsafe fn FilterAttach<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FilterAttachAtAltitude<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpaltitude: Param2, lpinstancename: Param3, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterAttachAtAltitude(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpaltitude: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -500,7 +502,8 @@ pub unsafe fn FilterAttachAtAltitude<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FilterClose<'a, Param0: ::windows::core::IntoParam<'a, HFILTER>>(hfilter: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterClose(hfilter: HFILTER) -> ::windows::core::HRESULT;
         }
@@ -515,7 +518,8 @@ pub unsafe fn FilterClose<'a, Param0: ::windows::core::IntoParam<'a, HFILTER>>(h
 pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpportname: Param0, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterConnectCommunicationPort(lpportname: super::super::Foundation::PWSTR, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -531,7 +535,8 @@ pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn FilterCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::core::Result<HFILTER> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterCreate(lpfiltername: super::super::Foundation::PWSTR, hfilter: *mut HFILTER) -> ::windows::core::HRESULT;
         }
@@ -547,7 +552,8 @@ pub unsafe fn FilterCreate<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FilterDetach<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterDetach(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -562,7 +568,8 @@ pub unsafe fn FilterDetach<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FilterFindClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterfind: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterFindClose(hfilterfind: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -576,7 +583,8 @@ pub unsafe fn FilterFindClose<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows::core::HRESULT;
         }
@@ -592,7 +600,8 @@ pub type FilterFindHandle = isize;
 pub unsafe fn FilterFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterfind: Param0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterFindNext(hfilterfind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -607,7 +616,8 @@ pub unsafe fn FilterFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn FilterGetDosName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpvolumename: Param0, lpdosname: super::super::Foundation::PWSTR, dwdosnamebuffersize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterGetDosName(lpvolumename: super::super::Foundation::PWSTR, lpdosname: super::super::Foundation::PWSTR, dwdosnamebuffersize: u32) -> ::windows::core::HRESULT;
         }
@@ -621,7 +631,8 @@ pub unsafe fn FilterGetDosName<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn FilterGetInformation<'a, Param0: ::windows::core::IntoParam<'a, HFILTER>>(hfilter: Param0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterGetInformation(hfilter: HFILTER, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -636,7 +647,8 @@ pub unsafe fn FilterGetInformation<'a, Param0: ::windows::core::IntoParam<'a, HF
 pub unsafe fn FilterGetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterGetMessage(hport: super::super::Foundation::HANDLE, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -650,7 +662,8 @@ pub unsafe fn FilterGetMessage<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn FilterInstanceClose<'a, Param0: ::windows::core::IntoParam<'a, HFILTER_INSTANCE>>(hinstance: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceClose(hinstance: HFILTER_INSTANCE) -> ::windows::core::HRESULT;
         }
@@ -665,7 +678,8 @@ pub unsafe fn FilterInstanceClose<'a, Param0: ::windows::core::IntoParam<'a, HFI
 pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2) -> ::windows::core::Result<HFILTER_INSTANCE> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceCreate(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::core::HRESULT;
         }
@@ -681,7 +695,8 @@ pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FilterInstanceFindClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterinstancefind: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceFindClose(hfilterinstancefind: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -696,7 +711,8 @@ pub unsafe fn FilterInstanceFindClose<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceFindFirst(lpfiltername: super::super::Foundation::PWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows::core::HRESULT;
         }
@@ -712,7 +728,8 @@ pub type FilterInstanceFindHandle = isize;
 pub unsafe fn FilterInstanceFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceFindNext(hfilterinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -726,7 +743,8 @@ pub unsafe fn FilterInstanceFindNext<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FilterInstanceGetInformation<'a, Param0: ::windows::core::IntoParam<'a, HFILTER_INSTANCE>>(hinstance: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterInstanceGetInformation(hinstance: HFILTER_INSTANCE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -741,7 +759,8 @@ pub unsafe fn FilterInstanceGetInformation<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn FilterLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterLoad(lpfiltername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -756,7 +775,8 @@ pub unsafe fn FilterLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FilterReplyMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterReplyMessage(hport: super::super::Foundation::HANDLE, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::core::HRESULT;
         }
@@ -771,7 +791,8 @@ pub unsafe fn FilterReplyMessage<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn FilterSendMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpinbuffer: *const ::core::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterSendMessage(hport: super::super::Foundation::HANDLE, lpinbuffer: *const ::core::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -786,7 +807,8 @@ pub unsafe fn FilterSendMessage<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn FilterUnload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterUnload(lpfiltername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -801,7 +823,8 @@ pub unsafe fn FilterUnload<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FilterVolumeFindClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumefind: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeFindClose(hvolumefind: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -815,7 +838,8 @@ pub unsafe fn FilterVolumeFindClose<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows::core::HRESULT;
         }
@@ -831,7 +855,8 @@ pub type FilterVolumeFindHandle = isize;
 pub unsafe fn FilterVolumeFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumefind: Param0, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeFindNext(hvolumefind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -846,7 +871,8 @@ pub unsafe fn FilterVolumeFindNext<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FilterVolumeInstanceFindClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumeinstancefind: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeInstanceFindClose(hvolumeinstancefind: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -861,7 +887,8 @@ pub unsafe fn FilterVolumeInstanceFindClose<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpvolumename: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeInstanceFindFirst(lpvolumename: super::super::Foundation::PWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows::core::HRESULT;
         }
@@ -877,7 +904,8 @@ pub type FilterVolumeInstanceFindHandle = isize;
 pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumeinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fltlib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FilterVolumeInstanceFindNext(hvolumeinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::HRESULT;
         }

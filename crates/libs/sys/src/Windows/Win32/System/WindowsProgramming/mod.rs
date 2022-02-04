@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17,7 +18,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsTokenUntrusted(tokenhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
-#[link(name = "advpack", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advpack", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -168,19 +170,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UserUnInstStubWrapperW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: super::super::Foundation::PWSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "api-ms-win-core-apiquery-l2-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-apiquery-l2-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsApiSetImplemented(contract: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-backgroundtask-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-backgroundtask-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
 }
-#[link(name = "api-ms-win-core-featurestaging-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-featurestaging-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
@@ -195,13 +200,15 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
 }
-#[link(name = "api-ms-win-core-featurestaging-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-featurestaging-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
 }
-#[link(name = "api-ms-win-core-realtime-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-realtime-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn QueryInterruptTime(lpinterrupttime: *mut u64);
@@ -210,7 +217,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64);
 }
-#[link(name = "api-ms-win-core-realtime-l1-1-2", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-realtime-l1-1-2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: u64, lpperformancecountervalue: *mut u64, lpconversionerror: *mut u64) -> ::windows_sys::core::HRESULT;
@@ -219,18 +227,21 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: *mut u64) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "api-ms-win-dx-d3dkmt-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-dx-d3dkmt-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn GdiEntry13() -> u32;
 }
-#[link(name = "apphelp", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "apphelp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ApphelpCheckShellObject(objectclsid: *const ::windows_sys::core::GUID, bshimifnecessary: super::super::Foundation::BOOL, pullflags: *mut u64) -> super::super::Foundation::BOOL;
 }
-#[link(name = "dciman32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dciman32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32;
@@ -288,7 +299,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -544,7 +556,8 @@ extern "system" {
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
 }
-#[link(name = "ntdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -638,7 +651,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
     pub fn RtlUniform(seed: *mut u32) -> u32;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -674,7 +688,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WINNLSGetIMEHotkey(param0: super::super::Foundation::HWND) -> u32;
 }
-#[link(name = "wldp", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wldp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

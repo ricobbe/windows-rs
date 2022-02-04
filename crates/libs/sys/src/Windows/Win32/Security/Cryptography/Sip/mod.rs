@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "crypt32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "crypt32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17,7 +18,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
 }
-#[link(name = "wintrust", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41,7 +42,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
-#[link(name = "msdelta", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -92,7 +94,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDeltaSignatureW(filetypeset: i64, hashalgid: u32, lpsourcename: super::super::Foundation::PWSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
 }
-#[link(name = "msi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -861,7 +864,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub fn MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: MSIHANDLE) -> u32;
 }
-#[link(name = "mspatcha", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -912,7 +916,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TestApplyPatchToFileW(patchfilename: super::super::Foundation::PWSTR, oldfilename: super::super::Foundation::PWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "mspatchc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -942,7 +947,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ExtractPatchHeaderToFileW(patchfilename: super::super::Foundation::PWSTR, patchheaderfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 }
-#[link(name = "sfc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

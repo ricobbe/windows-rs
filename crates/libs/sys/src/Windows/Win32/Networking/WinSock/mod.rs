@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "fwpuclnt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -19,7 +20,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WSASetSocketSecurity(socket: SOCKET, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
 }
-#[link(name = "mswsock", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -68,7 +70,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSARecvEx(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32;
 }
-#[link(name = "ntdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
@@ -131,13 +134,15 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlIpv6StringToAddressW(s: super::super::Foundation::PWSTR, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN6_ADDR) -> i32;
 }
-#[link(name = "windows.networking", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "windows.networking", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSocketMediaStreamingMode(value: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "ws2_32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

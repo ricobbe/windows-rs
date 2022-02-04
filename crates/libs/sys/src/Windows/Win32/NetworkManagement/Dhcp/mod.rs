@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "dhcpcsvc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpcsvc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
     pub fn DhcpCApiCleanup();
@@ -22,7 +23,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, requestidstr: super::super::Foundation::PWSTR) -> u32;
 }
-#[link(name = "dhcpcsvc6", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpcsvc6", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
     pub fn Dhcpv6CApiCleanup();
@@ -41,7 +43,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn Dhcpv6RequestPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
 }
-#[link(name = "dhcpsapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpsapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

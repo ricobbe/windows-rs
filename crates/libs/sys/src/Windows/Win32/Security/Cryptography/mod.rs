@@ -7,7 +7,8 @@ pub mod Certificates;
 pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
 pub mod UI;
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -127,7 +128,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptVerifySignatureW(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "bcrypt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "bcrypt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -288,7 +290,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: *const ::core::ffi::c_void, pbhash: *const u8, cbhash: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS;
 }
-#[link(name = "crypt32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "crypt32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -949,7 +952,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PFXVerifyPassword(ppfx: *const CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "cryptnet", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cryptnet", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -967,7 +971,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
-#[link(name = "cryptxml", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cryptxml", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1021,7 +1026,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn CryptXmlVerifySignature(hsignature: *const ::core::ffi::c_void, hkey: BCRYPT_KEY_HANDLE, dwflags: CRYPT_XML_FLAGS) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "infocardapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "infocardapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_sys::core::HRESULT;
@@ -1066,7 +1072,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyHash(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: super::super::Foundation::PWSTR, cbsig: u32, psig: *const u8, pfverified: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "ncrypt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ncrypt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn NCryptCloseProtectionDescriptor(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE) -> i32;
@@ -1170,7 +1177,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn NCryptVerifySignature(hkey: usize, ppaddinginfo: *const ::core::ffi::c_void, pbhashvalue: *const u8, cbhashvalue: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> i32;
 }
-#[link(name = "wintrust", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

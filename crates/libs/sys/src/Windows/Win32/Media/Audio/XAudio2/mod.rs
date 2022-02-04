@@ -1,10 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "hrtfapo", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "hrtfapo", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
     pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "xaudio2_8", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
     pub fn CreateAudioReverb(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;

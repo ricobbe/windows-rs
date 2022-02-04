@@ -995,7 +995,8 @@ pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn CoCreateActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(piunknown: Param0, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateActivity(piunknown: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1009,7 +1010,8 @@ pub unsafe fn CoCreateActivity<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn CoEnterServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pconfigobject: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoEnterServiceDomain(pconfigobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1024,7 +1026,8 @@ pub unsafe fn CoEnterServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1038,7 +1041,8 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::w
 pub unsafe fn CoLeaveServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstatus: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoLeaveServiceDomain(punkstatus: *mut ::core::ffi::c_void);
         }
@@ -1552,7 +1556,8 @@ pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = 16i32;
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
     #[cfg(windows)]
     {
-        #[link(name = "mtxdm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mtxdm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDispenserManager(param0: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1567,7 +1572,8 @@ pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -11997,7 +12003,8 @@ pub const LockMethod: LockModes = 1i32;
 pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -12288,7 +12295,8 @@ impl ::core::default::Default for RECYCLE_INFO {
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::HRESULT;
         }
@@ -12308,7 +12316,8 @@ pub const Process: ReleaseModes = 1i32;
 pub unsafe fn SafeRef<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(rid: *const ::windows::core::GUID, punk: Param1) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comsvcs", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SafeRef(rid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }

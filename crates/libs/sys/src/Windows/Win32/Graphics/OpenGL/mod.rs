@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "gdi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -20,7 +21,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
 }
-#[link(name = "glu32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
     pub fn gluBeginCurve(nobj: *mut GLUnurbs);
@@ -128,7 +130,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
     pub fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
 }
-#[link(name = "opengl32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
     pub fn glAccum(op: u32, value: f32);

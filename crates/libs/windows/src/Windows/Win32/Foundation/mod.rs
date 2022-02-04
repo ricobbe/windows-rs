@@ -1314,7 +1314,8 @@ pub const CS_E_SCHEMA_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRES
 pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseHandle(hobject: HANDLE) -> BOOL;
         }
@@ -1328,7 +1329,8 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(ho
 pub unsafe fn CompareObjectHandles<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>>(hfirstobjecthandle: Param0, hsecondobjecthandle: Param1) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-handle-l1-1-0", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-handle-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
         }
@@ -1834,7 +1836,8 @@ pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HR
 pub unsafe fn DuplicateHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>, Param2: ::windows::core::IntoParam<'a, HANDLE>, Param5: ::windows::core::IntoParam<'a, BOOL>>(hsourceprocesshandle: Param0, hsourcehandle: Param1, htargetprocesshandle: Param2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: Param5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
         }
@@ -3738,7 +3741,8 @@ pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::core::HRESULT = ::windows::core::
 pub unsafe fn GetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, lpdwflags: *mut u32) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
         }
@@ -3752,7 +3756,8 @@ pub unsafe fn GetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetLastError() -> WIN32_ERROR;
         }
@@ -6082,7 +6087,8 @@ pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
 pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::core::IntoParam<'a, NTSTATUS>>(status: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
         }
@@ -12451,7 +12457,8 @@ pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows
 pub unsafe fn SetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
         }
@@ -12465,7 +12472,8 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetLastError(dwerrcode: WIN32_ERROR);
         }
@@ -12479,7 +12487,8 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
         }
@@ -12493,7 +12502,8 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
 pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
         }
@@ -12507,7 +12517,8 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(
 pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(psz: Param0) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysAllocString(psz: PWSTR) -> BSTR;
         }
@@ -12521,7 +12532,8 @@ pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(
 pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, PSTR>>(psz: Param0, len: u32) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
         }
@@ -12535,7 +12547,8 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, P
 pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(strin: Param0, ui: u32) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
         }
@@ -12549,7 +12562,8 @@ pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR
 pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
@@ -12563,7 +12577,8 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
 pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
         }
@@ -12577,7 +12592,8 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>
 pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
         }
@@ -12591,7 +12607,8 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, PWS
 pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
@@ -12605,7 +12622,8 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>
 pub unsafe fn SysStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstr: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
         }
@@ -12619,7 +12637,8 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>
 pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
         }

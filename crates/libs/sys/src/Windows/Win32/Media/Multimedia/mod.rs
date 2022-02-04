@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "api-ms-win-mm-misc-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-mm-misc-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
 }
-#[link(name = "avicap32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "avicap32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20,7 +22,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "avifil32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "avifil32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -165,7 +168,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EditStreamSetNameW(pavi: IAVIStream, lpszname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "msvfw32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msvfw32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -293,7 +297,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub fn VideoForWindowsVersion() -> u32;
 }
-#[link(name = "winmm", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

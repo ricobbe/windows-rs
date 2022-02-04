@@ -1,7 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
 pub mod Provider;
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -174,13 +175,15 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
 }
-#[link(name = "api-ms-win-core-slapi-l1-1-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-slapi-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SLQueryLicenseValueFromApp(valuename: super::super::super::Foundation::PWSTR, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "credui", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "credui", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -192,7 +195,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SspiPromptForCredentialsW(psztargetname: super::super::super::Foundation::PWSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: super::super::super::Foundation::PWSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
 }
-#[link(name = "schannel", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "schannel", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -215,7 +219,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
     pub fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32;
 }
-#[link(name = "secur32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "secur32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
     #[cfg(feature = "Win32_Security_Credentials")]
@@ -472,7 +477,8 @@ extern "system" {
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
 }
-#[link(name = "slc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "slc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
     pub fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -561,7 +567,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SLUnregisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: super::super::super::Foundation::PWSTR, papplicationid: *const ::windows_sys::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "slcext", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "slcext", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -576,12 +583,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SLGetServerStatus(pwszserverurl: super::super::super::Foundation::PWSTR, pwszacquisitiontype: super::super::super::Foundation::PWSTR, pwszproxyserver: super::super::super::Foundation::PWSTR, wproxyport: u16, phrstatus: *mut ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "slwga", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "slwga", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
     pub fn SLIsGenuineLocal(pappid: *const ::windows_sys::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "sspicli", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "sspicli", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
     #[cfg(feature = "Win32_Security_Credentials")]
@@ -600,7 +609,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
     pub fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> i32;
 }
-#[link(name = "tokenbinding", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "tokenbinding", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
     pub fn TokenBindingDeleteAllBindings() -> i32;

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "computecore", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "computecore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
     pub fn HcsCancelOperation(operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
@@ -144,7 +145,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "computestorage", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "computestorage", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

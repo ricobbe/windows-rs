@@ -759,7 +759,8 @@ impl ::core::default::Default for ATM_TRANSIT_NETWORK_SELECTION_IE {
 pub unsafe fn AcceptEx<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, SOCKET>>(slistensocket: Param0, sacceptsocket: Param1, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AcceptEx(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -1046,7 +1047,8 @@ pub const DE_REUSE_SOCKET: u32 = 2u32;
 pub unsafe fn EnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -1060,7 +1062,8 @@ pub unsafe fn EnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::
 pub unsafe fn EnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -1119,7 +1122,8 @@ pub const FROM_PROTOCOL_INFO: i32 = -1i32;
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
         }
@@ -1134,7 +1138,8 @@ pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
         }
@@ -1149,7 +1154,8 @@ pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
 pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
         }
@@ -1269,7 +1275,8 @@ impl ::core::default::Default for GROUP_SOURCE_REQ {
 pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32);
         }
@@ -1284,7 +1291,8 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
 pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -1299,7 +1307,8 @@ pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32;
         }
@@ -1314,7 +1323,8 @@ pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HAN
 pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32;
         }
@@ -1329,7 +1339,8 @@ pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::S
 pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -1344,7 +1355,8 @@ pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetAddrInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pnodename: Param0, pservicename: Param1, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddrInfoW(pnodename: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32;
         }
@@ -1359,7 +1371,8 @@ pub unsafe fn GetAddrInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn GetAddressByNameA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: Param2, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: Param8, lpdwaliasbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PSTR, lpdwaliasbufferlength: *mut u32) -> i32;
         }
@@ -1374,7 +1387,8 @@ pub unsafe fn GetAddressByNameA<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetAddressByNameW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: Param2, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: Param8, lpdwaliasbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32;
         }
@@ -1389,7 +1403,8 @@ pub unsafe fn GetAddressByNameW<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32;
         }
@@ -1404,7 +1419,8 @@ pub unsafe fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) 
 pub unsafe fn GetNameByTypeA(lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, dwnamelength: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNameByTypeA(lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, dwnamelength: u32) -> i32;
         }
@@ -1419,7 +1435,8 @@ pub unsafe fn GetNameByTypeA(lpservicetype: *const ::windows::core::GUID, lpserv
 pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwnamelength: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwnamelength: u32) -> i32;
         }
@@ -1434,7 +1451,8 @@ pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpserv
 pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PWSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PWSTR, servicebuffersize: u32, flags: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PWSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PWSTR, servicebuffersize: u32, flags: i32) -> i32;
         }
@@ -1449,7 +1467,8 @@ pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnod
 pub unsafe fn GetServiceA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
         }
@@ -1464,7 +1483,8 @@ pub unsafe fn GetServiceA<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetServiceW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceW(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
         }
@@ -1479,7 +1499,8 @@ pub unsafe fn GetServiceW<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetTypeByNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTypeByNameA(lpservicename: super::super::Foundation::PSTR, lpservicetype: *mut ::windows::core::GUID) -> i32;
         }
@@ -1494,7 +1515,8 @@ pub unsafe fn GetTypeByNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTypeByNameW(lpservicename: super::super::Foundation::PWSTR, lpservicetype: *mut ::windows::core::GUID) -> i32;
         }
@@ -2743,7 +2765,8 @@ pub const ISO_NON_HIERARCHICAL: u32 = 1u32;
 pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PWSTR, stringbufsize: usize) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PWSTR, stringbufsize: usize) -> super::super::Foundation::PWSTR;
         }
@@ -2758,7 +2781,8 @@ pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringb
 pub unsafe fn InetPtonW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InetPtonW(family: i32, pszaddrstring: super::super::Foundation::PWSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
         }
@@ -4722,7 +4746,8 @@ pub const PVD_CONFIG: u32 = 12289u32;
 pub unsafe fn ProcessSocketNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessSocketNotifications(completionport: super::super::Foundation::HANDLE, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32;
         }
@@ -5442,7 +5467,8 @@ impl ::core::default::Default for RSS_SCALABILITY_INFO {
 pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -5457,7 +5483,8 @@ pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkMana
 pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -5472,7 +5499,8 @@ pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkMana
 pub unsafe fn RtlEthernetStringToAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, terminator: *mut super::super::Foundation::PSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlEthernetStringToAddressA(s: super::super::Foundation::PSTR, terminator: *mut super::super::Foundation::PSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32;
         }
@@ -5487,7 +5515,8 @@ pub unsafe fn RtlEthernetStringToAddressA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, terminator: *mut super::super::Foundation::PWSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlEthernetStringToAddressW(s: super::super::Foundation::PWSTR, terminator: *mut super::super::Foundation::PWSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32;
         }
@@ -5502,7 +5531,8 @@ pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -5517,7 +5547,8 @@ pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: super::super::Fou
 pub unsafe fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32;
         }
@@ -5532,7 +5563,8 @@ pub unsafe fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addr
 pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32;
         }
@@ -5547,7 +5579,8 @@ pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addr
 pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -5562,7 +5595,8 @@ pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: super::super::Fou
 pub unsafe fn RtlIpv4StringToAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4StringToAddressA(s: super::super::Foundation::PSTR, strict: super::super::Foundation::BOOLEAN, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN_ADDR) -> i32;
         }
@@ -5577,7 +5611,8 @@ pub unsafe fn RtlIpv4StringToAddressA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RtlIpv4StringToAddressExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4StringToAddressExA(addressstring: super::super::Foundation::PSTR, strict: super::super::Foundation::BOOLEAN, address: *mut IN_ADDR, port: *mut u16) -> i32;
         }
@@ -5592,7 +5627,8 @@ pub unsafe fn RtlIpv4StringToAddressExA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RtlIpv4StringToAddressExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4StringToAddressExW(addressstring: super::super::Foundation::PWSTR, strict: super::super::Foundation::BOOLEAN, address: *mut IN_ADDR, port: *mut u16) -> i32;
         }
@@ -5607,7 +5643,8 @@ pub unsafe fn RtlIpv4StringToAddressExW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv4StringToAddressW(s: super::super::Foundation::PWSTR, strict: super::super::Foundation::BOOLEAN, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN_ADDR) -> i32;
         }
@@ -5622,7 +5659,8 @@ pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -5637,7 +5675,8 @@ pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: super::super::Fo
 pub unsafe fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32;
         }
@@ -5652,7 +5691,8 @@ pub unsafe fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, 
 pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32;
         }
@@ -5667,7 +5707,8 @@ pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, 
 pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -5682,7 +5723,8 @@ pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: super::super::Fo
 pub unsafe fn RtlIpv6StringToAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6StringToAddressA(s: super::super::Foundation::PSTR, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN6_ADDR) -> i32;
         }
@@ -5697,7 +5739,8 @@ pub unsafe fn RtlIpv6StringToAddressA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RtlIpv6StringToAddressExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6StringToAddressExA(addressstring: super::super::Foundation::PSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32;
         }
@@ -5712,7 +5755,8 @@ pub unsafe fn RtlIpv6StringToAddressExA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RtlIpv6StringToAddressExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6StringToAddressExW(addressstring: super::super::Foundation::PWSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32;
         }
@@ -5727,7 +5771,8 @@ pub unsafe fn RtlIpv6StringToAddressExW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RtlIpv6StringToAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtlIpv6StringToAddressW(s: super::super::Foundation::PWSTR, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN6_ADDR) -> i32;
         }
@@ -7197,7 +7242,8 @@ pub const SO_USELOOPBACK: u32 = 64u32;
 pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -7212,7 +7258,8 @@ pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -7227,7 +7274,8 @@ pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
         }
@@ -7242,7 +7290,8 @@ pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
 pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
         }
@@ -7257,7 +7306,8 @@ pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
 pub unsafe fn SetSocketMediaStreamingMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(value: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.networking", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.networking", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetSocketMediaStreamingMode(value: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -7782,7 +7832,8 @@ pub const TT_VBR: u32 = 8u32;
 pub unsafe fn TransmitFile<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsocket: Param0, hfile: Param1, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TransmitFile(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -8236,7 +8287,8 @@ pub const WINDOWS_PF_IRDA: u32 = 26u32;
 pub unsafe fn WPUCompleteOverlappedRequest<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WPUCompleteOverlappedRequest(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32;
         }
@@ -8251,7 +8303,8 @@ pub unsafe fn WPUCompleteOverlappedRequest<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WSAAccept<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: LPCONDITIONPROC, dwcallbackdata: usize) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAccept(s: SOCKET, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: ::windows::core::RawPtr, dwcallbackdata: usize) -> SOCKET;
         }
@@ -8266,7 +8319,8 @@ pub unsafe fn WSAAccept<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: P
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpszaddressstring: super::super::Foundation::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpszaddressstring: super::super::Foundation::PSTR, lpdwaddressstringlength: *mut u32) -> i32;
         }
@@ -8281,7 +8335,8 @@ pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength:
 pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpszaddressstring: super::super::Foundation::PWSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpszaddressstring: super::super::Foundation::PWSTR, lpdwaddressstringlength: *mut u32) -> i32;
         }
@@ -8296,7 +8351,8 @@ pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength:
 pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32;
         }
@@ -8311,7 +8367,8 @@ pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID
 pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, addr: Param2, len: i32, r#type: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetHostByAddr(hwnd: super::super::Foundation::HWND, wmsg: u32, addr: super::super::Foundation::PSTR, len: i32, r#type: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8326,7 +8383,8 @@ pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetHostByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: super::super::Foundation::PSTR, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8341,7 +8399,8 @@ pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetProtoByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: super::super::Foundation::PSTR, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8356,7 +8415,8 @@ pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WSAAsyncGetProtoByNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, number: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetProtoByNumber(hwnd: super::super::Foundation::HWND, wmsg: u32, number: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8371,7 +8431,8 @@ pub unsafe fn WSAAsyncGetProtoByNumber<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, proto: Param3, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetServByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: super::super::Foundation::PSTR, proto: super::super::Foundation::PSTR, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8386,7 +8447,8 @@ pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, port: i32, proto: Param3, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncGetServByPort(hwnd: super::super::Foundation::HWND, wmsg: u32, port: i32, proto: super::super::Foundation::PSTR, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
         }
@@ -8401,7 +8463,8 @@ pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSAAsyncSelect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(s: Param0, hwnd: Param1, wmsg: u32, levent: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAAsyncSelect(s: SOCKET, hwnd: super::super::Foundation::HWND, wmsg: u32, levent: i32) -> i32;
         }
@@ -8662,7 +8725,8 @@ pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = 4i32;
 pub unsafe fn WSACancelAsyncRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hasynctaskhandle: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSACancelAsyncRequest(hasynctaskhandle: super::super::Foundation::HANDLE) -> i32;
         }
@@ -8676,7 +8740,8 @@ pub unsafe fn WSACancelAsyncRequest<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSACancelBlockingCall() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSACancelBlockingCall() -> i32;
         }
@@ -8690,7 +8755,8 @@ pub unsafe fn WSACancelBlockingCall() -> i32 {
 pub unsafe fn WSACleanup() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSACleanup() -> i32;
         }
@@ -8705,7 +8771,8 @@ pub unsafe fn WSACleanup() -> i32 {
 pub unsafe fn WSACloseEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSACloseEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -8720,7 +8787,8 @@ pub unsafe fn WSACloseEvent<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn WSAConnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAConnect(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS) -> i32;
         }
@@ -8735,7 +8803,8 @@ pub unsafe fn WSAConnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: 
 pub unsafe fn WSAConnectByList<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAConnectByList(s: SOCKET, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -8750,7 +8819,8 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::core::IntoParam<'a, SOCKET
 pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAConnectByNameA(s: SOCKET, nodename: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -8765,7 +8835,8 @@ pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::core::IntoParam<'a, SOCKE
 pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAConnectByNameW(s: SOCKET, nodename: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -8780,7 +8851,8 @@ pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::core::IntoParam<'a, SOCKE
 pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSACreateEvent() -> super::super::Foundation::HANDLE;
         }
@@ -8887,7 +8959,8 @@ impl ::core::default::Default for WSAData {
 pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSADeleteSocketPeerTargetName(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -8902,7 +8975,8 @@ pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WSADuplicateSocketA<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSADuplicateSocketA(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOA) -> i32;
         }
@@ -8916,7 +8990,8 @@ pub unsafe fn WSADuplicateSocketA<'a, Param0: ::windows::core::IntoParam<'a, SOC
 pub unsafe fn WSADuplicateSocketW<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSADuplicateSocketW(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOW) -> i32;
         }
@@ -8945,7 +9020,8 @@ pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2i32;
 pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOA) -> i32;
         }
@@ -8960,7 +9036,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer
 pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXA) -> i32;
         }
@@ -8975,7 +9052,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuff
 pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32;
         }
@@ -8990,7 +9068,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuff
 pub unsafe fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32;
         }
@@ -9005,7 +9084,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer
 pub unsafe fn WSAEnumNetworkEvents<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(s: Param0, heventobject: Param1, lpnetworkevents: *mut WSANETWORKEVENTS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumNetworkEvents(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lpnetworkevents: *mut WSANETWORKEVENTS) -> i32;
         }
@@ -9020,7 +9100,8 @@ pub unsafe fn WSAEnumNetworkEvents<'a, Param0: ::windows::core::IntoParam<'a, SO
 pub unsafe fn WSAEnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOA, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOA, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -9034,7 +9115,8 @@ pub unsafe fn WSAEnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut
 pub unsafe fn WSAEnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -9049,7 +9131,8 @@ pub unsafe fn WSAEnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut
 pub unsafe fn WSAEventSelect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(s: Param0, heventobject: Param1, lnetworkevents: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAEventSelect(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lnetworkevents: i32) -> i32;
         }
@@ -9063,7 +9146,8 @@ pub unsafe fn WSAEventSelect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>,
 pub unsafe fn WSAGetLastError() -> WSA_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetLastError() -> WSA_ERROR;
         }
@@ -9078,7 +9162,8 @@ pub unsafe fn WSAGetLastError() -> WSA_ERROR {
 pub unsafe fn WSAGetOverlappedResult<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(s: Param0, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: Param3, lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetOverlappedResult(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: super::super::Foundation::BOOL, lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -9093,7 +9178,8 @@ pub unsafe fn WSAGetOverlappedResult<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WSAGetQOSByName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpqosname: *const WSABUF, lpqos: *mut super::super::NetworkManagement::QoS::QOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetQOSByName(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut super::super::NetworkManagement::QoS::QOS) -> super::super::Foundation::BOOL;
         }
@@ -9108,7 +9194,8 @@ pub unsafe fn WSAGetQOSByName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>
 pub unsafe fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOA) -> i32;
         }
@@ -9123,7 +9210,8 @@ pub unsafe fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::core::GUID
 pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOW) -> i32;
         }
@@ -9138,7 +9226,8 @@ pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::core::GUID
 pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -9153,7 +9242,8 @@ pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::window
 pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const ::windows::core::GUID, lpszserviceclassname: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> i32;
         }
@@ -9167,7 +9257,8 @@ pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const ::window
 pub unsafe fn WSAHtonl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, hostlong: u32, lpnetlong: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAHtonl(s: SOCKET, hostlong: u32, lpnetlong: *mut u32) -> i32;
         }
@@ -9181,7 +9272,8 @@ pub unsafe fn WSAHtonl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Pa
 pub unsafe fn WSAHtons<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, hostshort: u16, lpnetshort: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAHtons(s: SOCKET, hostshort: u16, lpnetshort: *mut u16) -> i32;
         }
@@ -9196,7 +9288,8 @@ pub unsafe fn WSAHtons<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Pa
 pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAImpersonateSocketPeer(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32) -> i32;
         }
@@ -9211,7 +9304,8 @@ pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32;
         }
@@ -9226,7 +9320,8 @@ pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASS
 pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32;
         }
@@ -9241,7 +9336,8 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
 pub unsafe fn WSAIoctl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAIoctl(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -9256,7 +9352,8 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Pa
 pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAIsBlocking() -> super::super::Foundation::BOOL;
         }
@@ -9271,7 +9368,8 @@ pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
 pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, dwflags: u32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAJoinLeaf(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, dwflags: u32) -> SOCKET;
         }
@@ -9286,7 +9384,8 @@ pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s:
 pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -9301,7 +9400,8 @@ pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwco
 pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32;
         }
@@ -9316,7 +9416,8 @@ pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwco
 pub unsafe fn WSALookupServiceEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSALookupServiceEnd(hlookup: super::super::Foundation::HANDLE) -> i32;
         }
@@ -9331,7 +9432,8 @@ pub unsafe fn WSALookupServiceEnd<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSALookupServiceNextA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSALookupServiceNextA(hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETA) -> i32;
         }
@@ -9346,7 +9448,8 @@ pub unsafe fn WSALookupServiceNextA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSALookupServiceNextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSALookupServiceNextW(hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32;
         }
@@ -9642,7 +9745,8 @@ impl ::core::default::Default for WSANSCLASSINFOW {
 pub unsafe fn WSANSPIoctl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSANSPIoctl(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION) -> i32;
         }
@@ -9656,7 +9760,8 @@ pub unsafe fn WSANSPIoctl<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn WSANtohl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, netlong: u32, lphostlong: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSANtohl(s: SOCKET, netlong: u32, lphostlong: *mut u32) -> i32;
         }
@@ -9670,7 +9775,8 @@ pub unsafe fn WSANtohl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Pa
 pub unsafe fn WSANtohs<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, netshort: u16, lphostshort: *mut u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSANtohs(s: SOCKET, netshort: u16, lphostshort: *mut u16) -> i32;
         }
@@ -9862,7 +9968,8 @@ pub const WSAPROTOCOL_LEN: u32 = 255u32;
 pub unsafe fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32;
         }
@@ -9877,7 +9984,8 @@ pub unsafe fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32 {
 pub unsafe fn WSAProviderCompleteAsyncCall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hasynccall: Param0, iretcode: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAProviderCompleteAsyncCall(hasynccall: super::super::Foundation::HANDLE, iretcode: i32) -> i32;
         }
@@ -9892,7 +10000,8 @@ pub unsafe fn WSAProviderCompleteAsyncCall<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10089,7 +10198,8 @@ impl ::core::default::Default for WSAQUERYSETW {
 pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAQuerySocketSecurity(socket: SOCKET, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10104,7 +10214,8 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WSARecv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARecv(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10119,7 +10230,8 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
 pub unsafe fn WSARecvDisconnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpinbounddisconnectdata: *const WSABUF) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: *const WSABUF) -> i32;
         }
@@ -10134,7 +10246,8 @@ pub unsafe fn WSARecvDisconnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKE
 pub unsafe fn WSARecvEx<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARecvEx(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32;
         }
@@ -10149,7 +10262,8 @@ pub unsafe fn WSARecvEx<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: P
 pub unsafe fn WSARecvFrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARecvFrom(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10163,7 +10277,8 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s:
 pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::core::GUID) -> i32;
         }
@@ -10178,7 +10293,8 @@ pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::core::GU
 pub unsafe fn WSAResetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAResetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -10192,7 +10308,8 @@ pub unsafe fn WSAResetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn WSARevertImpersonation() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSARevertImpersonation() -> i32;
         }
@@ -10315,7 +10432,8 @@ pub const WSASYS_STATUS_LEN: u32 = 128u32;
 pub unsafe fn WSASend<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASend(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10330,7 +10448,8 @@ pub unsafe fn WSASend<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
 pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpoutbounddisconnectdata: *const WSABUF) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASendDisconnect(s: SOCKET, lpoutbounddisconnectdata: *const WSABUF) -> i32;
         }
@@ -10345,7 +10464,8 @@ pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKE
 pub unsafe fn WSASendMsg<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(handle: Param0, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASendMsg(handle: SOCKET, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10360,7 +10480,8 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(han
 pub unsafe fn WSASendTo<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASendTo(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10375,7 +10496,8 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: P
 pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC) -> super::super::Foundation::FARPROC {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetBlockingHook(lpblockfunc: ::windows::core::RawPtr) -> super::super::Foundation::FARPROC;
         }
@@ -10390,7 +10512,8 @@ pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC)
 pub unsafe fn WSASetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -10404,7 +10527,8 @@ pub unsafe fn WSASetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn WSASetLastError(ierror: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetLastError(ierror: i32);
         }
@@ -10419,7 +10543,8 @@ pub unsafe fn WSASetLastError(ierror: i32) {
 pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
         }
@@ -10434,7 +10559,8 @@ pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSA
 pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
         }
@@ -10449,7 +10575,8 @@ pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSA
 pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetSocketPeerTargetName(socket: SOCKET, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10464,7 +10591,8 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASetSocketSecurity(socket: SOCKET, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::windows::core::RawPtr) -> i32;
         }
@@ -10479,7 +10607,8 @@ pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SO
 pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, g: u32, dwflags: u32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, g: u32, dwflags: u32) -> SOCKET;
         }
@@ -10493,7 +10622,8 @@ pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *c
 pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, g: u32, dwflags: u32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, g: u32, dwflags: u32) -> SOCKET;
         }
@@ -10508,7 +10638,8 @@ pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *c
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32;
         }
@@ -10523,7 +10654,8 @@ pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32
 pub unsafe fn WSAStringToAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAStringToAddressA(addressstring: super::super::Foundation::PSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32;
         }
@@ -10538,7 +10670,8 @@ pub unsafe fn WSAStringToAddressA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSAStringToAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAStringToAddressW(addressstring: super::super::Foundation::PWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32;
         }
@@ -10585,7 +10718,8 @@ impl ::core::default::Default for WSATHREADID {
 pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::core::GUID) -> i32;
         }
@@ -10599,7 +10733,8 @@ pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::core::GU
 pub unsafe fn WSAUnhookBlockingHook() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAUnhookBlockingHook() -> i32;
         }
@@ -10640,7 +10775,8 @@ impl ::core::default::Default for WSAVERSION {
 pub unsafe fn WSAWaitForMultipleEvents<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(cevents: u32, lphevents: *const super::super::Foundation::HANDLE, fwaitall: Param2, dwtimeout: u32, falertable: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSAWaitForMultipleEvents(cevents: u32, lphevents: *const super::super::Foundation::HANDLE, fwaitall: super::super::Foundation::BOOL, dwtimeout: u32, falertable: super::super::Foundation::BOOL) -> u32;
         }
@@ -10912,7 +11048,8 @@ pub const WSA_WAIT_IO_COMPLETION: u32 = 192u32;
 pub unsafe fn WSCDeinstallProvider(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCDeinstallProvider(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32;
         }
@@ -10927,7 +11064,8 @@ pub unsafe fn WSCDeinstallProvider(lpproviderid: *const ::windows::core::GUID, l
 pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCDeinstallProvider32(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32;
         }
@@ -10942,7 +11080,8 @@ pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::core::GUID,
 pub unsafe fn WSCEnableNSProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpproviderid: *const ::windows::core::GUID, fenable: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnableNSProvider(lpproviderid: *const ::windows::core::GUID, fenable: super::super::Foundation::BOOL) -> i32;
         }
@@ -10958,7 +11097,8 @@ pub unsafe fn WSCEnableNSProvider<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpproviderid: *const ::windows::core::GUID, fenable: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnableNSProvider32(lpproviderid: *const ::windows::core::GUID, fenable: super::super::Foundation::BOOL) -> i32;
         }
@@ -10974,7 +11114,8 @@ pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32;
         }
@@ -10990,7 +11131,8 @@ pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffe
 pub unsafe fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32;
         }
@@ -11004,7 +11146,8 @@ pub unsafe fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuf
 pub unsafe fn WSCEnumProtocols(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnumProtocols(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32;
         }
@@ -11019,7 +11162,8 @@ pub unsafe fn WSCEnumProtocols(lpiprotocols: *const i32, lpprotocolbuffer: *mut 
 pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32;
         }
@@ -11034,7 +11178,8 @@ pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mu
 pub unsafe fn WSCGetApplicationCategory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(path: Param0, pathlength: u32, extra: Param2, extralength: u32, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCGetApplicationCategory(path: super::super::Foundation::PWSTR, pathlength: u32, extra: super::super::Foundation::PWSTR, extralength: u32, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32;
         }
@@ -11048,7 +11193,8 @@ pub unsafe fn WSCGetApplicationCategory<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32;
         }
@@ -11063,7 +11209,8 @@ pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, inf
 pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32;
         }
@@ -11078,7 +11225,8 @@ pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, i
 pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCGetProviderPath(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32;
         }
@@ -11094,7 +11242,8 @@ pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::core::GUID, lps
 pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32;
         }
@@ -11109,7 +11258,8 @@ pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, l
 pub unsafe fn WSCInstallNameSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallNameSpace(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32;
         }
@@ -11125,7 +11275,8 @@ pub unsafe fn WSCInstallNameSpace<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallNameSpace32(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32;
         }
@@ -11140,7 +11291,8 @@ pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallNameSpaceEx(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32;
         }
@@ -11156,7 +11308,8 @@ pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallNameSpaceEx32(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32;
         }
@@ -11171,7 +11324,8 @@ pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
@@ -11187,7 +11341,8 @@ pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallProvider64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
@@ -11203,7 +11358,8 @@ pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpszproviderdllpath32: Param2, lpszlspname: Param3, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCInstallProviderAndChains64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpszproviderdllpath32: super::super::Foundation::PWSTR, lpszlspname: super::super::Foundation::PWSTR, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32;
         }
@@ -11218,7 +11374,8 @@ pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::Into
 pub unsafe fn WSCSetApplicationCategory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(path: Param0, pathlength: u32, extra: Param2, extralength: u32, permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCSetApplicationCategory(path: super::super::Foundation::PWSTR, pathlength: u32, extra: super::super::Foundation::PWSTR, extralength: u32, permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32;
         }
@@ -11232,7 +11389,8 @@ pub unsafe fn WSCSetApplicationCategory<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32;
         }
@@ -11247,7 +11405,8 @@ pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, inf
 pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32;
         }
@@ -11261,7 +11420,8 @@ pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, i
 pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::core::GUID) -> i32;
         }
@@ -11276,7 +11436,8 @@ pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::core::GUID) 
 pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID) -> i32;
         }
@@ -11291,7 +11452,8 @@ pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID
 pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCUpdateProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
@@ -11307,7 +11469,8 @@ pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn WSCUpdateProvider32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCUpdateProvider32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
@@ -11321,7 +11484,8 @@ pub unsafe fn WSCUpdateProvider32<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32;
         }
@@ -11336,7 +11500,8 @@ pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::core::GUID, d
 pub unsafe fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32;
         }
@@ -11350,7 +11515,8 @@ pub unsafe fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::core::GUID,
 pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32;
         }
@@ -11365,7 +11531,8 @@ pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentr
 pub unsafe fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32;
         }
@@ -11621,7 +11788,8 @@ pub const _SS_MAXSIZE: u32 = 128u32;
 pub unsafe fn __WSAFDIsSet<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(fd: Param0, param1: *mut fd_set) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32;
         }
@@ -11636,7 +11804,8 @@ pub unsafe fn __WSAFDIsSet<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(f
 pub unsafe fn accept<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn accept(s: SOCKET, addr: *mut SOCKADDR, addrlen: *mut i32) -> SOCKET;
         }
@@ -12118,7 +12287,8 @@ impl ::core::default::Default for addrinfoexW {
 pub unsafe fn bind<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bind(s: SOCKET, name: *const SOCKADDR, namelen: i32) -> i32;
         }
@@ -12132,7 +12302,8 @@ pub unsafe fn bind<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0
 pub unsafe fn closesocket<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn closesocket(s: SOCKET) -> i32;
         }
@@ -12174,7 +12345,8 @@ impl ::core::default::Default for cmsghdr {
 pub unsafe fn connect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn connect(s: SOCKET, name: *const SOCKADDR, namelen: i32) -> i32;
         }
@@ -12221,7 +12393,8 @@ impl ::core::default::Default for fd_set {
 pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn freeaddrinfo(paddrinfo: *const ADDRINFOA);
         }
@@ -12236,7 +12409,8 @@ pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
 pub unsafe fn getaddrinfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pnodename: Param0, pservicename: Param1, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getaddrinfo(pnodename: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32;
         }
@@ -12251,7 +12425,8 @@ pub unsafe fn getaddrinfo<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn gethostbyaddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(addr: Param0, len: i32, r#type: i32) -> *mut hostent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gethostbyaddr(addr: super::super::Foundation::PSTR, len: i32, r#type: i32) -> *mut hostent;
         }
@@ -12266,7 +12441,8 @@ pub unsafe fn gethostbyaddr<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn gethostbyname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0) -> *mut hostent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gethostbyname(name: super::super::Foundation::PSTR) -> *mut hostent;
         }
@@ -12281,7 +12457,8 @@ pub unsafe fn gethostbyname<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) -> i32;
         }
@@ -12296,7 +12473,8 @@ pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) ->
 pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PSTR, servicebuffersize: u32, flags: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PSTR, servicebuffersize: u32, flags: i32) -> i32;
         }
@@ -12311,7 +12489,8 @@ pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnode
 pub unsafe fn getpeername<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *mut SOCKADDR, namelen: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getpeername(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32) -> i32;
         }
@@ -12326,7 +12505,8 @@ pub unsafe fn getpeername<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s:
 pub unsafe fn getprotobyname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0) -> *mut protoent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getprotobyname(name: super::super::Foundation::PSTR) -> *mut protoent;
         }
@@ -12341,7 +12521,8 @@ pub unsafe fn getprotobyname<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getprotobynumber(number: i32) -> *mut protoent;
         }
@@ -12356,7 +12537,8 @@ pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
 pub unsafe fn getservbyname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, proto: Param1) -> *mut servent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getservbyname(name: super::super::Foundation::PSTR, proto: super::super::Foundation::PSTR) -> *mut servent;
         }
@@ -12371,7 +12553,8 @@ pub unsafe fn getservbyname<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn getservbyport<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(port: i32, proto: Param1) -> *mut servent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getservbyport(port: i32, proto: super::super::Foundation::PSTR) -> *mut servent;
         }
@@ -12386,7 +12569,8 @@ pub unsafe fn getservbyport<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn getsockname<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, name: *mut SOCKADDR, namelen: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getsockname(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32) -> i32;
         }
@@ -12401,7 +12585,8 @@ pub unsafe fn getsockname<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s:
 pub unsafe fn getsockopt<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn getsockopt(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: *mut i32) -> i32;
         }
@@ -12451,7 +12636,8 @@ impl ::core::default::Default for hostent {
 pub unsafe fn htonl(hostlong: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn htonl(hostlong: u32) -> u32;
         }
@@ -12465,7 +12651,8 @@ pub unsafe fn htonl(hostlong: u32) -> u32 {
 pub unsafe fn htons(hostshort: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn htons(hostshort: u16) -> u16;
         }
@@ -12506,7 +12693,8 @@ impl ::core::default::Default for in6_pktinfo_ex {
 pub unsafe fn inet_addr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cp: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn inet_addr(cp: super::super::Foundation::PSTR) -> u32;
         }
@@ -12521,7 +12709,8 @@ pub unsafe fn inet_addr<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn inet_ntoa<'a, Param0: ::windows::core::IntoParam<'a, IN_ADDR>>(r#in: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn inet_ntoa(r#in: IN_ADDR) -> super::super::Foundation::PSTR;
         }
@@ -12536,7 +12725,8 @@ pub unsafe fn inet_ntoa<'a, Param0: ::windows::core::IntoParam<'a, IN_ADDR>>(r#i
 pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PSTR, stringbufsize: usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PSTR, stringbufsize: usize) -> super::super::Foundation::PSTR;
         }
@@ -12551,7 +12741,8 @@ pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringb
 pub unsafe fn inet_pton<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn inet_pton(family: i32, pszaddrstring: super::super::Foundation::PSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
         }
@@ -12565,7 +12756,8 @@ pub unsafe fn inet_pton<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn ioctlsocket<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, cmd: i32, argp: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u32) -> i32;
         }
@@ -12605,7 +12797,8 @@ impl ::core::default::Default for linger {
 pub unsafe fn listen<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, backlog: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn listen(s: SOCKET, backlog: i32) -> i32;
         }
@@ -12654,7 +12847,8 @@ impl ::core::default::Default for netent {
 pub unsafe fn ntohl(netlong: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ntohl(netlong: u32) -> u32;
         }
@@ -12668,7 +12862,8 @@ pub unsafe fn ntohl(netlong: u32) -> u32 {
 pub unsafe fn ntohs(netshort: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ntohs(netshort: u16) -> u16;
         }
@@ -12717,7 +12912,8 @@ impl ::core::default::Default for protoent {
 pub unsafe fn recv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn recv(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: i32) -> i32;
         }
@@ -12732,7 +12928,8 @@ pub unsafe fn recv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0
 pub unsafe fn recvfrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: i32, from: *mut SOCKADDR, fromlen: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn recvfrom(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: i32, from: *mut SOCKADDR, fromlen: *mut i32) -> i32;
         }
@@ -12746,7 +12943,8 @@ pub unsafe fn recvfrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Pa
 pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exceptfds: *mut fd_set, timeout: *const timeval) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exceptfds: *mut fd_set, timeout: *const timeval) -> i32;
         }
@@ -12761,7 +12959,8 @@ pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exc
 pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, buf: Param1, len: i32, flags: SEND_FLAGS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn send(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: SEND_FLAGS) -> i32;
         }
@@ -12776,7 +12975,8 @@ pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: :
 pub unsafe fn sendto<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, buf: Param1, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn sendto(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32;
         }
@@ -12875,7 +13075,8 @@ impl ::core::default::Default for servent {
 pub unsafe fn setsockopt<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, level: i32, optname: i32, optval: Param3, optlen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: i32) -> i32;
         }
@@ -12889,7 +13090,8 @@ pub unsafe fn setsockopt<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Par
 pub unsafe fn shutdown<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, how: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn shutdown(s: SOCKET, how: i32) -> i32;
         }
@@ -13154,7 +13356,8 @@ impl ::core::default::Default for sockaddr_vns {
 pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET;
         }

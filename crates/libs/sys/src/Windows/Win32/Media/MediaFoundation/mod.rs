@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "dxva2", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut IDirect3DDeviceManager9) -> ::windows_sys::core::HRESULT;
@@ -19,7 +20,8 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "evr", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateVideoMixer(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -37,7 +39,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "mf", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -176,14 +179,16 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows_sys::core::GUID, dwmftflags: u32, pcodecconfig: IMFAttributes, ppavailabletypes: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "mfcore", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfcore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut IMFExtendedCameraIntrinsicModel) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut IMFExtendedCameraIntrinsics) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "mfplat", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -532,13 +537,15 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
 }
-#[link(name = "mfplay", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfplay", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: IMFPMediaPlayerCallback, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut IMFPMediaPlayer) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "mfreadwrite", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateSinkWriterFromMediaSink(pmediasink: IMFMediaSink, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
@@ -553,7 +560,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "mfsensorgroup", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -580,14 +588,16 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "mfsrcsnk", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfsrcsnk", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateAVIMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateWAVEMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "opmxbox", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "opmxbox", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;

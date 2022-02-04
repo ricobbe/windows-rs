@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "vmdevicehost", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "vmdevicehost", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
     pub fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows_sys::core::GUID, deviceinstanceid: *const ::windows_sys::core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: *const ::core::ffi::c_void, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -30,7 +31,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
     pub fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "vmsavedstatedumpprovider", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "vmsavedstatedumpprovider", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
     pub fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows_sys::core::HRESULT;
@@ -140,7 +142,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "winhvemulation", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winhvemulation", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
     pub fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -151,7 +154,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
     pub fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "winhvplatform", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winhvplatform", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Hypervisor', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "mgmtapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mgmtapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Snmp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29,7 +30,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
-#[link(name = "snmpapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "snmpapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
     pub fn SnmpSvcGetUptime() -> u32;
@@ -98,7 +100,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList);
 }
-#[link(name = "wsnmp32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wsnmp32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
     pub fn SnmpCancelMsg(session: isize, reqid: i32) -> u32;

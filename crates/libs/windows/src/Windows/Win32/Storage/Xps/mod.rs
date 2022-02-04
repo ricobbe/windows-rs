@@ -10,7 +10,8 @@ pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: su
 pub unsafe fn AbortDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -194,7 +195,8 @@ impl ::core::default::Default for DRAWPATRECT {
 pub unsafe fn DeviceCapabilitiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pdevice: Param0, pport: Param1, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
         }
@@ -209,7 +211,8 @@ pub unsafe fn DeviceCapabilitiesA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DeviceCapabilitiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pdevice: Param0, pport: Param1, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
         }
@@ -224,7 +227,8 @@ pub unsafe fn DeviceCapabilitiesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EndDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -239,7 +243,8 @@ pub unsafe fn EndDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Gr
 pub unsafe fn EndPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -254,7 +259,8 @@ pub unsafe fn EndPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::G
 pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjin: i32, pvin: Param3, pvout: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: super::super::Foundation::PSTR, pvout: *mut ::core::ffi::c_void) -> i32;
         }
@@ -269,7 +275,8 @@ pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Gr
 pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjinput: i32, lpindata: Param3, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: super::super::Foundation::PSTR, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32;
         }
@@ -10100,7 +10107,8 @@ pub const PSINJECT_VMRESTORE: PSINJECT_POINT = 201u16;
 pub unsafe fn PrintWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdcblt: Param1, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
         }
@@ -10115,7 +10123,8 @@ pub unsafe fn PrintWindow<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, proc: ABORTPROC) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ::windows::core::RawPtr) -> i32;
         }
@@ -10130,7 +10139,8 @@ pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn StartDocA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpdi: *const DOCINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
         }
@@ -10145,7 +10155,8 @@ pub unsafe fn StartDocA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn StartDocW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpdi: *const DOCINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
         }
@@ -10160,7 +10171,8 @@ pub unsafe fn StartDocW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn StartPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }

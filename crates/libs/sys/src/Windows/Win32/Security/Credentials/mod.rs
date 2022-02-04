@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -97,7 +98,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "credui", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "credui", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -148,7 +150,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "keycredmgr", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "keycredmgr", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
     pub fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
@@ -161,7 +164,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "scarddlg", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "scarddlg", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -178,7 +182,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
 }
-#[link(name = "winscard", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winscard", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

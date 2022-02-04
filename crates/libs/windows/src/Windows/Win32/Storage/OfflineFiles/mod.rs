@@ -4314,7 +4314,8 @@ pub const OfflineFilesCache: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn OfflineFilesEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(benable: Param0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -4329,7 +4330,8 @@ pub unsafe fn OfflineFilesEnable<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -4344,7 +4346,8 @@ pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::B
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -4359,7 +4362,8 @@ pub const OfflineFilesSetting: ::windows::core::GUID = ::windows::core::GUID::fr
 pub unsafe fn OfflineFilesStart() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineFilesStart() -> u32;
         }

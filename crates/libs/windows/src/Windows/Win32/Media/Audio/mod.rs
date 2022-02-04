@@ -1571,7 +1571,8 @@ pub const AUXCAPS_VOLUME: u32 = 1u32;
 pub unsafe fn ActivateAudioInterfaceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IActivateAudioInterfaceCompletionHandler>>(deviceinterfacepath: Param0, riid: *const ::windows::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: Param3) -> ::windows::core::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg(windows)]
     {
-        #[link(name = "mmdevapi", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mmdevapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ActivateAudioInterfaceAsync(deviceinterfacepath: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: ::windows::core::RawPtr, activationoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1754,7 +1755,8 @@ pub const Full: AudioStateMonitorSoundLevel = 2i32;
 pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::windows::core::IntoParam<'a, IMessageFilter>>(lpmessagefilter: Param0) -> ::windows::core::Result<IMessageFilter> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterMessageFilter(lpmessagefilter: ::windows::core::RawPtr, lplpmessagefilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1795,7 +1797,8 @@ impl ::core::cmp::Eq for ConnectorType {}
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1810,7 +1813,8 @@ pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudio
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1826,7 +1830,8 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_C
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1841,7 +1846,8 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param1: :
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1856,7 +1862,8 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: A
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1871,7 +1878,8 @@ pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioS
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1887,7 +1895,8 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CA
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1902,7 +1911,8 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -9697,7 +9707,8 @@ pub const Subunit: PartType = 1i32;
 pub unsafe fn PlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
@@ -9712,7 +9723,8 @@ pub unsafe fn PlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn PlaySoundW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
@@ -10903,7 +10915,8 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_m
 pub unsafe fn acmDriverAddA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
@@ -10918,7 +10931,8 @@ pub unsafe fn acmDriverAddA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn acmDriverAddW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
@@ -10932,7 +10946,8 @@ pub unsafe fn acmDriverAddW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn acmDriverClose<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, fdwclose: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
         }
@@ -10947,7 +10962,8 @@ pub unsafe fn acmDriverClose<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
         }
@@ -10962,7 +10978,8 @@ pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
         }
@@ -10977,7 +10994,8 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverEnum(fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -10991,7 +11009,8 @@ pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwe
 pub unsafe fn acmDriverID<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(hao: Param0, phadid: *mut isize, fdwdriverid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
         }
@@ -11006,7 +11025,8 @@ pub unsafe fn acmDriverID<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(h
 pub unsafe fn acmDriverMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(had: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
@@ -11020,7 +11040,8 @@ pub unsafe fn acmDriverMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMDR
 pub unsafe fn acmDriverOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVERID>>(phad: *mut isize, hadid: Param1, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
         }
@@ -11034,7 +11055,8 @@ pub unsafe fn acmDriverOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVE
 pub unsafe fn acmDriverPriority<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, dwpriority: u32, fdwpriority: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
         }
@@ -11048,7 +11070,8 @@ pub unsafe fn acmDriverPriority<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmDriverRemove<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, fdwremove: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
         }
@@ -11063,7 +11086,8 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::core::IntoParam<'a, HACMDRI
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32;
         }
@@ -11078,7 +11102,8 @@ pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
 pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32;
         }
@@ -11093,7 +11118,8 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
 pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
         }
@@ -11107,7 +11133,8 @@ pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
         }
@@ -11122,7 +11149,8 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11137,7 +11165,8 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11152,7 +11181,8 @@ pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
         }
@@ -11166,7 +11196,8 @@ pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
         }
@@ -11181,7 +11212,8 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11196,7 +11228,8 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11211,7 +11244,8 @@ pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32;
         }
@@ -11226,7 +11260,8 @@ pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
 pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32;
         }
@@ -11241,7 +11276,8 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
 pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
         }
@@ -11255,7 +11291,8 @@ pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
         }
@@ -11270,7 +11307,8 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11285,7 +11323,8 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11299,7 +11338,8 @@ pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
         }
@@ -11314,7 +11354,8 @@ pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::core::IntoParam<'a, HACMDR
 pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
         }
@@ -11328,7 +11369,8 @@ pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
         }
@@ -11343,7 +11385,8 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11358,7 +11401,8 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::windows::core::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
@@ -11372,7 +11416,8 @@ pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 pub unsafe fn acmGetVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmGetVersion() -> u32;
         }
@@ -11386,7 +11431,8 @@ pub unsafe fn acmGetVersion() -> u32 {
 pub unsafe fn acmMetrics<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32;
         }
@@ -11400,7 +11446,8 @@ pub unsafe fn acmMetrics<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(ha
 pub unsafe fn acmStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwclose: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
         }
@@ -11414,7 +11461,8 @@ pub unsafe fn acmStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HACMSTRE
 pub unsafe fn acmStreamConvert<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
         }
@@ -11429,7 +11477,8 @@ pub unsafe fn acmStreamConvert<'a, Param0: ::windows::core::IntoParam<'a, HACMST
 pub unsafe fn acmStreamMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(has: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
         }
@@ -11443,7 +11492,8 @@ pub unsafe fn acmStreamMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMST
 pub unsafe fn acmStreamOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVER>>(phas: *mut isize, had: Param1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
@@ -11457,7 +11507,8 @@ pub unsafe fn acmStreamOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVE
 pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
         }
@@ -11471,7 +11522,8 @@ pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn acmStreamReset<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwreset: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
         }
@@ -11485,7 +11537,8 @@ pub unsafe fn acmStreamReset<'a, Param0: ::windows::core::IntoParam<'a, HACMSTRE
 pub unsafe fn acmStreamSize<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
         }
@@ -11499,7 +11552,8 @@ pub unsafe fn acmStreamSize<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREA
 pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
         }
@@ -11514,7 +11568,8 @@ pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
         }
@@ -11528,7 +11583,8 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
         }
@@ -11542,7 +11598,8 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
 pub unsafe fn auxGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxGetNumDevs() -> u32;
         }
@@ -11556,7 +11613,8 @@ pub unsafe fn auxGetNumDevs() -> u32 {
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
         }
@@ -11570,7 +11628,8 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -11584,7 +11643,8 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
         }
@@ -11598,7 +11658,8 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
 pub unsafe fn midiConnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, Param1: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
         }
@@ -11612,7 +11673,8 @@ pub unsafe fn midiConnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, Par
 pub unsafe fn midiDisconnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, Param1: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
         }
@@ -11627,7 +11689,8 @@ pub unsafe fn midiDisconnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, 
 pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -11641,7 +11704,8 @@ pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN
 pub unsafe fn midiInClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInClose(hmi: HMIDIIN) -> u32;
         }
@@ -11656,7 +11720,8 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(h
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
         }
@@ -11670,7 +11735,8 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
         }
@@ -11685,7 +11751,8 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
 pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
@@ -11700,7 +11767,8 @@ pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundati
 pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
@@ -11714,7 +11782,8 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundati
 pub unsafe fn midiInGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
         }
@@ -11728,7 +11797,8 @@ pub unsafe fn midiInGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(h
 pub unsafe fn midiInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInGetNumDevs() -> u32;
         }
@@ -11742,7 +11812,8 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
 pub unsafe fn midiInMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -11756,7 +11827,8 @@ pub unsafe fn midiInMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>
 pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
@@ -11771,7 +11843,8 @@ pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, 
 pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -11785,7 +11858,8 @@ pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMI
 pub unsafe fn midiInReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInReset(hmi: HMIDIIN) -> u32;
         }
@@ -11799,7 +11873,8 @@ pub unsafe fn midiInReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(h
 pub unsafe fn midiInStart<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInStart(hmi: HMIDIIN) -> u32;
         }
@@ -11813,7 +11888,8 @@ pub unsafe fn midiInStart<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(h
 pub unsafe fn midiInStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInStop(hmi: HMIDIIN) -> u32;
         }
@@ -11828,7 +11904,8 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hm
 pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -11842,7 +11919,8 @@ pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: *const u16, fucache: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
         }
@@ -11856,7 +11934,8 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: *const u16, fucache: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
         }
@@ -11870,7 +11949,8 @@ pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMI
 pub unsafe fn midiOutClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutClose(hmo: HMIDIOUT) -> u32;
         }
@@ -11885,7 +11965,8 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
         }
@@ -11899,7 +11980,8 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
         }
@@ -11914,7 +11996,8 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
 pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
@@ -11929,7 +12012,8 @@ pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundat
 pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
@@ -11943,7 +12027,8 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundat
 pub unsafe fn midiOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
         }
@@ -11957,7 +12042,8 @@ pub unsafe fn midiOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>
 pub unsafe fn midiOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetNumDevs() -> u32;
         }
@@ -11971,7 +12057,8 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
 pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
         }
@@ -11986,7 +12073,8 @@ pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIO
 pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
         }
@@ -12000,7 +12088,8 @@ pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT
 pub unsafe fn midiOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -12014,7 +12103,8 @@ pub unsafe fn midiOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT
 pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
@@ -12029,7 +12119,8 @@ pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize
 pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -12043,7 +12134,8 @@ pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HM
 pub unsafe fn midiOutReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutReset(hmo: HMIDIOUT) -> u32;
         }
@@ -12057,7 +12149,8 @@ pub unsafe fn midiOutReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>
 pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
         }
@@ -12071,7 +12164,8 @@ pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIO
 pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwmsg: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
         }
@@ -12086,7 +12180,8 @@ pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOU
 pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -12100,7 +12195,8 @@ pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn midiStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamClose(hms: HMIDISTRM) -> u32;
         }
@@ -12114,7 +12210,8 @@ pub unsafe fn midiStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIST
 pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
@@ -12129,7 +12226,8 @@ pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: 
 pub unsafe fn midiStreamOut<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -12143,7 +12241,8 @@ pub unsafe fn midiStreamOut<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM
 pub unsafe fn midiStreamPause<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamPause(hms: HMIDISTRM) -> u32;
         }
@@ -12157,7 +12256,8 @@ pub unsafe fn midiStreamPause<'a, Param0: ::windows::core::IntoParam<'a, HMIDIST
 pub unsafe fn midiStreamPosition<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
         }
@@ -12171,7 +12271,8 @@ pub unsafe fn midiStreamPosition<'a, Param0: ::windows::core::IntoParam<'a, HMID
 pub unsafe fn midiStreamProperty<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, lppropdata: *mut u8, dwproperty: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
         }
@@ -12185,7 +12286,8 @@ pub unsafe fn midiStreamProperty<'a, Param0: ::windows::core::IntoParam<'a, HMID
 pub unsafe fn midiStreamRestart<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamRestart(hms: HMIDISTRM) -> u32;
         }
@@ -12199,7 +12301,8 @@ pub unsafe fn midiStreamRestart<'a, Param0: ::windows::core::IntoParam<'a, HMIDI
 pub unsafe fn midiStreamStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn midiStreamStop(hms: HMIDISTRM) -> u32;
         }
@@ -12213,7 +12316,8 @@ pub unsafe fn midiStreamStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTR
 pub unsafe fn mixerClose<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(hmx: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerClose(hmx: HMIXER) -> u32;
         }
@@ -12228,7 +12332,8 @@ pub unsafe fn mixerClose<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(hmx
 pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
@@ -12243,7 +12348,8 @@ pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
@@ -12258,7 +12364,8 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
         }
@@ -12272,7 +12379,8 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
         }
@@ -12286,7 +12394,8 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
 pub unsafe fn mixerGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pumxid: *mut u32, fdwid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
         }
@@ -12301,7 +12410,8 @@ pub unsafe fn mixerGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(
 pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
         }
@@ -12315,7 +12425,8 @@ pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
         }
@@ -12330,7 +12441,8 @@ pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
         }
@@ -12344,7 +12456,8 @@ pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::core::IntoParam<'a, HMIXE
 pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
         }
@@ -12358,7 +12471,8 @@ pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::core::IntoParam<'a, HMIXE
 pub unsafe fn mixerGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerGetNumDevs() -> u32;
         }
@@ -12372,7 +12486,8 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
 pub unsafe fn mixerMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(hmx: Param0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -12386,7 +12501,8 @@ pub unsafe fn mixerMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(h
 pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
@@ -12401,7 +12517,8 @@ pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinsta
 pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
@@ -12416,7 +12533,8 @@ pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn sndPlaySoundA(pszsound: super::super::Foundation::PSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
@@ -12431,7 +12549,8 @@ pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn sndPlaySoundW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn sndPlaySoundW(pszsound: super::super::Foundation::PWSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
@@ -12557,7 +12676,8 @@ impl ::core::default::Default for tACMFORMATDETAILSW {
 pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -12571,7 +12691,8 @@ pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN
 pub unsafe fn waveInClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInClose(hwi: HWAVEIN) -> u32;
         }
@@ -12586,7 +12707,8 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(h
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
         }
@@ -12600,7 +12722,8 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
         }
@@ -12615,7 +12738,8 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
 pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
@@ -12630,7 +12754,8 @@ pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundati
 pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
@@ -12644,7 +12769,8 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundati
 pub unsafe fn waveInGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pudeviceid: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
         }
@@ -12658,7 +12784,8 @@ pub unsafe fn waveInGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(h
 pub unsafe fn waveInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetNumDevs() -> u32;
         }
@@ -12672,7 +12799,8 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
 pub unsafe fn waveInGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
         }
@@ -12686,7 +12814,8 @@ pub unsafe fn waveInGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAVE
 pub unsafe fn waveInMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -12700,7 +12829,8 @@ pub unsafe fn waveInMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>
 pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
@@ -12715,7 +12845,8 @@ pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFO
 pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -12729,7 +12860,8 @@ pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWA
 pub unsafe fn waveInReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInReset(hwi: HWAVEIN) -> u32;
         }
@@ -12743,7 +12875,8 @@ pub unsafe fn waveInReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(h
 pub unsafe fn waveInStart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInStart(hwi: HWAVEIN) -> u32;
         }
@@ -12757,7 +12890,8 @@ pub unsafe fn waveInStart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(h
 pub unsafe fn waveInStop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInStop(hwi: HWAVEIN) -> u32;
         }
@@ -12772,7 +12906,8 @@ pub unsafe fn waveInStop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hw
 pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -12786,7 +12921,8 @@ pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
         }
@@ -12800,7 +12936,8 @@ pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEO
 pub unsafe fn waveOutClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutClose(hwo: HWAVEOUT) -> u32;
         }
@@ -12815,7 +12952,8 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
         }
@@ -12829,7 +12967,8 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
         }
@@ -12844,7 +12983,8 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
 pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
@@ -12859,7 +12999,8 @@ pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundat
 pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
@@ -12873,7 +13014,8 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundat
 pub unsafe fn waveOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
         }
@@ -12887,7 +13029,8 @@ pub unsafe fn waveOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>
 pub unsafe fn waveOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetNumDevs() -> u32;
         }
@@ -12901,7 +13044,8 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
 pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwpitch: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
         }
@@ -12915,7 +13059,8 @@ pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOU
 pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwrate: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
         }
@@ -12929,7 +13074,8 @@ pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
         }
@@ -12943,7 +13089,8 @@ pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAV
 pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
         }
@@ -12957,7 +13104,8 @@ pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEO
 pub unsafe fn waveOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -12971,7 +13119,8 @@ pub unsafe fn waveOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT
 pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
@@ -12985,7 +13134,8 @@ pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVE
 pub unsafe fn waveOutPause<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutPause(hwo: HWAVEOUT) -> u32;
         }
@@ -13000,7 +13150,8 @@ pub unsafe fn waveOutPause<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>
 pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -13014,7 +13165,8 @@ pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HW
 pub unsafe fn waveOutReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutReset(hwo: HWAVEOUT) -> u32;
         }
@@ -13028,7 +13180,8 @@ pub unsafe fn waveOutReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>
 pub unsafe fn waveOutRestart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutRestart(hwo: HWAVEOUT) -> u32;
         }
@@ -13042,7 +13195,8 @@ pub unsafe fn waveOutRestart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT
 pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwpitch: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
         }
@@ -13056,7 +13210,8 @@ pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOU
 pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwrate: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
         }
@@ -13070,7 +13225,8 @@ pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
         }
@@ -13085,7 +13241,8 @@ pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEO
 pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -13100,7 +13257,8 @@ pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn waveOutWrite<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }

@@ -126,7 +126,8 @@ pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = 13u32;
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
         }
@@ -141,7 +142,8 @@ pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgr
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
         }

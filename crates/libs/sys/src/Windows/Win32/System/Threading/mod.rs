@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -23,12 +24,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-wow64-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-wow64-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
@@ -773,7 +776,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
 }
-#[link(name = "ntdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -785,7 +789,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -803,7 +808,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
 }
-#[link(name = "vertdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "vertdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

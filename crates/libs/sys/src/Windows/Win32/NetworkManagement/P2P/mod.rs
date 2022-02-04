@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "drt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "drt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtClose(hdrt: *const ::core::ffi::c_void);
@@ -39,7 +40,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtUpdateKey(hkeyregistration: *const ::core::ffi::c_void, pappdata: *const DRT_DATA) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "drtprov", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "drtprov", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -64,14 +66,16 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER);
 }
-#[link(name = "drttransport", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "drttransport", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtDeleteIpv6UdpTransport(htransport: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "p2p", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "p2p", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -366,7 +370,8 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "p2pgraph", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "p2pgraph", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -466,7 +471,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphValidateDeferredRecords(hgraph: *const ::core::ffi::c_void, crecordids: u32, precordids: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "peerdist", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "peerdist", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

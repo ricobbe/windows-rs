@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "api-ms-win-core-sysinfo-l1-2-0", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-sysinfo-l1-2-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-sysinfo-l1-2-3", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-sysinfo-l1-2-3", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows_sys::core::HRESULT;
@@ -13,7 +15,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-sysinfo-l1-2-4", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-sysinfo-l1-2-4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22,7 +25,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
-#[link(name = "api-ms-win-core-wow64-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-wow64-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -31,7 +35,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -173,7 +178,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
 }
-#[link(name = "ntdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -188,7 +194,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32;
 }
-#[link(name = "ntdllk", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdllk", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32;

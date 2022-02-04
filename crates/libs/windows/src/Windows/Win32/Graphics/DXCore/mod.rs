@@ -107,7 +107,8 @@ pub const AdapterMemoryBudget: DXCoreAdapterState = 1u32;
 pub unsafe fn DXCoreCreateAdapterFactory<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "dxcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DXCoreCreateAdapterFactory(riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

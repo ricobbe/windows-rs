@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn CloseTrace(tracehandle: u64) -> u32;
@@ -136,7 +137,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
 }
-#[link(name = "tdh", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "tdh", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28,7 +29,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Power'*"]
     pub fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
 }
-#[link(name = "powrprof", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Power'*"]
     pub fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
@@ -268,7 +270,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WritePwrScheme(puiid: *const u32, lpszschemename: super::super::Foundation::PWSTR, lpszdescription: super::super::Foundation::PWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -527,7 +527,8 @@ impl ::core::default::Default for CM_POWER_DATA {
 pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
         }
@@ -542,7 +543,8 @@ pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, 
 pub unsafe fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
         }
@@ -615,7 +617,8 @@ pub const PowerDeviceMaximum: DEVICE_POWER_STATE = 5i32;
 pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -630,7 +633,8 @@ pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
 pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevicePowerClose() -> super::super::Foundation::BOOLEAN;
         }
@@ -645,7 +649,8 @@ pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -660,7 +665,8 @@ pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: 
 pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -675,7 +681,8 @@ pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLE
 pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(devicedescription: Param0, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevicePowerSetDeviceState(devicedescription: super::super::Foundation::PWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
         }
@@ -931,7 +938,8 @@ pub const EnableWakeOnRing: u32 = 8u32;
 pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpfn: PWRSCHEMESENUMPROC, lparam: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPwrSchemes(lpfn: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
         }
@@ -1061,7 +1069,8 @@ pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::core::GUID = ::windows::
 pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -1076,7 +1085,8 @@ pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::B
 pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -1091,7 +1101,8 @@ pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLI
 pub unsafe fn GetDevicePowerState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -1106,7 +1117,8 @@ pub unsafe fn GetDevicePowerState<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN;
         }
@@ -1121,7 +1133,8 @@ pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super
 pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -1136,7 +1149,8 @@ pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> sup
 pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
         }
@@ -1208,7 +1222,8 @@ pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -1223,7 +1238,8 @@ pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> 
 pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1238,7 +1254,8 @@ pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1253,7 +1270,8 @@ pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1268,7 +1286,8 @@ pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
         }
@@ -1933,7 +1952,8 @@ pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" f
 pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
         }
@@ -1948,7 +1968,8 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::w
 pub unsafe fn PowerClearRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -1963,7 +1984,8 @@ pub unsafe fn PowerClearRequest<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PowerCreatePossibleSetting<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32;
         }
@@ -1978,7 +2000,8 @@ pub unsafe fn PowerCreatePossibleSetting<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
         }
@@ -1993,7 +2016,8 @@ pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEX
 pub unsafe fn PowerCreateSetting<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerCreateSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2008,7 +2032,8 @@ pub unsafe fn PowerCreateSetting<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PowerDeleteScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerDeleteScheme(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2022,7 +2047,8 @@ pub unsafe fn PowerDeleteScheme<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
         }
@@ -2036,7 +2062,8 @@ pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
 pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
         }
@@ -2051,7 +2078,8 @@ pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION)
 pub unsafe fn PowerDuplicateScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, sourceschemeguid: *const ::windows::core::GUID, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerDuplicateScheme(rootpowerkey: super::Registry::HKEY, sourceschemeguid: *const ::windows::core::GUID, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
         }
@@ -2066,7 +2094,8 @@ pub unsafe fn PowerDuplicateScheme<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PowerEnumerate<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2081,7 +2110,8 @@ pub unsafe fn PowerEnumerate<'a, Param0: ::windows::core::IntoParam<'a, super::R
 pub unsafe fn PowerGetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, activepolicyguid: *mut *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerGetActiveScheme(userrootpowerkey: super::Registry::HKEY, activepolicyguid: *mut *mut ::windows::core::GUID) -> u32;
         }
@@ -2096,7 +2126,8 @@ pub unsafe fn PowerGetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PowerImportPowerScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpowerkey: Param0, importfilenamepath: Param1, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerImportPowerScheme(rootpowerkey: super::Registry::HKEY, importfilenamepath: super::super::Foundation::PWSTR, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
         }
@@ -2111,7 +2142,8 @@ pub unsafe fn PowerImportPowerScheme<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUID, settingguid: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUID, settingguid: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
         }
@@ -2126,7 +2158,8 @@ pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUI
 pub unsafe fn PowerOpenSystemPowerKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
         }
@@ -2141,7 +2174,8 @@ pub unsafe fn PowerOpenSystemPowerKey<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn PowerOpenUserPowerKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
         }
@@ -2156,7 +2190,8 @@ pub unsafe fn PowerOpenUserPowerKey<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn PowerReadACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acdefaultindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadACDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acdefaultindex: *mut u32) -> u32;
         }
@@ -2171,7 +2206,8 @@ pub unsafe fn PowerReadACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PowerReadACValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadACValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2186,7 +2222,8 @@ pub unsafe fn PowerReadACValue<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PowerReadACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: *mut u32) -> u32;
         }
@@ -2201,7 +2238,8 @@ pub unsafe fn PowerReadACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PowerReadDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcdefaultindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadDCDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcdefaultindex: *mut u32) -> u32;
         }
@@ -2216,7 +2254,8 @@ pub unsafe fn PowerReadDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PowerReadDCValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadDCValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2231,7 +2270,8 @@ pub unsafe fn PowerReadDCValue<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PowerReadDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: *mut u32) -> u32;
         }
@@ -2246,7 +2286,8 @@ pub unsafe fn PowerReadDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PowerReadDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2261,7 +2302,8 @@ pub unsafe fn PowerReadDescription<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PowerReadFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2276,7 +2318,8 @@ pub unsafe fn PowerReadFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PowerReadIconResourceSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2291,7 +2334,8 @@ pub unsafe fn PowerReadIconResourceSpecifier<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn PowerReadPossibleDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadPossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2306,7 +2350,8 @@ pub unsafe fn PowerReadPossibleDescription<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn PowerReadPossibleFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadPossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2321,7 +2366,8 @@ pub unsafe fn PowerReadPossibleFriendlyName<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PowerReadPossibleValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadPossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2335,7 +2381,8 @@ pub unsafe fn PowerReadPossibleValue<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2350,7 +2397,8 @@ pub unsafe fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::G
 pub unsafe fn PowerReadValueIncrement<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: *mut u32) -> u32;
         }
@@ -2365,7 +2413,8 @@ pub unsafe fn PowerReadValueIncrement<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PowerReadValueMax<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: *mut u32) -> u32;
         }
@@ -2380,7 +2429,8 @@ pub unsafe fn PowerReadValueMax<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PowerReadValueMin<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: *mut u32) -> u32;
         }
@@ -2395,7 +2445,8 @@ pub unsafe fn PowerReadValueMin<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PowerReadValueUnitsSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
         }
@@ -2409,7 +2460,8 @@ pub unsafe fn PowerReadValueUnitsSpecifier<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2424,7 +2476,8 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, call
 pub unsafe fn PowerRegisterSuspendResumeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flags: u32, recipient: Param1, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -2438,7 +2491,8 @@ pub unsafe fn PowerRegisterSuspendResumeNotification<'a, Param1: ::windows::core
 pub unsafe fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2452,7 +2506,8 @@ pub unsafe fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::
 pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReplaceDefaultPowerSchemes() -> u32;
         }
@@ -2467,7 +2522,8 @@ pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
 pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32;
         }
@@ -2481,7 +2537,8 @@ pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
 pub unsafe fn PowerRestoreDefaultPowerSchemes() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerRestoreDefaultPowerSchemes() -> u32;
         }
@@ -2495,7 +2552,8 @@ pub unsafe fn PowerRestoreDefaultPowerSchemes() -> u32 {
 pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2510,7 +2568,8 @@ pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::wind
 pub unsafe fn PowerSetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, schemeguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSetActiveScheme(userrootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2525,7 +2584,8 @@ pub unsafe fn PowerSetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PowerSetRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -2539,7 +2599,8 @@ pub unsafe fn PowerSetRequest<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32;
         }
@@ -2554,7 +2615,8 @@ pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powergui
 pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32;
         }
@@ -2569,7 +2631,8 @@ pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerg
 pub unsafe fn PowerSettingRegisterNotification<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: Param2, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSettingRegisterNotification(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -2583,7 +2646,8 @@ pub unsafe fn PowerSettingRegisterNotification<'a, Param2: ::windows::core::Into
 pub unsafe fn PowerSettingUnregisterNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(registrationhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIFY) -> u32;
         }
@@ -2597,7 +2661,8 @@ pub unsafe fn PowerSettingUnregisterNotification<'a, Param0: ::windows::core::In
 pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2611,7 +2676,8 @@ pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhan
 pub unsafe fn PowerUnregisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(registrationhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWERNOTIFY) -> u32;
         }
@@ -2626,7 +2692,8 @@ pub unsafe fn PowerUnregisterSuspendResumeNotification<'a, Param0: ::windows::co
 pub unsafe fn PowerWriteACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteACDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32;
         }
@@ -2641,7 +2708,8 @@ pub unsafe fn PowerWriteACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PowerWriteACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32;
         }
@@ -2656,7 +2724,8 @@ pub unsafe fn PowerWriteACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PowerWriteDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteDCDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32;
         }
@@ -2671,7 +2740,8 @@ pub unsafe fn PowerWriteDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PowerWriteDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32;
         }
@@ -2686,7 +2756,8 @@ pub unsafe fn PowerWriteDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PowerWriteDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2701,7 +2772,8 @@ pub unsafe fn PowerWriteDescription<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PowerWriteFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2716,7 +2788,8 @@ pub unsafe fn PowerWriteFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PowerWriteIconResourceSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2731,7 +2804,8 @@ pub unsafe fn PowerWriteIconResourceSpecifier<'a, Param0: ::windows::core::IntoP
 pub unsafe fn PowerWritePossibleDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2746,7 +2820,8 @@ pub unsafe fn PowerWritePossibleDescription<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PowerWritePossibleFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2761,7 +2836,8 @@ pub unsafe fn PowerWritePossibleFriendlyName<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn PowerWritePossibleValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2775,7 +2851,8 @@ pub unsafe fn PowerWritePossibleValue<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32;
         }
@@ -2790,7 +2867,8 @@ pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::
 pub unsafe fn PowerWriteValueIncrement<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32;
         }
@@ -2805,7 +2883,8 @@ pub unsafe fn PowerWriteValueIncrement<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PowerWriteValueMax<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32;
         }
@@ -2820,7 +2899,8 @@ pub unsafe fn PowerWriteValueMax<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PowerWriteValueMin<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32;
         }
@@ -2835,7 +2915,8 @@ pub unsafe fn PowerWriteValueMin<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PowerWriteValueUnitsSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
         }
@@ -2850,7 +2931,8 @@ pub unsafe fn PowerWriteValueUnitsSpecifier<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -2865,7 +2947,8 @@ pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY
 pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -2880,7 +2963,8 @@ pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *m
 pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -2895,7 +2979,8 @@ pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super
 pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY;
         }
@@ -2910,7 +2995,8 @@ pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::core::Into
 pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, flags: u32) -> HPOWERNOTIFY {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
         }
@@ -2925,7 +3011,8 @@ pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::core::Int
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
         }
@@ -3247,7 +3334,8 @@ pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -3262,7 +3350,8 @@ pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_PO
 pub unsafe fn SetSuspendState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(bhibernate: Param0, bforce: Param1, bwakeupeventsdisabled: Param2) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetSuspendState(bhibernate: super::super::Foundation::BOOLEAN, bforce: super::super::Foundation::BOOLEAN, bwakeupeventsdisabled: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
         }
@@ -3277,7 +3366,8 @@ pub unsafe fn SetSuspendState<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetSystemPowerState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fsuspend: Param0, fforce: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetSystemPowerState(fsuspend: super::super::Foundation::BOOL, fforce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -3291,7 +3381,8 @@ pub unsafe fn SetSystemPowerState<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
         }
@@ -3527,7 +3618,8 @@ impl ::core::default::Default for USER_POWER_POLICY {
 pub unsafe fn UnregisterPowerSettingNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
         }
@@ -3542,7 +3634,8 @@ pub unsafe fn UnregisterPowerSettingNotification<'a, Param0: ::windows::core::In
 pub unsafe fn UnregisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
         }
@@ -3557,7 +3650,8 @@ pub unsafe fn UnregisterSuspendResumeNotification<'a, Param0: ::windows::core::I
 pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -3598,7 +3692,8 @@ impl ::core::default::Default for WAKE_ALARM_INFORMATION {
 pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -3613,7 +3708,8 @@ pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLIC
 pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }
@@ -3628,7 +3724,8 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
 pub unsafe fn WritePwrScheme<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(puiid: *const u32, lpszschemename: Param1, lpszdescription: Param2, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WritePwrScheme(puiid: *const u32, lpszschemename: super::super::Foundation::PWSTR, lpszdescription: super::super::Foundation::PWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
         }

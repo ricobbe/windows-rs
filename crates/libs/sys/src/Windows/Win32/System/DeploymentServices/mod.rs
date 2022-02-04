@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "wdsbp", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23,7 +24,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
 }
-#[link(name = "wdsclientapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -136,7 +138,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "wdsmc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -157,7 +160,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR, params: *const i8) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "wdspxe", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -239,7 +243,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: super::super::Foundation::PWSTR, params: *const i8) -> u32;
 }
-#[link(name = "wdstptc", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
     pub fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;

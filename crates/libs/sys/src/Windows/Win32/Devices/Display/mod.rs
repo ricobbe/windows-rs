@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "dxva2", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +99,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetVCPFeature(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
 }
-#[link(name = "gdi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -321,7 +323,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display'*"]
     pub fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32;
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "davclnt", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -40,7 +41,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32;
 }
-#[link(name = "mpr", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mpr", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -184,7 +186,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpuserid: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
 }
-#[link(name = "ntlanman", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

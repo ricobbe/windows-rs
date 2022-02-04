@@ -1,7 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_WebApp")]
 pub mod WebApp;
-#[link(name = "advapi32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     pub fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void);
@@ -14,12 +15,14 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     pub fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE);
 }
-#[link(name = "api-ms-win-core-errorhandling-l1-1-3", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-errorhandling-l1-1-3", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     pub fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize);
 }
-#[link(name = "api-ms-win-core-util-l1-1-1", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-util-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28,7 +31,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EncodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: *const ::core::ffi::c_void, encodedptr: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "dbgeng", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dbgeng", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -41,7 +45,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     pub fn DebugCreateEx(interfaceid: *const ::windows_sys::core::GUID, dbgengoptions: u32, interface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "dbghelp", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dbghelp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -711,12 +716,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnDecorateSymbolNameW(name: super::super::super::Foundation::PWSTR, outputstring: super::super::super::Foundation::PWSTR, maxstringlength: u32, flags: u32) -> u32;
 }
-#[link(name = "dbgmodel", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dbgmodel", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     pub fn CreateDataModelManager(debughost: IDebugHost, manager: *mut IDataModelManager) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "imagehlp", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "imagehlp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -801,7 +808,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateDebugInfoFileEx(imagefilename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL;
 }
-#[link(name = "kernel32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1003,7 +1011,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: *mut usize) -> super::super::super::Foundation::BOOL;
 }
-#[link(name = "ntdll", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
     #[cfg(target_arch = "aarch64")]
@@ -1018,7 +1027,8 @@ extern "system" {
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32);
 }
-#[link(name = "user32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

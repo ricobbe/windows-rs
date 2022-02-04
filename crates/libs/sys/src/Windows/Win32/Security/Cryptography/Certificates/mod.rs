@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "certadm", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -49,7 +50,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CertSrvServerControlW(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT;
 }
-#[link(name = "certpoleng", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

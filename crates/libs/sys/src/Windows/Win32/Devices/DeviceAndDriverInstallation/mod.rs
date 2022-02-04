@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "cfgmgr32", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
     pub fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32;
@@ -564,7 +565,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
     pub fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET;
 }
-#[link(name = "newdev", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -600,7 +602,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateDriverForPlugAndPlayDevicesW(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PWSTR, fullinfpath: super::super::Foundation::PWSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
-#[link(name = "setupapi", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

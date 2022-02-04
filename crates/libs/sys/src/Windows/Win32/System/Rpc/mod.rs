@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "rpcns4", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rpcns4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
@@ -124,7 +125,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
 }
-#[link(name = "rpcrt4", kind = "raw-dylib")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rpcrt4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;

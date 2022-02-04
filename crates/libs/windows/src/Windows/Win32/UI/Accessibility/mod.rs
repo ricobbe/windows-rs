@@ -44,7 +44,8 @@ pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub unsafe fn AccNotifyTouchInteraction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(hwndapp: Param0, hwndtarget: Param1, pttarget: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
@@ -59,7 +60,8 @@ pub unsafe fn AccNotifyTouchInteraction<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AccSetRunningUtilityState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndapp: Param0, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -76,7 +78,8 @@ pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub unsafe fn AccessibleChildren<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(pacccontainer: Param0, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccessibleChildren(pacccontainer: ::windows::core::RawPtr, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -91,7 +94,8 @@ pub unsafe fn AccessibleChildren<'a, Param0: ::windows::core::IntoParam<'a, IAcc
 pub unsafe fn AccessibleObjectFromEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwid: u32, dwchildid: u32, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut ::windows::core::RawPtr, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -106,7 +110,8 @@ pub unsafe fn AccessibleObjectFromEvent<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AccessibleObjectFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(ptscreen: Param0, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::windows::core::RawPtr, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -121,7 +126,8 @@ pub unsafe fn AccessibleObjectFromPoint<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AccessibleObjectFromWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -384,7 +390,8 @@ pub const ControllerFor_Property_GUID: ::windows::core::GUID = ::windows::core::
 pub unsafe fn CreateStdAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -399,7 +406,8 @@ pub unsafe fn CreateStdAccessibleObject<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -414,7 +422,8 @@ pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -472,7 +481,8 @@ pub const DescribedBy_Property_GUID: ::windows::core::GUID = ::windows::core::GU
 pub unsafe fn DockPattern_SetDockPosition<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, dockposition: DockPosition) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows::core::HRESULT;
         }
@@ -540,7 +550,8 @@ pub const EventArgsType_StructuredMarkup: EventArgsType = 9i32;
 pub unsafe fn ExpandCollapsePattern_Collapse<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -554,7 +565,8 @@ pub unsafe fn ExpandCollapsePattern_Collapse<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ExpandCollapsePattern_Expand<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -669,7 +681,8 @@ pub const FullDescription_Property_GUID: ::windows::core::GUID = ::windows::core
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
         }
@@ -684,7 +697,8 @@ pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32;
         }
@@ -699,7 +713,8 @@ pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR,
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32;
         }
@@ -714,7 +729,8 @@ pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32;
         }
@@ -729,7 +745,8 @@ pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation:
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
         }
@@ -749,7 +766,8 @@ pub const GridItem_Row_Property_GUID: ::windows::core::GUID = ::windows::core::G
 pub unsafe fn GridPattern_GetItem<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -22068,7 +22086,8 @@ pub const InputReachedTarget_Event_GUID: ::windows::core::GUID = ::windows::core
 pub unsafe fn InvokePattern_Invoke<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -22130,7 +22149,8 @@ pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::core::GUID
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
         }
@@ -22146,7 +22166,8 @@ pub const IsWindowPatternAvailable_Property_GUID: ::windows::core::GUID = ::wind
 pub unsafe fn ItemContainerPattern_FindItemByProperty<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, HUIANODE>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(hobj: Param0, hnodestartafter: Param1, propertyid: i32, value: Param3, pfound: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -22185,7 +22206,8 @@ pub const LayoutInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core:
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -22199,7 +22221,8 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, Param0: ::windows::co
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<IAccessible> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -22214,7 +22237,8 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, Param0: ::windows::cor
 pub unsafe fn LegacyIAccessiblePattern_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, flagsselect: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
         }
@@ -22229,7 +22253,8 @@ pub unsafe fn LegacyIAccessiblePattern_Select<'a, Param0: ::windows::core::IntoP
 pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hobj: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -22270,7 +22295,8 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows::core::GUID = ::windows
 pub unsafe fn LresultFromObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, wparam: Param1, punk: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
         }
@@ -22359,7 +22385,8 @@ pub const Menu_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn MultipleViewPattern_GetViewName<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -22373,7 +22400,8 @@ pub unsafe fn MultipleViewPattern_GetViewName<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MultipleViewPattern_SetCurrentView<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, viewid: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
         }
@@ -22458,7 +22486,8 @@ pub const Notification_Event_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub unsafe fn NotifyWinEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(event: u32, hwnd: Param1, idobject: i32, idchild: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
         }
@@ -22473,7 +22502,8 @@ pub unsafe fn NotifyWinEvent<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ObjectFromLresult<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LRESULT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(lresult: Param0, riid: *const ::windows::core::GUID, wparam: Param2, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -22707,7 +22737,8 @@ pub const RadioButton_Control_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub unsafe fn RangeValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, val: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
         }
@@ -22729,7 +22760,8 @@ pub const RangeValue_Value_Property_GUID: ::windows::core::GUID = ::windows::cor
 pub unsafe fn RegisterPointerInputTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -22744,7 +22776,8 @@ pub unsafe fn RegisterPointerInputTarget<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RegisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -23141,7 +23174,8 @@ pub const ScrollBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23156,7 +23190,8 @@ pub const ScrollItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub unsafe fn ScrollPattern_Scroll<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
         }
@@ -23170,7 +23205,8 @@ pub unsafe fn ScrollPattern_Scroll<'a, Param0: ::windows::core::IntoParam<'a, HU
 pub unsafe fn ScrollPattern_SetScrollPercent<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
         }
@@ -23195,7 +23231,8 @@ pub const Selection2_LastSelectedItem_Property_GUID: ::windows::core::GUID = ::w
 pub unsafe fn SelectionItemPattern_AddToSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23209,7 +23246,8 @@ pub unsafe fn SelectionItemPattern_AddToSelection<'a, Param0: ::windows::core::I
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23223,7 +23261,8 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, Param0: ::windows::co
 pub unsafe fn SelectionItemPattern_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23252,7 +23291,8 @@ pub const Separator_Control_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: ::windows::core::RawPtr, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
         }
@@ -23363,7 +23403,8 @@ pub const SupportedTextSelection_Multiple: SupportedTextSelection = 2i32;
 pub unsafe fn SynchronizedInputPattern_Cancel<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23377,7 +23418,8 @@ pub unsafe fn SynchronizedInputPattern_Cancel<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SynchronizedInputPattern_StartListening<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, inputtype: SynchronizedInputType) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
         }
@@ -23506,7 +23548,8 @@ pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = 1i32;
 pub unsafe fn TextPattern_GetSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -23521,7 +23564,8 @@ pub unsafe fn TextPattern_GetSelection<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn TextPattern_GetVisibleRanges<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -23535,7 +23579,8 @@ pub unsafe fn TextPattern_GetVisibleRanges<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn TextPattern_RangeFromChild<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, HUIANODE>>(hobj: Param0, hnodechild: Param1, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23549,7 +23594,8 @@ pub unsafe fn TextPattern_RangeFromChild<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn TextPattern_RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, UiaPoint>>(hobj: Param0, point: Param1, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23563,7 +23609,8 @@ pub unsafe fn TextPattern_RangeFromPoint<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn TextPattern_get_DocumentRange<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23577,7 +23624,8 @@ pub unsafe fn TextPattern_get_DocumentRange<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn TextPattern_get_SupportedTextSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut SupportedTextSelection) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
         }
@@ -23591,7 +23639,8 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<'a, Param0: ::windows::core
 pub unsafe fn TextRange_AddToSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23605,7 +23654,8 @@ pub unsafe fn TextRange_AddToSelection<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn TextRange_Clone<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23620,7 +23670,8 @@ pub unsafe fn TextRange_Clone<'a, Param0: ::windows::core::IntoParam<'a, HUIATEX
 pub unsafe fn TextRange_Compare<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, range: Param1, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -23634,7 +23685,8 @@ pub unsafe fn TextRange_Compare<'a, Param0: ::windows::core::IntoParam<'a, HUIAT
 pub unsafe fn TextRange_CompareEndpoints<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, targetrange: Param2, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -23648,7 +23700,8 @@ pub unsafe fn TextRange_CompareEndpoints<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, unit: TextUnit) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
         }
@@ -23663,7 +23716,8 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, Param0: ::windows::core::IntoP
 pub unsafe fn TextRange_FindAttribute<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, attributeid: i32, val: Param2, backward: Param3, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23678,7 +23732,8 @@ pub unsafe fn TextRange_FindAttribute<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn TextRange_FindText<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, text: Param1, backward: Param2, ignorecase: Param3, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23693,7 +23748,8 @@ pub unsafe fn TextRange_FindText<'a, Param0: ::windows::core::IntoParam<'a, HUIA
 pub unsafe fn TextRange_GetAttributeValue<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -23708,7 +23764,8 @@ pub unsafe fn TextRange_GetAttributeValue<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn TextRange_GetBoundingRectangles<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -23723,7 +23780,8 @@ pub unsafe fn TextRange_GetBoundingRectangles<'a, Param0: ::windows::core::IntoP
 pub unsafe fn TextRange_GetChildren<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -23737,7 +23795,8 @@ pub unsafe fn TextRange_GetChildren<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn TextRange_GetEnclosingElement<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -23752,7 +23811,8 @@ pub unsafe fn TextRange_GetEnclosingElement<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn TextRange_GetText<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -23766,7 +23826,8 @@ pub unsafe fn TextRange_GetText<'a, Param0: ::windows::core::IntoParam<'a, HUIAT
 pub unsafe fn TextRange_Move<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -23780,7 +23841,8 @@ pub unsafe fn TextRange_Move<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXT
 pub unsafe fn TextRange_MoveEndpointByRange<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, targetrange: Param2, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
         }
@@ -23794,7 +23856,8 @@ pub unsafe fn TextRange_MoveEndpointByRange<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn TextRange_MoveEndpointByUnit<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -23808,7 +23871,8 @@ pub unsafe fn TextRange_MoveEndpointByUnit<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn TextRange_RemoveFromSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23823,7 +23887,8 @@ pub unsafe fn TextRange_RemoveFromSelection<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn TextRange_ScrollIntoView<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, aligntotop: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -23837,7 +23902,8 @@ pub unsafe fn TextRange_ScrollIntoView<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn TextRange_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -23920,7 +23986,8 @@ pub const TitleBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::
 pub unsafe fn TogglePattern_Toggle<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -23953,7 +24020,8 @@ pub const Transform2_ZoomMinimum_Property_GUID: ::windows::core::GUID = ::window
 pub unsafe fn TransformPattern_Move<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, x: f64, y: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
         }
@@ -23967,7 +24035,8 @@ pub unsafe fn TransformPattern_Move<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn TransformPattern_Resize<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, width: f64, height: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
         }
@@ -23981,7 +24050,8 @@ pub unsafe fn TransformPattern_Resize<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn TransformPattern_Rotate<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, degrees: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
         }
@@ -24972,7 +25042,8 @@ pub const UIAutomationType_OutElementArray: UIAutomationType = 196615i32;
 pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut ::windows::core::RawPtr, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
         }
@@ -25142,7 +25213,8 @@ impl ::core::default::Default for UiaChangesEventArgs {
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
         }
@@ -25181,7 +25253,8 @@ impl ::core::default::Default for UiaCondition {
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
         }
@@ -25195,7 +25268,8 @@ pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
 pub unsafe fn UiaDisconnectProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaDisconnectProvider(pprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -25210,7 +25284,8 @@ pub unsafe fn UiaDisconnectProvider<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn UiaEventAddWindow<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hevent: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -25254,7 +25329,8 @@ pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(par
 pub unsafe fn UiaEventRemoveWindow<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hevent: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -25269,7 +25345,8 @@ pub unsafe fn UiaEventRemoveWindow<'a, Param0: ::windows::core::IntoParam<'a, HU
 pub unsafe fn UiaFind<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -25319,7 +25396,8 @@ impl ::core::default::Default for UiaFindParams {
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
         }
@@ -25333,7 +25411,8 @@ pub unsafe fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation
 pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -25348,7 +25427,8 @@ pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -25362,7 +25442,8 @@ pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, HUI
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -25377,7 +25458,8 @@ pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::w
 pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -25392,7 +25474,8 @@ pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::win
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -25407,7 +25490,8 @@ pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<(
 pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -25422,7 +25506,8 @@ pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::core::IntoParam<'a, HUIANOD
 pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -25437,7 +25522,8 @@ pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::core::IntoParam<'a, HUIA
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -25452,7 +25538,8 @@ pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com:
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
         }
@@ -25467,7 +25554,8 @@ pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VAR
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -25482,7 +25570,8 @@ pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIA
 pub unsafe fn UiaHasServerSideProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -25497,7 +25586,8 @@ pub unsafe fn UiaHasServerSideProvider<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn UiaHostProviderFromHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -25513,7 +25603,8 @@ pub unsafe fn UiaHostProviderFromHwnd<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UiaIAccessibleFromProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, dwflags: u32, ppaccessible: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaIAccessibleFromProvider(pprovider: ::windows::core::RawPtr, dwflags: u32, ppaccessible: *mut ::windows::core::RawPtr, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -25527,7 +25618,8 @@ pub unsafe fn UiaIAccessibleFromProvider<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
         }
@@ -25542,7 +25634,8 @@ pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::wind
 pub unsafe fn UiaNavigate<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -25557,7 +25650,8 @@ pub unsafe fn UiaNavigate<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -25572,7 +25666,8 @@ pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: 
 pub unsafe fn UiaNodeFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -25587,7 +25682,8 @@ pub unsafe fn UiaNodeFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -25601,7 +25697,8 @@ pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, p
 pub unsafe fn UiaNodeFromProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNodeFromProvider(pprovider: ::windows::core::RawPtr, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -25616,7 +25713,8 @@ pub unsafe fn UiaNodeFromProvider<'a, Param0: ::windows::core::IntoParam<'a, IRa
 pub unsafe fn UiaNodeRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
         }
@@ -25657,7 +25755,8 @@ impl ::core::default::Default for UiaNotCondition {
 pub unsafe fn UiaPatternRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
         }
@@ -25768,7 +25867,8 @@ pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(
 pub unsafe fn UiaProviderForNonClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -25783,7 +25883,8 @@ pub unsafe fn UiaProviderForNonClient<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UiaProviderFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(paccessible: Param0, idchild: i32, dwflags: u32) -> ::windows::core::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaProviderFromIAccessible(paccessible: ::windows::core::RawPtr, idchild: i32, dwflags: u32, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -25798,7 +25899,8 @@ pub unsafe fn UiaProviderFromIAccessible<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(provider: Param0, textrange: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseActiveTextPositionChangedEvent(provider: ::windows::core::RawPtr, textrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -25812,7 +25914,8 @@ pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<'a, Param0: ::windows::core
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseAsyncContentLoadedEvent(pprovider: ::windows::core::RawPtr, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
         }
@@ -25826,7 +25929,8 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, Param0: ::windows::core::IntoP
 pub unsafe fn UiaRaiseAutomationEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, id: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseAutomationEvent(pprovider: ::windows::core::RawPtr, id: i32) -> ::windows::core::HRESULT;
         }
@@ -25841,7 +25945,8 @@ pub unsafe fn UiaRaiseAutomationEvent<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(pprovider: Param0, id: i32, oldvalue: Param2, newvalue: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseAutomationPropertyChangedEvent(pprovider: ::windows::core::RawPtr, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
         }
@@ -25856,7 +25961,8 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, Param0: ::windows::core
 pub unsafe fn UiaRaiseChangesEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseChangesEvent(pprovider: ::windows::core::RawPtr, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
         }
@@ -25871,7 +25977,8 @@ pub unsafe fn UiaRaiseChangesEvent<'a, Param0: ::windows::core::IntoParam<'a, IR
 pub unsafe fn UiaRaiseNotificationEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(provider: Param0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Param3, activityid: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseNotificationEvent(provider: ::windows::core::RawPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
         }
@@ -25885,7 +25992,8 @@ pub unsafe fn UiaRaiseNotificationEvent<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn UiaRaiseStructureChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseStructureChangedEvent(pprovider: ::windows::core::RawPtr, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
         }
@@ -25900,7 +26008,8 @@ pub unsafe fn UiaRaiseStructureChangedEvent<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRaiseTextEditTextChangedEvent(pprovider: ::windows::core::RawPtr, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
         }
@@ -25943,7 +26052,8 @@ impl ::core::default::Default for UiaRect {
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRegisterProviderCallback(pcallback: *mut ::windows::core::RawPtr);
         }
@@ -25957,7 +26067,8 @@ pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
 pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>>(hevent: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
         }
@@ -25972,7 +26083,8 @@ pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVEN
 pub unsafe fn UiaReturnRawElementProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(hwnd: Param0, wparam: Param1, lparam: Param2, el: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: ::windows::core::RawPtr) -> super::super::Foundation::LRESULT;
         }
@@ -25988,7 +26100,8 @@ pub const UiaRootObjectId: i32 = -25i32;
 pub unsafe fn UiaSetFocus<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
         }
@@ -26067,7 +26180,8 @@ impl ::core::default::Default for UiaTextEditTextChangedEventArgs {
 pub unsafe fn UiaTextRangeRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
         }
@@ -26110,7 +26224,8 @@ impl ::core::default::Default for UiaWindowClosedEventArgs {
 pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::core::IntoParam<'a, HWINEVENTHOOK>>(hwineventhook: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
         }
@@ -26125,7 +26240,8 @@ pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::core::IntoParam<'a, HWINEVEN
 pub unsafe fn UnregisterPointerInputTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -26140,7 +26256,8 @@ pub unsafe fn UnregisterPointerInputTarget<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn UnregisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -26155,7 +26272,8 @@ pub unsafe fn UnregisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hobj: Param0, pval: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -26172,7 +26290,8 @@ pub const Value_Value_Property_GUID: ::windows::core::GUID = ::windows::core::GU
 pub unsafe fn VirtualizedItemPattern_Realize<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -26206,7 +26325,8 @@ pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineve
 pub unsafe fn WindowFromAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(param0: Param0) -> ::windows::core::Result<super::super::Foundation::HWND> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowFromAccessibleObject(param0: ::windows::core::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -26233,7 +26353,8 @@ pub const WindowInteractionState_NotResponding: WindowInteractionState = 4i32;
 pub unsafe fn WindowPattern_Close<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
         }
@@ -26247,7 +26368,8 @@ pub unsafe fn WindowPattern_Close<'a, Param0: ::windows::core::IntoParam<'a, HUI
 pub unsafe fn WindowPattern_SetWindowVisualState<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, state: WindowVisualState) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
         }
@@ -26262,7 +26384,8 @@ pub unsafe fn WindowPattern_SetWindowVisualState<'a, Param0: ::windows::core::In
 pub unsafe fn WindowPattern_WaitForInputIdle<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }

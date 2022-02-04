@@ -5,7 +5,8 @@
 pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
         }
@@ -20,7 +21,8 @@ pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
         }
@@ -1537,7 +1539,8 @@ pub const GL_ZOOM_Y: u32 = 3351u32;
 pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HENHMETAFILE>>(hemf: Param0, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
         }
@@ -1552,7 +1555,8 @@ pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPixelFormat(hdc: super::Gdi::HDC) -> i32;
         }
@@ -1726,7 +1730,8 @@ impl ::core::default::Default for POINTFLOAT {
 pub unsafe fn SetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL;
         }
@@ -1741,7 +1746,8 @@ pub unsafe fn SetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
 pub unsafe fn SwapBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
         }
@@ -1755,7 +1761,8 @@ pub unsafe fn SwapBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi:
 pub unsafe fn glAccum(op: u32, value: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glAccum(op: u32, value: f32);
         }
@@ -1769,7 +1776,8 @@ pub unsafe fn glAccum(op: u32, value: f32) {
 pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glAlphaFunc(func: u32, r#ref: f32);
         }
@@ -1783,7 +1791,8 @@ pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
 pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8;
         }
@@ -1797,7 +1806,8 @@ pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *m
 pub unsafe fn glArrayElement(i: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glArrayElement(i: i32);
         }
@@ -1811,7 +1821,8 @@ pub unsafe fn glArrayElement(i: i32) {
 pub unsafe fn glBegin(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glBegin(mode: u32);
         }
@@ -1825,7 +1836,8 @@ pub unsafe fn glBegin(mode: u32) {
 pub unsafe fn glBindTexture(target: u32, texture: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glBindTexture(target: u32, texture: u32);
         }
@@ -1839,7 +1851,8 @@ pub unsafe fn glBindTexture(target: u32, texture: u32) {
 pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8);
         }
@@ -1853,7 +1866,8 @@ pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f
 pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glBlendFunc(sfactor: u32, dfactor: u32);
         }
@@ -1867,7 +1881,8 @@ pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
 pub unsafe fn glCallList(list: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCallList(list: u32);
         }
@@ -1881,7 +1896,8 @@ pub unsafe fn glCallList(list: u32) {
 pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void);
         }
@@ -1895,7 +1911,8 @@ pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void
 pub unsafe fn glClear(mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClear(mask: u32);
         }
@@ -1909,7 +1926,8 @@ pub unsafe fn glClear(mask: u32) {
 pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32);
         }
@@ -1923,7 +1941,8 @@ pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
 pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32);
         }
@@ -1937,7 +1956,8 @@ pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
 pub unsafe fn glClearDepth(depth: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClearDepth(depth: f64);
         }
@@ -1951,7 +1971,8 @@ pub unsafe fn glClearDepth(depth: f64) {
 pub unsafe fn glClearIndex(c: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClearIndex(c: f32);
         }
@@ -1965,7 +1986,8 @@ pub unsafe fn glClearIndex(c: f32) {
 pub unsafe fn glClearStencil(s: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClearStencil(s: i32);
         }
@@ -1979,7 +2001,8 @@ pub unsafe fn glClearStencil(s: i32) {
 pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glClipPlane(plane: u32, equation: *const f64);
         }
@@ -1993,7 +2016,8 @@ pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
 pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3b(red: i8, green: i8, blue: i8);
         }
@@ -2007,7 +2031,8 @@ pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
 pub unsafe fn glColor3bv(v: *const i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3bv(v: *const i8);
         }
@@ -2021,7 +2046,8 @@ pub unsafe fn glColor3bv(v: *const i8) {
 pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3d(red: f64, green: f64, blue: f64);
         }
@@ -2035,7 +2061,8 @@ pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
 pub unsafe fn glColor3dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3dv(v: *const f64);
         }
@@ -2049,7 +2076,8 @@ pub unsafe fn glColor3dv(v: *const f64) {
 pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3f(red: f32, green: f32, blue: f32);
         }
@@ -2063,7 +2091,8 @@ pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
 pub unsafe fn glColor3fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3fv(v: *const f32);
         }
@@ -2077,7 +2106,8 @@ pub unsafe fn glColor3fv(v: *const f32) {
 pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3i(red: i32, green: i32, blue: i32);
         }
@@ -2091,7 +2121,8 @@ pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
 pub unsafe fn glColor3iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3iv(v: *const i32);
         }
@@ -2105,7 +2136,8 @@ pub unsafe fn glColor3iv(v: *const i32) {
 pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3s(red: i16, green: i16, blue: i16);
         }
@@ -2119,7 +2151,8 @@ pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
 pub unsafe fn glColor3sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3sv(v: *const i16);
         }
@@ -2133,7 +2166,8 @@ pub unsafe fn glColor3sv(v: *const i16) {
 pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3ub(red: u8, green: u8, blue: u8);
         }
@@ -2147,7 +2181,8 @@ pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
 pub unsafe fn glColor3ubv(v: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3ubv(v: *const u8);
         }
@@ -2161,7 +2196,8 @@ pub unsafe fn glColor3ubv(v: *const u8) {
 pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3ui(red: u32, green: u32, blue: u32);
         }
@@ -2175,7 +2211,8 @@ pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
 pub unsafe fn glColor3uiv(v: *const u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3uiv(v: *const u32);
         }
@@ -2189,7 +2226,8 @@ pub unsafe fn glColor3uiv(v: *const u32) {
 pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3us(red: u16, green: u16, blue: u16);
         }
@@ -2203,7 +2241,8 @@ pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
 pub unsafe fn glColor3usv(v: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor3usv(v: *const u16);
         }
@@ -2217,7 +2256,8 @@ pub unsafe fn glColor3usv(v: *const u16) {
 pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8);
         }
@@ -2231,7 +2271,8 @@ pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
 pub unsafe fn glColor4bv(v: *const i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4bv(v: *const i8);
         }
@@ -2245,7 +2286,8 @@ pub unsafe fn glColor4bv(v: *const i8) {
 pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64);
         }
@@ -2259,7 +2301,8 @@ pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
 pub unsafe fn glColor4dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4dv(v: *const f64);
         }
@@ -2273,7 +2316,8 @@ pub unsafe fn glColor4dv(v: *const f64) {
 pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32);
         }
@@ -2287,7 +2331,8 @@ pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
 pub unsafe fn glColor4fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4fv(v: *const f32);
         }
@@ -2301,7 +2346,8 @@ pub unsafe fn glColor4fv(v: *const f32) {
 pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32);
         }
@@ -2315,7 +2361,8 @@ pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
 pub unsafe fn glColor4iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4iv(v: *const i32);
         }
@@ -2329,7 +2376,8 @@ pub unsafe fn glColor4iv(v: *const i32) {
 pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16);
         }
@@ -2343,7 +2391,8 @@ pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
 pub unsafe fn glColor4sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4sv(v: *const i16);
         }
@@ -2357,7 +2406,8 @@ pub unsafe fn glColor4sv(v: *const i16) {
 pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8);
         }
@@ -2371,7 +2421,8 @@ pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
 pub unsafe fn glColor4ubv(v: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4ubv(v: *const u8);
         }
@@ -2385,7 +2436,8 @@ pub unsafe fn glColor4ubv(v: *const u8) {
 pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32);
         }
@@ -2399,7 +2451,8 @@ pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
 pub unsafe fn glColor4uiv(v: *const u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4uiv(v: *const u32);
         }
@@ -2413,7 +2466,8 @@ pub unsafe fn glColor4uiv(v: *const u32) {
 pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16);
         }
@@ -2427,7 +2481,8 @@ pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
 pub unsafe fn glColor4usv(v: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColor4usv(v: *const u16);
         }
@@ -2441,7 +2496,8 @@ pub unsafe fn glColor4usv(v: *const u16) {
 pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8);
         }
@@ -2455,7 +2511,8 @@ pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
 pub unsafe fn glColorMaterial(face: u32, mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColorMaterial(face: u32, mode: u32);
         }
@@ -2469,7 +2526,8 @@ pub unsafe fn glColorMaterial(face: u32, mode: u32) {
 pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -2483,7 +2541,8 @@ pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *cons
 pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32);
         }
@@ -2497,7 +2556,8 @@ pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32)
 pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32);
         }
@@ -2511,7 +2571,8 @@ pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: 
 pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32);
         }
@@ -2525,7 +2586,8 @@ pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: 
 pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32);
         }
@@ -2539,7 +2601,8 @@ pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32,
 pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32);
         }
@@ -2553,7 +2616,8 @@ pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset
 pub unsafe fn glCullFace(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glCullFace(mode: u32);
         }
@@ -2567,7 +2631,8 @@ pub unsafe fn glCullFace(mode: u32) {
 pub unsafe fn glDeleteLists(list: u32, range: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDeleteLists(list: u32, range: i32);
         }
@@ -2581,7 +2646,8 @@ pub unsafe fn glDeleteLists(list: u32, range: i32) {
 pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDeleteTextures(n: i32, textures: *const u32);
         }
@@ -2595,7 +2661,8 @@ pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
 pub unsafe fn glDepthFunc(func: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDepthFunc(func: u32);
         }
@@ -2609,7 +2676,8 @@ pub unsafe fn glDepthFunc(func: u32) {
 pub unsafe fn glDepthMask(flag: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDepthMask(flag: u8);
         }
@@ -2623,7 +2691,8 @@ pub unsafe fn glDepthMask(flag: u8) {
 pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDepthRange(znear: f64, zfar: f64);
         }
@@ -2637,7 +2706,8 @@ pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
 pub unsafe fn glDisable(cap: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDisable(cap: u32);
         }
@@ -2651,7 +2721,8 @@ pub unsafe fn glDisable(cap: u32) {
 pub unsafe fn glDisableClientState(array: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDisableClientState(array: u32);
         }
@@ -2665,7 +2736,8 @@ pub unsafe fn glDisableClientState(array: u32) {
 pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDrawArrays(mode: u32, first: i32, count: i32);
         }
@@ -2679,7 +2751,8 @@ pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
 pub unsafe fn glDrawBuffer(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDrawBuffer(mode: u32);
         }
@@ -2693,7 +2766,8 @@ pub unsafe fn glDrawBuffer(mode: u32) {
 pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void);
         }
@@ -2707,7 +2781,8 @@ pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const
 pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
@@ -2721,7 +2796,8 @@ pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pi
 pub unsafe fn glEdgeFlag(flag: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEdgeFlag(flag: u8);
         }
@@ -2735,7 +2811,8 @@ pub unsafe fn glEdgeFlag(flag: u8) {
 pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -2749,7 +2826,8 @@ pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void
 pub unsafe fn glEdgeFlagv(flag: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEdgeFlagv(flag: *const u8);
         }
@@ -2763,7 +2841,8 @@ pub unsafe fn glEdgeFlagv(flag: *const u8) {
 pub unsafe fn glEnable(cap: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEnable(cap: u32);
         }
@@ -2777,7 +2856,8 @@ pub unsafe fn glEnable(cap: u32) {
 pub unsafe fn glEnableClientState(array: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEnableClientState(array: u32);
         }
@@ -2791,7 +2871,8 @@ pub unsafe fn glEnableClientState(array: u32) {
 pub unsafe fn glEnd() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEnd();
         }
@@ -2805,7 +2886,8 @@ pub unsafe fn glEnd() {
 pub unsafe fn glEndList() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEndList();
         }
@@ -2819,7 +2901,8 @@ pub unsafe fn glEndList() {
 pub unsafe fn glEvalCoord1d(u: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord1d(u: f64);
         }
@@ -2833,7 +2916,8 @@ pub unsafe fn glEvalCoord1d(u: f64) {
 pub unsafe fn glEvalCoord1dv(u: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord1dv(u: *const f64);
         }
@@ -2847,7 +2931,8 @@ pub unsafe fn glEvalCoord1dv(u: *const f64) {
 pub unsafe fn glEvalCoord1f(u: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord1f(u: f32);
         }
@@ -2861,7 +2946,8 @@ pub unsafe fn glEvalCoord1f(u: f32) {
 pub unsafe fn glEvalCoord1fv(u: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord1fv(u: *const f32);
         }
@@ -2875,7 +2961,8 @@ pub unsafe fn glEvalCoord1fv(u: *const f32) {
 pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord2d(u: f64, v: f64);
         }
@@ -2889,7 +2976,8 @@ pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
 pub unsafe fn glEvalCoord2dv(u: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord2dv(u: *const f64);
         }
@@ -2903,7 +2991,8 @@ pub unsafe fn glEvalCoord2dv(u: *const f64) {
 pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord2f(u: f32, v: f32);
         }
@@ -2917,7 +3006,8 @@ pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
 pub unsafe fn glEvalCoord2fv(u: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalCoord2fv(u: *const f32);
         }
@@ -2931,7 +3021,8 @@ pub unsafe fn glEvalCoord2fv(u: *const f32) {
 pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalMesh1(mode: u32, i1: i32, i2: i32);
         }
@@ -2945,7 +3036,8 @@ pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
 pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32);
         }
@@ -2959,7 +3051,8 @@ pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
 pub unsafe fn glEvalPoint1(i: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalPoint1(i: i32);
         }
@@ -2973,7 +3066,8 @@ pub unsafe fn glEvalPoint1(i: i32) {
 pub unsafe fn glEvalPoint2(i: i32, j: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glEvalPoint2(i: i32, j: i32);
         }
@@ -2987,7 +3081,8 @@ pub unsafe fn glEvalPoint2(i: i32, j: i32) {
 pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32);
         }
@@ -3001,7 +3096,8 @@ pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
 pub unsafe fn glFinish() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFinish();
         }
@@ -3015,7 +3111,8 @@ pub unsafe fn glFinish() {
 pub unsafe fn glFlush() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFlush();
         }
@@ -3029,7 +3126,8 @@ pub unsafe fn glFlush() {
 pub unsafe fn glFogf(pname: u32, param1: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFogf(pname: u32, param1: f32);
         }
@@ -3043,7 +3141,8 @@ pub unsafe fn glFogf(pname: u32, param1: f32) {
 pub unsafe fn glFogfv(pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFogfv(pname: u32, params: *const f32);
         }
@@ -3057,7 +3156,8 @@ pub unsafe fn glFogfv(pname: u32, params: *const f32) {
 pub unsafe fn glFogi(pname: u32, param1: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFogi(pname: u32, param1: i32);
         }
@@ -3071,7 +3171,8 @@ pub unsafe fn glFogi(pname: u32, param1: i32) {
 pub unsafe fn glFogiv(pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFogiv(pname: u32, params: *const i32);
         }
@@ -3085,7 +3186,8 @@ pub unsafe fn glFogiv(pname: u32, params: *const i32) {
 pub unsafe fn glFrontFace(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFrontFace(mode: u32);
         }
@@ -3099,7 +3201,8 @@ pub unsafe fn glFrontFace(mode: u32) {
 pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
         }
@@ -3113,7 +3216,8 @@ pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64
 pub unsafe fn glGenLists(range: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGenLists(range: i32) -> u32;
         }
@@ -3127,7 +3231,8 @@ pub unsafe fn glGenLists(range: i32) -> u32 {
 pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGenTextures(n: i32, textures: *mut u32);
         }
@@ -3141,7 +3246,8 @@ pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
 pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetBooleanv(pname: u32, params: *mut u8);
         }
@@ -3155,7 +3261,8 @@ pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
 pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetClipPlane(plane: u32, equation: *mut f64);
         }
@@ -3169,7 +3276,8 @@ pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
 pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetDoublev(pname: u32, params: *mut f64);
         }
@@ -3183,7 +3291,8 @@ pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
 pub unsafe fn glGetError() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetError() -> u32;
         }
@@ -3197,7 +3306,8 @@ pub unsafe fn glGetError() -> u32 {
 pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetFloatv(pname: u32, params: *mut f32);
         }
@@ -3211,7 +3321,8 @@ pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
 pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetIntegerv(pname: u32, params: *mut i32);
         }
@@ -3225,7 +3336,8 @@ pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
 pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetLightfv(light: u32, pname: u32, params: *mut f32);
         }
@@ -3239,7 +3351,8 @@ pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
 pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetLightiv(light: u32, pname: u32, params: *mut i32);
         }
@@ -3253,7 +3366,8 @@ pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
 pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetMapdv(target: u32, query: u32, v: *mut f64);
         }
@@ -3267,7 +3381,8 @@ pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
 pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetMapfv(target: u32, query: u32, v: *mut f32);
         }
@@ -3281,7 +3396,8 @@ pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
 pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetMapiv(target: u32, query: u32, v: *mut i32);
         }
@@ -3295,7 +3411,8 @@ pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
 pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32);
         }
@@ -3309,7 +3426,8 @@ pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
 pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32);
         }
@@ -3323,7 +3441,8 @@ pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
 pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetPixelMapfv(map: u32, values: *mut f32);
         }
@@ -3337,7 +3456,8 @@ pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
 pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetPixelMapuiv(map: u32, values: *mut u32);
         }
@@ -3351,7 +3471,8 @@ pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
 pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetPixelMapusv(map: u32, values: *mut u16);
         }
@@ -3365,7 +3486,8 @@ pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
 pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void);
         }
@@ -3379,7 +3501,8 @@ pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
 pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetPolygonStipple(mask: *mut u8);
         }
@@ -3393,7 +3516,8 @@ pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
 pub unsafe fn glGetString(name: u32) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetString(name: u32) -> *mut u8;
         }
@@ -3407,7 +3531,8 @@ pub unsafe fn glGetString(name: u32) -> *mut u8 {
 pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32);
         }
@@ -3421,7 +3546,8 @@ pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
 pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32);
         }
@@ -3435,7 +3561,8 @@ pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
 pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64);
         }
@@ -3449,7 +3576,8 @@ pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
 pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32);
         }
@@ -3463,7 +3591,8 @@ pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
 pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32);
         }
@@ -3477,7 +3606,8 @@ pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
 pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
         }
@@ -3491,7 +3621,8 @@ pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, p
 pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32);
         }
@@ -3505,7 +3636,8 @@ pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, para
 pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32);
         }
@@ -3519,7 +3651,8 @@ pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, para
 pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32);
         }
@@ -3533,7 +3666,8 @@ pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
 pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32);
         }
@@ -3547,7 +3681,8 @@ pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
 pub unsafe fn glHint(target: u32, mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glHint(target: u32, mode: u32);
         }
@@ -3561,7 +3696,8 @@ pub unsafe fn glHint(target: u32, mode: u32) {
 pub unsafe fn glIndexMask(mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexMask(mask: u32);
         }
@@ -3575,7 +3711,8 @@ pub unsafe fn glIndexMask(mask: u32) {
 pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -3589,7 +3726,8 @@ pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::f
 pub unsafe fn glIndexd(c: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexd(c: f64);
         }
@@ -3603,7 +3741,8 @@ pub unsafe fn glIndexd(c: f64) {
 pub unsafe fn glIndexdv(c: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexdv(c: *const f64);
         }
@@ -3617,7 +3756,8 @@ pub unsafe fn glIndexdv(c: *const f64) {
 pub unsafe fn glIndexf(c: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexf(c: f32);
         }
@@ -3631,7 +3771,8 @@ pub unsafe fn glIndexf(c: f32) {
 pub unsafe fn glIndexfv(c: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexfv(c: *const f32);
         }
@@ -3645,7 +3786,8 @@ pub unsafe fn glIndexfv(c: *const f32) {
 pub unsafe fn glIndexi(c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexi(c: i32);
         }
@@ -3659,7 +3801,8 @@ pub unsafe fn glIndexi(c: i32) {
 pub unsafe fn glIndexiv(c: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexiv(c: *const i32);
         }
@@ -3673,7 +3816,8 @@ pub unsafe fn glIndexiv(c: *const i32) {
 pub unsafe fn glIndexs(c: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexs(c: i16);
         }
@@ -3687,7 +3831,8 @@ pub unsafe fn glIndexs(c: i16) {
 pub unsafe fn glIndexsv(c: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexsv(c: *const i16);
         }
@@ -3701,7 +3846,8 @@ pub unsafe fn glIndexsv(c: *const i16) {
 pub unsafe fn glIndexub(c: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexub(c: u8);
         }
@@ -3715,7 +3861,8 @@ pub unsafe fn glIndexub(c: u8) {
 pub unsafe fn glIndexubv(c: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIndexubv(c: *const u8);
         }
@@ -3729,7 +3876,8 @@ pub unsafe fn glIndexubv(c: *const u8) {
 pub unsafe fn glInitNames() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glInitNames();
         }
@@ -3743,7 +3891,8 @@ pub unsafe fn glInitNames() {
 pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -3757,7 +3906,8 @@ pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::co
 pub unsafe fn glIsEnabled(cap: u32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIsEnabled(cap: u32) -> u8;
         }
@@ -3771,7 +3921,8 @@ pub unsafe fn glIsEnabled(cap: u32) -> u8 {
 pub unsafe fn glIsList(list: u32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIsList(list: u32) -> u8;
         }
@@ -3785,7 +3936,8 @@ pub unsafe fn glIsList(list: u32) -> u8 {
 pub unsafe fn glIsTexture(texture: u32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glIsTexture(texture: u32) -> u8;
         }
@@ -3799,7 +3951,8 @@ pub unsafe fn glIsTexture(texture: u32) -> u8 {
 pub unsafe fn glLightModelf(pname: u32, param1: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightModelf(pname: u32, param1: f32);
         }
@@ -3813,7 +3966,8 @@ pub unsafe fn glLightModelf(pname: u32, param1: f32) {
 pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightModelfv(pname: u32, params: *const f32);
         }
@@ -3827,7 +3981,8 @@ pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
 pub unsafe fn glLightModeli(pname: u32, param1: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightModeli(pname: u32, param1: i32);
         }
@@ -3841,7 +3996,8 @@ pub unsafe fn glLightModeli(pname: u32, param1: i32) {
 pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightModeliv(pname: u32, params: *const i32);
         }
@@ -3855,7 +4011,8 @@ pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
 pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightf(light: u32, pname: u32, param2: f32);
         }
@@ -3869,7 +4026,8 @@ pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
 pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightfv(light: u32, pname: u32, params: *const f32);
         }
@@ -3883,7 +4041,8 @@ pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
 pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLighti(light: u32, pname: u32, param2: i32);
         }
@@ -3897,7 +4056,8 @@ pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
 pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLightiv(light: u32, pname: u32, params: *const i32);
         }
@@ -3911,7 +4071,8 @@ pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
 pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLineStipple(factor: i32, pattern: u16);
         }
@@ -3925,7 +4086,8 @@ pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
 pub unsafe fn glLineWidth(width: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLineWidth(width: f32);
         }
@@ -3939,7 +4101,8 @@ pub unsafe fn glLineWidth(width: f32) {
 pub unsafe fn glListBase(base: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glListBase(base: u32);
         }
@@ -3953,7 +4116,8 @@ pub unsafe fn glListBase(base: u32) {
 pub unsafe fn glLoadIdentity() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLoadIdentity();
         }
@@ -3967,7 +4131,8 @@ pub unsafe fn glLoadIdentity() {
 pub unsafe fn glLoadMatrixd(m: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLoadMatrixd(m: *const f64);
         }
@@ -3981,7 +4146,8 @@ pub unsafe fn glLoadMatrixd(m: *const f64) {
 pub unsafe fn glLoadMatrixf(m: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLoadMatrixf(m: *const f32);
         }
@@ -3995,7 +4161,8 @@ pub unsafe fn glLoadMatrixf(m: *const f32) {
 pub unsafe fn glLoadName(name: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLoadName(name: u32);
         }
@@ -4009,7 +4176,8 @@ pub unsafe fn glLoadName(name: u32) {
 pub unsafe fn glLogicOp(opcode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glLogicOp(opcode: u32);
         }
@@ -4023,7 +4191,8 @@ pub unsafe fn glLogicOp(opcode: u32) {
 pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64);
         }
@@ -4037,7 +4206,8 @@ pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, po
 pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32);
         }
@@ -4051,7 +4221,8 @@ pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, po
 pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
         }
@@ -4065,7 +4236,8 @@ pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, 
 pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
         }
@@ -4079,7 +4251,8 @@ pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, 
 pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMapGrid1d(un: i32, u1: f64, u2: f64);
         }
@@ -4093,7 +4266,8 @@ pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
 pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMapGrid1f(un: i32, u1: f32, u2: f32);
         }
@@ -4107,7 +4281,8 @@ pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
 pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64);
         }
@@ -4121,7 +4296,8 @@ pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) 
 pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32);
         }
@@ -4135,7 +4311,8 @@ pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) 
 pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMaterialf(face: u32, pname: u32, param2: f32);
         }
@@ -4149,7 +4326,8 @@ pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
 pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMaterialfv(face: u32, pname: u32, params: *const f32);
         }
@@ -4163,7 +4341,8 @@ pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
 pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMateriali(face: u32, pname: u32, param2: i32);
         }
@@ -4177,7 +4356,8 @@ pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
 pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMaterialiv(face: u32, pname: u32, params: *const i32);
         }
@@ -4191,7 +4371,8 @@ pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
 pub unsafe fn glMatrixMode(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMatrixMode(mode: u32);
         }
@@ -4205,7 +4386,8 @@ pub unsafe fn glMatrixMode(mode: u32) {
 pub unsafe fn glMultMatrixd(m: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMultMatrixd(m: *const f64);
         }
@@ -4219,7 +4401,8 @@ pub unsafe fn glMultMatrixd(m: *const f64) {
 pub unsafe fn glMultMatrixf(m: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glMultMatrixf(m: *const f32);
         }
@@ -4233,7 +4416,8 @@ pub unsafe fn glMultMatrixf(m: *const f32) {
 pub unsafe fn glNewList(list: u32, mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNewList(list: u32, mode: u32);
         }
@@ -4247,7 +4431,8 @@ pub unsafe fn glNewList(list: u32, mode: u32) {
 pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3b(nx: i8, ny: i8, nz: i8);
         }
@@ -4261,7 +4446,8 @@ pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
 pub unsafe fn glNormal3bv(v: *const i8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3bv(v: *const i8);
         }
@@ -4275,7 +4461,8 @@ pub unsafe fn glNormal3bv(v: *const i8) {
 pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3d(nx: f64, ny: f64, nz: f64);
         }
@@ -4289,7 +4476,8 @@ pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
 pub unsafe fn glNormal3dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3dv(v: *const f64);
         }
@@ -4303,7 +4491,8 @@ pub unsafe fn glNormal3dv(v: *const f64) {
 pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3f(nx: f32, ny: f32, nz: f32);
         }
@@ -4317,7 +4506,8 @@ pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
 pub unsafe fn glNormal3fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3fv(v: *const f32);
         }
@@ -4331,7 +4521,8 @@ pub unsafe fn glNormal3fv(v: *const f32) {
 pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3i(nx: i32, ny: i32, nz: i32);
         }
@@ -4345,7 +4536,8 @@ pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
 pub unsafe fn glNormal3iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3iv(v: *const i32);
         }
@@ -4359,7 +4551,8 @@ pub unsafe fn glNormal3iv(v: *const i32) {
 pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3s(nx: i16, ny: i16, nz: i16);
         }
@@ -4373,7 +4566,8 @@ pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
 pub unsafe fn glNormal3sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormal3sv(v: *const i16);
         }
@@ -4387,7 +4581,8 @@ pub unsafe fn glNormal3sv(v: *const i16) {
 pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -4401,7 +4596,8 @@ pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::
 pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
         }
@@ -4415,7 +4611,8 @@ pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, 
 pub unsafe fn glPassThrough(token: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPassThrough(token: f32);
         }
@@ -4429,7 +4626,8 @@ pub unsafe fn glPassThrough(token: f32) {
 pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32);
         }
@@ -4443,7 +4641,8 @@ pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
 pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32);
         }
@@ -4457,7 +4656,8 @@ pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
 pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16);
         }
@@ -4471,7 +4671,8 @@ pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
 pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelStoref(pname: u32, param1: f32);
         }
@@ -4485,7 +4686,8 @@ pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
 pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelStorei(pname: u32, param1: i32);
         }
@@ -4499,7 +4701,8 @@ pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
 pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelTransferf(pname: u32, param1: f32);
         }
@@ -4513,7 +4716,8 @@ pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
 pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelTransferi(pname: u32, param1: i32);
         }
@@ -4527,7 +4731,8 @@ pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
 pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPixelZoom(xfactor: f32, yfactor: f32);
         }
@@ -4541,7 +4746,8 @@ pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
 pub unsafe fn glPointSize(size: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPointSize(size: f32);
         }
@@ -4555,7 +4761,8 @@ pub unsafe fn glPointSize(size: f32) {
 pub unsafe fn glPolygonMode(face: u32, mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPolygonMode(face: u32, mode: u32);
         }
@@ -4569,7 +4776,8 @@ pub unsafe fn glPolygonMode(face: u32, mode: u32) {
 pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPolygonOffset(factor: f32, units: f32);
         }
@@ -4583,7 +4791,8 @@ pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
 pub unsafe fn glPolygonStipple(mask: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPolygonStipple(mask: *const u8);
         }
@@ -4597,7 +4806,8 @@ pub unsafe fn glPolygonStipple(mask: *const u8) {
 pub unsafe fn glPopAttrib() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPopAttrib();
         }
@@ -4611,7 +4821,8 @@ pub unsafe fn glPopAttrib() {
 pub unsafe fn glPopClientAttrib() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPopClientAttrib();
         }
@@ -4625,7 +4836,8 @@ pub unsafe fn glPopClientAttrib() {
 pub unsafe fn glPopMatrix() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPopMatrix();
         }
@@ -4639,7 +4851,8 @@ pub unsafe fn glPopMatrix() {
 pub unsafe fn glPopName() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPopName();
         }
@@ -4653,7 +4866,8 @@ pub unsafe fn glPopName() {
 pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32);
         }
@@ -4667,7 +4881,8 @@ pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *co
 pub unsafe fn glPushAttrib(mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPushAttrib(mask: u32);
         }
@@ -4681,7 +4896,8 @@ pub unsafe fn glPushAttrib(mask: u32) {
 pub unsafe fn glPushClientAttrib(mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPushClientAttrib(mask: u32);
         }
@@ -4695,7 +4911,8 @@ pub unsafe fn glPushClientAttrib(mask: u32) {
 pub unsafe fn glPushMatrix() {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPushMatrix();
         }
@@ -4709,7 +4926,8 @@ pub unsafe fn glPushMatrix() {
 pub unsafe fn glPushName(name: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glPushName(name: u32);
         }
@@ -4723,7 +4941,8 @@ pub unsafe fn glPushName(name: u32) {
 pub unsafe fn glRasterPos2d(x: f64, y: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2d(x: f64, y: f64);
         }
@@ -4737,7 +4956,8 @@ pub unsafe fn glRasterPos2d(x: f64, y: f64) {
 pub unsafe fn glRasterPos2dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2dv(v: *const f64);
         }
@@ -4751,7 +4971,8 @@ pub unsafe fn glRasterPos2dv(v: *const f64) {
 pub unsafe fn glRasterPos2f(x: f32, y: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2f(x: f32, y: f32);
         }
@@ -4765,7 +4986,8 @@ pub unsafe fn glRasterPos2f(x: f32, y: f32) {
 pub unsafe fn glRasterPos2fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2fv(v: *const f32);
         }
@@ -4779,7 +5001,8 @@ pub unsafe fn glRasterPos2fv(v: *const f32) {
 pub unsafe fn glRasterPos2i(x: i32, y: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2i(x: i32, y: i32);
         }
@@ -4793,7 +5016,8 @@ pub unsafe fn glRasterPos2i(x: i32, y: i32) {
 pub unsafe fn glRasterPos2iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2iv(v: *const i32);
         }
@@ -4807,7 +5031,8 @@ pub unsafe fn glRasterPos2iv(v: *const i32) {
 pub unsafe fn glRasterPos2s(x: i16, y: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2s(x: i16, y: i16);
         }
@@ -4821,7 +5046,8 @@ pub unsafe fn glRasterPos2s(x: i16, y: i16) {
 pub unsafe fn glRasterPos2sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos2sv(v: *const i16);
         }
@@ -4835,7 +5061,8 @@ pub unsafe fn glRasterPos2sv(v: *const i16) {
 pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3d(x: f64, y: f64, z: f64);
         }
@@ -4849,7 +5076,8 @@ pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
 pub unsafe fn glRasterPos3dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3dv(v: *const f64);
         }
@@ -4863,7 +5091,8 @@ pub unsafe fn glRasterPos3dv(v: *const f64) {
 pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3f(x: f32, y: f32, z: f32);
         }
@@ -4877,7 +5106,8 @@ pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
 pub unsafe fn glRasterPos3fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3fv(v: *const f32);
         }
@@ -4891,7 +5121,8 @@ pub unsafe fn glRasterPos3fv(v: *const f32) {
 pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3i(x: i32, y: i32, z: i32);
         }
@@ -4905,7 +5136,8 @@ pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
 pub unsafe fn glRasterPos3iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3iv(v: *const i32);
         }
@@ -4919,7 +5151,8 @@ pub unsafe fn glRasterPos3iv(v: *const i32) {
 pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3s(x: i16, y: i16, z: i16);
         }
@@ -4933,7 +5166,8 @@ pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
 pub unsafe fn glRasterPos3sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos3sv(v: *const i16);
         }
@@ -4947,7 +5181,8 @@ pub unsafe fn glRasterPos3sv(v: *const i16) {
 pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64);
         }
@@ -4961,7 +5196,8 @@ pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
 pub unsafe fn glRasterPos4dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4dv(v: *const f64);
         }
@@ -4975,7 +5211,8 @@ pub unsafe fn glRasterPos4dv(v: *const f64) {
 pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32);
         }
@@ -4989,7 +5226,8 @@ pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
 pub unsafe fn glRasterPos4fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4fv(v: *const f32);
         }
@@ -5003,7 +5241,8 @@ pub unsafe fn glRasterPos4fv(v: *const f32) {
 pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32);
         }
@@ -5017,7 +5256,8 @@ pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
 pub unsafe fn glRasterPos4iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4iv(v: *const i32);
         }
@@ -5031,7 +5271,8 @@ pub unsafe fn glRasterPos4iv(v: *const i32) {
 pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16);
         }
@@ -5045,7 +5286,8 @@ pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
 pub unsafe fn glRasterPos4sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRasterPos4sv(v: *const i16);
         }
@@ -5059,7 +5301,8 @@ pub unsafe fn glRasterPos4sv(v: *const i16) {
 pub unsafe fn glReadBuffer(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glReadBuffer(mode: u32);
         }
@@ -5073,7 +5316,8 @@ pub unsafe fn glReadBuffer(mode: u32) {
 pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
         }
@@ -5087,7 +5331,8 @@ pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32,
 pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64);
         }
@@ -5101,7 +5346,8 @@ pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
 pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectdv(v1: *const f64, v2: *const f64);
         }
@@ -5115,7 +5361,8 @@ pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
 pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32);
         }
@@ -5129,7 +5376,8 @@ pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
 pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectfv(v1: *const f32, v2: *const f32);
         }
@@ -5143,7 +5391,8 @@ pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
 pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32);
         }
@@ -5157,7 +5406,8 @@ pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
 pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectiv(v1: *const i32, v2: *const i32);
         }
@@ -5171,7 +5421,8 @@ pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
 pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRects(x1: i16, y1: i16, x2: i16, y2: i16);
         }
@@ -5185,7 +5436,8 @@ pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
 pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRectsv(v1: *const i16, v2: *const i16);
         }
@@ -5199,7 +5451,8 @@ pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
 pub unsafe fn glRenderMode(mode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRenderMode(mode: u32) -> i32;
         }
@@ -5213,7 +5466,8 @@ pub unsafe fn glRenderMode(mode: u32) -> i32 {
 pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRotated(angle: f64, x: f64, y: f64, z: f64);
         }
@@ -5227,7 +5481,8 @@ pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
 pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glRotatef(angle: f32, x: f32, y: f32, z: f32);
         }
@@ -5241,7 +5496,8 @@ pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
 pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glScaled(x: f64, y: f64, z: f64);
         }
@@ -5255,7 +5511,8 @@ pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
 pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glScalef(x: f32, y: f32, z: f32);
         }
@@ -5269,7 +5526,8 @@ pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
 pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glScissor(x: i32, y: i32, width: i32, height: i32);
         }
@@ -5283,7 +5541,8 @@ pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
 pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glSelectBuffer(size: i32, buffer: *mut u32);
         }
@@ -5297,7 +5556,8 @@ pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
 pub unsafe fn glShadeModel(mode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glShadeModel(mode: u32);
         }
@@ -5311,7 +5571,8 @@ pub unsafe fn glShadeModel(mode: u32) {
 pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glStencilFunc(func: u32, r#ref: i32, mask: u32);
         }
@@ -5325,7 +5586,8 @@ pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
 pub unsafe fn glStencilMask(mask: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glStencilMask(mask: u32);
         }
@@ -5339,7 +5601,8 @@ pub unsafe fn glStencilMask(mask: u32) {
 pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glStencilOp(fail: u32, zfail: u32, zpass: u32);
         }
@@ -5353,7 +5616,8 @@ pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
 pub unsafe fn glTexCoord1d(s: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1d(s: f64);
         }
@@ -5367,7 +5631,8 @@ pub unsafe fn glTexCoord1d(s: f64) {
 pub unsafe fn glTexCoord1dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1dv(v: *const f64);
         }
@@ -5381,7 +5646,8 @@ pub unsafe fn glTexCoord1dv(v: *const f64) {
 pub unsafe fn glTexCoord1f(s: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1f(s: f32);
         }
@@ -5395,7 +5661,8 @@ pub unsafe fn glTexCoord1f(s: f32) {
 pub unsafe fn glTexCoord1fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1fv(v: *const f32);
         }
@@ -5409,7 +5676,8 @@ pub unsafe fn glTexCoord1fv(v: *const f32) {
 pub unsafe fn glTexCoord1i(s: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1i(s: i32);
         }
@@ -5423,7 +5691,8 @@ pub unsafe fn glTexCoord1i(s: i32) {
 pub unsafe fn glTexCoord1iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1iv(v: *const i32);
         }
@@ -5437,7 +5706,8 @@ pub unsafe fn glTexCoord1iv(v: *const i32) {
 pub unsafe fn glTexCoord1s(s: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1s(s: i16);
         }
@@ -5451,7 +5721,8 @@ pub unsafe fn glTexCoord1s(s: i16) {
 pub unsafe fn glTexCoord1sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord1sv(v: *const i16);
         }
@@ -5465,7 +5736,8 @@ pub unsafe fn glTexCoord1sv(v: *const i16) {
 pub unsafe fn glTexCoord2d(s: f64, t: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2d(s: f64, t: f64);
         }
@@ -5479,7 +5751,8 @@ pub unsafe fn glTexCoord2d(s: f64, t: f64) {
 pub unsafe fn glTexCoord2dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2dv(v: *const f64);
         }
@@ -5493,7 +5766,8 @@ pub unsafe fn glTexCoord2dv(v: *const f64) {
 pub unsafe fn glTexCoord2f(s: f32, t: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2f(s: f32, t: f32);
         }
@@ -5507,7 +5781,8 @@ pub unsafe fn glTexCoord2f(s: f32, t: f32) {
 pub unsafe fn glTexCoord2fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2fv(v: *const f32);
         }
@@ -5521,7 +5796,8 @@ pub unsafe fn glTexCoord2fv(v: *const f32) {
 pub unsafe fn glTexCoord2i(s: i32, t: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2i(s: i32, t: i32);
         }
@@ -5535,7 +5811,8 @@ pub unsafe fn glTexCoord2i(s: i32, t: i32) {
 pub unsafe fn glTexCoord2iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2iv(v: *const i32);
         }
@@ -5549,7 +5826,8 @@ pub unsafe fn glTexCoord2iv(v: *const i32) {
 pub unsafe fn glTexCoord2s(s: i16, t: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2s(s: i16, t: i16);
         }
@@ -5563,7 +5841,8 @@ pub unsafe fn glTexCoord2s(s: i16, t: i16) {
 pub unsafe fn glTexCoord2sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord2sv(v: *const i16);
         }
@@ -5577,7 +5856,8 @@ pub unsafe fn glTexCoord2sv(v: *const i16) {
 pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3d(s: f64, t: f64, r: f64);
         }
@@ -5591,7 +5871,8 @@ pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
 pub unsafe fn glTexCoord3dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3dv(v: *const f64);
         }
@@ -5605,7 +5886,8 @@ pub unsafe fn glTexCoord3dv(v: *const f64) {
 pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3f(s: f32, t: f32, r: f32);
         }
@@ -5619,7 +5901,8 @@ pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
 pub unsafe fn glTexCoord3fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3fv(v: *const f32);
         }
@@ -5633,7 +5916,8 @@ pub unsafe fn glTexCoord3fv(v: *const f32) {
 pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3i(s: i32, t: i32, r: i32);
         }
@@ -5647,7 +5931,8 @@ pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
 pub unsafe fn glTexCoord3iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3iv(v: *const i32);
         }
@@ -5661,7 +5946,8 @@ pub unsafe fn glTexCoord3iv(v: *const i32) {
 pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3s(s: i16, t: i16, r: i16);
         }
@@ -5675,7 +5961,8 @@ pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
 pub unsafe fn glTexCoord3sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord3sv(v: *const i16);
         }
@@ -5689,7 +5976,8 @@ pub unsafe fn glTexCoord3sv(v: *const i16) {
 pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64);
         }
@@ -5703,7 +5991,8 @@ pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
 pub unsafe fn glTexCoord4dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4dv(v: *const f64);
         }
@@ -5717,7 +6006,8 @@ pub unsafe fn glTexCoord4dv(v: *const f64) {
 pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32);
         }
@@ -5731,7 +6021,8 @@ pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
 pub unsafe fn glTexCoord4fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4fv(v: *const f32);
         }
@@ -5745,7 +6036,8 @@ pub unsafe fn glTexCoord4fv(v: *const f32) {
 pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32);
         }
@@ -5759,7 +6051,8 @@ pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
 pub unsafe fn glTexCoord4iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4iv(v: *const i32);
         }
@@ -5773,7 +6066,8 @@ pub unsafe fn glTexCoord4iv(v: *const i32) {
 pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16);
         }
@@ -5787,7 +6081,8 @@ pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
 pub unsafe fn glTexCoord4sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoord4sv(v: *const i16);
         }
@@ -5801,7 +6096,8 @@ pub unsafe fn glTexCoord4sv(v: *const i16) {
 pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -5815,7 +6111,8 @@ pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *c
 pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexEnvf(target: u32, pname: u32, param2: f32);
         }
@@ -5829,7 +6126,8 @@ pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
 pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexEnvfv(target: u32, pname: u32, params: *const f32);
         }
@@ -5843,7 +6141,8 @@ pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
 pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexEnvi(target: u32, pname: u32, param2: i32);
         }
@@ -5857,7 +6156,8 @@ pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
 pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexEnviv(target: u32, pname: u32, params: *const i32);
         }
@@ -5871,7 +6171,8 @@ pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
 pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGend(coord: u32, pname: u32, param2: f64);
         }
@@ -5885,7 +6186,8 @@ pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
 pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGendv(coord: u32, pname: u32, params: *const f64);
         }
@@ -5899,7 +6201,8 @@ pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
 pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGenf(coord: u32, pname: u32, param2: f32);
         }
@@ -5913,7 +6216,8 @@ pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
 pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGenfv(coord: u32, pname: u32, params: *const f32);
         }
@@ -5927,7 +6231,8 @@ pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
 pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGeni(coord: u32, pname: u32, param2: i32);
         }
@@ -5941,7 +6246,8 @@ pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
 pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexGeniv(coord: u32, pname: u32, params: *const i32);
         }
@@ -5955,7 +6261,8 @@ pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
 pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
@@ -5969,7 +6276,8 @@ pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: 
 pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
@@ -5983,7 +6291,8 @@ pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: 
 pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexParameterf(target: u32, pname: u32, param2: f32);
         }
@@ -5997,7 +6306,8 @@ pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
 pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexParameterfv(target: u32, pname: u32, params: *const f32);
         }
@@ -6011,7 +6321,8 @@ pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
 pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexParameteri(target: u32, pname: u32, param2: i32);
         }
@@ -6025,7 +6336,8 @@ pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
 pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexParameteriv(target: u32, pname: u32, params: *const i32);
         }
@@ -6039,7 +6351,8 @@ pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
 pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
@@ -6053,7 +6366,8 @@ pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32,
 pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
@@ -6067,7 +6381,8 @@ pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i3
 pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTranslated(x: f64, y: f64, z: f64);
         }
@@ -6081,7 +6396,8 @@ pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
 pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glTranslatef(x: f32, y: f32, z: f32);
         }
@@ -6095,7 +6411,8 @@ pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
 pub unsafe fn glVertex2d(x: f64, y: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2d(x: f64, y: f64);
         }
@@ -6109,7 +6426,8 @@ pub unsafe fn glVertex2d(x: f64, y: f64) {
 pub unsafe fn glVertex2dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2dv(v: *const f64);
         }
@@ -6123,7 +6441,8 @@ pub unsafe fn glVertex2dv(v: *const f64) {
 pub unsafe fn glVertex2f(x: f32, y: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2f(x: f32, y: f32);
         }
@@ -6137,7 +6456,8 @@ pub unsafe fn glVertex2f(x: f32, y: f32) {
 pub unsafe fn glVertex2fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2fv(v: *const f32);
         }
@@ -6151,7 +6471,8 @@ pub unsafe fn glVertex2fv(v: *const f32) {
 pub unsafe fn glVertex2i(x: i32, y: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2i(x: i32, y: i32);
         }
@@ -6165,7 +6486,8 @@ pub unsafe fn glVertex2i(x: i32, y: i32) {
 pub unsafe fn glVertex2iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2iv(v: *const i32);
         }
@@ -6179,7 +6501,8 @@ pub unsafe fn glVertex2iv(v: *const i32) {
 pub unsafe fn glVertex2s(x: i16, y: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2s(x: i16, y: i16);
         }
@@ -6193,7 +6516,8 @@ pub unsafe fn glVertex2s(x: i16, y: i16) {
 pub unsafe fn glVertex2sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex2sv(v: *const i16);
         }
@@ -6207,7 +6531,8 @@ pub unsafe fn glVertex2sv(v: *const i16) {
 pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3d(x: f64, y: f64, z: f64);
         }
@@ -6221,7 +6546,8 @@ pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
 pub unsafe fn glVertex3dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3dv(v: *const f64);
         }
@@ -6235,7 +6561,8 @@ pub unsafe fn glVertex3dv(v: *const f64) {
 pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3f(x: f32, y: f32, z: f32);
         }
@@ -6249,7 +6576,8 @@ pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
 pub unsafe fn glVertex3fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3fv(v: *const f32);
         }
@@ -6263,7 +6591,8 @@ pub unsafe fn glVertex3fv(v: *const f32) {
 pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3i(x: i32, y: i32, z: i32);
         }
@@ -6277,7 +6606,8 @@ pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
 pub unsafe fn glVertex3iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3iv(v: *const i32);
         }
@@ -6291,7 +6621,8 @@ pub unsafe fn glVertex3iv(v: *const i32) {
 pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3s(x: i16, y: i16, z: i16);
         }
@@ -6305,7 +6636,8 @@ pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
 pub unsafe fn glVertex3sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex3sv(v: *const i16);
         }
@@ -6319,7 +6651,8 @@ pub unsafe fn glVertex3sv(v: *const i16) {
 pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4d(x: f64, y: f64, z: f64, w: f64);
         }
@@ -6333,7 +6666,8 @@ pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
 pub unsafe fn glVertex4dv(v: *const f64) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4dv(v: *const f64);
         }
@@ -6347,7 +6681,8 @@ pub unsafe fn glVertex4dv(v: *const f64) {
 pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4f(x: f32, y: f32, z: f32, w: f32);
         }
@@ -6361,7 +6696,8 @@ pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
 pub unsafe fn glVertex4fv(v: *const f32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4fv(v: *const f32);
         }
@@ -6375,7 +6711,8 @@ pub unsafe fn glVertex4fv(v: *const f32) {
 pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4i(x: i32, y: i32, z: i32, w: i32);
         }
@@ -6389,7 +6726,8 @@ pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
 pub unsafe fn glVertex4iv(v: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4iv(v: *const i32);
         }
@@ -6403,7 +6741,8 @@ pub unsafe fn glVertex4iv(v: *const i32) {
 pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4s(x: i16, y: i16, z: i16, w: i16);
         }
@@ -6417,7 +6756,8 @@ pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
 pub unsafe fn glVertex4sv(v: *const i16) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertex4sv(v: *const i16);
         }
@@ -6431,7 +6771,8 @@ pub unsafe fn glVertex4sv(v: *const i16) {
 pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
         }
@@ -6445,7 +6786,8 @@ pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *con
 pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn glViewport(x: i32, y: i32, width: i32, height: i32);
         }
@@ -6459,7 +6801,8 @@ pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
 pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBeginCurve(nobj: *mut GLUnurbs);
         }
@@ -6473,7 +6816,8 @@ pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
 pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBeginPolygon(tess: *mut GLUtesselator);
         }
@@ -6487,7 +6831,8 @@ pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
 pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBeginSurface(nobj: *mut GLUnurbs);
         }
@@ -6501,7 +6846,8 @@ pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
 pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBeginTrim(nobj: *mut GLUnurbs);
         }
@@ -6515,7 +6861,8 @@ pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
 pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
         }
@@ -6529,7 +6876,8 @@ pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format
 pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
         }
@@ -6543,7 +6891,8 @@ pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height
 pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
         }
@@ -6557,7 +6906,8 @@ pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64
 pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs);
         }
@@ -6571,7 +6921,8 @@ pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
 pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluDeleteQuadric(state: *mut GLUquadric);
         }
@@ -6585,7 +6936,8 @@ pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
 pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluDeleteTess(tess: *mut GLUtesselator);
         }
@@ -6599,7 +6951,8 @@ pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
 pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
         }
@@ -6613,7 +6966,8 @@ pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64,
 pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluEndCurve(nobj: *mut GLUnurbs);
         }
@@ -6627,7 +6981,8 @@ pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
 pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluEndPolygon(tess: *mut GLUtesselator);
         }
@@ -6641,7 +6996,8 @@ pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
 pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluEndSurface(nobj: *mut GLUnurbs);
         }
@@ -6655,7 +7011,8 @@ pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
 pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluEndTrim(nobj: *mut GLUnurbs);
         }
@@ -6669,7 +7026,8 @@ pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
 pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluErrorString(errcode: u32) -> *mut u8;
         }
@@ -6684,7 +7042,8 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
 pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR;
         }
@@ -6698,7 +7057,8 @@ pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation
 pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
         }
@@ -6712,7 +7072,8 @@ pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mu
 pub unsafe fn gluGetString(name: u32) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluGetString(name: u32) -> *mut u8;
         }
@@ -6726,7 +7087,8 @@ pub unsafe fn gluGetString(name: u32) -> *mut u8 {
 pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
         }
@@ -6740,7 +7102,8 @@ pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *m
 pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
         }
@@ -6754,7 +7117,8 @@ pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f
 pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
         }
@@ -6768,7 +7132,8 @@ pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: 
 pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNewNurbsRenderer() -> *mut GLUnurbs;
         }
@@ -6782,7 +7147,8 @@ pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
 pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNewQuadric() -> *mut GLUquadric;
         }
@@ -6796,7 +7162,8 @@ pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
 pub unsafe fn gluNewTess() -> *mut GLUtesselator {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNewTess() -> *mut GLUtesselator;
         }
@@ -6810,7 +7177,8 @@ pub unsafe fn gluNewTess() -> *mut GLUtesselator {
 pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
         }
@@ -6824,7 +7192,8 @@ pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
 pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
         }
@@ -6838,7 +7207,8 @@ pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
 pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
         }
@@ -6852,7 +7222,8 @@ pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, st
 pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
         }
@@ -6866,7 +7237,8 @@ pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
 pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
         }
@@ -6880,7 +7252,8 @@ pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut
 pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
         }
@@ -6894,7 +7267,8 @@ pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
 pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
         }
@@ -6908,7 +7282,8 @@ pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradiu
 pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
         }
@@ -6922,7 +7297,8 @@ pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
 pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
         }
@@ -6936,7 +7312,8 @@ pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *
 pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
         }
@@ -6950,7 +7327,8 @@ pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f6
 pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
         }
@@ -6964,7 +7342,8 @@ pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stri
 pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
         }
@@ -6978,7 +7357,8 @@ pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize)
 pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
         }
@@ -6992,7 +7372,8 @@ pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
 pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
         }
@@ -7006,7 +7387,8 @@ pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
 pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
         }
@@ -7020,7 +7402,8 @@ pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u3
 pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
         }
@@ -7034,7 +7417,8 @@ pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) 
 pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
         }
@@ -7048,7 +7432,8 @@ pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u3
 pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
         }
@@ -7062,7 +7447,8 @@ pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks:
 pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessBeginContour(tess: *mut GLUtesselator);
         }
@@ -7076,7 +7462,8 @@ pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
 pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void);
         }
@@ -7090,7 +7477,8 @@ pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut :
 pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
         }
@@ -7104,7 +7492,8 @@ pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize)
 pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessEndContour(tess: *mut GLUtesselator);
         }
@@ -7118,7 +7507,8 @@ pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
 pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessEndPolygon(tess: *mut GLUtesselator);
         }
@@ -7132,7 +7522,8 @@ pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
 pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
         }
@@ -7146,7 +7537,8 @@ pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
 pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
         }
@@ -7160,7 +7552,8 @@ pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) 
 pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void);
         }
@@ -7174,7 +7567,8 @@ pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *m
 pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "glu32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
         }
@@ -7189,7 +7583,8 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
 pub unsafe fn wglCopyContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;
         }
@@ -7204,7 +7599,8 @@ pub unsafe fn wglCopyContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, 
 pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> HGLRC {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglCreateContext(param0: super::Gdi::HDC) -> HGLRC;
         }
@@ -7219,7 +7615,8 @@ pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> HGLRC {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
         }
@@ -7234,7 +7631,8 @@ pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn wglDeleteContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglDeleteContext(param0: HGLRC) -> super::super::Foundation::BOOL;
         }
@@ -7249,7 +7647,8 @@ pub unsafe fn wglDeleteContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>
 pub unsafe fn wglDescribeLayerPlane<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL;
         }
@@ -7263,7 +7662,8 @@ pub unsafe fn wglDescribeLayerPlane<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn wglGetCurrentContext() -> HGLRC {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglGetCurrentContext() -> HGLRC;
         }
@@ -7278,7 +7678,8 @@ pub unsafe fn wglGetCurrentContext() -> HGLRC {
 pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglGetCurrentDC() -> super::Gdi::HDC;
         }
@@ -7293,7 +7694,8 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
         }
@@ -7308,7 +7710,8 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PROC {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PROC;
         }
@@ -7323,7 +7726,8 @@ pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> super::super::Foundation::BOOL;
         }
@@ -7338,7 +7742,8 @@ pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::core::IntoParam<'a, super::G
 pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: i32, param2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -7353,7 +7758,8 @@ pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
         }
@@ -7368,7 +7774,8 @@ pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn wglShareLists<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
         }
@@ -7383,7 +7790,8 @@ pub unsafe fn wglShareLists<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, P
 pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> super::super::Foundation::BOOL;
         }
@@ -7398,7 +7806,8 @@ pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
         }
@@ -7413,7 +7822,8 @@ pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
         }
@@ -7428,7 +7838,8 @@ pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
         }
@@ -7443,7 +7854,8 @@ pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn wglUseFontOutlinesW<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
         }

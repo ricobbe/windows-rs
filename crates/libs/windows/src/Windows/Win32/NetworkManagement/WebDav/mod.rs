@@ -124,7 +124,8 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 pub unsafe fn DavAddConnection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: Param1, username: Param2, password: Param3, clientcert: *const u8, certsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, clientcert: *const u8, certsize: u32) -> u32;
         }
@@ -139,7 +140,8 @@ pub unsafe fn DavAddConnection<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DavCancelConnectionsToServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavCancelConnectionsToServer(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL) -> u32;
         }
@@ -154,7 +156,8 @@ pub unsafe fn DavCancelConnectionsToServer<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DavDeleteConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -169,7 +172,8 @@ pub unsafe fn DavDeleteConnection<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DavFlushFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32;
         }
@@ -184,7 +188,8 @@ pub unsafe fn DavFlushFile<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DavGetExtendedError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, exterror: *mut u32, exterrorstring: super::super::Foundation::PWSTR, cchsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: super::super::Foundation::PWSTR, cchsize: *mut u32) -> u32;
         }
@@ -199,7 +204,8 @@ pub unsafe fn DavGetExtendedError<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DavGetHTTPFromUNCPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncpath: Param0, url: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavGetHTTPFromUNCPath(uncpath: super::super::Foundation::PWSTR, url: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32;
         }
@@ -214,7 +220,8 @@ pub unsafe fn DavGetHTTPFromUNCPath<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, lockownername: super::super::Foundation::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavGetTheLockOwnerOfTheFile(filename: super::super::Foundation::PWSTR, lockownername: super::super::Foundation::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32;
         }
@@ -229,7 +236,8 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DavGetUNCFromHTTPPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(url: Param0, uncpath: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavGetUNCFromHTTPPath(url: super::super::Foundation::PWSTR, uncpath: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32;
         }
@@ -244,7 +252,8 @@ pub unsafe fn DavGetUNCFromHTTPPath<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DavInvalidateCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(urlname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavInvalidateCache(urlname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -259,7 +268,8 @@ pub unsafe fn DavInvalidateCache<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavRegisterAuthCallback(callback: ::windows::core::RawPtr, version: u32) -> u32;
         }
@@ -273,7 +283,8 @@ pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt", kind = "raw-dylib")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "davclnt", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DavUnregisterAuthCallback(hcallback: u32);
         }
